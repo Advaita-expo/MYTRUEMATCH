@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Begin — MyTrueMatch</title>
+<meta name="description" content="Start your MyTrueMatch journey. Choose your lens, tell us who you are, and begin with clarity.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg: #FDFAF0;
+ --gold: #C8A84B;
+ --gold-dark: #9A7C2E;
+ --rose: #E8828A;
+ --ink: #2A2520;
+ --ink-mid: #4A4238;
+ --ink-light: #7A6E5F;
+ --border: rgba(200,168,75,0.2);
+ --bg-dark: #2A2520;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
+
+/* ─── NAV ─── */
+.logo-blue { color: #4A6FA5; }
+.logo-gold { color: #C8A84B; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+nav {
+ position: sticky; top: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 4rem; height: 68px;
+ background: rgba(253,250,240,0.96); backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--border);
+}
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+ font-size: 0.8rem; font-weight: 400; letter-spacing: 0.04em;
+ color: var(--ink-light); text-decoration: none;
+ padding: 0 1.25rem; height: 68px;
+ display: flex; align-items: center; gap: 0.45rem;
+ border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+.nav-right { display: flex; gap: 0.75rem; align-items: center; }
+.nav-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon-btn { width: 14px; height: 14px; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--ink); }
+.btn-solid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--bg); text-decoration: none; padding: 0.5rem 1.25rem; background: var(--ink); border-radius: 6px; transition: all 0.2s; }
+.btn-solid:hover { background: var(--gold-dark); }
+
+/* ─── PROGRESS ─── */
+.begin-progress {
+ padding: 2rem 4rem; border-bottom: 1px solid var(--border);
+ display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.progress-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 560px; }
+.step-dot {
+ display: flex; align-items: center; justify-content: center;
+ width: 32px; height: 32px; border-radius: 50%;
+ font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+ border: 2px solid var(--border); color: var(--ink-light);
+ background: #fff; transition: all 0.3s; cursor: pointer;
+}
+.step-dot.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.step-dot.done { background: var(--gold); color: #fff; border-color: var(--gold); }
+.step-line { flex: 1; height: 2px; background: var(--border); transition: background 0.3s; }
+.step-line.done { background: var(--gold); }
+.step-label { font-size: 0.7rem; color: var(--ink-light); text-align: center; margin-top: 0.4rem; }
+.steps-wrap { display: flex; flex-direction: column; align-items: center; }
+.progress-bar-wrap { display: flex; align-items: center; gap: 0; flex: 1; max-width: 560px; }
+
+/* ─── PAGE LAYOUT ─── */
+.begin-wrap {
+ max-width: 780px; margin: 0 auto; padding: 4rem 2rem;
+ min-height: calc(100vh - 200px);
+}
+.begin-step { display: none; }
+.begin-step.active { display: block; animation: fadeUp 0.4s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+.step-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.85rem; }
+.step-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.25; }
+.step-title em { font-style: italic; color: var(--rose); }
+.step-subtitle { font-size: 0.9rem; color: var(--ink-light); font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; }
+
+/* ─── LENS CARDS ─── */
+.lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.lens-card {
+ border: 2px solid var(--border); border-radius: 16px; padding: 2rem 1.5rem;
+ cursor: pointer; transition: all 0.25s; text-align: center; background: #fff;
+ position: relative;
+}
+.lens-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(200,168,75,0.12); }
+.lens-card.selected { border-color: var(--ink); background: var(--ink); }
+.lens-card.selected * { color: #fff !important; }
+.lens-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.lens-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
+.lens-desc { font-size: 0.78rem; color: var(--ink-light); line-height: 1.6; font-weight: 300; }
+.lens-check {
+ position: absolute; top: 1rem; right: 1rem;
+ width: 22px; height: 22px; border-radius: 50%;
+ background: var(--gold); display: none;
+ align-items: center; justify-content: center;
+}
+.lens-card.selected .lens-check { display: flex; }
+
+/* ─── FORM FIELDS ─── */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+.form-group { margin-bottom: 1.25rem; }
+label { display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); font-weight: 500; margin-bottom: 0.45rem; }
+input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+ width: 100%; padding: 0.8rem 1rem;
+ border: 1px solid rgba(200,168,75,0.25); border-radius: 8px;
+ background: #fff; font-size: 0.88rem; font-family: 'DM Sans', sans-serif;
+ color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+ border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,168,75,0.1);
+}
+input::placeholder, textarea::placeholder { color: #B8B0A0; }
+select { cursor: pointer; }
+
+/* ─── PLAN CARDS ─── */
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+.plan-card {
+ border: 2px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem;
+ cursor: pointer; transition: all 0.25s; background: #fff; position: relative;
+}
+.plan-card:hover { border-color: var(--gold); }
+.plan-card.selected { border-color: var(--ink); }
+.plan-card .plan-badge {
+ position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+ font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+ background: var(--gold); color: #fff; padding: 0.2rem 0.75rem; border-radius: 20px; font-weight: 500;
+}
+.plan-card .plan-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+.plan-card .plan-price { font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+.plan-card .plan-price span { font-size: 0.78rem; font-weight: 300; color: var(--ink-light); }
+.plan-feature { font-size: 0.75rem; color: var(--ink-light); display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.45rem; line-height: 1.5; font-weight: 300; }
+.plan-feature::before { content: ''; color: var(--gold); font-weight: 600; flex-shrink: 0; margin-top: 0.05rem; }
+
+/* ─── NAV BUTTONS ─── */
+.step-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.btn-back {
+ background: none; border: 1px solid var(--border); border-radius: 8px;
+ padding: 0.75rem 1.75rem; font-size: 0.85rem; font-weight: 500;
+ color: var(--ink-mid); cursor: pointer; font-family: 'DM Sans', sans-serif;
+ transition: all 0.2s;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+.btn-next {
+ background: var(--ink); color: #fff; border: none; border-radius: 8px;
+ padding: 0.85rem 2rem; font-size: 0.85rem; font-weight: 600;
+ cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+ display: flex; align-items: center; gap: 0.5rem;
+}
+.btn-next:hover { background: #1a1512; }
+.btn-next.gold { background: var(--gold-dark); }
+.btn-next.gold:hover { background: var(--gold); }
+
+/* ─── CONFIRMATION ─── */
+.confirm-box {
+ text-align: center; padding: 4rem 2rem;
+}
+.confirm-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+.confirm-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+.confirm-sub { font-size: 0.9rem; color: var(--ink-light); line-height: 1.75; max-width: 480px; margin: 0 auto 2.5rem; font-weight: 300; }
+.confirm-next-steps {
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+ margin-bottom: 2.5rem; text-align: left;
+}
+.confirm-step {
+ border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;
+ background: #fff;
+}
+.confirm-step-num { font-size: 1.5rem; font-weight: 600; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+.confirm-step h4 { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+.confirm-step p { font-size: 0.75rem; color: var(--ink-light); line-height: 1.6; font-weight: 300; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,255,0.4); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; }
+.footer-legal a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+ nav { padding: 0 1.5rem; } .nav-links { display: none; }
+ .begin-progress { padding: 1.5rem; }
+ .begin-wrap { padding: 2.5rem 1.5rem; }
+ .lens-grid, .plan-grid, .confirm-next-steps { grid-template-columns: 1fr; }
+ .form-grid { grid-template-columns: 1fr; }
+ footer { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo">
+ <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
+ </a>
+ <ul class="nav-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ </ul>
+ <div class="nav-right">
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ Sign in
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ Begin
+ </a>
+ </div>
+</nav>
+
+<!-- PROGRESS BAR -->
+<div class="begin-progress">
+ <div class="progress-bar-wrap" id="progress-bar">
+ <div class="steps-wrap"><div class="step-dot active" id="dot-1">1</div><div class="step-label">Choose</div></div>
+ <div class="step-line" id="line-1"></div>
+ <div class="steps-wrap"><div class="step-dot" id="dot-2">2</div><div class="step-label">Details</div></div>
+ <div class="step-line" id="line-2"></div>
+ <div class="steps-wrap"><div class="step-dot" id="dot-3">3</div><div class="step-label">Plan</div></div>
+ <div class="step-line" id="line-3"></div>
+ <div class="steps-wrap"><div class="step-dot" id="dot-4"></div><div class="step-label">Confirm</div></div>
+ </div>
+ <div style="font-size:0.72rem; color:var(--ink-light)">Step <span id="step-indicator">1</span> of 3</div>
+</div>
+
+<!-- STEPS -->
+<div class="begin-wrap">
+
+ <!-- STEP 1: LENS SELECTION -->
+ <div class="begin-step active" id="step-1">
+ <p class="step-eyebrow">Step 1 of 3 · Getting started</p>
+ <h2 class="step-title">Which lens do you need<br>right <em>now</em>?</h2>
+ <p class="step-subtitle">You can choose more than one. Each serves a different purpose. Many families begin with all three.</p>
+ <div class="lens-grid">
+ <div class="lens-card" id="lens-compat" onclick="toggleLens('compat')">
+ <div class="lens-check">
+ <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </div>
+ <div class="lens-icon"></div>
+ <div class="lens-name">Compatibility</div>
+ <div class="lens-desc">In-depth assessment of values alignment, communication style, family expectations, and life goals.</div>
+ </div>
+ <div class="lens-card" id="lens-verify" onclick="toggleLens('verify')">
+ <div class="lens-check">
+ <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </div>
+ <div class="lens-icon"></div>
+ <div class="lens-name">Verification</div>
+ <div class="lens-desc">Discreet background verification — employment, education, civil records, and identity confirmation.</div>
+ </div>
+ <div class="lens-card" id="lens-horo" onclick="toggleLens('horo')">
+ <div class="lens-check">
+ <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </div>
+ <div class="lens-icon"></div>
+ <div class="lens-name">Horoscope</div>
+ <div class="lens-desc">Full Vedic birth chart analysis — Ashtakoot, Navamsa, Mangal Dosha, and astrologer consultation.</div>
+ </div>
+ </div>
+ <div style="background: rgba(200,168,75,0.07); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem;">
+ <p style="font-size:0.78rem; color:var(--ink-light); line-height:1.7; font-weight:300;">
+ <strong style="color:var(--ink); font-weight:500;">Not sure which to choose?</strong> 
+ Our <a href="test.html" style="color:var(--gold-dark);text-decoration:none;font-weight:500">free compatibility test</a> can help you understand what your situation calls for — it takes under 5 minutes.
+ </p>
+ </div>
+ <div class="step-nav">
+ <span></span>
+ <button class="btn-next" onclick="goStep(2)">Continue → Details</button>
+ </div>
+ </div>
+
+ <!-- STEP 2: DETAILS -->
+ <div class="begin-step" id="step-2">
+ <p class="step-eyebrow">Step 2 of 3 · Your details</p>
+ <h2 class="step-title">Tell us about <em>yourself</em></h2>
+ <p class="step-subtitle">This helps us assign the right specialist and personalise your report. All information is kept strictly confidential.</p>
+
+ <div class="form-grid">
+ <div class="form-group">
+ <label>Your full name</label>
+ <input type="text" id="d-name" placeholder="e.g. Priya Sharma">
+ </div>
+ <div class="form-group">
+ <label>Email address</label>
+ <input type="email" id="d-email" placeholder="you@example.com">
+ </div>
+ </div>
+ <div class="form-grid">
+ <div class="form-group">
+ <label>Mobile number</label>
+ <input type="tel" id="d-phone" placeholder="+91 98765 43210">
+ </div>
+ <div class="form-group">
+ <label>City / Location</label>
+ <input type="text" id="d-city" placeholder="e.g. Bangalore">
+ </div>
+ </div>
+ <div class="form-grid">
+ <div class="form-group">
+ <label>Enquiry is for</label>
+ <select id="d-for">
+ <option value="">— Select —</option>
+ <option>Self (son/daughter)</option>
+ <option>My son</option>
+ <option>My daughter</option>
+ <option>Relative / family friend</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label>Current match status</label>
+ <select id="d-status">
+ <option value="">— Select —</option>
+ <option>Match just received — assessing</option>
+ <option>In conversation — want to go deeper</option>
+ <option>Engagement fixed — pre-wedding</option>
+ <option>Exploring options, no match yet</option>
+ </select>
+ </div>
+ </div>
+ <div class="form-group">
+ <label>Brief context <span style="color:var(--ink-light);font-size:0.65rem;text-transform:none;letter-spacing:0">(optional — helps us personalise)</span></label>
+ <textarea id="d-context" rows="3" placeholder="e.g. We've received a profile from a family in Pune. Both are software professionals. Families want to move quickly. We want to be thorough."></textarea>
+ </div>
+
+ <div class="step-nav">
+ <button class="btn-back" onclick="goStep(1)">← Back</button>
+ <button class="btn-next" onclick="goStep(3)">Continue → Choose Plan</button>
+ </div>
+ </div>
+
+ <!-- STEP 3: PLAN -->
+ <div class="begin-step" id="step-3">
+ <p class="step-eyebrow">Step 3 of 3 · Choose your plan</p>
+ <h2 class="step-title">Begin with the right<br><em>depth</em></h2>
+ <p class="step-subtitle">Every plan includes a dedicated specialist, a written report, and a private consultation. No subscriptions — pay once.</p>
+
+ <div class="plan-grid">
+ <div class="plan-card" id="plan-essential" onclick="selectPlan('essential')">
+ <div class="plan-name">Essential</div>
+ <div class="plan-price">₹4,999 <span>/ service</span></div>
+ <div class="plan-feature">Full written assessment report</div>
+ <div class="plan-feature">Dedicated specialist assigned</div>
+ <div class="plan-feature">30-min consultation call</div>
+ <div class="plan-feature">48-hr delivery</div>
+ <div class="plan-feature">Secure digital report</div>
+ </div>
+ <div class="plan-card selected" id="plan-complete" onclick="selectPlan('complete')" style="border-color:var(--ink)">
+ <div class="plan-badge">Most Chosen</div>
+ <div class="plan-name">Complete</div>
+ <div class="plan-price">₹9,999 <span>/ service</span></div>
+ <div class="plan-feature">Everything in Essential</div>
+ <div class="plan-feature">In-depth narrative report (15+ pages)</div>
+ <div class="plan-feature">2 consultation sessions</div>
+ <div class="plan-feature">Follow-up Q&A (7 days)</div>
+ <div class="plan-feature">Priority 24-hr delivery</div>
+ </div>
+ <div class="plan-card" id="plan-family" onclick="selectPlan('family')">
+ <div class="plan-name">Family</div>
+ <div class="plan-price">₹19,999 <span>/ all three</span></div>
+ <div class="plan-feature">All 3 lenses — one package</div>
+ <div class="plan-feature">Complete-level depth for each</div>
+ <div class="plan-feature">Senior specialist team</div>
+ <div class="plan-feature">Joint family consultation</div>
+ <div class="plan-feature">White-label printed report</div>
+ </div>
+ </div>
+
+ <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; display:flex; gap:1.25rem; align-items:center; margin-bottom:1.5rem">
+ <div style="font-size:1.75rem"></div>
+ <div>
+ <p style="font-size:0.8rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem">100% Confidential · No data shared without consent</p>
+ <p style="font-size:0.75rem; color:var(--ink-light); font-weight:300; line-height:1.6">The person being verified or assessed is never informed. Reports are delivered only to you, encrypted and watermarked.</p>
+ </div>
+ </div>
+
+ <div class="step-nav">
+ <button class="btn-back" onclick="goStep(2)">← Back</button>
+ <button class="btn-next gold" onclick="goStep(4)">Confirm My Order →</button>
+ </div>
+ </div>
+
+ <!-- STEP 4: CONFIRMATION -->
+ <div class="begin-step" id="step-4">
+ <div class="confirm-box">
+ <div class="confirm-icon"></div>
+ <h2 class="confirm-title">Your journey has begun</h2>
+ <p class="confirm-sub">Thank you. A MyTrueMatch specialist will be in touch within 2–4 hours to confirm your order, clarify any details, and guide you through the process.</p>
+
+ <div class="confirm-next-steps">
+ <div class="confirm-step">
+ <div class="confirm-step-num">01</div>
+ <h4>Specialist assigned</h4>
+ <p>We'll assign the right expert for your chosen lens — you'll receive an introductory message within 2 hours.</p>
+ </div>
+ <div class="confirm-step">
+ <div class="confirm-step-num">02</div>
+ <h4>Information shared</h4>
+ <p>You'll be guided on what to send — securely, over a private channel — to begin the assessment.</p>
+ </div>
+ <div class="confirm-step">
+ <div class="confirm-step-num">03</div>
+ <h4>Report delivered</h4>
+ <p>Your written report is delivered to your account. Your specialist then walks you through it personally.</p>
+ </div>
+ </div>
+
+ <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+ <a href="session.html" style="background:var(--ink);color:#fff;text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-size:0.85rem;font-weight:600;transition:all 0.2s" onmouseover="this.style.background='#1a1512'" onmouseout="this.style.background='var(--ink)'">View My Dashboard</a>
+ <a href="mytruematch-landing.html" style="border:1px solid var(--border);color:var(--ink-mid);text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">← Back to Home</a>
+ </div>
+ </div>
+ </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ <a href="contact.html">Contact</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const selectedLenses = new Set();
+let selectedPlan = 'complete';
+
+function toggleLens(id) {
+ const card = document.getElementById('lens-' + id);
+ if (selectedLenses.has(id)) {
+ selectedLenses.delete(id);
+ card.classList.remove('selected');
+ } else {
+ selectedLenses.add(id);
+ card.classList.add('selected');
+ }
+}
+
+function selectPlan(id) {
+ document.querySelectorAll('.plan-card').forEach(c => c.style.borderColor = '');
+ document.getElementById('plan-' + id).style.borderColor = 'var(--ink)';
+ selectedPlan = id;
+}
+
+function goStep(n) {
+ if (n === 2 && selectedLenses.size === 0) {
+ alert('Please select at least one lens to continue.'); return;
+ }
+ if (n === 4) {
+ const name = document.getElementById('d-name').value;
+ const email = document.getElementById('d-email').value;
+ if (!name || !email) { alert('Please enter your name and email to continue.'); return; }
+ }
+ document.querySelectorAll('.begin-step').forEach(s => s.classList.remove('active'));
+ document.getElementById('step-' + n).classList.add('active');
+ updateProgress(n);
+ document.querySelector('.begin-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateProgress(n) {
+ for (let i = 1; i <= 4; i++) {
+ const dot = document.getElementById('dot-' + i);
+ if (!dot) continue;
+ dot.classList.remove('active', 'done');
+ if (i < n) { dot.classList.add('done'); if (i !== 4) dot.textContent = ''; }
+ else if (i === n) { dot.classList.add('active'); dot.textContent = i <= 3 ? i : ''; }
+ else { dot.textContent = i <= 3 ? i : ''; }
+ }
+ for (let i = 1; i <= 3; i++) {
+ const line = document.getElementById('line-' + i);
+ if (!line) continue;
+ line.classList.toggle('done', i < n);
+ }
+ const si = document.getElementById('step-indicator');
+ if (si) si.textContent = Math.min(n, 3);
+}
+</script>
+</body>
+</html>

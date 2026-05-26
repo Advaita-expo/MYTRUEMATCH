@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — MyTrueMatch</title>
+<meta name="description" content="Track your active reports, review completed assessments, and manage your MyTrueMatch account.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg: #FDFAF0;
+ --gold: #C8A84B;
+ --gold-dark: #9A7C2E;
+ --rose: #E8828A;
+ --ink: #2A2520;
+ --ink-mid: #4A4238;
+ --ink-light: #7A6E5F;
+ --border: rgba(200,168,75,0.18);
+ --bg-dark: #2A2520;
+ --blue: #4A6FA5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: #F5F2E8; color: var(--ink); }
+
+/* NAV */
+.logo-blue { color: #4A6FA5; }
+.logo-gold { color: #C8A84B; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+nav {
+ position: sticky; top: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 4rem; height: 68px;
+ background: rgba(253,250,240,0.97); backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--border);
+}
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+ font-size: 0.8rem; font-weight: 400; letter-spacing: 0.04em;
+ color: var(--ink-light); text-decoration: none;
+ padding: 0 1.25rem; height: 68px;
+ display: flex; align-items: center; gap: 0.45rem;
+ border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+.nav-right { display: flex; gap: 0.75rem; align-items: center; }
+.nav-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon-btn { width: 14px; height: 14px; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--ink); }
+.btn-solid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--bg); text-decoration: none; padding: 0.5rem 1.25rem; background: var(--ink); border-radius: 6px; transition: all 0.2s; }
+.btn-solid:hover { background: var(--gold-dark); }
+
+/* ─── LAYOUT ─── */
+.dash-layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 68px); }
+
+/* ─── SIDEBAR ─── */
+.dash-sidebar {
+ background: #fff; border-right: 1px solid var(--border);
+ padding: 2rem 0; display: flex; flex-direction: column;
+}
+.sidebar-avatar-wrap { padding: 0 1.5rem 1.75rem; border-bottom: 1px solid var(--border); }
+.sidebar-avatar {
+ width: 52px; height: 52px; border-radius: 50%;
+ background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+ display: flex; align-items: center; justify-content: center;
+ font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; font-weight: 400;
+ margin-bottom: 0.75rem;
+}
+.sidebar-name { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.sidebar-email { font-size: 0.72rem; color: var(--ink-light); font-weight: 300; margin-top: 0.15rem; }
+.sidebar-badge {
+ display: inline-block; margin-top: 0.5rem;
+ font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+ background: rgba(200,168,75,0.12); color: var(--gold-dark);
+ padding: 0.2rem 0.65rem; border-radius: 3px; font-weight: 500;
+}
+.sidebar-menu { padding: 1.5rem 0; flex: 1; }
+.sidebar-section { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-light); padding: 0 1.5rem; margin-bottom: 0.5rem; }
+.sidebar-item {
+ display: flex; align-items: center; gap: 0.75rem;
+ padding: 0.75rem 1.5rem; cursor: pointer;
+ font-size: 0.82rem; color: var(--ink-mid); font-weight: 400;
+ border-left: 3px solid transparent; transition: all 0.2s;
+ text-decoration: none;
+}
+.sidebar-item:hover { background: rgba(200,168,75,0.06); color: var(--ink); }
+.sidebar-item.active { background: rgba(200,168,75,0.08); color: var(--ink); border-left-color: var(--gold); font-weight: 500; }
+.sidebar-item svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.sidebar-item .badge-count {
+ margin-left: auto; background: var(--rose); color: #fff;
+ font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 10px;
+}
+.sidebar-sep { height: 1px; background: var(--border); margin: 0.75rem 1.5rem; }
+.sidebar-logout { padding: 1.5rem; border-top: 1px solid var(--border); }
+.sidebar-logout a { font-size: 0.78rem; color: var(--ink-light); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.sidebar-logout a:hover { color: var(--rose); }
+
+/* ─── MAIN ─── */
+.dash-main { padding: 2.5rem 3rem; overflow-y: auto; }
+.dash-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; }
+.dash-welcome { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--ink); }
+.dash-welcome span { font-style: italic; color: var(--gold); }
+.dash-date { font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem; }
+.dash-new-btn {
+ background: var(--ink); color: #fff; text-decoration: none;
+ padding: 0.7rem 1.5rem; border-radius: 8px;
+ font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;
+}
+.dash-new-btn:hover { background: var(--gold-dark); }
+
+/* ─── STAT CARDS ─── */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
+.stat-card {
+ background: #fff; border: 1px solid var(--border); border-radius: 14px;
+ padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;
+}
+.stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-light); font-weight: 500; }
+.stat-value { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); font-weight: 400; }
+.stat-change { font-size: 0.72rem; color: var(--ink-light); }
+.stat-icon-wrap { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem; }
+
+/* ─── ORDERS ─── */
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.orders-grid { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.order-card {
+ background: #fff; border: 1px solid var(--border); border-radius: 14px;
+ padding: 1.5rem 1.75rem; display: grid;
+ grid-template-columns: auto 1fr auto auto; gap: 1.5rem; align-items: center;
+}
+.order-icon-wrap {
+ width: 48px; height: 48px; border-radius: 12px;
+ display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.order-title { font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.2rem; }
+.order-subtitle { font-size: 0.75rem; color: var(--ink-light); font-weight: 300; }
+.order-status {
+ display: inline-flex; align-items: center; gap: 0.4rem;
+ font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+ padding: 0.3rem 0.75rem; border-radius: 20px;
+}
+.status-progress { background: rgba(74,111,165,0.1); color: var(--blue); }
+.status-review { background: rgba(200,168,75,0.12); color: var(--gold-dark); }
+.status-done { background: rgba(72,187,120,0.12); color: #2E7D4F; }
+.status-pending { background: rgba(232,130,138,0.12); color: var(--rose); }
+.order-progress-wrap { min-width: 140px; }
+.order-progress-lbl { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--ink-light); margin-bottom: 0.4rem; }
+.order-progress-bar { height: 5px; background: rgba(200,168,75,0.15); border-radius: 3px; overflow: hidden; }
+.order-progress-fill { height: 100%; border-radius: 3px; background: var(--gold); transition: width 0.6s ease; }
+.order-action { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 500; cursor: pointer; color: var(--ink-mid); font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none; display: inline-block; }
+.order-action:hover { border-color: var(--gold); color: var(--ink); }
+
+/* ─── MESSAGES ─── */
+.messages-list { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2.5rem; }
+.msg-item {
+ background: #fff; border: 1px solid var(--border); border-radius: 12px;
+ padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start;
+}
+.msg-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: #fff; flex-shrink: 0; }
+.msg-content { flex: 1; }
+.msg-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+.msg-text { font-size: 0.78rem; color: var(--ink-light); line-height: 1.6; font-weight: 300; }
+.msg-time { font-size: 0.65rem; color: var(--ink-light); margin-top: 0.4rem; }
+.msg-unread { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); flex-shrink: 0; margin-top: 0.4rem; }
+
+/* ─── GRID SECTION ─── */
+.bottom-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.75rem; }
+.activity-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.activity-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+.activity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.35rem; }
+.activity-text { font-size: 0.78rem; color: var(--ink-mid); line-height: 1.5; font-weight: 300; }
+.activity-time { font-size: 0.65rem; color: var(--ink-light); margin-top: 0.15rem; }
+.account-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+.account-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(200,168,75,0.08); }
+.account-row:last-child { border-bottom: none; }
+.account-key { font-size: 0.72rem; color: var(--ink-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+.account-val { font-size: 0.82rem; color: var(--ink); font-weight: 400; text-align: right; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--bg-dark); padding: 2rem 4rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; }
+.footer-legal a:hover { color: var(--gold); }
+
+@media (max-width: 1100px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+ nav { padding: 0 1.5rem; } .nav-links { display: none; }
+ .dash-layout { grid-template-columns: 1fr; }
+ .dash-sidebar { display: none; }
+ .dash-main { padding: 1.5rem; }
+ .bottom-grid { grid-template-columns: 1fr; }
+ .order-card { grid-template-columns: auto 1fr; }
+ footer { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo">
+ <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
+ </a>
+ <ul class="nav-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ </ul>
+ <div class="nav-right">
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ Sign in
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ Begin
+ </a>
+ </div>
+</nav>
+
+<div class="dash-layout">
+
+ <!-- SIDEBAR -->
+ <aside class="dash-sidebar">
+ <div class="sidebar-avatar-wrap">
+ <div class="sidebar-avatar">P</div>
+ <div class="sidebar-name">Priya Sharma</div>
+ <div class="sidebar-email">priya.sharma@email.com</div>
+ <span class="sidebar-badge">Complete Plan</span>
+ </div>
+ <nav class="sidebar-menu">
+ <div class="sidebar-section" style="margin-top:1rem">Overview</div>
+ <a href="#" class="sidebar-item active">
+ <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Dashboard
+ </a>
+ <a href="#" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+ My Reports
+ <span class="badge-count">2</span>
+ </a>
+ <a href="#" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+ Messages
+ <span class="badge-count">1</span>
+ </a>
+ <div class="sidebar-sep"></div>
+ <div class="sidebar-section">Services</div>
+ <a href="compatibility.html" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-.8-1.4-2.3-2.4-4-2.4z"/></svg>
+ Compatibility
+ </a>
+ <a href="verification.html" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+ Verification
+ </a>
+ <a href="horoscope.html" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
+ Horoscope
+ </a>
+ <a href="test.html" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+ Free Test
+ </a>
+ <div class="sidebar-sep"></div>
+ <div class="sidebar-section">Account</div>
+ <a href="#" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+ Profile
+ </a>
+ <a href="pricing.html" class="sidebar-item">
+ <svg viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
+ Plans & Billing
+ </a>
+ </nav>
+ <div class="sidebar-logout">
+ <a href="auth.html">
+ <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+ Sign out
+ </a>
+ </div>
+ </aside>
+
+ <!-- MAIN CONTENT -->
+ <main class="dash-main">
+ <div class="dash-header">
+ <div>
+ <div class="dash-welcome">Good afternoon, <span>Priya</span></div>
+ <div class="dash-date" id="dash-date"></div>
+ </div>
+ <a href="begin.html" class="dash-new-btn">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+ New Order
+ </a>
+ </div>
+
+ <!-- STATS -->
+ <div class="stats-row">
+ <div class="stat-card">
+ <div class="stat-icon-wrap" style="background:rgba(200,168,75,0.12)"></div>
+ <div class="stat-label">Active Orders</div>
+ <div class="stat-value">2</div>
+ <div class="stat-change">1 in review, 1 in progress</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-icon-wrap" style="background:rgba(72,187,120,0.1)"></div>
+ <div class="stat-label">Reports Delivered</div>
+ <div class="stat-value">1</div>
+ <div class="stat-change">Compatibility · June 2025</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-icon-wrap" style="background:rgba(74,111,165,0.1)"></div>
+ <div class="stat-label">Unread Messages</div>
+ <div class="stat-value">1</div>
+ <div class="stat-change">From your astrologer</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-icon-wrap" style="background:rgba(232,130,138,0.1)">⭐</div>
+ <div class="stat-label">Plan</div>
+ <div class="stat-value" style="font-size:1.1rem;padding-top:0.25rem">Complete</div>
+ <div class="stat-change">3 services included</div>
+ </div>
+ </div>
+
+ <!-- ACTIVE ORDERS -->
+ <h2 class="section-title">Active Orders</h2>
+ <div class="orders-grid">
+
+ <!-- ORDER 1: COMPAT -->
+ <div class="order-card">
+ <div class="order-icon-wrap" style="background:rgba(232,130,138,0.1)"></div>
+ <div>
+ <div class="order-title">Compatibility Assessment</div>
+ <div class="order-subtitle">Order #MTM-2025-0041 · Assigned to Dr. Meera Pillai · Ordered 12 June 2025</div>
+ </div>
+ <div>
+ <div class="order-status status-review">In Review</div>
+ <div class="order-progress-wrap" style="margin-top:0.6rem">
+ <div class="order-progress-lbl"><span>Progress</span><span>75%</span></div>
+ <div class="order-progress-bar"><div class="order-progress-fill" style="width:75%"></div></div>
+ </div>
+ </div>
+ <a href="#" class="order-action">View Details</a>
+ </div>
+
+ <!-- ORDER 2: VERIFY -->
+ <div class="order-card">
+ <div class="order-icon-wrap" style="background:rgba(74,111,165,0.1)"></div>
+ <div>
+ <div class="order-title">Background Verification</div>
+ <div class="order-subtitle">Order #MTM-2025-0042 · Assigned to Ravi Kumar · Ordered 13 June 2025</div>
+ </div>
+ <div>
+ <div class="order-status status-progress">In Progress</div>
+ <div class="order-progress-wrap" style="margin-top:0.6rem">
+ <div class="order-progress-lbl"><span>Progress</span><span>35%</span></div>
+ <div class="order-progress-bar"><div class="order-progress-fill" style="width:35%; background:var(--blue)"></div></div>
+ </div>
+ </div>
+ <a href="#" class="order-action">View Details</a>
+ </div>
+
+ </div>
+
+ <!-- COMPLETED ORDERS -->
+ <h2 class="section-title">Completed Reports</h2>
+ <div class="orders-grid">
+ <div class="order-card">
+ <div class="order-icon-wrap" style="background:rgba(72,187,120,0.08)"></div>
+ <div>
+ <div class="order-title">Horoscope Reading — Full Vedic Analysis</div>
+ <div class="order-subtitle">Order #MTM-2025-0038 · N.R. Ranjith Kumar · Delivered 10 June 2025</div>
+ </div>
+ <div>
+ <div class="order-status status-done">Delivered</div>
+ <div style="font-size:0.72rem; color:var(--ink-light); margin-top:0.4rem">Ashtakoot: 28/36 · Mangal dosha: Neutralised</div>
+ </div>
+ <a href="#" class="order-action" style="background:#fff">Download PDF</a>
+ </div>
+ </div>
+
+ <!-- MESSAGES -->
+ <h2 class="section-title">Recent Messages</h2>
+ <div class="messages-list">
+ <div class="msg-item">
+ <div class="msg-dot" style="background:#C8A84B">R</div>
+ <div class="msg-content">
+ <div class="msg-name">N.R. Ranjith Kumar — Vedic Astrologer</div>
+ <div class="msg-text">Your Navamsa chart reading is complete. I've noted a few important aspects I'd like to discuss in our consultation — particularly the Shukra placement and its implications for the timing of this union. Please book a slot at your earliest.</div>
+ <div class="msg-time">Today at 11:32 AM</div>
+ </div>
+ <div class="msg-unread"></div>
+ </div>
+ <div class="msg-item">
+ <div class="msg-dot" style="background:#4A6FA5">M</div>
+ <div class="msg-content">
+ <div class="msg-name">Dr. Meera Pillai — Compatibility Specialist</div>
+ <div class="msg-text">Thank you for providing the additional details. Your compatibility report is now in the final review phase. I expect to deliver the full written document by Friday. I'll also prepare discussion questions for our call.</div>
+ <div class="msg-time">Yesterday at 4:18 PM</div>
+ </div>
+ </div>
+ <div class="msg-item">
+ <div class="msg-dot" style="background:#2A2520">S</div>
+ <div class="msg-content">
+ <div class="msg-name">MyTrueMatch Support</div>
+ <div class="msg-text">Your Background Verification order has been acknowledged. Our analyst, Ravi Kumar, has been assigned. Please upload the required documents via the secure uploader linked in your order page when you're ready.</div>
+ <div class="msg-time">13 June 2025 at 9:00 AM</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- BOTTOM GRID -->
+ <div class="bottom-grid">
+ <!-- ACTIVITY -->
+ <div>
+ <h2 class="section-title">Account Activity</h2>
+ <div class="activity-list">
+ <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Horoscope report PDF downloaded</div><div class="activity-time">Today at 9:10 AM</div></div></div>
+ <div class="activity-item"><div class="activity-dot" style="background:var(--blue)"></div><div><div class="activity-text">Background verification order placed — Ravi Kumar assigned</div><div class="activity-time">13 June 2025</div></div></div>
+ <div class="activity-item"><div class="activity-dot" style="background:var(--rose)"></div><div><div class="activity-text">Compatibility order placed — Dr. Meera Pillai assigned</div><div class="activity-time">12 June 2025</div></div></div>
+ <div class="activity-item"><div class="activity-dot" style="background:#48BB78)"></div><div><div class="activity-text">Horoscope report delivered · Ashtakoot 28/36</div><div class="activity-time">10 June 2025</div></div></div>
+ <div class="activity-item"><div class="activity-dot" style="background:var(--gold-dark)"></div><div><div class="activity-text">Account created · Complete Plan activated</div><div class="activity-time">8 June 2025</div></div></div>
+ </div>
+ </div>
+
+ <!-- ACCOUNT DETAILS -->
+ <div>
+ <h2 class="section-title">Account Details</h2>
+ <div class="account-card">
+ <div class="account-row"><span class="account-key">Full name</span><span class="account-val">Priya Sharma</span></div>
+ <div class="account-row"><span class="account-key">Email</span><span class="account-val">priya.sharma@email.com</span></div>
+ <div class="account-row"><span class="account-key">Mobile</span><span class="account-val">+91 98765 43210</span></div>
+ <div class="account-row"><span class="account-key">Location</span><span class="account-val">Bangalore, India</span></div>
+ <div class="account-row"><span class="account-key">Plan</span><span class="account-val" style="color:var(--gold-dark); font-weight:500">Complete · Active</span></div>
+ <div class="account-row"><span class="account-key">Member since</span><span class="account-val">June 2025</span></div>
+ <div style="margin-top:1.25rem">
+ <a href="pricing.html" style="display:inline-block; font-size:0.75rem; font-weight:500; color:var(--ink); border:1px solid var(--border); padding:0.5rem 1rem; border-radius:7px; text-decoration:none; transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Manage Plan →</a>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </main>
+</div>
+
+<footer>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ <a href="contact.html">Contact</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const d = new Date();
+const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const el = document.getElementById('dash-date');
+if (el) el.textContent = d.toLocaleDateString('en-IN', opts);
+
+// Animate progress bars on load
+window.addEventListener('load', () => {
+ document.querySelectorAll('.order-progress-fill').forEach(bar => {
+ const w = bar.style.width;
+ bar.style.width = '0';
+ setTimeout(() => bar.style.width = w, 300);
+ });
+});
+</script>
+</body>
+</html>

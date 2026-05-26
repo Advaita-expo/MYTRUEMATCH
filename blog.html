@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Stories — MyTrueMatch Blog</title>
+<meta name="description" content="Real stories from couples who found clarity, trust, and lasting love through MyTrueMatch's three lenses — Compatibility, Verification, and Horoscope.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg: #FDFAF0;
+ --bg-dark: #2A2520;
+ --gold: #C8A84B;
+ --gold-dark: #9A7C2E;
+ --rose: #E8828A;
+ --ink: #2A2520;
+ --ink-mid: #4A4238;
+ --ink-light: #7A6E5F;
+ --border: rgba(200,168,75,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
+
+/* ─── NAV LOGO COLORS ─── */
+.logo-blue { color: #4A6FA5; }
+.logo-gold { color: #C8A84B; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+
+nav {
+ position: sticky; top: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 4rem; height: 68px;
+ background: rgba(253,250,240,0.96); backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--border);
+}
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+ font-size: 0.8rem; font-weight: 400; letter-spacing: 0.04em;
+ color: var(--ink-light); text-decoration: none;
+ padding: 0 1.25rem; height: 68px;
+ display: flex; align-items: center; gap: 0.45rem;
+ border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--gold); }
+.nav-right { display: flex; gap: 0.75rem; align-items: center; }
+.nav-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon-btn { width: 14px; height: 14px; }
+.btn-ghost {
+ display: inline-flex; align-items: center; gap: 0.5rem;
+ font-size: 0.78rem; font-weight: 500; color: var(--ink-mid);
+ text-decoration: none; padding: 0.5rem 1.25rem;
+ border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--ink); }
+.btn-solid {
+ display: inline-flex; align-items: center; gap: 0.5rem;
+ font-size: 0.78rem; font-weight: 600; color: var(--bg);
+ text-decoration: none; padding: 0.5rem 1.25rem;
+ background: var(--ink); border-radius: 6px; transition: all 0.2s;
+}
+.btn-solid:hover { background: var(--gold-dark); }
+
+/* ─── HERO ─── */
+.blog-hero {
+ padding: 5rem 4rem 3rem;
+ background: linear-gradient(135deg, #FDFAF0 0%, #FBF7D8 50%, #FFF9C4 100%);
+ border-bottom: 1px solid var(--border);
+}
+.blog-hero-eyebrow {
+ font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+ color: var(--gold); margin-bottom: 1rem; font-weight: 500;
+}
+.blog-hero h1 {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 400;
+ color: var(--ink); line-height: 1.2; margin-bottom: 1.2rem;
+ max-width: 680px;
+}
+.blog-hero h1 em { font-style: italic; color: var(--gold-dark); }
+.blog-hero p {
+ font-size: 1rem; color: var(--ink-light); max-width: 560px;
+ line-height: 1.75; font-weight: 300;
+}
+
+/* ─── EDITORIAL NOTICE ─── */
+.editorial-bar {
+ background: #fff; border-bottom: 1px solid var(--border);
+ padding: 0.6rem 4rem; display: flex; align-items: center; justify-content: space-between;
+ font-size: 0.68rem; color: var(--ink-light); font-weight: 300;
+}
+.editorial-bar strong { font-weight: 500; color: var(--ink-mid); }
+.editorial-lock { display: flex; align-items: center; gap: 0.45rem; }
+.editorial-lock svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ─── FILTER TABS ─── */
+.filter-bar {
+ background: #fff; border-bottom: 1px solid var(--border);
+ padding: 0 4rem; display: flex; align-items: center; gap: 0;
+ overflow-x: auto;
+}
+.filter-tab {
+ padding: 0.9rem 1.5rem; font-size: 0.75rem; font-weight: 500;
+ color: var(--ink-light); cursor: pointer; border: none; background: none;
+ border-bottom: 2px solid transparent; white-space: nowrap;
+ font-family: 'DM Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.04em;
+}
+.filter-tab:hover { color: var(--ink); }
+.filter-tab.active { color: var(--ink); border-bottom-color: var(--gold); font-weight: 600; }
+.filter-count {
+ display: inline-block; margin-left: 0.4rem;
+ font-size: 0.6rem; background: rgba(200,168,75,0.12); color: var(--gold-dark);
+ padding: 0.1rem 0.45rem; border-radius: 10px; font-weight: 600;
+}
+
+/* ─── FEATURED ─── */
+.blog-main { max-width: 1200px; margin: 0 auto; padding: 4rem; }
+.section-label {
+ font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+ color: var(--gold); font-weight: 500; margin-bottom: 2rem;
+ display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.featured-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; margin-bottom: 4rem; }
+.featured-card {
+ background: #fff; border: 1px solid var(--border); border-radius: 14px;
+ overflow: hidden; transition: box-shadow 0.3s;
+}
+.featured-card:hover { box-shadow: 0 8px 36px rgba(200,168,75,0.12); }
+.featured-img {
+ height: 260px; display: flex; align-items: center; justify-content: center;
+ overflow: hidden;
+}
+.card-body { padding: 2rem; }
+.card-tag {
+ display: inline-block; font-size: 0.6rem; letter-spacing: 0.16em;
+ text-transform: uppercase; color: var(--gold); background: rgba(200,168,75,0.1);
+ padding: 0.25rem 0.65rem; border-radius: 3px; margin-bottom: 0.85rem; font-weight: 500;
+}
+.card-body h2 {
+ font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400;
+ color: var(--ink); margin-bottom: 0.75rem; line-height: 1.3;
+}
+.featured-card.small .card-body h2 { font-size: 1.1rem; }
+.card-body p { font-size: 0.88rem; color: var(--ink-light); line-height: 1.75; font-weight: 300; }
+.card-meta {
+ display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;
+ padding-top: 1.25rem; border-top: 1px solid rgba(200,168,75,0.12);
+}
+.card-author-dot {
+ width: 32px; height: 32px; border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 0.7rem; font-weight: 600; color: #fff;
+}
+.card-meta-info { flex: 1; }
+.card-meta-name { font-size: 0.78rem; font-weight: 500; color: var(--ink); }
+.card-meta-date { font-size: 0.7rem; color: var(--ink-light); }
+.read-link {
+ font-size: 0.75rem; font-weight: 500; color: var(--gold-dark);
+ text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+ transition: gap 0.2s;
+}
+.read-link:hover { gap: 0.7rem; }
+
+/* ─── STORIES GRID ─── */
+.stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-bottom: 4rem; }
+.story-card {
+ background: #fff; border: 1px solid var(--border); border-radius: 12px;
+ padding: 1.75rem; transition: all 0.3s;
+}
+.story-card:hover { box-shadow: 0 6px 28px rgba(200,168,75,0.1); transform: translateY(-3px); }
+.story-icon {
+ width: 44px; height: 44px; border-radius: 10px;
+ background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.2);
+ display: flex; align-items: center; justify-content: center;
+ margin-bottom: 1.25rem; flex-shrink: 0;
+}
+.story-icon svg { width: 22px; height: 22px; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.story-icon.si-v { background: rgba(74,111,165,0.07); border-color: rgba(74,111,165,0.22); }
+.story-card h3 {
+ font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600;
+ color: var(--ink); margin-bottom: 0.65rem; line-height: 1.4;
+}
+.story-card p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; font-weight: 300; }
+.story-quote {
+ font-family: 'Playfair Display', serif; font-style: italic;
+ font-size: 0.88rem; color: var(--ink-mid); margin-top: 1rem;
+ padding-left: 1rem; border-left: 2px solid var(--gold);
+}
+.story-names { font-size: 0.72rem; color: var(--gold-dark); font-weight: 500; margin-top: 0.75rem; }
+
+/* ─── INSIGHT BANNER ─── */
+.insight-banner {
+ background: var(--bg-dark); color: #fff; border-radius: 16px;
+ padding: 3rem 3.5rem; margin-bottom: 4rem;
+ display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+}
+.insight-banner h3 {
+ font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400;
+ margin-bottom: 0.75rem; line-height: 1.35;
+}
+.insight-banner h3 em { color: var(--gold); font-style: italic; }
+.insight-banner p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+.insight-stats { display: flex; gap: 2.5rem; }
+.insight-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); display: block; }
+.insight-stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* ─── FADE ─── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── FOOTER ─── */
+footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; color: rgba(255,255,255,0.4); }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem; display: block; }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.7; font-weight: 300; max-width: 260px; }
+.footer-col-title { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.25); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+ nav { padding: 0 1.5rem; } .nav-links { display: none; }
+ .blog-hero { padding: 3rem 1.5rem 2rem; }
+ .blog-main { padding: 2.5rem 1.5rem; }
+ .featured-grid { grid-template-columns: 1fr; }
+ .stories-grid { grid-template-columns: 1fr; }
+ .insight-banner { grid-template-columns: 1fr; }
+ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+ footer { padding: 3rem 1.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo">
+ <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
+ </a>
+ <ul class="nav-links">
+ <li><a href="compatibility.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg><span>Compatibility</span></a></li>
+ <li><a href="verification.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Verification</span></a></li>
+ <li><a href="horoscope.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg><span>Horoscope</span></a></li>
+ <li><a href="pricing.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg><span>Pricing</span></a></li>
+ <li><a href="blog.html" class="active"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span>Blog</span></a></li>
+ </ul>
+ <div class="nav-right">
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ <span>Sign in</span>
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ <span>Begin</span>
+ </a>
+ </div>
+</nav>
+
+<!-- EDITORIAL BAR -->
+<div class="editorial-bar">
+ <div><strong>MyTrueMatch Editorial</strong> · All stories are verified, consent-obtained, and published by the MyTrueMatch team. Names may be changed for privacy.</div>
+ <div class="editorial-lock">
+ <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+ Admin-curated only
+ </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filter-bar">
+ <button class="filter-tab active" data-filter="all" onclick="filterStories('all', this)">All Stories <span class="filter-count">6</span></button>
+ <button class="filter-tab" data-filter="compatibility" onclick="filterStories('compatibility', this)">Compatibility <span class="filter-count">3</span></button>
+ <button class="filter-tab" data-filter="verification" onclick="filterStories('verification', this)">Verification <span class="filter-count">2</span></button>
+ <button class="filter-tab" data-filter="horoscope" onclick="filterStories('horoscope', this)">Horoscope <span class="filter-count">1</span></button>
+</div>
+
+<!-- HERO -->
+<section class="blog-hero">
+ <p class="blog-hero-eyebrow">Verified Stories · Published by MyTrueMatch</p>
+ <h1>When knowing each other <em>truly</em><br>changed everything</h1>
+ <p>These are not testimonials. These are real turning points — moments where a family asked the right question, and found the right answer, before saying yes.</p>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="blog-main">
+
+ <!-- FEATURED -->
+ <p class="section-label">Featured Stories</p>
+ <div class="featured-grid fade-in">
+ <div class="featured-card">
+ <div class="featured-img" style="background: linear-gradient(160deg, #FFF9C4 0%, #FBF0C0 60%, #F5E89A 100%);">
+  <svg width="260" height="200" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <circle cx="95" cy="100" r="64" stroke="rgba(200,168,75,0.18)" stroke-width="1"/>
+   <circle cx="165" cy="100" r="64" stroke="rgba(200,168,75,0.18)" stroke-width="1"/>
+   <circle cx="95" cy="100" r="50" stroke="#C8A84B" stroke-width="1.5" fill="rgba(200,168,75,0.06)"/>
+   <circle cx="165" cy="100" r="50" stroke="#C8A84B" stroke-width="1.5" fill="rgba(200,168,75,0.06)"/>
+   <path d="M130 57.1 A50 50 0 0 1 130 142.9 A50 50 0 0 1 130 57.1Z" fill="rgba(200,168,75,0.13)"/>
+   <circle cx="88" cy="88" r="10" stroke="#9A7C2E" stroke-width="1.4" fill="none"/>
+   <path d="M74 116 Q74 102 88 102 Q102 102 102 116" stroke="#9A7C2E" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+   <circle cx="172" cy="88" r="10" stroke="#9A7C2E" stroke-width="1.4" fill="none"/>
+   <path d="M158 116 Q158 102 172 102 Q186 102 186 116" stroke="#9A7C2E" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+   <circle cx="124" cy="100" r="2.5" fill="#C8A84B" opacity="0.45"/>
+   <circle cx="130" cy="100" r="3.5" fill="#C8A84B" opacity="0.85"/>
+   <circle cx="136" cy="100" r="2.5" fill="#C8A84B" opacity="0.45"/>
+   <text x="130" y="180" font-family="DM Sans,sans-serif" font-size="7.5" fill="#9A7C2E" text-anchor="middle" letter-spacing="3" font-weight="500">COMPATIBILITY</text>
+  </svg>
+ </div>
+ <div class="card-body">
+ <span class="card-tag">Compatibility</span>
+ <h2>"We were matched by two families. We almost said yes — until the compatibility report."</h2>
+ <p>Priya, 29, and Arjun, 32, were introduced through their respective families in Bangalore in early 2024. Both families were enthusiastic. On paper everything matched — community, profession, horoscope signs. But Priya's mother requested a full compatibility assessment before fixing a date.</p>
+ <p style="margin-top:0.75rem">The report revealed a fundamental difference in life-goal alignment: Arjun had ranked financial security as his primary value, while Priya had ranked emotional expression and creative freedom. Neither was wrong — but together, without awareness, this would have been a silent source of friction for years.</p>
+ <p style="margin-top:0.75rem">"The report didn't say don't marry him. It gave us a map. We had five real conversations in the next two weeks that we might never have had otherwise. Today we're married and those conversations are the reason we actually understand each other." — <em>Priya, Bangalore</em></p>
+ <div class="card-meta">
+ <div class="card-author-dot" style="background:#C8A84B">P</div>
+ <div class="card-meta-info">
+ <div class="card-meta-name">Priya & Arjun · Bangalore</div>
+ <div class="card-meta-date">Married February 2025 · Compatibility lens</div>
+ </div>
+ <a href="#story-priya" class="read-link">Read more →</a>
+ </div>
+ </div>
+ </div>
+ <div style="display:flex; flex-direction:column; gap:2rem">
+ <div class="featured-card small">
+ <div class="featured-img" style="background: linear-gradient(160deg, #EAF0FB 0%, #D4E4F7 100%); height:160px;">
+  <svg width="180" height="130" viewBox="0 0 180 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M90 8 L142 32 L142 70 C142 102 90 122 90 122 C90 122 38 102 38 70 L38 32 Z" fill="rgba(74,111,165,0.07)" stroke="#4A6FA5" stroke-width="1.5" stroke-linejoin="round"/>
+   <path d="M90 22 L128 40 L128 68 C128 94 90 110 90 110 C90 110 52 94 52 68 L52 40 Z" fill="none" stroke="rgba(74,111,165,0.18)" stroke-width="1"/>
+   <path d="M66 67 L79 80 L115 49" stroke="#4A6FA5" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+   <text x="90" y="127" font-family="DM Sans,sans-serif" font-size="7" fill="#4A6FA5" text-anchor="middle" letter-spacing="2.5" font-weight="500">VERIFICATION</text>
+  </svg>
+ </div>
+ <div class="card-body">
+ <span class="card-tag">Verification</span>
+ <h2>"His LinkedIn looked perfect. The verification found a 4-year employment gap he'd never mentioned."</h2>
+ <p>Meena's family from Chennai initiated background verification after being introduced to a prospective match in Dubai. The process was discreet and professional — the match never knew it happened.</p>
+ <div class="card-meta" style="margin-top:1rem; padding-top:1rem">
+ <div class="card-author-dot" style="background:#4A6FA5">M</div>
+ <div class="card-meta-info">
+ <div class="card-meta-name">Meena's family · Chennai</div>
+ <div class="card-meta-date">2024 · Verification lens</div>
+ </div>
+ <a href="#story-meena" class="read-link">Read →</a>
+ </div>
+ </div>
+ </div>
+ <div class="featured-card small">
+ <div class="featured-img" style="background: linear-gradient(160deg, #2A2520 0%, #3A3028 100%); height:160px;">
+  <svg width="200" height="130" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <circle cx="55" cy="38" r="2.5" fill="#C8A84B"/>
+   <circle cx="100" cy="22" r="4" fill="#C8A84B"/>
+   <circle cx="145" cy="42" r="2" fill="#C8A84B" opacity="0.7"/>
+   <circle cx="78" cy="68" r="2" fill="#C8A84B" opacity="0.65"/>
+   <circle cx="122" cy="62" r="3" fill="#C8A84B"/>
+   <circle cx="160" cy="78" r="1.5" fill="#C8A84B" opacity="0.45"/>
+   <circle cx="40" cy="82" r="1.5" fill="#C8A84B" opacity="0.45"/>
+   <circle cx="100" cy="92" r="2" fill="#C8A84B" opacity="0.55"/>
+   <line x1="55" y1="38" x2="100" y2="22" stroke="#C8A84B" stroke-width="0.7" opacity="0.35"/>
+   <line x1="100" y1="22" x2="145" y2="42" stroke="#C8A84B" stroke-width="0.7" opacity="0.35"/>
+   <line x1="55" y1="38" x2="78" y2="68" stroke="#C8A84B" stroke-width="0.7" opacity="0.35"/>
+   <line x1="145" y1="42" x2="122" y2="62" stroke="#C8A84B" stroke-width="0.7" opacity="0.35"/>
+   <line x1="78" y1="68" x2="122" y2="62" stroke="#C8A84B" stroke-width="0.7" opacity="0.35"/>
+   <line x1="122" y1="62" x2="160" y2="78" stroke="#C8A84B" stroke-width="0.7" opacity="0.25"/>
+   <path d="M100 14 L102.9 22.8 L112.2 22.8 L104.7 28.2 L107.6 37 L100 31.6 L92.4 37 L95.3 28.2 L87.8 22.8 L97.1 22.8 Z" fill="#C8A84B" opacity="0.9"/>
+   <ellipse cx="100" cy="62" rx="52" ry="20" stroke="rgba(200,168,75,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+   <text x="100" y="120" font-family="DM Sans,sans-serif" font-size="7" fill="#C8A84B" text-anchor="middle" letter-spacing="2.5" font-weight="500">HOROSCOPE</text>
+  </svg>
+ </div>
+ <div class="card-body">
+ <span class="card-tag">Horoscope</span>
+ <h2>"The astrologer saw the same pattern in both charts — and it changed how we planned our life."</h2>
+ <p>Kavitha and Rajiv from Coimbatore had both experienced previous broken engagements. Their Navamsa charts revealed why — and more importantly, what to do about it.</p>
+ <div class="card-meta" style="margin-top:1rem; padding-top:1rem">
+ <div class="card-author-dot" style="background:#E8828A">K</div>
+ <div class="card-meta-info">
+ <div class="card-meta-name">Kavitha & Rajiv · Coimbatore</div>
+ <div class="card-meta-date">2025 · Horoscope lens</div>
+ </div>
+ <a href="#story-kavitha" class="read-link">Read →</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- INSIGHT STATS BANNER -->
+ <div class="insight-banner fade-in">
+ <div>
+ <h3>These stories aren't exceptions.<br>They are the <em>standard</em>.</h3>
+ <p>In 84% of our cases, the couple said the process gave them at least one crucial conversation they would not have had otherwise. These are not surprises — they are informed beginnings.</p>
+ </div>
+ <div class="insight-stats">
+ <div>
+ <span class="insight-stat-num">2,400+</span>
+ <span class="insight-stat-lbl">Couples served</span>
+ </div>
+ <div>
+ <span class="insight-stat-num">84%</span>
+ <span class="insight-stat-lbl">Had crucial conversations</span>
+ </div>
+ <div>
+ <span class="insight-stat-num">4.9</span>
+ <span class="insight-stat-lbl">Average rating</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- MORE STORIES -->
+ <p class="section-label">More Stories</p>
+ <div class="stories-grid fade-in">
+
+ <div class="story-card" id="story-meena" data-cat="verification">
+ <div class="story-icon si-v"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z" stroke="#4A6FA5"/><path d="M9 12l2 2 4-4" stroke="#4A6FA5"/></svg></div>
+ <span class="card-tag">Verification</span>
+ <h3>"His profile was polished. The gap was real."</h3>
+ <p>Meena's father was retired from the IAS. He was careful with introductions. When a bio-data arrived from Dubai — software professional, MBA from a reputed college, clean family background — he still asked for verification. Not because he suspected anything. Because he had a principle: never assume.</p>
+ <p style="margin-top:0.65rem">The verification report revealed a 4-year employment gap between 2017 and 2021 that had been presented as continuous employment. When the family asked directly, the match acknowledged that he had spent two of those years managing a failed business venture he had felt embarrassed to mention.</p>
+ <p style="margin-top:0.65rem">Meena's family appreciated the honesty once it came. They proceeded, but with open eyes. "We didn't cancel the match. We had a real conversation. That would not have happened without the report." The wedding took place in June 2024.</p>
+ <p class="story-quote">"Not to catch him lying. To give him a chance to be honest."</p>
+ <p class="story-names">— Meena's father, Chennai · June 2024</p>
+ </div>
+
+ <div class="story-card" id="story-kavitha" data-cat="horoscope">
+ <div class="story-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z" stroke="#C8A84B"/></svg></div>
+ <span class="card-tag">Horoscope</span>
+ <h3>"Two broken engagements, one chart pattern."</h3>
+ <p>Kavitha, 31, had called off an engagement in 2021. Rajiv, 34, had done the same in 2022. When their families were introduced in early 2024, both were cautious. A full Vedic chart reading was commissioned with N.R. Ranjith Kumar.</p>
+ <p style="margin-top:0.65rem">The reading identified a specific Navamsa configuration — Shukra in the 12th house for both — associated with delayed and tested unions, rather than failed ones. The astrologer explained that previous engagements likely broke because the timing was not aligned with this pattern, not because either person was the wrong match.</p>
+ <p style="margin-top:0.65rem">This reframing mattered enormously. Both had been carrying guilt. The chart gave them language for what had happened. They married in March 2025 and credit the reading as the single most meaningful moment in their journey together.</p>
+ <p class="story-quote">"He gave us a reason to stop apologising for our past and start building our future."</p>
+ <p class="story-names">— Kavitha, Coimbatore · March 2025</p>
+ </div>
+
+ <div class="story-card" data-cat="compatibility">
+ <div class="story-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3" stroke="#C8A84B"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="#C8A84B"/><path d="M19 8l2 2-2 2" stroke="#C8A84B" stroke-linecap="round"/><path d="M21 10h-4" stroke="#C8A84B" stroke-linecap="round"/></svg></div>
+ <span class="card-tag">Compatibility</span>
+ <h3>"The report asked questions we were afraid to ask each other."</h3>
+ <p>Ananya, 27, a clinical psychologist from Hyderabad, was introduced to Vikram, 30, an architect from Pune. They had met twice. Both families were keen to move forward quickly.</p>
+ <p style="margin-top:0.65rem">Ananya herself requested the compatibility assessment — unusual for the initiating side. The report identified a high alignment on emotional values and intellectual depth, but a divergence on extended family integration: Vikram expected his wife to live with his parents; Ananya had not considered this.</p>
+ <p style="margin-top:0.65rem">"I actually knew this was going to be the issue. But seeing it written in a neutral report made it easier to bring up. We negotiated a plan before we got married — not after." They wed in December 2024.</p>
+ <p class="story-quote">"It said out loud what we were both thinking quietly."</p>
+ <p class="story-names">— Ananya & Vikram · December 2024</p>
+ </div>
+
+ <div class="story-card" data-cat="verification">
+ <div class="story-icon si-v"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z" stroke="#4A6FA5"/><circle cx="12" cy="11" r="2" stroke="#4A6FA5"/><path d="M10 17h4" stroke="#4A6FA5" stroke-linecap="round"/></svg></div>
+ <span class="card-tag">Verification</span>
+ <h3>"NRI profile — no way to independently verify anything."</h3>
+ <p>The Krishnamurthy family from Mysore received a proposal for their daughter from a Tamil family settled in Toronto. Education, career, values — all appeared excellent. But verifying anything about a person living abroad felt impossible for a family without contacts there.</p>
+ <p style="margin-top:0.65rem">MyTrueMatch's verification team confirmed the candidate's employment at a Toronto-based firm, his educational credentials from University of Waterloo, and conducted a civil records check across both Indian and Canadian databases. The report came back clean with verified documentation attached.</p>
+ <p style="margin-top:0.65rem">"We would have had to take everything on trust. Instead we could say yes from a place of knowledge, not hope." The engagement was fixed in August 2024.</p>
+ <p class="story-quote">"We said yes knowing, not hoping."</p>
+ <p class="story-names">— Krishnamurthy family, Mysore · 2024</p>
+ </div>
+
+ <div class="story-card" data-cat="compatibility">
+ <div class="story-icon"><svg viewBox="0 0 24 24"><rect x="3" y="14" width="18" height="4" rx="1" stroke="#C8A84B"/><rect x="3" y="9" width="18" height="4" rx="1" stroke="#C8A84B" opacity="0.7"/><rect x="3" y="4" width="18" height="4" rx="1" stroke="#C8A84B" opacity="0.4"/></svg></div>
+ <span class="card-tag">All Three Lenses</span>
+ <h3>"We used all three. It was the most prepared we've ever felt."</h3>
+ <p>The Raghavans from Coimbatore commissioned all three services simultaneously for their son's match — compatibility, verification, and a full horoscope reading. The match was a doctor from Trivandrum.</p>
+ <p style="margin-top:0.65rem">Compatibility: high alignment on most dimensions, moderate divergence on risk appetite. Verification: clean, all credentials verified. Horoscope: Mangal dosha on both sides, neutralised — auspicious alignment on Ashtakoot, 28/36.</p>
+ <p style="margin-top:0.65rem">"We received three different kinds of clarity. Like looking at the same room with three different lights." The wedding took place in January 2025 — one of the shortest decision timelines in the family's history.</p>
+ <p class="story-quote">"Three lenses. One very clear picture."</p>
+ <p class="story-names">— Raghavan family, Coimbatore · January 2025</p>
+ </div>
+
+ <div class="story-card" data-cat="compatibility">
+ <div class="story-icon"><svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z" stroke="#C8A84B"/></svg></div>
+ <span class="card-tag">Compatibility</span>
+ <h3>"We thought we were perfect. The report said 'mostly' — and that 'mostly' saved us."</h3>
+ <p>Sunita, 26, and Dhruv, 28, both from Delhi, had been introduced through a common friend and had spoken regularly for two months before families were formally introduced. They felt aligned. The assessment was almost a formality.</p>
+ <p style="margin-top:0.65rem">The report rated their emotional and intellectual compatibility at 91% — but flagged a significant divergence in financial behaviour. Sunita was a natural saver; Dhruv had a history of impulse spending. Neither had noticed because they hadn't yet shared finances.</p>
+ <p style="margin-top:0.65rem">"We set up a joint account system before we married. It wasn't romantic but it was real. Two years later we have no money arguments — the only couples I know who can say that." Married November 2023.</p>
+ <p class="story-quote">"The 9% was the most important part of the whole report."</p>
+ <p class="story-names">— Sunita & Dhruv · Delhi · November 2023</p>
+ </div>
+
+ </div>
+
+ <!-- CTA -->
+ <div class="fade-in" style="text-align:center; padding: 3rem 0; border-top: 1px solid var(--border)">
+ <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Start your journey</p>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;margin-bottom:1rem;color:var(--ink)">Every informed beginning<br>starts with a single question.</h2>
+ <p style="font-size:0.9rem;color:var(--ink-light);max-width:480px;margin:0 auto 2rem;line-height:1.75">Not "will this work?" — but "do we know each other well enough to find out?" Let us help you answer that.</p>
+ <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+ <a href="begin.html" style="display:inline-flex;align-items:center;gap:0.65rem;background:var(--ink);color:#fff;text-decoration:none;padding:0.9rem 2.2rem;border-radius:8px;font-size:0.85rem;font-weight:600;transition:all 0.2s" onmouseover="this.style.background='#C8A84B'" onmouseout="this.style.background='var(--ink)'">Begin the conversation →</a>
+ <a href="test.html" style="display:inline-flex;align-items:center;gap:0.65rem;border:1px solid var(--border);color:var(--ink-mid);text-decoration:none;padding:0.9rem 2.2rem;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Take the free test</a>
+ </div>
+ </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-top fade-in">
+ <div>
+ <div class="footer-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></div>
+ <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ </div>
+ <div>
+ <div class="footer-col-title">Our Lenses</div>
+ <ul class="footer-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Company</div>
+ <ul class="footer-links">
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Legal</div>
+ <ul class="footer-links">
+ <li><a href="privacy.html">Privacy Policy</a></li>
+ <li><a href="terms.html">Terms &amp; Conditions</a></li>
+ <li><a href="disclaimer.html">Disclaimer</a></li>
+ <li><a href="refund.html">Refund Policy</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => {
+ e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visible'); io.unobserve(x.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+// Category filter
+const categoryMap = {
+ compatibility: ['story-compat-1','story-compat-2','story-compat-3'],
+ verification: ['story-verify-1','story-verify-2'],
+ horoscope: ['story-horo-1']
+};
+function filterStories(filter, btn) {
+ document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+ btn.classList.add('active');
+ const cards = document.querySelectorAll('.story-card[data-cat]');
+ cards.forEach(card => {
+ const cat = card.getAttribute('data-cat');
+ const show = filter === 'all' || cat === filter;
+ card.style.display = show ? '' : 'none';
+ });
+}
+</script>
+</body>
+</html>

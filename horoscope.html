@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Astrology & Horoscope Matching | MyTrueMatch</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FDFAF0;
+  --bg-soft: #FBF7E0;
+  --bg-accent: #FFF9C4;
+  --bg-yellow: #EDD000;
+  --bg-dark: #1A1610;
+  --gold: #C8A84B;
+  --gold-dark: #8A6E20;
+  --gold-pale: #F0E0A0;
+  --ink: #2A2520;
+  --ink-mid: #4A4238;
+  --ink-light: #7A6E5F;
+  --ink-faint: #9A8E7F;
+  --line: rgba(200,168,75,0.18);
+  --line-soft: rgba(200,168,75,0.1);
+  --rose: #E8828A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ANNOUNCE */
+.announce{background:var(--bg-dark);color:rgba(255,255,255,0.6);text-align:center;padding:0.55rem 1rem;font-size:0.7rem;letter-spacing:0.1em}
+.announce b{color:var(--gold);font-weight:500}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(253,250,240,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.nav-logo{text-decoration:none;font-family:'DM Serif Display',serif;font-size:1.35rem;letter-spacing:-0.01em}
+.logo-blue{color:#4A6FA5}
+.logo-gold{color:#C8A84B}
+.nav-links{display:flex;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.04em;color:var(--ink-light);text-decoration:none;padding:0 1.15rem;height:68px;display:flex;align-items:center;gap:0.45rem;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+.nav-links a.active{color:var(--gold-dark);border-bottom-color:var(--gold);font-weight:500}
+.nav-icon{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.nav-right{display:flex;gap:0.65rem;align-items:center}
+.btn-ghost{font-size:0.75rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:0.48rem 1.1rem;border:1px solid var(--line);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-dark)}
+.btn-solid{font-size:0.75rem;font-weight:500;color:#FDFAF0;background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-solid:hover{opacity:0.85;transform:translateY(-1px)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;overflow:hidden;position:relative}
+.hero-left{background:linear-gradient(135deg,rgba(26,22,16,0.88) 0%,rgba(26,22,16,0.84) 100%),url('dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png') center/cover no-repeat;padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+
+/* star field animation */
+.hero-left::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.08) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;animation:gridFade 2s ease forwards}
+@keyframes gridFade{from{opacity:0}to{opacity:1}}
+
+/* big roman numeral watermark */
+.hero-watermark{position:absolute;bottom:-2rem;right:-1rem;font-family:'DM Serif Display',serif;font-size:22rem;font-weight:700;font-style:italic;color:rgba(255,255,255,0.022);line-height:1;pointer-events:none;user-select:none;z-index:0}
+
+.hero-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:0.7rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.15s ease forwards}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,5vw,5.2rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:1.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards}
+.hero-left h1 em{font-style:italic;color:var(--gold)}
+
+.hero-tagline{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.9;max-width:380px;margin-bottom:2.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.45s ease forwards}
+
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:3rem;opacity:0;animation:slideUp 0.7s 0.58s ease forwards}
+.btn-cta-gold{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.9rem 2.2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;border-radius:8px;text-decoration:none;transition:all 0.25s;border:none;cursor:pointer}
+.btn-cta-gold:hover{background:var(--gold-pale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,168,75,0.35)}
+.btn-cta-gold svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-outline-light{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.45);font-size:0.8rem;font-weight:300;letter-spacing:0.06em;text-decoration:none;border:1px solid rgba(200,168,75,0.22);padding:0.9rem 1.6rem;border-radius:8px;transition:all 0.22s}
+.btn-outline-light:hover{color:#fff;border-color:rgba(200,168,75,0.5)}
+
+.hero-trust{display:flex;align-items:center;gap:1.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.68s ease forwards}
+.trust-badge{display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.08em;color:rgba(255,255,255,0.3);text-transform:uppercase}
+.trust-badge svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.trust-dot{width:3px;height:3px;border-radius:50%;background:rgba(200,168,75,0.3)}
+
+/* HERO RIGHT */
+.hero-right{background:linear-gradient(160deg,#FFFDF5 0%,#FFF8E1 40%,#FFF0C0 75%,#FAE89A 100%);padding:4rem 4rem 3rem;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(160,100,0,0.05) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+
+/* Mandala / celestial SVG graphic */
+.celestial-graphic{width:100%;max-width:360px;margin:0 auto;opacity:0;animation:slideUp 0.9s 0.5s ease forwards}
+
+/* Profile cards */
+.hero-profiles{position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards;margin-bottom:1.5rem}
+.profile-label{font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:#8A6200;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.profile-label::before{content:'';width:20px;height:1px;background:#C8A84B}
+.hpc{display:flex;align-items:center;gap:1.2rem;background:rgba(255,255,255,0.72);border:1px solid rgba(200,155,50,0.28);border-radius:12px;padding:1.1rem 1.4rem;cursor:pointer;transition:all 0.25s;backdrop-filter:blur(6px);margin-bottom:0.9rem}
+.hpc:last-of-type{margin-bottom:0}
+.hpc:hover{background:rgba(255,255,255,0.9);border-color:rgba(180,130,20,0.55);transform:translateX(5px);box-shadow:0 8px 28px rgba(160,100,0,0.12)}
+.hpc-avatar{width:52px;height:52px;border-radius:50%;background:rgba(200,168,75,0.15);border:1px solid rgba(180,130,20,0.35);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.1rem;font-style:italic;color:#7A5C00;flex-shrink:0}
+.hpc-info{flex:1;min-width:0}
+.hpc-name{font-family:'DM Serif Display',serif;font-size:0.95rem;font-weight:400;color:#2A2520;line-height:1.2;margin-bottom:0.2rem}
+.hpc-role{font-size:0.68rem;font-weight:300;color:#7A6A50;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hpc-tags{display:flex;gap:0.3rem;margin-top:0.45rem;flex-wrap:wrap}
+.hpc-tag{font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(200,168,75,0.15);color:#7A5C00;border:1px solid rgba(180,130,20,0.28);padding:0.18rem 0.5rem;border-radius:3px}
+.hpc-arrow{color:rgba(160,110,0,0.4);flex-shrink:0;transition:all 0.2s;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hpc:hover .hpc-arrow{transform:translateX(4px);color:#9A7C2E}
+
+.hero-right-note{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(160,100,0,0.15)}
+.hero-right-note p{font-size:0.7rem;font-weight:300;color:rgba(90,60,0,0.55);line-height:1.75}
+
+/* DOUBT */
+.doubt{padding:7rem 4rem;background:var(--bg);position:relative;overflow:hidden}
+.doubt::before{content:'"';position:absolute;top:-2rem;left:2rem;font-family:'DM Serif Display',serif;font-size:22rem;color:rgba(200,168,75,0.06);line-height:1;pointer-events:none;user-select:none}
+.doubt-inner{max-width:700px;position:relative}
+.d-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:3.5rem;display:flex;align-items:center;gap:0.7rem}
+.d-label::before{content:'';width:28px;height:1px;background:var(--gold)}
+.doubt-list{display:flex;flex-direction:column;margin-bottom:3.5rem}
+.doubt-row{padding:1.85rem 0;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:1.5rem;opacity:0;transform:translateY(10px);transition:opacity 0.5s ease,transform 0.5s ease}
+.doubt-row:last-child{border-bottom:none}
+.doubt-row.vis{opacity:1;transform:translateY(0)}
+.doubt-glyph{color:var(--gold);opacity:0.65;flex-shrink:0;width:28px;display:flex;align-items:center;justify-content:center}
+.doubt-glyph svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.doubt-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.65rem);font-weight:400;font-style:italic;color:var(--ink-light);line-height:1.35}
+.doubt-text em{color:var(--ink);font-style:italic}
+.doubt-close{padding-top:2.5rem;border-top:1px solid var(--line)}
+.doubt-close p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.3vw,1.9rem);font-weight:400;color:var(--ink-faint);line-height:1.4}
+.doubt-close p strong{color:var(--ink);font-weight:500}
+.doubt-close p em{font-style:italic;color:var(--gold-dark)}
+
+/* SIX ASPECTS */
+.aspects{background:var(--bg-yellow);border-top:1px solid rgba(200,168,75,0.35);border-bottom:1px solid rgba(200,168,75,0.35);padding:6rem 4rem}
+.asp-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:#7A5C00;margin-bottom:0.6rem;display:flex;align-items:center;gap:0.7rem}
+.asp-eyebrow::before{content:'';width:28px;height:1px;background:#C8A84B}
+.asp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:#1A1400;line-height:1.18;margin-bottom:0.6rem}
+.asp-title em{font-style:italic;color:#7A5C00}
+.asp-sub{font-size:0.88rem;font-weight:300;color:#5C4A00;line-height:1.75;max-width:480px;margin-bottom:3.5rem}
+.asp-list{display:flex;flex-direction:column}
+.asp-item{display:grid;grid-template-columns:56px 200px 1fr;border-top:1px solid rgba(0,0,0,0.07);transition:background 0.22s;cursor:default}
+.asp-item:last-child{border-bottom:1px solid rgba(0,0,0,0.07)}
+.asp-item:hover{background:rgba(255,255,255,0.35)}
+.asp-numeral{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:400;font-style:italic;color:rgba(0,0,0,0.2);border-right:1px solid rgba(0,0,0,0.07);padding:2rem 0.5rem;transition:color 0.22s}
+.asp-item:hover .asp-numeral{color:#7A5C00}
+.asp-name{padding:2rem 1.75rem;border-right:1px solid rgba(0,0,0,0.07);display:flex;flex-direction:column;justify-content:center;gap:0.25rem}
+.asp-tag{font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,0,0,0.28)}
+.asp-name h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:#1A1400;line-height:1.15}
+.asp-desc{padding:2rem 3.5rem 2rem 2rem;display:flex;align-items:center;gap:1rem}
+.asp-icon{width:32px;height:32px;flex-shrink:0;stroke:#7A5C00;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0.7}
+.asp-desc p{font-size:0.84rem;font-weight:300;color:#4A3800;line-height:1.78;max-width:500px}
+
+/* CREDENTIALS */
+.credentials{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:4.5rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.cred-item{padding:0 3rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:0.5rem}
+.cred-item:first-child{padding-left:0}
+.cred-item:last-child{border-right:none;padding-right:0}
+.cred-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:400;color:var(--ink);line-height:1}
+.cred-num span{font-size:0.95rem;color:var(--gold-dark);font-family:'DM Sans',sans-serif}
+.cred-title{font-size:0.76rem;font-weight:500;color:var(--ink);letter-spacing:0.02em}
+.cred-desc{font-size:0.74rem;font-weight:300;color:var(--ink-light);line-height:1.65;max-width:210px}
+
+/* ASTROLOGERS */
+.astrologers{padding:6rem 4rem;background:var(--bg)}
+.section-head{text-align:center;margin-bottom:3.5rem}
+.sect-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);display:flex;align-items:center;justify-content:center;gap:0.7rem;margin-bottom:0.6rem}
+.sect-eyebrow::before,.sect-eyebrow::after{content:'';width:28px;height:1px;background:var(--gold)}
+.sect-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:0.7rem}
+.sect-title em{font-style:italic;color:var(--gold-dark)}
+.sect-sub{font-size:0.88rem;font-weight:300;color:var(--ink-light);max-width:520px;margin:0 auto;line-height:1.8}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+
+.ast-card{background:#fff;border:0.5px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;transition:all 0.28s;display:flex;flex-direction:column}
+.ast-card:hover{border-color:rgba(200,168,75,0.45);transform:translateY(-5px);box-shadow:0 16px 48px rgba(42,37,32,0.1)}
+.card-photo{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden}
+.card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.card-tag{font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:0.5rem}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:0.3rem}
+.card-sub{font-size:0.72rem;font-weight:300;color:var(--gold-dark);letter-spacing:0.04em;margin-bottom:1rem}
+.card-excerpt{font-size:0.79rem;font-weight:300;color:var(--ink-light);line-height:1.75;flex:1}
+.card-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:0.4rem;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);border:1px solid rgba(200,168,75,0.28);padding:0.5rem 1rem;border-radius:5px;transition:all 0.2s;background:transparent;cursor:pointer;width:fit-content;font-family:inherit}
+.card-btn:hover{background:rgba(200,168,75,0.08);border-color:rgba(200,168,75,0.55)}
+.card-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* TESTIMONIAL */
+.testimonial{padding:7rem 4rem;background:var(--bg-soft);position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.testimonial::before{content:'"';position:absolute;top:-1.5rem;left:2rem;font-family:'Cormorant Garamond',serif;font-size:22rem;color:rgba(200,168,75,0.06);line-height:1;pointer-events:none;user-select:none}
+.test-inner{max-width:720px;margin:0 auto;text-align:center;position:relative}
+.test-label{font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
+.test-label::before,.test-label::after{content:'';width:36px;height:1px;background:var(--gold)}
+.test-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.78;margin-bottom:2.5rem}
+.test-mono{width:48px;height:48px;border-radius:50%;background:var(--bg-accent);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:500;color:var(--gold-dark);margin:0 auto 0.6rem}
+.test-name{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem}
+.test-city{font-size:0.66rem;color:var(--ink-faint);letter-spacing:0.08em}
+
+/* CTA */
+.cta{background:var(--bg);border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(200,168,75,0.1);border-radius:50%;pointer-events:none}
+.cta::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.05);border-radius:50%;pointer-events:none}
+.cta-inner{position:relative}
+.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.5rem}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.9rem}
+.cta h2 em{font-style:italic;color:var(--gold-dark)}
+.cta-sub{font-size:0.82rem;color:var(--ink-light);margin-bottom:2.5rem;font-weight:300}
+.cta-btn{display:inline-flex;align-items:center;gap:0.65rem;background:var(--bg-dark);color:var(--bg);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:7px;transition:all 0.25s}
+.cta-btn:hover{opacity:0.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,37,32,0.15)}
+.cta-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* FOOTER */
+footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1.3rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;display:block;text-decoration:none}
+.footer-logo span{color:var(--rose)}
+.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.7;font-weight:300;max-width:260px}
+.social-icons{display:flex;gap:12px;margin-top:1.5rem}
+.social-icons a{color:rgba(255,255,255,0.3);transition:color 0.2s}
+.social-icons a:hover{color:var(--gold)}
+.social-icons svg{width:18px;height:18px;fill:currentColor;display:block}
+.footer-col-title{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;font-weight:500}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.65rem}
+.footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;font-weight:300}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.22)}
+.footer-legal{display:flex;gap:1.5rem;align-items:center}
+.footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.22);text-decoration:none;transition:color 0.2s}
+.footer-legal a:hover{color:var(--gold)}
+.secure-badge{display:flex;align-items:center;gap:5px;color:var(--gold);font-size:0.78rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.07)}
+.secure-badge svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* MODAL */
+.modal-backdrop{display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:2rem;background:rgba(26,22,16,0)}
+.modal-backdrop.open{display:flex;background:rgba(26,22,16,0.8)}
+.modal{background:var(--bg);border-radius:14px;max-width:700px;width:100%;max-height:86vh;overflow-y:auto;border:0.5px solid var(--line);position:relative;animation:modalIn 0.28s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modal-header{display:grid;grid-template-columns:130px 1fr;gap:1.75rem;padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--line);align-items:start}
+.modal-photo-wrap{width:130px;height:130px;border-radius:10px;overflow:hidden;flex-shrink:0;border:1px solid rgba(200,168,75,0.15)}
+.modal-photo-wrap svg{width:100%;height:100%;display:block}
+.modal-eyebrow{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.5rem}
+.modal-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:0.35rem}
+.modal-role{font-size:0.8rem;font-weight:300;color:var(--ink-light);margin-bottom:1rem;line-height:1.5}
+.modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.modal-tag{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(200,168,75,0.08);color:var(--gold-dark);border:1px solid rgba(200,168,75,0.22);padding:0.28rem 0.65rem;border-radius:4px}
+.modal-body{padding:1.75rem 2rem}
+.modal-body p{font-size:0.84rem;font-weight:300;color:var(--ink-light);line-height:1.9;margin-bottom:1rem}
+.modal-section-title{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dark);margin:1.5rem 0 0.75rem;display:flex;align-items:center;gap:0.5rem}
+.modal-section-title::before{content:'';width:20px;height:1px;background:var(--gold)}
+.expertise-list{display:flex;flex-direction:column;gap:0.75rem}
+.exp-item{font-size:0.81rem;font-weight:300;color:var(--ink-light);line-height:1.7;padding-left:1.1rem;border-left:2px solid rgba(200,168,75,0.2)}
+.exp-item strong{color:var(--ink);font-weight:500;display:block;font-size:0.79rem;margin-bottom:0.15rem}
+.modal-close{position:absolute;top:1.1rem;right:1.1rem;width:34px;height:34px;border-radius:50%;background:transparent;border:0.5px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-light);transition:all 0.2s;font-family:inherit;font-size:1rem}
+.modal-close:hover{background:rgba(42,37,32,0.06);color:var(--ink)}
+.modal-footer{padding:1.25rem 2rem 1.75rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.modal-footer-note{font-size:0.72rem;color:var(--ink-faint);font-weight:300}
+.book-btn{display:inline-flex;align-items:center;gap:0.55rem;background:var(--bg-dark);color:#fff;padding:0.75rem 1.8rem;font-size:0.78rem;font-weight:500;letter-spacing:0.05em;border-radius:7px;border:none;cursor:pointer;transition:all 0.22s;text-decoration:none}
+.book-btn:hover{opacity:0.85;transform:translateY(-1px)}
+.book-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade.d1{transition-delay:0.1s}.fade.d2{transition-delay:0.2s}.fade.d3{transition-delay:0.28s}
+.fade.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left{min-height:88vh;padding:4rem 1.5rem}
+  .doubt,.testimonial,.cta,.astrologers,.aspects{padding:4rem 1.5rem}
+  .asp-item{grid-template-columns:44px 1fr}.asp-desc{display:none}
+  .credentials{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .cred-item{padding:1.75rem 0;border-right:none;border-bottom:1px solid var(--line)}
+  .cred-item:last-child{border-bottom:none}
+  .cards-grid{grid-template-columns:1fr}
+  footer{padding:3rem 1.5rem 1.5rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  🇮🇳 &nbsp; Serving couples across <b>38 cities</b> — Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+</div>
+
+<nav>
+  <a href="mytruematch-landing.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
+  <ul class="nav-links">
+    <li><a href="compatibility.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg><span>Compatibility</span></a></li>
+    <li><a href="verification.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Verification</span></a></li>
+    <li><a href="horoscope.html" class="active"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><span>Horoscope</span></a></li>
+    <li><a href="pricing.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg><span>Pricing</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="blog.html" class="btn-ghost" style="border:none;padding:0 1rem"><span>Blog</span></a>
+    <a href="auth.html" class="btn-ghost">
+      <svg class="nav-icon" style="width:13px;height:13px" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+      <span>Sign in</span>
+    </a>
+    <a href="begin.html" class="btn-solid">
+      <svg class="nav-icon" style="width:13px;height:13px" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      <span>Begin</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-watermark">III</div>
+    <div class="hero-eyebrow">The Third Lens</div>
+    <h1>Read the stars.<br><em>Find your path.</em></h1>
+    <p class="hero-tagline">A senior Jyotish reading — both charts, all six aspects, written in full. Your Kundali, treated with the depth and care it deserves.</p>
+    <div class="hero-actions">
+      <a href="begin.html" class="btn-cta-gold">
+        <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        Book a Reading — ₹5,999
+      </a>
+      <a href="#astrologers" class="btn-outline-light">Meet our astrologers</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5–7 day delivery</span>
+      <span class="trust-dot"></span>
+      <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>12–16 page report</span>
+      <span class="trust-dot"></span>
+      <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.07A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"/></svg>Video consult</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Astrologer cards FIRST -->
+    <div class="hero-profiles">
+      <div class="profile-label">Your astrologers</div>
+
+      <!-- Kumar FIRST — Head of Panel -->
+      <div class="hpc" onclick="openModal('kumar')" role="button" tabindex="0" aria-label="View Astrologer Kumar's profile" style="border-color:rgba(200,168,75,0.5);background:rgba(255,255,255,0.85);">
+        <div class="hpc-avatar" style="background:rgba(200,168,75,0.22);border-color:rgba(180,130,20,0.5);">K</div>
+        <div class="hpc-info">
+          <div class="hpc-name">Astrologer Kumar</div>
+          <div class="hpc-role">Head of Panel · 30+ yrs · 1,000+ charts</div>
+          <div class="hpc-tags">
+            <span class="hpc-tag" style="background:rgba(200,168,75,0.28);border-color:rgba(180,130,20,0.5);">Head of Panel</span>
+            <span class="hpc-tag">Siddhar</span>
+            <span class="hpc-tag">Isha Foundation</span>
+          </div>
+        </div>
+        <svg class="hpc-arrow" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="hpc" onclick="openModal('lakshmi')" role="button" tabindex="0" aria-label="View Lakshmi Damodara's profile">
+        <div class="hpc-avatar">LD</div>
+        <div class="hpc-info">
+          <div class="hpc-name">Lakshmi Damodara</div>
+          <div class="hpc-role">Holistic Astrologer & Yoga Therapist</div>
+          <div class="hpc-tags"><span class="hpc-tag">Jyotish</span><span class="hpc-tag">Siddhar</span><span class="hpc-tag">Varma</span></div>
+        </div>
+        <svg class="hpc-arrow" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="hpc" onclick="openModal('ranjith')" role="button" tabindex="0" aria-label="View N.R. Ranjith Kumar's profile">
+        <div class="hpc-avatar">RK</div>
+        <div class="hpc-info">
+          <div class="hpc-name">N.R. Ranjith Kumar</div>
+          <div class="hpc-role">Founder, Om Velavan Jothidalayam · 400+ matches</div>
+          <div class="hpc-tags"><span class="hpc-tag">Vedic</span><span class="hpc-tag">Numerology</span><span class="hpc-tag">Vasthu</span></div>
+        </div>
+        <svg class="hpc-arrow" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+
+    <!-- Celestial / Kundali chart SVG graphic BELOW profiles -->
+    <div class="celestial-graphic" style="margin-top:1.5rem;margin-bottom:0">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- outer ring -->
+        <circle cx="180" cy="150" r="130" fill="none" stroke="rgba(200,168,75,0.2)" stroke-width="1"/>
+        <circle cx="180" cy="150" r="108" fill="none" stroke="rgba(200,168,75,0.12)" stroke-width="0.5"/>
+        <!-- zodiac wheel segments -->
+        <g stroke="rgba(160,110,0,0.18)" stroke-width="0.8">
+          <line x1="180" y1="20" x2="180" y2="280"/>
+          <line x1="50" y1="150" x2="310" y2="150"/>
+          <line x1="98" y1="38" x2="262" y2="262"/>
+          <line x1="262" y1="38" x2="98" y2="262"/>
+          <line x1="50" y1="83" x2="310" y2="217"/>
+          <line x1="310" y1="83" x2="50" y2="217"/>
+        </g>
+        <!-- South Indian chart style inner square -->
+        <rect x="110" y="80" width="140" height="140" fill="none" stroke="rgba(200,168,75,0.35)" stroke-width="1.2"/>
+        <line x1="110" y1="150" x2="250" y2="150" stroke="rgba(200,168,75,0.25)" stroke-width="0.8"/>
+        <line x1="180" y1="80" x2="180" y2="220" stroke="rgba(200,168,75,0.25)" stroke-width="0.8"/>
+        <!-- diagonal lines for corner houses -->
+        <line x1="110" y1="80" x2="180" y2="150" stroke="rgba(200,168,75,0.18)" stroke-width="0.6"/>
+        <line x1="250" y1="80" x2="180" y2="150" stroke="rgba(200,168,75,0.18)" stroke-width="0.6"/>
+        <line x1="110" y1="220" x2="180" y2="150" stroke="rgba(200,168,75,0.18)" stroke-width="0.6"/>
+        <line x1="250" y1="220" x2="180" y2="150" stroke="rgba(200,168,75,0.18)" stroke-width="0.6"/>
+        <!-- Planet symbols in houses -->
+        <text x="155" y="108" font-family="DM Serif Display,serif" font-size="11" fill="#8A6200" text-anchor="middle" opacity="0.7">♀</text>
+        <text x="220" y="125" font-family="DM Serif Display,serif" font-size="10" fill="#8A6200" text-anchor="middle" opacity="0.6">♃</text>
+        <text x="142" y="185" font-family="DM Serif Display,serif" font-size="11" fill="#8A6200" text-anchor="middle" opacity="0.7">☿</text>
+        <text x="215" y="198" font-family="DM Serif Display,serif" font-size="10" fill="#8A6200" text-anchor="middle" opacity="0.6">♂</text>
+        <text x="180" y="148" font-family="DM Serif Display,serif" font-size="13" fill="#C8A84B" text-anchor="middle" opacity="0.9">☉</text>
+        <text x="148" y="148" font-family="DM Serif Display,serif" font-size="11" fill="#8A6200" text-anchor="middle" opacity="0.65">☽</text>
+        <!-- zodiac symbols around ring -->
+        <g font-family="DM Serif Display,serif" font-size="10" fill="#9A7C2E" text-anchor="middle" opacity="0.55">
+          <text x="180" y="16">♈</text><text x="245" y="35">♉</text><text x="292" y="82">♊</text>
+          <text x="310" y="155">♋</text><text x="292" y="228">♌</text><text x="245" y="275">♍</text>
+          <text x="180" y="293">♎</text><text x="115" y="275">♏</text><text x="68" y="228">♐</text>
+          <text x="50" y="155">♑</text><text x="68" y="82">♒</text><text x="115" y="35">♓</text>
+        </g>
+        <!-- decorative dots -->
+        <g fill="rgba(200,168,75,0.45)">
+          <circle cx="180" cy="20" r="2.5"/><circle cx="180" cy="280" r="2.5"/>
+          <circle cx="50" cy="150" r="2.5"/><circle cx="310" cy="150" r="2.5"/>
+          <circle cx="98" cy="38" r="2"/><circle cx="262" cy="262" r="2"/>
+          <circle cx="262" cy="38" r="2"/><circle cx="98" cy="262" r="2"/>
+        </g>
+        <text x="180" y="316" font-family="DM Sans,sans-serif" font-size="7.5" fill="#9A8E7F" text-anchor="middle" letter-spacing="1.5">SOUTH INDIAN KUNDALI FORMAT</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- DOUBT -->
+<section class="doubt">
+  <div class="doubt-inner">
+    <div class="d-label fade">What families hear — and what they deserve</div>
+    <div class="doubt-list">
+      <div class="doubt-row">
+        <div class="doubt-glyph"><svg viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"/></svg></div>
+        <div class="doubt-text">She has <em>Mangal Dosha,</em> someone said.</div>
+      </div>
+      <div class="doubt-row">
+        <div class="doubt-glyph"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></div>
+        <div class="doubt-text">He has a <em>difficult Dasha</em> ahead, another said.</div>
+      </div>
+    </div>
+    <div class="doubt-close fade">
+      <p>Did they <strong>read it</strong> — or just <em>repeat it?</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- SIX ASPECTS -->
+<section class="aspects">
+  <div class="fade">
+    <p class="asp-eyebrow">What a real reading covers</p>
+    <h2 class="asp-title">Six aspects.<br>No <em>shortcuts.</em></h2>
+    <p class="asp-sub">A senior astrologer with fifteen years of practice, minimum — reading both charts with the depth this decision deserves.</p>
+  </div>
+  <div class="asp-list fade">
+    <div class="asp-item">
+      <div class="asp-numeral">I</div>
+      <div class="asp-name"><div class="asp-tag">First Aspect</div><h3>Ashtakoot Guna Milan</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"/></svg>
+        <p>The traditional thirty-six points. Varna. Vashya. Tara. Yoni. Graha Maitri. Gana. Bhakoot. Nadi. Each explained in writing — not whispered as a number.</p>
+      </div>
+    </div>
+    <div class="asp-item">
+      <div class="asp-numeral">II</div>
+      <div class="asp-name"><div class="asp-tag">Second Aspect</div><h3>Mangal Dosha</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+        <p>Present, absent, severe, or cancelled. A senior astrologer assesses each chart individually. No blanket verdicts. No unnecessary alarm.</p>
+      </div>
+    </div>
+    <div class="asp-item">
+      <div class="asp-numeral">III</div>
+      <div class="asp-name"><div class="asp-tag">Third Aspect</div><h3>Nadi Dosha</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>
+        <p>When present, one of the most considered concerns in traditional Jyotish. We discuss severity and the remedies experienced astrologers consider effective.</p>
+      </div>
+    </div>
+    <div class="asp-item">
+      <div class="asp-numeral">IV</div>
+      <div class="asp-name"><div class="asp-tag">Fourth Aspect</div><h3>Dasha Compatibility</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <p>The Mahadasha and Antardasha periods you will run together. A marriage that begins well can enter difficult years. You deserve to know in advance.</p>
+      </div>
+    </div>
+    <div class="asp-item">
+      <div class="asp-numeral">V</div>
+      <div class="asp-name"><div class="asp-tag">Fifth Aspect</div><h3>Navamsa Chart</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+        <p>The D9 chart — the chart of marriage in Vedic astrology. Analysed for both partners. What the birth chart alone cannot reveal.</p>
+      </div>
+    </div>
+    <div class="asp-item">
+      <div class="asp-numeral">VI</div>
+      <div class="asp-name"><div class="asp-tag">Sixth Aspect</div><h3>Remedies</h3></div>
+      <div class="asp-desc">
+        <svg class="asp-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <p>Where challenges are found, specific guidance. Puja recommendations. Gemstone suggestions with honest caveats. Never expensive. Never theatrical.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<div class="credentials fade">
+  <div class="cred-item">
+    <div class="cred-num">15<span>+ yrs</span></div>
+    <div class="cred-title">Minimum practice</div>
+    <div class="cred-desc">Every astrologer on our panel has at minimum fifteen years of active Jyotish practice.</div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-num">12–16</div>
+    <div class="cred-title">Page written report</div>
+    <div class="cred-desc">A document you can read, share with your family, and return to. Not a printout. Not a template.</div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-num">1</div>
+    <div class="cred-title">Video consult included</div>
+    <div class="cred-desc">An optional call with the astrologer who wrote your report. Your questions, answered in full.</div>
+  </div>
+</div>
+
+<!-- ASTROLOGERS -->
+<section class="astrologers" id="astrologers">
+  <div class="section-head fade">
+    <div class="sect-eyebrow">Your readers</div>
+    <h2 class="sect-title">Meet our <em>astrologers</em></h2>
+    <p class="sect-sub">Each reader brings decades of immersive study and lived practice. Your reading is matched to the astrologer best suited to your chart's depth and tradition.</p>
+  </div>
+
+  <div class="cards-grid">
+    <!-- Kumar Card — FIRST (Head of Panel) -->
+    <div class="ast-card fade" onclick="openModal('kumar')" role="button" tabindex="0" aria-label="View Astrologer Kumar's profile" style="order:0">
+      <div class="card-photo">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+          <defs>
+            <linearGradient id="bg-k" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2A2520"/><stop offset="100%" stop-color="#1A1610"/></linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#bg-k)"/>
+          <g fill="rgba(200,168,75,0.07)">
+            <circle cx="50" cy="50" r="1.5"/><circle cx="100" cy="50" r="1.5"/><circle cx="150" cy="50" r="1.5"/><circle cx="200" cy="50" r="1.5"/><circle cx="250" cy="50" r="1.5"/><circle cx="300" cy="50" r="1.5"/><circle cx="350" cy="50" r="1.5"/>
+            <circle cx="50" cy="100" r="1.5"/><circle cx="350" cy="100" r="1.5"/>
+            <circle cx="50" cy="150" r="1.5"/><circle cx="350" cy="150" r="1.5"/>
+            <circle cx="50" cy="200" r="1.5"/><circle cx="350" cy="200" r="1.5"/>
+            <circle cx="50" cy="250" r="1.5"/><circle cx="100" cy="250" r="1.5"/><circle cx="150" cy="250" r="1.5"/><circle cx="200" cy="250" r="1.5"/><circle cx="250" cy="250" r="1.5"/><circle cx="300" cy="250" r="1.5"/><circle cx="350" cy="250" r="1.5"/>
+          </g>
+          <circle cx="200" cy="130" r="110" fill="none" stroke="#C8A84B" stroke-width="0.4" opacity="0.15"/>
+          <circle cx="200" cy="130" r="80" fill="none" stroke="#C8A84B" stroke-width="0.5" opacity="0.2"/>
+          <circle cx="200" cy="130" r="52" fill="none" stroke="#C8A84B" stroke-width="0.8" opacity="0.28"/>
+          <circle cx="200" cy="130" r="28" fill="none" stroke="#C8A84B" stroke-width="1.2" opacity="0.35"/>
+          <g transform="translate(200,130)" stroke="#C8A84B" stroke-width="0.8" fill="none" opacity="0.3">
+            <line x1="0" y1="-80" x2="0" y2="80"/>
+            <line x1="-80" y1="0" x2="80" y2="0"/>
+            <line x1="-57" y1="-57" x2="57" y2="57"/>
+            <line x1="57" y1="-57" x2="-57" y2="57"/>
+          </g>
+          <circle cx="200" cy="130" r="10" fill="#C8A84B" opacity="0.5"/>
+          <circle cx="200" cy="130" r="6" fill="#EDD000" opacity="0.7"/>
+          <g fill="#C8A84B" opacity="0.4">
+            <text x="55" y="65" font-size="14">&#10022;</text><text x="330" y="58" font-size="10">&#10022;</text>
+            <text x="340" y="240" font-size="13">&#10022;</text><text x="50" y="235" font-size="9">&#10022;</text>
+          </g>
+          <g font-size="11" fill="#C8A84B" text-anchor="middle" opacity="0.45">
+            <text x="200" y="42">&#9737;</text><text x="270" y="60">&#9790;</text>
+            <text x="302" y="130">&#9794;</text><text x="278" y="198">&#9795;</text>
+            <text x="200" y="225">&#9792;</text><text x="122" y="198">&#9791;</text>
+            <text x="98" y="130">&#9796;</text>
+          </g>
+          <text x="200" y="272" font-family="DM Sans,sans-serif" font-size="9" fill="#C8A84B" text-anchor="middle" letter-spacing="2.5" opacity="0.5">ASTROLOGER KUMAR</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Tantra &#xB7; Siddhar &#xB7; Jnana Yoga &#xB7; Isha Foundation</div>
+        <div class="card-name">Astrologer Kumar</div>
+        <div class="card-sub">Head of Astrologers Panel &#xB7; Spiritual Guide</div>
+        <p class="card-excerpt">Kumar heads our panel with over 30 years of experience &#x2014; a major part spent in the company of Shri Jaggi Vasudev (Sadhguru) at the Isha Foundation.</p>
+        <button class="card-btn" onclick="event.stopPropagation();openModal('kumar')">
+          View Profile <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Lakshmi Card -->
+    <div class="ast-card fade d1" onclick="openModal('lakshmi')" role="button" tabindex="0" aria-label="View Lakshmi Damodara's profile">
+      <div class="card-photo">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+          <defs>
+            <linearGradient id="bg-l" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFDF5"/><stop offset="100%" stop-color="#FFF0C0"/></linearGradient>
+            <radialGradient id="glow-l" cx="50%" cy="40%"><stop offset="0%" stop-color="#F0E0A0" stop-opacity="0.5"/><stop offset="100%" stop-color="#F0E0A0" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#bg-l)"/>
+          <ellipse cx="200" cy="120" rx="100" ry="100" fill="url(#glow-l)"/>
+          <g transform="translate(200,115)" stroke="#C8A84B" stroke-width="1" fill="none" opacity="0.35">
+            <ellipse rx="18" ry="38"/>
+            <ellipse rx="18" ry="38" transform="rotate(30)"/>
+            <ellipse rx="18" ry="38" transform="rotate(60)"/>
+            <ellipse rx="18" ry="38" transform="rotate(90)"/>
+            <ellipse rx="18" ry="38" transform="rotate(120)"/>
+            <ellipse rx="18" ry="38" transform="rotate(150)"/>
+          </g>
+          <ellipse cx="200" cy="95" rx="28" ry="30" fill="#C8A84B" opacity="0.18" stroke="#C8A84B" stroke-width="1.5"/>
+          <path d="M172 130 Q200 170 228 130 L235 200 H165 Z" fill="#C8A84B" opacity="0.1" stroke="#C8A84B" stroke-width="1"/>
+          <circle cx="200" cy="85" r="3" fill="#C8A84B" opacity="0.6"/>
+          <g fill="#C8A84B" opacity="0.25">
+            <text x="60" y="60" font-size="14">&#10022;</text><text x="320" y="50" font-size="10">&#10022;</text>
+            <text x="340" y="230" font-size="12">&#10022;</text><text x="40" y="240" font-size="8">&#10022;</text>
+          </g>
+          <text x="200" y="270" font-family="DM Sans,sans-serif" font-size="9" fill="#9A8E7F" text-anchor="middle" letter-spacing="2">LAKSHMI DAMODARA</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Jyotish &#xB7; Yoga Therapy &#xB7; Varma &#xB7; Siddhar Traditions</div>
+        <div class="card-name">Lakshmi Damodara</div>
+        <div class="card-sub">Holistic Astrologer &amp; Wellness Practitioner</div>
+        <p class="card-excerpt">Rooted in the Siddhar traditions of India, Lakshmi&#x2019;s readings illuminate personality, relationships, and spiritual growth &#x2014; practical and deeply personalised.</p>
+        <button class="card-btn" onclick="event.stopPropagation();openModal('lakshmi')">
+          View Profile <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Ranjith Card -->
+    <div class="ast-card fade d2" onclick="openModal('ranjith')" role="button" tabindex="0" aria-label="View N.R. Ranjith Kumar's profile">
+      <div class="card-photo">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+          <defs>
+            <linearGradient id="bg-r" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#EEF4F8"/><stop offset="100%" stop-color="#D5E8F2"/></linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#bg-r)"/>
+          <g transform="translate(200,130)">
+            <rect x="-70" y="-70" width="140" height="140" fill="none" stroke="#7A9CB0" stroke-width="1.5" opacity="0.5"/>
+            <line x1="-70" y1="0" x2="70" y2="0" stroke="#7A9CB0" stroke-width="0.8" opacity="0.4"/>
+            <line x1="0" y1="-70" x2="0" y2="70" stroke="#7A9CB0" stroke-width="0.8" opacity="0.4"/>
+            <line x1="-70" y1="-70" x2="0" y2="0" stroke="#7A9CB0" stroke-width="0.6" opacity="0.3"/>
+            <line x1="70" y1="-70" x2="0" y2="0" stroke="#7A9CB0" stroke-width="0.6" opacity="0.3"/>
+            <line x1="-70" y1="70" x2="0" y2="0" stroke="#7A9CB0" stroke-width="0.6" opacity="0.3"/>
+            <line x1="70" y1="70" x2="0" y2="0" stroke="#7A9CB0" stroke-width="0.6" opacity="0.3"/>
+            <text x="-35" y="-30" font-size="12" fill="#4A6FA5" text-anchor="middle" opacity="0.65">&#9792;</text>
+            <text x="35" y="-30" font-size="12" fill="#4A6FA5" text-anchor="middle" opacity="0.65">&#9795;</text>
+            <text x="-35" y="42" font-size="12" fill="#4A6FA5" text-anchor="middle" opacity="0.65">&#9791;</text>
+            <text x="35" y="42" font-size="12" fill="#4A6FA5" text-anchor="middle" opacity="0.65">&#9794;</text>
+            <text x="0" y="6" font-size="14" fill="#4A6FA5" text-anchor="middle" opacity="0.8">&#9737;</text>
+          </g>
+          <circle cx="200" cy="130" r="90" fill="none" stroke="#7A9CB0" stroke-width="0.5" opacity="0.2"/>
+          <g fill="#7A9CB0" opacity="0.2">
+            <text x="55" y="55" font-size="12">&#10022;</text><text x="335" y="60" font-size="9">&#10022;</text>
+            <text x="50" y="245" font-size="10">&#10022;</text><text x="330" y="240" font-size="13">&#10022;</text>
+          </g>
+          <text x="200" y="270" font-family="DM Sans,sans-serif" font-size="9" fill="#9A9EB0" text-anchor="middle" letter-spacing="2">N.R. RANJITH KUMAR</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Vedic &#xB7; Numerology &#xB7; Vasthu &#xB7; Panja Pakshi</div>
+        <div class="card-name">N.R. Ranjith Kumar</div>
+        <div class="card-sub">Founder, Om Velavan Jothidalayam</div>
+        <p class="card-excerpt">With 14+ years and over 400 successful marriage matchings, Ranjith combines Vedic astrology with Panja Pakshi Sasthiram and specialist Vasthu expertise.</p>
+        <button class="card-btn" onclick="event.stopPropagation();openModal('ranjith')">
+          View Profile <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="test-inner fade">
+    <div class="test-label">Words from families our astrologers have served</div>
+    <blockquote class="test-quote">"We had three different readings from three different astrologers — two said it was fine, one said there was a serious Dosha. We were confused and anxious. The reading was the most thorough we had ever seen. He produced a written report, and explained clearly why the third astrologer had misread the chart. We finally had clarity."</blockquote>
+    <div class="test-mono">LA</div>
+    <div class="test-name">Lakshmi &amp; Arun's families</div>
+    <div class="test-city">Coimbatore · Summer 2025</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner fade">
+    <div class="cta-eye">When you're ready</div>
+    <h2>Book a Kundali<br><em>reading.</em></h2>
+    <p class="cta-sub">Report in 5–7 business days &nbsp;·&nbsp; Video consult included &nbsp;·&nbsp; ₹5,999</p>
+    <a href="begin.html" class="cta-btn">
+      Begin · share birth details
+      <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+    </a>
+    <p class="cta-meta">Private · Secure · India servers · DPDP Act 2023</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">MyTrue<span>Match</span></span>
+      <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.56 1.64.92a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2 3.77A4.5 4.5 0 0 1 .96 6v.06c0 2.19 1.56 4.02 3.62 4.43a4.52 4.52 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 0 15.54 12.78 12.78 0 0 0 6.92 17.5c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 22 1.89 9 9 0 0 1 23 3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#1A1610"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Our Lenses</div>
+      <ul class="footer-links">
+        <li><a href="compatibility.html">Compatibility</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="horoscope.html">Horoscope</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms and Conditions</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+    <div class="footer-legal">
+      <div class="secure-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Secure
+      </div>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" onclick="closeModalBackdrop(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div class="modal-header" id="modal-header"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <span class="modal-footer-note">Private · Secure · India servers</span>
+      <a href="begin.html" class="book-btn">
+        <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        Book a reading — ₹5,999
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const profiles = {
+  lakshmi: {
+    initials:'LD', eyebrow:'Holistic Practitioner & Astrologer',
+    name:'Lakshmi Damodara',
+    role:'Holistic Astrologer · Yoga Therapist · Varma Practitioner · 16 years prior IT career in New York',
+    tags:['Jyotish','Yoga Therapy','Varma','Pranayama','Siddhar Traditions','Wellness'],
+    paras:[
+      'Lakshmi Damodara is a holistic wellness practitioner, astrologer, yoga teacher, and varma therapist whose work is rooted in the ancient Siddhar traditions of India. With a deep interest in understanding human life through traditional wisdom systems, she specialises in astrological chart analysis, offering insights into personality, life patterns, emotional well-being, health tendencies, relationships, and spiritual growth.',
+      'Drawing from years of study and practice, Lakshmi approaches astrology not merely as prediction, but as a powerful tool for self-awareness, guidance, and transformation. Her readings are intuitive, practical, and deeply personalised — helping individuals navigate life with greater clarity and balance.',
+      'Before transitioning into the wellness field, she spent 16 years working as an IT engineer in New York, bringing a grounded and analytical perspective to her practice. This unique background allows her to bridge ancient wisdom and modern thinking.'
+    ], expertise:null
+  },
+  ranjith: {
+    initials:'RK', eyebrow:'Founder · Om Velavan Jothidalayam',
+    name:'N.R. Ranjith Kumar',
+    role:'Astrologer · Numerologist · Vasthu Specialist · 14+ years experience · 400+ marriages matched',
+    tags:['Vedic Astrology','Numerology','Vasthu','Panja Pakshi','Tarot','Marriage Matching','Prasannam'],
+    paras:[
+      'Mr. N.R. Ranjith Kumar is a dedicated astrologer and spiritual guide with more than 14 years of experience in astrological research and spiritual practices. By blending traditional wisdom with modern interpretative methods, he provides insightful guidance and practical remedies for individuals seeking clarity.',
+      'He has successfully guided and completed more than 400 marriage matches so far, offering accurate compatibility assessments along with appropriate spiritual and astrological remedies to support harmonious and successful relationships.'
+    ],
+    expertise:[
+      {title:'Traditional Astrology Sasthiram',desc:'Deep knowledge of classical Vedic astrology — horoscope analysis, planetary influences, doshas, yogas, and predictive techniques rooted in ancient astrological scriptures.'},
+      {title:'Alp Astrology',desc:'A specialised branch focused on understanding subtle planetary influences and their impact on personal growth, destiny, and spiritual evolution.'},
+      {title:'Tali Astrology',desc:'Guidance related to marriage compatibility, marital harmony, sacred union energies, and remedies for strengthening relationships and family life.'},
+      {title:'Marriage Matching',desc:'Comprehensive horoscope matching including emotional, spiritual, financial, and family compatibility between partners. Over 400 successful matches completed.'},
+      {title:'Panja Pakshi Sasthiram',desc:'An ancient Tamil spiritual science studying five mystical birds and their energetic cycles to determine favourable timings and success-oriented actions.'},
+      {title:'Master Diploma in Numerology',desc:'Advanced expertise in numerology for life path numbers, name corrections, personal vibrations, and their influence on destiny and success.'},
+      {title:'Prasannam & Tarot',desc:'Intuitive tarot readings and the divine question-and-answer Prasannam system providing accurate guidance based on the exact moment a question is asked.'},
+      {title:'Vasthu Specialist',desc:'Expert guidance in Vasthu Shastra to create harmony and positive energy in homes, offices, and business spaces for prosperity, peace, and success.'}
+    ]
+  },
+  kumar: {
+    initials:'K', eyebrow:'Head of Astrologers Panel',
+    name:'Astrologer Kumar',
+    role:'Head of Panel · 30+ years experience · Jnana Yoga Initiate · Varma Therapist · Isha Foundation · 1,000+ charts studied',
+    tags:['Head of Panel','Jnana Yoga','Tantra','Mantra','Siddhar','Varma Therapy','Isha Foundation','Numerology'],
+    paras:[
+      'Our highly experienced panel of astrologers is headed by Kumar, who brings over 30 years of experience — a major part of which was spent in the personal company of Shri Jaggi Vasudev (Sadhguru) at the Isha Foundation and Isha Yoga Center.',
+      'Having begun his professional journey as an engineer with BMW, where he worked for over a decade, Kumar eventually chose to step away from a life of material comfort in response to a profound inner spiritual calling.',
+      'For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his spiritual practice and dedicated nearly two decades to volunteering under the guidance of Sadhguru Jaggi Vasudev.',
+      'Driven by an intense longing for liberation, he explored multiple spiritual paths including Tantra, Mantra, and the Siddhar traditions. He remains deeply indebted to Chandramouli Ayya who introduced him to astrology, and Bhaskara Sivadasan Ayya, a living Siddhar who initiated him into the path of Jnana Yoga.',
+      'Today, he serves as a bridge between the physical and the celestial, integrating Varma Therapy, Yoga, and Spiritual Sadhana with the precision of Astrological and Numerological sciences. Over the years, he has studied and offered insights on more than a thousand astrological charts.'
+    ], expertise:null
+  }
+};
+
+function openModal(id) {
+  const p = profiles[id];
+  document.getElementById('modal-header').innerHTML = `
+    <div class="modal-photo-wrap">
+      <svg viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+        <rect width="130" height="130" fill="${id==='kumar'?'#1A1610':id==='ranjith'?'#EEF4F8':'#FFFDF5'}"/>
+        <circle cx="65" cy="50" r="26" fill="none" stroke="${id==='kumar'?'#C8A84B':id==='ranjith'?'#7A9CB0':'#C8A84B'}" stroke-width="1.5" opacity="0.5"/>
+        <text x="65" y="58" font-family="DM Serif Display,serif" font-size="22" font-style="italic" fill="${id==='kumar'?'#C8A84B':id==='ranjith'?'#4A6FA5':'#8A6200'}" text-anchor="middle" opacity="0.8">${p.initials}</text>
+        <text x="65" y="120" font-family="DM Sans,sans-serif" font-size="6.5" fill="${id==='kumar'?'rgba(200,168,75,0.5)':'#9A8E7F'}" text-anchor="middle" letter-spacing="1">${p.name.toUpperCase()}</text>
+      </svg>
+    </div>
+    <div>
+      <div class="modal-eyebrow">${p.eyebrow}</div>
+      <div class="modal-name">${p.name}</div>
+      <div class="modal-role">${p.role}</div>
+      <div class="modal-tags">${p.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div>
+    </div>`;
+
+  let html = p.paras.map(par=>`<p>${par}</p>`).join('');
+  if(p.expertise){
+    html += `<div class="modal-section-title">Areas of expertise</div><div class="expertise-list">`;
+    p.expertise.forEach(e=>{html+=`<div class="exp-item"><strong>${e.title}</strong>${e.desc}</div>`;});
+    html += `</div>`;
+  }
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal-box').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function closeModalBackdrop(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.querySelectorAll('.ast-card,.hpc').forEach(c=>c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}});},{threshold:0.07});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+const doubtObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.doubt-row').forEach((r,i)=>setTimeout(()=>r.classList.add('vis'),i*220));doubtObs.unobserve(x.target);}});},{threshold:0.2});
+const dl=document.querySelector('.doubt-list');if(dl)doubtObs.observe(dl);
+</script>
+</body>
+</html>

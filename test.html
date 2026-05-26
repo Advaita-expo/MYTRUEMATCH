@@ -1,0 +1,891 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Compatibility Test — MyTrueMatch</title>
+<meta name="description" content="Take our free 10-question compatibility test and get a personalised score with breakdown — in under 5 minutes.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg: #FDFAF0;
+ --gold: #C8A84B;
+ --gold-dark: #9A7C2E;
+ --rose: #E8828A;
+ --ink: #2A2520;
+ --ink-mid: #4A4238;
+ --ink-light: #7A6E5F;
+ --border: rgba(200,168,75,0.2);
+ --bg-dark: #2A2520;
+ --blue: #4A6FA5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
+
+/* NAV */
+.logo-blue { color: #4A6FA5; }
+.logo-gold { color: #C8A84B; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+nav {
+ position: sticky; top: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 4rem; height: 68px;
+ background: rgba(253,250,240,0.97); backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--border);
+}
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+ font-size: 0.8rem; font-weight: 400; letter-spacing: 0.04em;
+ color: var(--ink-light); text-decoration: none;
+ padding: 0 1.25rem; height: 68px;
+ display: flex; align-items: center; gap: 0.45rem;
+ border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+.nav-right { display: flex; gap: 0.75rem; align-items: center; }
+.nav-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon-btn { width: 14px; height: 14px; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--ink); }
+.btn-solid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--bg); text-decoration: none; padding: 0.5rem 1.25rem; background: var(--ink); border-radius: 6px; transition: all 0.2s; }
+.btn-solid:hover { background: var(--gold-dark); }
+
+/* ─── TEST LAYOUT ─── */
+.test-page { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; min-height: calc(100vh - 68px); }
+
+/* ─── INTRO ─── */
+.test-intro { text-align: center; margin-bottom: 3rem; }
+.test-intro-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
+.test-intro h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.85rem; line-height: 1.2; }
+.test-intro h1 em { font-style: italic; color: var(--rose); }
+.test-intro p { font-size: 0.9rem; color: var(--ink-light); line-height: 1.75; font-weight: 300; max-width: 520px; margin: 0 auto; }
+
+/* ─── TEST SELECT GRID ─── */
+.test-select-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.test-select-card {
+ background: #fff; border: 2px solid var(--border); border-radius: 18px;
+ padding: 2rem; cursor: pointer; transition: all 0.25s; position: relative;
+}
+.test-select-card:hover {
+ border-color: var(--gold); box-shadow: 0 8px 32px rgba(200,168,75,0.12);
+ transform: translateY(-3px);
+}
+.test-select-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.25rem; }
+.test-select-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+.test-select-badge {
+ font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+ background: var(--gold); color: #fff; padding: 0.2rem 0.7rem;
+ border-radius: 20px; font-weight: 600; align-self: flex-start;
+}
+.test-select-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+.test-select-desc { font-size: 0.78rem; color: var(--ink-light); line-height: 1.7; font-weight: 300; margin-bottom: 1.1rem; }
+.test-select-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; color: var(--ink-light); margin-bottom: 0.85rem; }
+.test-select-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+.tag {
+ font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+ background: rgba(200,168,75,0.1); color: var(--gold-dark);
+ padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 500;
+}
+.test-select-btn {
+ width: 100%; padding: 0.75rem; border-radius: 9px;
+ border: 1.5px solid var(--border); background: none;
+ font-size: 0.82rem; font-weight: 600; color: var(--ink-mid);
+ cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+}
+.test-select-btn.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+.test-select-btn:hover { border-color: var(--gold); color: var(--ink); background: rgba(200,168,75,0.05); }
+.test-select-btn.primary:hover { background: #1a1512; border-color: #1a1512; color: #fff; }
+.test-intro-note {
+ display: flex; align-items: flex-start; gap: 0.6rem;
+ font-size: 0.72rem; color: var(--ink-light); line-height: 1.7; font-weight: 300;
+ background: rgba(200,168,75,0.06); border: 1px solid var(--border);
+ border-radius: 10px; padding: 1rem 1.25rem; margin-top: 0.5rem;
+}
+.test-intro-note svg { flex-shrink: 0; margin-top: 0.15rem; stroke: var(--ink-light); }
+
+/* ─── PROGRESS ─── */
+.test-progress-wrap { margin-bottom: 2.5rem; }
+.test-progress-info { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--ink-light); margin-bottom: 0.6rem; }
+.test-progress-track { height: 5px; background: rgba(200,168,75,0.15); border-radius: 3px; overflow: hidden; }
+.test-progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--rose)); border-radius: 3px; transition: width 0.5s ease; }
+
+/* ─── QUESTION CARD ─── */
+.question-section { display: none; animation: fadeUp 0.4s ease; }
+.question-section.active { display: block; }
+@keyframes fadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+.question-category {
+ font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+ color: var(--gold); font-weight: 500; margin-bottom: 0.6rem;
+}
+.question-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 0.65rem; }
+.question-sub { font-size: 0.82rem; color: var(--ink-light); line-height: 1.65; font-weight: 300; margin-bottom: 2rem; }
+
+/* ─── OPTIONS ─── */
+.options-list { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; }
+.option-btn {
+ width: 100%; text-align: left;
+ padding: 1rem 1.35rem; border-radius: 12px;
+ border: 2px solid var(--border); background: #fff;
+ cursor: pointer; font-family: 'DM Sans', sans-serif;
+ font-size: 0.88rem; color: var(--ink); transition: all 0.2s;
+ display: flex; align-items: center; gap: 1rem;
+}
+.option-btn:hover { border-color: var(--gold); background: rgba(200,168,75,0.04); }
+.option-btn.selected { border-color: var(--ink); background: var(--ink); color: #fff; }
+.option-letter {
+ width: 28px; height: 28px; border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 0.72rem; font-weight: 600; flex-shrink: 0;
+ border: 1.5px solid rgba(200,168,75,0.3); color: var(--ink-light);
+ transition: all 0.2s;
+}
+.option-btn.selected .option-letter { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+.option-text { flex: 1; line-height: 1.5; }
+
+/* ─── NAV BUTTONS ─── */
+.test-nav { display: flex; justify-content: space-between; align-items: center; }
+.btn-back { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 1.5rem; font-size: 0.82rem; font-weight: 500; color: var(--ink-mid); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.btn-back:hover { border-color: var(--ink); }
+.btn-next { background: var(--ink); color: #fff; border: none; border-radius: 8px; padding: 0.75rem 1.75rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+.btn-next:hover { background: #1a1512; }
+.btn-next:disabled { background: rgba(42,37,32,0.3); cursor: not-allowed; }
+
+/* ─── RESULTS ─── */
+#results { display: none; }
+.results-wrap { animation: fadeUp 0.5s ease; }
+.score-ring-wrap { text-align: center; margin-bottom: 3rem; }
+.score-ring-svg { width: 180px; height: 180px; }
+.score-ring-bg { fill: none; stroke: rgba(200,168,75,0.15); stroke-width: 12; }
+.score-ring-fill { fill: none; stroke: var(--gold); stroke-width: 12; stroke-linecap: round; stroke-dasharray: 440; stroke-dashoffset: 440; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 1.5s ease; }
+.score-ring-fill.bad { stroke: var(--rose); }
+.score-ring-fill.good { stroke: #48BB78; }
+.score-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+.score-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--ink); font-weight: 400; display: block; }
+.score-lbl { font-size: 0.72rem; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.12em; }
+.score-ring-container { position: relative; display: inline-block; }
+.score-headline { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; color: var(--ink); margin-bottom: 0.75rem; }
+.score-desc { font-size: 0.9rem; color: var(--ink-light); line-height: 1.75; font-weight: 300; max-width: 560px; margin: 0 auto; }
+
+.breakdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2.5rem 0; }
+.breakdown-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.breakdown-cat { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); font-weight: 500; margin-bottom: 0.35rem; }
+.breakdown-score { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 0.5rem; }
+.breakdown-bar { height: 5px; background: rgba(200,168,75,0.12); border-radius: 3px; overflow: hidden; }
+.breakdown-fill { height: 100%; border-radius: 3px; }
+.breakdown-note { font-size: 0.72rem; color: var(--ink-light); margin-top: 0.5rem; font-weight: 300; line-height: 1.6; }
+
+.result-cta { text-align: center; padding: 2.5rem; background: linear-gradient(135deg, #FFF9C4 0%, #FBF0C0 100%); border-radius: 16px; border: 1px solid var(--border); margin-top: 2rem; }
+.result-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.75rem; }
+.result-cta p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.7; font-weight: 300; margin-bottom: 1.75rem; max-width: 460px; margin-left: auto; margin-right: auto; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cta-primary { background: var(--ink); color: #fff; text-decoration: none; padding: 0.85rem 2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+.cta-primary:hover { background: var(--gold-dark); }
+.cta-secondary { border: 1px solid var(--border); color: var(--ink-mid); text-decoration: none; padding: 0.85rem 2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; transition: border-color 0.2s; }
+.cta-secondary:hover { border-color: var(--gold); }
+
+/* ─── DISCLAIMER ─── */
+.test-disclaimer { font-size: 0.72rem; color: var(--ink-light); text-align: center; margin-top: 2rem; font-weight: 300; line-height: 1.7; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--bg-dark); padding: 2rem 4rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-decoration: none; }
+.footer-legal a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+ nav { padding: 0 1.5rem; } .nav-links { display: none; }
+ .test-page { padding: 2.5rem 1.5rem; }
+ .test-select-grid { grid-template-columns: 1fr; }
+ .breakdown-grid { grid-template-columns: 1fr; }
+ footer { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo">
+ <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
+ </a>
+ <ul class="nav-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ </ul>
+ <div class="nav-right">
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ Sign in
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ Begin
+ </a>
+ </div>
+</nav>
+
+<div class="test-page">
+
+ <!-- INTRO -->
+ <div id="intro-section">
+ <div class="test-intro">
+ <p class="test-intro-eyebrow">Free · No sign-in required · Results private</p>
+ <h1>Choose your<br><em>assessment</em></h1>
+ <p>Four focused assessments, each designed around a specific dimension of compatibility. Pick the one that matters most to you right now — or work through all four.</p>
+ </div>
+
+ <!-- TEST SELECTION GRID -->
+ <div class="test-select-grid">
+
+ <div class="test-select-card" onclick="startTestById('complete')">
+ <div class="test-select-top">
+ <div class="test-select-icon" style="background:linear-gradient(135deg,#FFF9C4,#FBF0C0)"></div>
+ <div class="test-select-badge">Most Popular</div>
+ </div>
+ <h3 class="test-select-name">Complete Compatibility</h3>
+ <p class="test-select-desc">A full-spectrum assessment across all six compatibility dimensions — values, communication, family, finances, lifestyle, and long-term vision.</p>
+ <div class="test-select-meta">
+ <span>10 questions</span>
+ <span>·</span>
+ <span>~5 min</span>
+ <span>·</span>
+ <span>6 dimensions</span>
+ </div>
+ <div class="test-select-tags">
+ <span class="tag">Values</span>
+ <span class="tag">Communication</span>
+ <span class="tag">Family</span>
+ <span class="tag">+3 more</span>
+ </div>
+ <button class="test-select-btn primary">Take this test →</button>
+ </div>
+
+ <div class="test-select-card" onclick="startTestById('communication')">
+ <div class="test-select-top">
+ <div class="test-select-icon" style="background:linear-gradient(135deg,#E8F0FF,#D0E0FF)"></div>
+ </div>
+ <h3 class="test-select-name">Communication & Conflict</h3>
+ <p class="test-select-desc">How do you express yourself, handle disagreement, and show care? Misalignment here is the silent cause of most relationship friction.</p>
+ <div class="test-select-meta">
+ <span>5 questions</span>
+ <span>·</span>
+ <span>~3 min</span>
+ <span>·</span>
+ <span>2 dimensions</span>
+ </div>
+ <div class="test-select-tags">
+ <span class="tag">Communication</span>
+ <span class="tag">Conflict Style</span>
+ <span class="tag">Love Language</span>
+ </div>
+ <button class="test-select-btn">Take this test →</button>
+ </div>
+
+ <div class="test-select-card" onclick="startTestById('family')">
+ <div class="test-select-top">
+ <div class="test-select-icon" style="background:linear-gradient(135deg,#FFF0F5,#FFE0E8)"></div>
+ </div>
+ <h3 class="test-select-name">Family & Values</h3>
+ <p class="test-select-desc">Living arrangements, in-law relationships, religious practice, and core life values. The questions Indian families most need to ask — and most often avoid.</p>
+ <div class="test-select-meta">
+ <span>5 questions</span>
+ <span>·</span>
+ <span>~3 min</span>
+ <span>·</span>
+ <span>2 dimensions</span>
+ </div>
+ <div class="test-select-tags">
+ <span class="tag">Family</span>
+ <span class="tag">In-Laws</span>
+ <span class="tag">Values</span>
+ </div>
+ <button class="test-select-btn">Take this test →</button>
+ </div>
+
+ <div class="test-select-card" onclick="startTestById('finances')">
+ <div class="test-select-top">
+ <div class="test-select-icon" style="background:linear-gradient(135deg,#F0FFF4,#D0F0DC)"></div>
+ </div>
+ <h3 class="test-select-name">Financial & Life Goals</h3>
+ <p class="test-select-desc">Spending, saving, ambition, and long-term vision. Financial misalignment is the #1 reported cause of stress in Indian marriages in the first five years.</p>
+ <div class="test-select-meta">
+ <span>5 questions</span>
+ <span>·</span>
+ <span>~3 min</span>
+ <span>·</span>
+ <span>2 dimensions</span>
+ </div>
+ <div class="test-select-tags">
+ <span class="tag">Finances</span>
+ <span class="tag">Lifestyle</span>
+ <span class="tag">Vision</span>
+ </div>
+ <button class="test-select-btn">Take this test →</button>
+ </div>
+
+ </div><!-- /test-select-grid -->
+
+ <div class="test-intro-note">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+ These tests are self-reflection tools, not clinical assessments. Results are calculated locally and never stored or shared.
+ A full <a href="compatibility.html" style="color:var(--gold-dark)">Compatibility Assessment</a> by a specialist provides a far deeper picture.
+ </div>
+ </div>
+
+ <!-- QUESTIONS -->
+ <div id="test-section" style="display:none">
+ <div class="test-progress-wrap">
+ <div class="test-progress-info">
+ <span id="q-indicator">Question 1 of 10</span>
+ <span id="q-category-mini"></span>
+ </div>
+ <div class="test-progress-track">
+ <div class="test-progress-fill" id="progress-fill" style="width:10%"></div>
+ </div>
+ </div>
+ </div>
+
+ <!-- RESULTS -->
+ <div id="results">
+ <div class="results-wrap">
+ <div class="score-ring-wrap">
+ <div class="score-ring-container">
+ <svg class="score-ring-svg" viewBox="0 0 150 150">
+ <circle class="score-ring-bg" cx="75" cy="75" r="60"/>
+ <circle class="score-ring-fill" id="score-ring" cx="75" cy="75" r="60"/>
+ </svg>
+ <div class="score-center">
+ <span class="score-num" id="score-display">—</span>
+ <span class="score-lbl">/ 100</span>
+ </div>
+ </div>
+ <h2 class="score-headline" id="score-headline" style="margin-top:1.5rem"></h2>
+ <p class="score-desc" id="score-desc"></p>
+ </div>
+
+ <div class="breakdown-grid" id="breakdown-grid"></div>
+
+ <div class="result-cta">
+ <h3>Want a deeper picture?</h3>
+ <p>This test gives you a directional signal. A full MyTrueMatch compatibility report includes a 15+ page specialist-written assessment — with personalised guidance, a consultation call, and a framework for the conversations that actually matter.</p>
+ <div class="cta-btns">
+ <a href="begin.html" class="cta-primary">Begin Full Assessment →</a>
+ <a href="compatibility.html" class="cta-secondary">Learn about Compatibility</a>
+ </div>
+ </div>
+
+ <p class="test-disclaimer">This test is indicative and for self-reflection only. It does not replace a professional compatibility assessment. Results are not stored or shared.</p>
+
+ <div style="text-align:center; margin-top:2rem">
+ <button onclick="restartTest()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:0.65rem 1.5rem;font-size:0.8rem;color:var(--ink-light);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Retake test ↺</button>
+ </div>
+ </div>
+ </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ <a href="contact.html">Contact</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const allQuestions = [
+ {
+ id: 1, category: 'Core Values',
+ text: 'When it comes to major life decisions, how do you typically approach them?',
+ sub: 'Think about choices like career changes, moving cities, or large purchases.',
+ options: [
+ { text: 'I decide independently and inform my family afterwards', score: 2 },
+ { text: 'I consult my parents and take their blessing seriously', score: 3 },
+ { text: 'I involve my partner and family together in every major decision', score: 4 },
+ { text: 'I rely primarily on my partner\'s input; family is secondary', score: 2 }
+ ],
+ dimension: 'values'
+ },
+ {
+ id: 2, category: 'Communication Style',
+ text: 'When there is a disagreement, how do you prefer to handle it?',
+ sub: 'There is no right answer — this is about how you naturally respond.',
+ options: [
+ { text: 'I need space first, then I\'m ready to talk it through calmly', score: 4 },
+ { text: 'I want to resolve it immediately — I can\'t sleep on an argument', score: 3 },
+ { text: 'I tend to withdraw and hope things settle on their own', score: 1 },
+ { text: 'I express how I feel directly and expect the same from my partner', score: 4 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 3, category: 'Family Expectations',
+ text: 'What is your expectation about living arrangements after marriage?',
+ sub: 'Be honest — this is one of the most common sources of friction in new marriages.',
+ options: [
+ { text: 'We should live with my parents — it\'s my responsibility', score: 2 },
+ { text: 'We should live independently — our own space is important', score: 2 },
+ { text: 'We should live close to family but independently', score: 4 },
+ { text: 'I\'m flexible — it depends on what works for both of us', score: 3 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 4, category: 'Financial Behaviour',
+ text: 'If you both receive a significant windfall — say ₹10 lakhs — what would you want to do?',
+ sub: 'Your first instinct here reveals a lot about your financial temperament.',
+ options: [
+ { text: 'Invest most of it in a safe long-term instrument', score: 4 },
+ { text: 'Split it — some saved, some spent on an experience together', score: 4 },
+ { text: 'Put it towards a property or real estate goal', score: 3 },
+ { text: 'Spend it on something meaningful we\'ve always wanted', score: 2 }
+ ],
+ dimension: 'finances'
+ },
+ {
+ id: 5, category: 'Lifestyle Alignment',
+ text: 'How important is a shared social life to you?',
+ sub: 'Think about weekends, friendships, and how much time you like to spend together vs. separately.',
+ options: [
+ { text: 'Very important — I want us to have a strong shared social circle', score: 3 },
+ { text: 'Important, but I also need my own independent friendships and space', score: 4 },
+ { text: 'Not very important — I\'m naturally introverted and prefer quiet time', score: 2 },
+ { text: 'I want my partner to be my primary social world', score: 2 }
+ ],
+ dimension: 'lifestyle'
+ },
+ {
+ id: 6, category: 'Long-term Vision',
+ text: 'Where do you see yourselves in 10 years?',
+ sub: 'This reveals alignment on ambition, family planning, and life goals.',
+ options: [
+ { text: 'Settled in India, close to both our families, with children', score: 3 },
+ { text: 'Possibly abroad, building careers and growing independently', score: 2 },
+ { text: 'Wherever life takes us — I value adaptability over fixed plans', score: 3 },
+ { text: 'In a stable home with clear financial security, wherever that is', score: 4 }
+ ],
+ dimension: 'vision'
+ },
+ {
+ id: 7, category: 'Core Values',
+ text: 'How do you feel about religion and religious practice in your home?',
+ sub: 'This includes daily rituals, festivals, pujas, and the role of faith in family life.',
+ options: [
+ { text: 'It is central to my life and I want it to be central to our home', score: 3 },
+ { text: 'I respect it and will participate, but I don\'t actively practice', score: 3 },
+ { text: 'I\'d prefer a secular household focused on values, not rituals', score: 2 },
+ { text: 'I\'m flexible — I\'ll align with whatever my partner and family prefer', score: 2 }
+ ],
+ dimension: 'values'
+ },
+ {
+ id: 8, category: 'Communication Style',
+ text: 'How do you prefer to receive appreciation from your partner?',
+ sub: 'Based on Gary Chapman\'s Love Languages — how do you feel most cared for?',
+ options: [
+ { text: 'Words — hearing that I am loved and appreciated out loud', score: 4 },
+ { text: 'Acts of service — when they do things to make my life easier', score: 4 },
+ { text: 'Quality time — undivided attention and being fully present', score: 4 },
+ { text: 'Physical touch and proximity — closeness and physical affection', score: 4 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 9, category: 'Family Expectations',
+ text: 'How do you feel about the role of in-laws in your marriage?',
+ sub: 'Be honest — this question carries a lot of unsaid expectations in Indian families.',
+ options: [
+ { text: 'They should be respected but not involved in our day-to-day decisions', score: 3 },
+ { text: 'They are an important part of our life and I welcome their involvement', score: 3 },
+ { text: 'Boundaries are essential — our relationship comes first', score: 4 },
+ { text: 'I expect my partner to fully integrate into my family\'s culture', score: 2 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 10, category: 'Long-term Vision',
+ text: 'What does a successful marriage look like to you?',
+ sub: 'The final question — and perhaps the most important one.',
+ options: [
+ { text: 'Two people who grow individually while growing stronger together', score: 4 },
+ { text: 'A stable, peaceful home where both partners feel secure', score: 4 },
+ { text: 'Deep friendship, laughter, and the ability to weather anything', score: 4 },
+ { text: 'Fulfilling our responsibilities to family, children, and community', score: 3 }
+ ],
+ dimension: 'vision'
+ }
+];
+
+let currentQ = 0;
+let answers = [];
+let questions = [];
+let activeTestLabel = '';
+
+const communicationQuestions = [
+ {
+ id: 1, category: 'Communication Style',
+ text: 'When there is a disagreement, how do you prefer to handle it?',
+ sub: 'There is no right answer — this is about how you naturally respond.',
+ options: [
+ { text: 'I need space first, then I\'m ready to talk it through calmly', score: 4 },
+ { text: 'I want to resolve it immediately — I can\'t sleep on an argument', score: 3 },
+ { text: 'I tend to withdraw and hope things settle on their own', score: 1 },
+ { text: 'I express how I feel directly and expect the same from my partner', score: 4 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 2, category: 'Conflict Recovery',
+ text: 'After a significant argument, how long does it typically take you to fully move on?',
+ sub: 'Emotional recovery patterns affect the rhythm of a relationship deeply.',
+ options: [
+ { text: 'A few hours — I move on quickly once it\'s resolved', score: 4 },
+ { text: 'A day or two — I need time to process and feel better', score: 3 },
+ { text: 'A week or more — disagreements affect me for a long time', score: 1 },
+ { text: 'Almost immediately — I don\'t hold on to things', score: 4 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 3, category: 'Expression Style',
+ text: 'How do you prefer to express appreciation to your partner?',
+ sub: 'Think about what comes naturally to you, not what you think is expected.',
+ options: [
+ { text: 'Saying it out loud — words of affirmation feel natural to me', score: 4 },
+ { text: 'Doing things — acts of service feel more genuine than words', score: 4 },
+ { text: 'Quality time and attention — being fully present says everything', score: 4 },
+ { text: 'Small thoughtful gestures and gifts over grand declarations', score: 3 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 4, category: 'Difficult Conversations',
+ text: 'When something is bothering you, what do you usually do?',
+ sub: 'How you initiate hard conversations shapes how problems get resolved.',
+ options: [
+ { text: 'Bring it up directly — I believe in honest, timely communication', score: 4 },
+ { text: 'Wait for the right moment, then bring it up gently', score: 4 },
+ { text: 'Write it down or send a message — I communicate better in writing', score: 3 },
+ { text: 'Often stay quiet to avoid creating conflict', score: 1 }
+ ],
+ dimension: 'communication'
+ },
+ {
+ id: 5, category: 'Listening Habits',
+ text: 'When your partner is upset, what is your first instinct?',
+ sub: 'This reveals whether you default to solving problems or providing presence.',
+ options: [
+ { text: 'Listen fully without immediately trying to fix anything', score: 4 },
+ { text: 'Offer practical solutions — I want to help them solve it', score: 3 },
+ { text: 'Reassure them and remind them of what\'s going well', score: 3 },
+ { text: 'Give them space until they are ready to talk', score: 3 }
+ ],
+ dimension: 'communication'
+ }
+];
+
+const familyQuestions = [
+ {
+ id: 1, category: 'Living Arrangements',
+ text: 'What are your expectations about where you will live after marriage?',
+ sub: 'This is one of the most common sources of early marital tension in India.',
+ options: [
+ { text: 'I expect us to live independently as a nuclear family', score: 4 },
+ { text: 'I am open to living with parents if circumstances require it', score: 3 },
+ { text: 'I want to live with my parents — it is the natural arrangement', score: 2 },
+ { text: 'I am flexible; my partner\'s preference matters more than mine', score: 3 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 2, category: 'In-Law Boundaries',
+ text: 'How do you feel about in-laws\' involvement in major household decisions?',
+ sub: 'Be honest — this question carries a lot of unsaid expectations in Indian families.',
+ options: [
+ { text: 'They should be respected but not involved in our day-to-day decisions', score: 4 },
+ { text: 'I welcome their guidance — they have more experience', score: 2 },
+ { text: 'Involvement is fine for major decisions but not routine ones', score: 3 },
+ { text: 'Boundaries are essential — our relationship comes first', score: 4 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 3, category: 'Religious Practice',
+ text: 'How important is religious or spiritual practice in your daily life?',
+ sub: 'Faith and practice shape household rhythm, festivals, and child-rearing decisions.',
+ options: [
+ { text: 'It is central — I want religious practice to be part of our home', score: 3 },
+ { text: 'I respect it and participate, but I don\'t actively practice', score: 3 },
+ { text: 'I prefer a secular household focused on values, not rituals', score: 2 },
+ { text: 'I\'m flexible — I\'ll align with whatever my partner prefers', score: 2 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 4, category: 'Children & Parenting',
+ text: 'How do you envision your approach to raising children?',
+ sub: 'Parenting philosophy is rarely discussed before marriage — and can cause deep friction after.',
+ options: [
+ { text: 'Balanced — encouraging independence while maintaining strong family values', score: 4 },
+ { text: 'Traditional — respecting elders, structured, with clear responsibilities', score: 3 },
+ { text: 'Progressive — prioritising emotional intelligence and self-expression', score: 3 },
+ { text: 'I haven\'t thought deeply about this yet', score: 1 }
+ ],
+ dimension: 'family'
+ },
+ {
+ id: 5, category: 'Core Values',
+ text: 'When it comes to major life decisions, how do you typically approach them?',
+ sub: 'Think about choices like career changes, moving cities, or large purchases.',
+ options: [
+ { text: 'I consult my partner first — our joint decision matters most', score: 4 },
+ { text: 'I involve both families — it\'s a shared journey', score: 3 },
+ { text: 'I decide independently and inform others afterwards', score: 2 },
+ { text: 'My parents\' blessing is the most important input I seek', score: 2 }
+ ],
+ dimension: 'values'
+ }
+];
+
+const financesQuestions = [
+ {
+ id: 1, category: 'Financial Temperament',
+ text: 'If you both receive a significant windfall — say ₹10 lakhs — what would you want to do?',
+ sub: 'Your first instinct here reveals a lot about your financial temperament.',
+ options: [
+ { text: 'Invest most of it in a safe long-term instrument', score: 4 },
+ { text: 'Split it — some saved, some spent on an experience together', score: 4 },
+ { text: 'Put it towards a property or real estate goal', score: 3 },
+ { text: 'Spend it on something meaningful we\'ve always wanted', score: 2 }
+ ],
+ dimension: 'finances'
+ },
+ {
+ id: 2, category: 'Spending Habits',
+ text: 'How would you describe your day-to-day relationship with money?',
+ sub: 'This reflects how you actually behave, not what you think is financially responsible.',
+ options: [
+ { text: 'I budget carefully and rarely make unplanned purchases', score: 4 },
+ { text: 'I save consistently but allow myself occasional splurges', score: 4 },
+ { text: 'I\'m fairly spontaneous — I spend when I feel like it', score: 2 },
+ { text: 'I earn well and spend freely; I don\'t track money closely', score: 1 }
+ ],
+ dimension: 'finances'
+ },
+ {
+ id: 3, category: 'Joint Finances',
+ text: 'How do you think married couples should handle their money?',
+ sub: 'There is no objectively right answer — but misalignment here causes serious stress.',
+ options: [
+ { text: 'Fully joint — all income and expenses go through a single account', score: 3 },
+ { text: 'Partially joint — shared for household, separate personal accounts', score: 4 },
+ { text: 'Fully separate — each manages their own finances independently', score: 2 },
+ { text: 'It depends on income levels and contributions', score: 3 }
+ ],
+ dimension: 'finances'
+ },
+ {
+ id: 4, category: 'Career & Ambition',
+ text: 'How ambitious are you about career and income growth?',
+ sub: 'Ambition alignment shapes time availability, life priorities, and financial planning.',
+ options: [
+ { text: 'Highly ambitious — career and income growth are a top priority', score: 3 },
+ { text: 'Balanced — I want to grow but not at the cost of family time', score: 4 },
+ { text: 'I value stability and consistency over aggressive growth', score: 3 },
+ { text: 'Work is a means to an end — I prioritise life outside of it', score: 2 }
+ ],
+ dimension: 'vision'
+ },
+ {
+ id: 5, category: 'Life Goals',
+ text: 'Which life goal feels most urgent to you in the first 5 years of marriage?',
+ sub: 'Disagreements on this timeline are a common source of early marital tension.',
+ options: [
+ { text: 'Buying a home', score: 3 },
+ { text: 'Building a strong savings and investment base', score: 4 },
+ { text: 'Having children and stabilising family life', score: 3 },
+ { text: 'Travelling, experiencing the world, and building memories', score: 2 }
+ ],
+ dimension: 'vision'
+ }
+];
+
+const testSets = {
+ complete: { label: 'Complete Assessment', questions: allQuestions, dimensions: { values: { label: 'Core Values', max: 8 }, communication: { label: 'Communication', max: 8 }, family: { label: 'Family & In-Laws', max: 7 }, finances: { label: 'Financial Alignment', max: 4 }, lifestyle: { label: 'Lifestyle Fit', max: 4 }, vision: { label: 'Long-term Vision', max: 7 } } },
+ communication: { label: 'Communication & Conflict', questions: communicationQuestions, dimensions: { communication: { label: 'Communication Style', max: 20 } } },
+ family: { label: 'Family & Values', questions: familyQuestions, dimensions: { family: { label: 'Family Expectations', max: 15 }, values: { label: 'Core Values', max: 4 } } },
+ finances: { label: 'Financial & Life Goals', questions: financesQuestions, dimensions: { finances: { label: 'Financial Alignment', max: 12 }, vision: { label: 'Life Goals', max: 7 } } }
+};
+
+let activeDimensions = {};
+
+function startTestById(testId) {
+ const set = testSets[testId];
+ if (!set) return;
+ questions = set.questions;
+ activeDimensions = set.dimensions;
+ activeTestLabel = set.label;
+ currentQ = 0;
+ answers = [];
+ document.getElementById('intro-section').style.display = 'none';
+ document.getElementById('test-section').style.display = 'block';
+ renderQuestion(0);
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startTest() { startTestById('complete'); }
+
+function renderQuestion(index) {
+ const q = questions[index];
+ const existing = document.querySelector('.question-section');
+ if (existing) existing.remove();
+
+ const section = document.createElement('div');
+ section.className = 'question-section active';
+ section.innerHTML = `
+ <div class="question-category">${q.category}</div>
+ <h2 class="question-text">${q.text}</h2>
+ <p class="question-sub">${q.sub}</p>
+ <div class="options-list">
+ ${q.options.map((opt, i) => `
+ <button class="option-btn" data-index="${i}" onclick="selectOption(this, ${i})">
+ <div class="option-letter">${String.fromCharCode(65+i)}</div>
+ <span class="option-text">${opt.text}</span>
+ </button>
+ `).join('')}
+ </div>
+ <div class="test-nav">
+ <button class="btn-back" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden"' : ''}>← Back</button>
+ <button class="btn-next" id="next-btn" onclick="nextQuestion()" disabled>
+ ${index === questions.length - 1 ? 'See my results →' : 'Next question →'}
+ </button>
+ </div>
+ `;
+
+ // Restore previous selection if user went back
+ if (answers[index] !== undefined) {
+ setTimeout(() => {
+ const btn = section.querySelector(`[data-index="${answers[index]}"]`);
+ if (btn) { btn.classList.add('selected'); document.getElementById('next-btn').disabled = false; }
+ }, 0);
+ }
+
+ document.getElementById('test-section').appendChild(section);
+ updateProgress(index);
+}
+
+function selectOption(btn, idx) {
+ document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+ btn.classList.add('selected');
+ answers[currentQ] = idx;
+ document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+ if (answers[currentQ] === undefined) return;
+ if (currentQ === questions.length - 1) { showResults(); return; }
+ currentQ++;
+ renderQuestion(currentQ);
+}
+
+function prevQuestion() {
+ if (currentQ > 0) { currentQ--; renderQuestion(currentQ); }
+}
+
+function updateProgress(index) {
+ const pct = Math.round(((index + 1) / questions.length) * 100);
+ document.getElementById('progress-fill').style.width = pct + '%';
+ document.getElementById('q-indicator').textContent = `Question ${index + 1} of ${questions.length}`;
+ document.getElementById('q-category-mini').textContent = questions[index].category;
+}
+
+function showResults() {
+ document.getElementById('test-section').style.display = 'none';
+ document.getElementById('results').style.display = 'block';
+
+ // Calculate scores
+ let total = 0;
+ const dimScores = {};
+ Object.keys(activeDimensions).forEach(d => dimScores[d] = 0);
+
+ answers.forEach((ansIdx, qIdx) => {
+ if (ansIdx === undefined) return;
+ const q = questions[qIdx];
+ const score = q.options[ansIdx].score;
+ total += score;
+ if (dimScores[q.dimension] !== undefined) {
+ dimScores[q.dimension] = dimScores[q.dimension] + score;
+ }
+ });
+
+ const maxTotal = questions.reduce((s, q) => s + Math.max(...q.options.map(o => o.score)), 0);
+ const pct = Math.round((total / maxTotal) * 100);
+
+ // Animate ring
+ const circumference = 2 * Math.PI * 60;
+ const ring = document.getElementById('score-ring');
+ const offset = circumference - (pct / 100) * circumference;
+ if (pct < 55) ring.classList.add('bad');
+ else if (pct >= 75) ring.classList.add('good');
+ setTimeout(() => ring.style.strokeDashoffset = offset, 200);
+ document.getElementById('score-display').textContent = pct;
+
+ // Headline
+ let headline, desc;
+ if (pct >= 80) {
+ headline = 'Deeply aligned';
+ desc = 'Your responses suggest a high degree of natural compatibility across most dimensions. This is a strong foundation — and with a full assessment, you\'ll understand exactly where to invest your attention together.';
+ } else if (pct >= 65) {
+ headline = 'Meaningfully aligned';
+ desc = 'You show real compatibility in several key areas, with some dimensions worth a deeper conversation. This is a healthy, workable picture — and knowing where the differences lie is an advantage, not a problem.';
+ } else if (pct >= 50) {
+ headline = 'Partially aligned';
+ desc = 'There are genuine areas of compatibility here, but also real differences that will need conscious attention. A full compatibility assessment would help you understand which differences are bridgeable — and how.';
+ } else {
+ headline = 'Areas to explore';
+ desc = 'This test suggests meaningful differences that deserve honest conversation before moving forward. That is not necessarily a reason to step back — but it is a reason to look more carefully. Our specialists are here to help.';
+ }
+
+ document.getElementById('score-headline').textContent = headline;
+ document.getElementById('score-desc').textContent = desc;
+
+ // Breakdown
+ const grid = document.getElementById('breakdown-grid');
+ grid.innerHTML = '';
+ Object.entries(dimScores).forEach(([dim, score]) => {
+ const max = activeDimensions[dim].max;
+ const pctD = Math.round((score / max) * 100);
+ const color = pctD >= 75 ? '#48BB78' : pctD >= 50 ? 'var(--gold)' : 'var(--rose)';
+ const note = pctD >= 75 ? 'Strong alignment in this area.' : pctD >= 50 ? 'Some alignment — worth exploring further.' : 'Meaningful difference — conversation recommended.';
+ grid.innerHTML += `
+ <div class="breakdown-card">
+ <div class="breakdown-cat">${activeDimensions[dim].label}</div>
+ <div class="breakdown-score">${pctD}%</div>
+ <div class="breakdown-bar"><div class="breakdown-fill" style="width:${pctD}%;background:${color}"></div></div>
+ <div class="breakdown-note">${note}</div>
+ </div>
+ `;
+ });
+
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restartTest() {
+ currentQ = 0; answers = [];
+ questions = []; activeDimensions = {};
+ document.getElementById('results').style.display = 'none';
+ document.getElementById('test-section').style.display = 'none';
+ document.getElementById('intro-section').style.display = 'block';
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identity Verification | MyTrueMatch</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg: #FDFAF0;
+ --bg-soft: #FBF7E0;
+ --bg-accent: #FFF9C4;
+ --bg-dark: #1A1610;
+ --gold: #C8A84B;
+ --gold-dark: #8A6E20;
+ --ink: #2A2520;
+ --ink-mid: #4A4238;
+ --ink-light: #7A6E5F;
+ --ink-faint: #9A8E7F;
+ --line: rgba(200,168,75,0.18);
+ --line-soft: rgba(200,168,75,0.1);
+ --card-border: rgba(200,168,75,0.2);
+ --rose: #E8828A;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+/* ── ANNOUNCE ── */
+.announce {
+ background:var(--bg-dark);
+ color:rgba(255,255,255,0.6);
+ text-align:center;
+ padding:0.55rem 1rem;
+ font-size:0.7rem;
+ letter-spacing:0.1em;
+}
+.announce b { color:var(--gold); font-weight:500; }
+
+/* ── NAV ── */
+nav {
+ position:sticky; top:0; z-index:200;
+ display:flex; align-items:center; justify-content:space-between;
+ padding:0 4rem; height:68px;
+ background:rgba(253,250,240,0.97);
+ backdrop-filter:blur(24px);
+ border-bottom:1px solid var(--line);
+}
+.nav-logo { text-decoration:none; font-family:'DM Serif Display',serif; font-size:1.35rem; letter-spacing:-0.01em; }
+.logo-blue { color:#4A6FA5; }
+.logo-gold { color:#C8A84B; }
+.nav-links { display:flex; list-style:none; }
+.nav-links a {
+ font-size:0.78rem; letter-spacing:0.04em;
+ color:var(--ink-light); text-decoration:none;
+ padding:0 1.15rem; height:68px;
+ display:flex; align-items:center; gap:0.45rem;
+ border-bottom:2px solid transparent;
+ transition:all 0.2s;
+}
+.nav-links a:hover { color:var(--ink); border-bottom-color:var(--gold); }
+.nav-links a.active { color:var(--gold-dark); border-bottom-color:var(--gold); font-weight:500; }
+.nav-icon { width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+.nav-right { display:flex; gap:0.65rem; align-items:center; }
+.btn-ghost {
+ font-size:0.75rem; font-weight:500; color:var(--ink-mid);
+ text-decoration:none; padding:0.48rem 1.1rem;
+ border:1px solid var(--line); border-radius:6px;
+ transition:all 0.2s; display:inline-flex; align-items:center; gap:0.4rem;
+}
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold-dark); }
+.btn-solid {
+ font-size:0.75rem; font-weight:500; color:#FDFAF0;
+ background:var(--bg-dark); text-decoration:none;
+ padding:0.48rem 1.3rem; border-radius:6px;
+ transition:all 0.2s; display:inline-flex; align-items:center; gap:0.4rem;
+}
+.btn-solid:hover { opacity:0.85; transform:translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+ min-height:100vh;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ position:relative;
+ overflow:hidden;
+}
+.hero-left {
+ background:
+  linear-gradient(rgba(26,22,16,0.86), rgba(26,22,16,0.86)),
+  url('6426d63c-ffbe-4ba6-9454-aed8a8bc72e0.png') center right / cover no-repeat;
+ padding:6rem 4rem;
+ display:flex; flex-direction:column; justify-content:center;
+ position:relative; overflow:hidden;
+}
+.hero-left::before {
+ content:'II';
+ position:absolute; bottom:-2rem; right:-1rem;
+ font-family:'DM Serif Display',serif;
+ font-size:26rem; font-weight:700; font-style:italic;
+ color:rgba(255,255,255,0.025);
+ line-height:1; pointer-events:none; user-select:none;
+}
+/* animated dot grid */
+.hero-left::after {
+ content:'';
+ position:absolute; inset:0;
+ background-image: radial-gradient(rgba(200,168,75,0.12) 1px, transparent 1px);
+ background-size:28px 28px;
+ pointer-events:none;
+ animation:gridFade 3s ease forwards;
+}
+@keyframes gridFade { from{opacity:0} to{opacity:1} }
+
+.hero-eyebrow {
+ font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase;
+ color:var(--gold); margin-bottom:2rem;
+ display:flex; align-items:center; gap:0.7rem;
+ opacity:0; animation:slideUp 0.7s 0.2s ease forwards;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+
+.hero-left h1 {
+ font-family:'DM Serif Display',serif;
+ font-size:clamp(3.2rem,5.5vw,5.5rem);
+ font-weight:400; line-height:1.06;
+ color:#fff; letter-spacing:-0.02em;
+ margin-bottom:1.5rem;
+ opacity:0; animation:slideUp 0.8s 0.35s ease forwards;
+}
+.hero-left h1 em { font-style:italic; color:var(--gold); }
+
+.hero-tagline {
+ font-size:1rem; font-weight:300;
+ color:rgba(255,255,255,0.45); line-height:1.85;
+ max-width:380px; margin-bottom:3rem;
+ opacity:0; animation:slideUp 0.8s 0.5s ease forwards;
+}
+
+.scroll-hint {
+ display:flex; align-items:center; gap:0.8rem;
+ font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase;
+ color:rgba(255,255,255,0.22);
+ opacity:0; animation:slideUp 0.7s 0.65s ease forwards;
+}
+.scroll-line {
+ width:48px; height:1px;
+ background:rgba(200,168,75,0.3);
+ position:relative; overflow:hidden;
+}
+.scroll-line::after {
+ content:''; position:absolute; top:0; left:-100%;
+ width:100%; height:100%; background:var(--gold);
+ animation:scan 2.4s ease-in-out infinite;
+}
+@keyframes scan { 0%{left:-100%} 100%{left:100%} }
+@keyframes slideUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* hero right */
+.hero-right {
+ background:var(--bg-soft);
+ padding:5rem 3.5rem;
+ display:flex; flex-direction:column; justify-content:center;
+ position:relative;
+ border-left:1px solid var(--line);
+}
+.hero-right::before {
+ content:'';
+ position:absolute; inset:0;
+ background-image: radial-gradient(rgba(200,168,75,0.13) 1px, transparent 1px);
+ background-size:26px 26px; pointer-events:none;
+}
+
+.stat-group { position:relative; }
+.stat-row {
+ padding:1.85rem 0; border-bottom:1px solid var(--line);
+ display:flex; align-items:flex-start; gap:1.5rem;
+ opacity:0; transform:translateX(18px);
+ transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.stat-row:last-child { border-bottom:none; }
+.stat-row.vis { opacity:1; transform:translateX(0); }
+
+.stat-icon {
+ width:44px; height:44px; border-radius:10px;
+ background:rgba(200,168,75,0.1); border:1px solid var(--line);
+ display:flex; align-items:center; justify-content:center;
+ flex-shrink:0; color:var(--gold-dark);
+}
+.stat-icon svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.stat-title { font-size:0.82rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem; }
+.stat-desc { font-size:0.78rem; font-weight:300; color:var(--ink-light); line-height:1.65; }
+
+/* ── NARRATIVE HOOK ── */
+.doubt {
+ padding:7rem 4rem;
+ background:var(--bg);
+ position:relative; overflow:hidden;
+}
+.doubt::before {
+ content:'"';
+ position:absolute; top:-2rem; left:2rem;
+ font-family:'DM Serif Display',serif;
+ font-size:22rem; color:rgba(200,168,75,0.055);
+ line-height:1; pointer-events:none; user-select:none;
+}
+.doubt-inner { max-width:700px; position:relative; }
+.d-label {
+ font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase;
+ color:var(--gold-dark); margin-bottom:3.5rem;
+ display:flex; align-items:center; gap:0.7rem;
+}
+.d-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+
+.doubt-list { display:flex; flex-direction:column; margin-bottom:3.5rem; }
+.doubt-row {
+ padding:1.85rem 0; border-bottom:1px solid var(--line-soft);
+ display:flex; align-items:center; gap:1.5rem;
+ opacity:0; transform:translateY(10px);
+ transition:opacity 0.5s ease, transform 0.5s ease;
+}
+.doubt-row:last-child { border-bottom:none; }
+.doubt-row.vis { opacity:1; transform:translateY(0); }
+.doubt-glyph { font-size:0.7rem; color:var(--gold); flex-shrink:0; width:28px; text-align:center; }
+.doubt-text {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(1.2rem,2vw,1.65rem);
+ font-weight:400; font-style:italic;
+ color:var(--ink-light); line-height:1.35;
+}
+.doubt-text em { color:var(--ink); }
+.doubt-close { padding-top:2.5rem; border-top:1px solid var(--line); }
+.doubt-close p {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(1.3rem,2.2vw,1.9rem);
+ font-weight:400; color:var(--ink-faint); line-height:1.4;
+}
+.doubt-close p strong { color:var(--ink); font-weight:500; }
+.doubt-close p em { font-style:italic; color:var(--gold-dark); }
+
+/* ── SIX PILLARS ── */
+.pillars {
+ background:#EDD000;
+ border-top:1px solid rgba(200,168,75,0.35);
+ border-bottom:1px solid rgba(200,168,75,0.35);
+ padding:6rem 4rem;
+}
+.pil-eyebrow {
+ font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase;
+ color:#7A5C00; margin-bottom:0.6rem;
+ display:flex; align-items:center; gap:0.7rem;
+}
+.pil-eyebrow::before { content:''; width:28px; height:1px; background:#C8A84B; }
+.pil-title {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2rem,3.5vw,2.8rem);
+ font-weight:400; color:#1A1400; line-height:1.18; margin-bottom:0.6rem;
+}
+.pil-title em { font-style:italic; color:#7A5C00; }
+.pil-sub {
+ font-size:0.88rem; font-weight:300; color:#5C4A00;
+ line-height:1.75; max-width:480px; margin-bottom:3.5rem;
+}
+.pil-list { display:flex; flex-direction:column; }
+.pil-item {
+ display:grid;
+ grid-template-columns:56px 200px 1fr;
+ border-top:1px solid rgba(0,0,0,0.08);
+ transition:background 0.22s;
+ cursor:default;
+}
+.pil-item:last-child { border-bottom:1px solid rgba(0,0,0,0.08); }
+.pil-item:hover { background:rgba(255,255,255,0.35); }
+.pil-numeral {
+ display:flex; align-items:center; justify-content:center;
+ font-family:'Cormorant Garamond',serif;
+ font-size:0.88rem; font-weight:400; font-style:italic;
+ color:rgba(0,0,0,0.22);
+ border-right:1px solid rgba(0,0,0,0.08);
+ padding:2rem 0.5rem;
+ transition:color 0.22s;
+}
+.pil-item:hover .pil-numeral { color:#7A5C00; }
+.pil-name {
+ padding:2rem 1.75rem;
+ border-right:1px solid rgba(0,0,0,0.08);
+ display:flex; flex-direction:column; justify-content:center; gap:0.25rem;
+}
+.pil-tag { font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.3); }
+.pil-name h3 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:500; color:#1A1400; }
+.pil-desc { padding:2rem 3.5rem 2rem 2rem; display:flex; align-items:center; }
+.pil-desc p { font-size:0.84rem; font-weight:300; color:#4A3800; line-height:1.78; max-width:500px; }
+.pil-icon { width:18px; height:18px; stroke:#7A5C00; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-right:0.5rem; flex-shrink:0; }
+
+/* ── TRUST STRIP ── */
+.trust-strip {
+ background:var(--bg-dark);
+ padding:1.4rem 4rem;
+ display:flex; align-items:center; justify-content:center;
+ gap:2rem; flex-wrap:wrap;
+}
+.trust-item {
+ display:flex; align-items:center; gap:0.55rem;
+ font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
+ color:rgba(255,255,255,0.45);
+}
+.trust-item svg { width:15px; height:15px; stroke:var(--gold); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.trust-sep { color:rgba(255,255,255,0.12); font-size:1rem; }
+
+/* ── HOW IT WORKS ── */
+.how {
+ padding:6rem 4rem;
+ background:var(--bg-soft);
+ border-bottom:1px solid var(--line);
+}
+.sec-eyebrow {
+ font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase;
+ color:var(--gold-dark); margin-bottom:0.6rem;
+ display:flex; align-items:center; gap:0.7rem;
+}
+.sec-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+.sec-title {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2rem,3.5vw,2.8rem);
+ font-weight:400; color:var(--ink); line-height:1.18; margin-bottom:0.6rem;
+}
+.sec-title em { font-style:italic; color:var(--gold-dark); }
+.sec-sub { font-size:0.88rem; font-weight:300; color:var(--ink-light); line-height:1.75; max-width:480px; margin-bottom:3rem; }
+
+.steps-grid {
+ display:grid; grid-template-columns:repeat(3,1fr);
+ gap:2px; background:var(--line);
+ border:1px solid var(--line); border-radius:12px; overflow:hidden;
+}
+.step {
+ background:var(--bg); padding:2.25rem 1.75rem;
+ position:relative; transition:background 0.22s;
+}
+.step:hover { background:var(--bg-accent); }
+.step-num {
+ font-family:'Cormorant Garamond',serif;
+ font-size:4rem; font-weight:300; font-style:italic;
+ color:rgba(200,168,75,0.14);
+ line-height:1; position:absolute; top:1rem; right:1.25rem; user-select:none;
+}
+.step-icon {
+ width:42px; height:42px; border-radius:10px;
+ background:var(--bg-accent); border:1px solid var(--line);
+ display:flex; align-items:center; justify-content:center;
+ margin-bottom:1.1rem; color:var(--gold-dark);
+}
+.step-icon svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.step h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:500; color:var(--ink); margin-bottom:0.55rem; }
+.step p { font-size:0.8rem; font-weight:300; color:var(--ink-light); line-height:1.7; }
+.step-note {
+ margin-top:1rem; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
+ color:var(--gold-dark); display:flex; align-items:center; gap:0.4rem;
+}
+.step-note::before { content:''; width:14px; height:1px; background:var(--gold); }
+
+/* ── WHO WE SERVE ── */
+.serve { padding:6rem 4rem; background:var(--bg); border-bottom:1px solid var(--line); }
+.serve-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.serve-list { display:flex; flex-direction:column; margin-top:2.5rem; }
+.serve-item {
+ display:flex; align-items:flex-start; gap:1.25rem;
+ padding:1.5rem 0; border-bottom:1px solid var(--line-soft);
+ opacity:0; transform:translateX(-12px);
+ transition:opacity 0.5s ease, transform 0.5s ease;
+}
+.serve-item:last-child { border-bottom:none; }
+.serve-item.vis { opacity:1; transform:translateX(0); }
+.serve-diamond { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; margin-top:0.35rem; }
+.serve-text { font-size:0.88rem; font-weight:300; color:var(--ink-mid); line-height:1.6; }
+.serve-text strong { font-weight:500; color:var(--ink); }
+.serve-note {
+ background:var(--bg-soft); border:1px solid var(--line);
+ border-radius:12px; padding:2rem; margin-top:2.5rem;
+}
+.serve-note-label { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.75rem; }
+.serve-note p { font-size:0.84rem; font-weight:300; color:var(--ink-light); line-height:1.75; font-style:italic; }
+
+/* ── TESTIMONIAL ── */
+.testimonial {
+ padding:7rem 4rem; background:var(--bg);
+ position:relative; overflow:hidden;
+}
+.testimonial::before {
+ content:'"'; position:absolute; top:-1.5rem; left:2rem;
+ font-family:'Cormorant Garamond',serif;
+ font-size:22rem; color:rgba(200,168,75,0.055);
+ line-height:1; pointer-events:none; user-select:none;
+}
+.test-inner { max-width:720px; margin:0 auto; text-align:center; position:relative; }
+.test-label {
+ font-size:0.6rem; letter-spacing:0.24em; text-transform:uppercase;
+ color:var(--gold-dark); margin-bottom:2.5rem;
+ display:flex; align-items:center; justify-content:center; gap:0.7rem;
+}
+.test-label::before,.test-label::after { content:''; width:36px; height:1px; background:var(--gold); }
+.test-quote {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(1.1rem,1.8vw,1.55rem);
+ font-weight:400; font-style:italic; color:var(--ink);
+ line-height:1.75; margin-bottom:2.5rem;
+}
+.test-mono {
+ width:48px; height:48px; border-radius:50%;
+ background:var(--bg-accent); border:1px solid var(--line);
+ display:flex; align-items:center; justify-content:center;
+ font-family:'Cormorant Garamond',serif; font-size:0.95rem;
+ font-weight:500; color:var(--gold-dark);
+ margin:0 auto 0.6rem;
+}
+.test-name { font-size:0.82rem; font-weight:500; color:var(--ink); margin-bottom:0.2rem; }
+.test-city { font-size:0.66rem; color:var(--ink-faint); letter-spacing:0.08em; }
+
+/* ── CTA ── */
+.cta {
+ background:var(--bg-soft); border-top:1px solid var(--line);
+ padding:7rem 4rem; text-align:center; position:relative; overflow:hidden;
+}
+.cta::before {
+ content:''; position:absolute; top:50%; left:50%;
+ transform:translate(-50%,-50%);
+ width:600px; height:600px;
+ border:1px solid rgba(200,168,75,0.1);
+ border-radius:50%; pointer-events:none;
+}
+.cta::after {
+ content:''; position:absolute; top:50%; left:50%;
+ transform:translate(-50%,-50%);
+ width:900px; height:900px;
+ border:1px solid rgba(200,168,75,0.05);
+ border-radius:50%; pointer-events:none;
+}
+.cta-inner { position:relative; }
+.cta-eye { font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:1.5rem; }
+.cta h2 {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2.2rem,4.5vw,3.6rem);
+ font-weight:400; color:var(--ink); line-height:1.15; margin-bottom:0.9rem;
+}
+.cta h2 em { font-style:italic; color:var(--gold-dark); }
+.cta-sub { font-size:0.82rem; color:var(--ink-light); margin-bottom:2.5rem; font-weight:300; }
+.cta-btn {
+ display:inline-flex; align-items:center; gap:0.65rem;
+ background:var(--bg-dark); color:var(--bg);
+ padding:0.95rem 2.5rem; font-size:0.82rem; font-weight:500;
+ letter-spacing:0.05em; text-decoration:none; border-radius:7px;
+ transition:all 0.25s;
+}
+.cta-btn:hover { opacity:0.85; transform:translateY(-2px); box-shadow:0 8px 28px rgba(42,37,32,0.15); }
+.cta-btn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.cta-meta { margin-top:1.5rem; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); }
+
+/* ── FOOTER ── */
+footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
+.footer-top {
+ display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+ gap:3rem; margin-bottom:3rem; padding-bottom:3rem;
+ border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.footer-logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:rgba(255,255,255,0.8); margin-bottom:0.75rem; display:block; }
+.footer-logo span { color:var(--rose); }
+.footer-tagline { font-size:0.82rem; color:rgba(255,255,255,0.3); line-height:1.7; font-weight:300; max-width:260px; }
+.footer-col-title { font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:1.2rem; font-weight:500; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:0.65rem; }
+.footer-links a { font-size:0.82rem; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; font-weight:300; }
+.footer-links a:hover { color:var(--gold); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-copy { font-size:0.72rem; color:rgba(255,255,255,0.22); }
+.footer-legal { display:flex; gap:1.5rem; align-items:center; }
+.footer-legal a { font-size:0.72rem; color:rgba(255,255,255,0.22); text-decoration:none; transition:color 0.2s; }
+.footer-legal a:hover { color:var(--gold); }
+.secure-badge { display:flex; align-items:center; gap:5px; color:var(--gold); font-size:0.78rem; padding-right:1rem; border-right:1px solid rgba(255,255,255,0.07); }
+.secure-badge svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ── SOCIAL ── */
+.social-icons { display:flex; gap:12px; margin-top:1.5rem; }
+.social-icons a { color:rgba(255,255,255,0.3); transition:color 0.2s; }
+.social-icons a:hover { color:var(--gold); }
+.social-icons svg { width:18px; height:18px; fill:currentColor; display:block; }
+
+/* ── FADE ── */
+.fade { opacity:0; transform:translateY(20px); transition:opacity 0.65s ease, transform 0.65s ease; }
+.fade.d1 { transition-delay:0.1s; }
+.fade.d2 { transition-delay:0.2s; }
+.fade.d3 { transition-delay:0.3s; }
+.fade.vis { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px) {
+ nav { padding:0 1.5rem; }
+ .nav-links { display:none; }
+ .hero { grid-template-columns:1fr; }
+ .hero-right { display:none; }
+ .hero-left { min-height:90vh; padding:5rem 1.5rem; }
+ .doubt,.testimonial,.cta,.serve,.how,.pillars { padding:4rem 1.5rem; }
+ .pil-item { grid-template-columns:44px 1fr; }
+ .pil-desc { display:none; }
+ .steps-grid { grid-template-columns:1fr; }
+ .serve-inner { grid-template-columns:1fr; gap:2rem; }
+ .trust-strip { padding:1.25rem 1.5rem; gap:1rem; }
+ .trust-sep { display:none; }
+ footer { padding:3rem 1.5rem 1.5rem; }
+ .footer-top { grid-template-columns:1fr 1fr; gap:2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+ Serving couples across <b>38 cities</b> — Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+</div>
+
+<!-- NAV -->
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo">
+ <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
+ </a>
+ <ul class="nav-links">
+ <li>
+ <a href="compatibility.html">
+ <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg>
+ <span>Compatibility</span>
+ </a>
+ </li>
+ <li>
+ <a href="verification.html" class="active">
+ <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+ <span>Verification</span>
+ </a>
+ </li>
+ <li>
+ <a href="horoscope.html">
+ <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+ <span>Horoscope</span>
+ </a>
+ </li>
+ <li>
+ <a href="pricing.html">
+ <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
+ <span>Pricing</span>
+ </a>
+ </li>
+ </ul>
+ <div class="nav-right">
+ <a href="blog.html" class="btn-ghost" style="border:none;padding:0 1rem">
+ <span>Blog</span>
+ </a>
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ <span>Sign in</span>
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ <span>Begin</span>
+ </a>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="hero-left">
+ <div class="hero-eyebrow">The Second Lens</div>
+ <h1>Trust, confirmed<br><em>quietly.</em></h1>
+ <p class="hero-tagline">Dignity, preserved entirely.</p>
+ <div class="scroll-hint">
+ <div class="scroll-line"></div>
+ Scroll to explore
+ </div>
+ </div>
+ <div class="hero-right">
+ <div class="stat-group">
+ <!-- Row 1 -->
+ <div class="stat-row">
+ <div class="stat-icon">
+ <svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+ </div>
+ <div>
+ <div class="stat-title">UIDAI-compliant identity checks</div>
+ <div class="stat-desc">Aadhaar-linked verification. Are they who they say they are — confirmed through official channels.</div>
+ </div>
+ </div>
+ <!-- Row 2 -->
+ <div class="stat-row">
+ <div class="stat-icon">
+ <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 12v4"/><path d="M10 14h4"/></svg>
+ </div>
+ <div>
+ <div class="stat-title">Six pillars verified</div>
+ <div class="stat-desc">Identity, employment, legal history, financial overview, social media, and consent — each independently confirmed.</div>
+ </div>
+ </div>
+ <!-- Row 3 -->
+ <div class="stat-row">
+ <div class="stat-icon">
+ <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+ </div>
+ <div>
+ <div class="stat-title">Mutual-consent model</div>
+ <div class="stat-desc">Written consent required. The subject sees the same report you do. Data deleted in 90 days.</div>
+ </div>
+ </div>
+ <!-- Row 4 -->
+ <div class="stat-row">
+ <div class="stat-icon">
+ <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+ </div>
+ <div>
+ <div class="stat-title">5–7 business days</div>
+ <div class="stat-desc">A structured advisory report — not a data printout. Written findings, delivered with care and clarity.</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- NARRATIVE HOOK -->
+<section class="doubt">
+ <div class="doubt-inner">
+ <div class="d-label fade">What families are told — and what they deserve to know</div>
+ <div class="doubt-list">
+ <div class="doubt-row">
+ <div class="doubt-glyph">◆</div>
+ <div class="doubt-text">His family said he is a <em>senior engineer.</em></div>
+ </div>
+ <div class="doubt-row">
+ <div class="doubt-glyph">◆</div>
+ <div class="doubt-text">They said his <em>record is clean.</em></div>
+ </div>
+ </div>
+ <div class="doubt-close fade">
+ <p>You would like to <strong>know</strong> — not just <em>believe.</em></p>
+ </div>
+ </div>
+</section>
+
+<!-- SIX PILLARS -->
+<section class="pillars">
+ <div class="fade">
+ <p class="pil-eyebrow">What we confirm</p>
+ <h2 class="pil-title">Six pillars.<br>No <em>surveillance.</em></h2>
+ <p class="pil-sub">Every check is conducted ethically, with consent, through legitimate sources. We surface what is on record. We do not invent stories.</p>
+ </div>
+ <div class="pil-list fade">
+ <div class="pil-item">
+ <div class="pil-numeral">I</div>
+ <div class="pil-name">
+ <div class="pil-tag">First Pillar</div>
+ <h3>Identity</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+ <p>Full legal name, date of birth, address — confirmed through UIDAI-compliant Aadhaar verification. Are they really who they say they are?</p>
+ </div>
+ </div>
+ <div class="pil-item">
+ <div class="pil-numeral">II</div>
+ <div class="pil-name">
+ <div class="pil-tag">Second Pillar</div>
+ <h3>Employment</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+ <p>Employer, role, compensation. Education and certifications. The areas where reputations get quietly inflated.</p>
+ </div>
+ </div>
+ <div class="pil-item">
+ <div class="pil-numeral">III</div>
+ <div class="pil-name">
+ <div class="pil-tag">Third Pillar</div>
+ <h3>Legal History</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+ <p>Court records, FIRs, civil litigation. We extract what is on public record. We do not invent stories.</p>
+ </div>
+ </div>
+ <div class="pil-item">
+ <div class="pil-numeral">IV</div>
+ <div class="pil-name">
+ <div class="pil-tag">Fourth Pillar</div>
+ <h3>Financial</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+ <p>Credit history overview. Major debts. Defaults. Conducted only with written consent. No exact scores shared — just what matters.</p>
+ </div>
+ </div>
+ <div class="pil-item">
+ <div class="pil-numeral">V</div>
+ <div class="pil-name">
+ <div class="pil-tag">Fifth Pillar</div>
+ <h3>Social Media</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51l-6.82 3.98"/></svg>
+ <p>Public profiles only. Red flags only. We do not monitor lifestyles. We look for what could create concern.</p>
+ </div>
+ </div>
+ <div class="pil-item" style="background:rgba(255,255,255,0.2)">
+ <div class="pil-numeral">VI</div>
+ <div class="pil-name">
+ <div class="pil-tag">Sixth Pillar</div>
+ <h3>Consent</h3>
+ </div>
+ <div class="pil-desc">
+ <svg class="pil-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+ <p>Written. Specific. The subject sees the same report you do. Data deleted in 90 days. This is not surveillance.<br><small style="color:rgba(74,56,0,0.6);font-size:0.72rem">UIDAI-compliant · DPDP Act 2023 · India servers · No third parties.</small></p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+ <div class="trust-item">
+ <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+ UIDAI-compliant
+ </div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item">
+ <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 7h16"/><path d="M6 7l-3 6h6l-3-6Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg>
+ DPDP Act 2023
+ </div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item">
+ <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ India servers only
+ </div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item">
+ <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+ No third parties
+ </div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item">
+ <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M8 6V4h8v2"/></svg>
+ Data deleted in 90 days
+ </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+ <div class="how-header fade">
+ <p class="sec-eyebrow">How it works</p>
+ <h2 class="sec-title">Six steps, in <em>clear order.</em></h2>
+ <p class="sec-sub">Most verifications complete in 5–10 working days, depending on scope.</p>
+ </div>
+ <div class="steps-grid fade">
+ <div class="step">
+ <div class="step-num">01</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+ </div>
+ <h3>Initial Consultation</h3>
+ <p>Confidential discussion to understand specific concerns, expectations, and scope of verification required.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">02</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+ </div>
+ <h3>Consent &amp; Authorisation</h3>
+ <p>All verification activities conducted only after obtaining necessary consent and authorisation from the subject.</p>
+ <div class="step-note">Required before anything begins</div>
+ </div>
+ <div class="step">
+ <div class="step-num">03</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+ </div>
+ <h3>Information Review</h3>
+ <p>Information provided by you is carefully reviewed to identify areas requiring verification and cross-referencing.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">04</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+ </div>
+ <h3>Structured Verification</h3>
+ <p>Verification through legitimate and ethical sources, focusing on areas relevant to matrimonial decision-making.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">05</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="9" width="3" height="9"/></svg>
+ </div>
+ <h3>Risk Assessment</h3>
+ <p>Collected information is reviewed and evaluated to identify potential inconsistencies or concerns.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">06</div>
+ <div class="step-icon">
+ <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+ </div>
+ <h3>Advisory Report</h3>
+ <p>A structured summary of findings and observations, provided to assist in informed decision-making.</p>
+ <div class="step-note">5–10 working days depending on scope</div>
+ </div>
+ </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="serve">
+ <div class="serve-inner">
+ <div class="serve-left fade">
+ <p class="sec-eyebrow">Who we serve</p>
+ <h2 class="sec-title">Built for those approaching matrimony <em>with care.</em></h2>
+ <div class="serve-list">
+ <div class="serve-item"><div class="serve-diamond"></div><div class="serve-text">Individuals considering a matrimonial alliance</div></div>
+ <div class="serve-item"><div class="serve-diamond"></div><div class="serve-text">Families seeking greater assurance before proceeding</div></div>
+ <div class="serve-item"><div class="serve-diamond"></div><div class="serve-text">Matchmaking professionals and matrimonial consultants</div></div>
+ <div class="serve-item"><div class="serve-diamond"></div><div class="serve-text">Anyone who wants independent verification of important claims</div></div>
+ <div class="serve-item"><div class="serve-diamond"></div><div class="serve-text">Individuals who want to self-verify and earn a <strong>VERIFIED</strong> badge</div></div>
+ </div>
+ </div>
+ <div class="serve-right fade d1">
+ <p class="sec-eyebrow">Our role</p>
+ <h2 class="sec-title" style="font-size:1.8rem">Not to <em>interfere.</em></h2>
+ <div class="serve-note">
+ <div class="serve-note-label">A note on what we do</div>
+ <p>Our goal is not to interfere with personal choices but to provide factual insights that help you evaluate before a lifelong commitment. As they say, better safe than sorry.</p>
+ </div>
+ <div class="serve-note" style="margin-top:1rem;background:var(--bg-accent)">
+ <div class="serve-note-label">Self-verification</div>
+ <p>You can commission a verification of yourself — and share the resulting Verified badge with the other family. Trust offered, not demanded.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+ <div class="test-inner fade">
+ <div class="test-label">Notes from families we have served</div>
+ <blockquote class="test-quote">"My daughter's match came through a distant family connection. We liked him very much but had no way to independently verify what we had been told about his work and background. The MyTrueMatch team was professional, sensitive, and fast. Everything checked out — and we felt much better for having confirmed it properly."</blockquote>
+ <div class="test-mono">SK</div>
+ <div class="test-name">Mrs. Sunita Krishnan</div>
+ <div class="test-city">Chennai · Winter 2024</div>
+ </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+ <div class="cta-inner fade">
+ <div class="cta-eye">When you're ready</div>
+ <h2>Begin the<br><em>verification.</em></h2>
+ <p class="cta-sub">Written consent required &nbsp;·&nbsp; Report in 5–7 business days &nbsp;·&nbsp; ₹5,999</p>
+ <a href="begin.html" class="cta-btn">
+ Start a verification
+ <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ </a>
+ <p class="cta-meta">Private · Secure · India servers · DPDP Act 2023</p>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-top">
+ <div>
+ <span class="footer-logo">MyTrue<span>Match</span></span>
+ <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <div class="social-icons">
+ <a href="#" aria-label="Twitter">
+ <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.56 1.64.92a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2 3.77A4.5 4.5 0 0 1 .96 6v.06c0 2.19 1.56 4.02 3.62 4.43a4.52 4.52 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 0 15.54 12.78 12.78 0 0 0 6.92 17.5c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 22 1.89 9 9 0 0 1 23 3z"/></svg>
+ </a>
+ <a href="#" aria-label="Instagram">
+ <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+ </a>
+ <a href="#" aria-label="YouTube">
+ <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="var(--bg-dark)"/></svg>
+ </a>
+ </div>
+ </div>
+ <div>
+ <div class="footer-col-title">Our Lenses</div>
+ <ul class="footer-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Company</div>
+ <ul class="footer-links">
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Legal</div>
+ <ul class="footer-links">
+ <li><a href="privacy.html">Privacy Policy</a></li>
+ <li><a href="terms.html">Terms and Conditions</a></li>
+ <li><a href="disclaimer.html">Disclaimer</a></li>
+ <li><a href="refund.html">Refund Policy</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <div class="secure-badge">
+ <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ 100% Secure
+ </div>
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+ });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+const doubtObs = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.querySelectorAll('.doubt-row').forEach((r, i) =>
+ setTimeout(() => r.classList.add('vis'), i * 220)
+ );
+ doubtObs.unobserve(e.target);
+ }
+ });
+}, { threshold: 0.2 });
+const dl = document.querySelector('.doubt-list');
+if (dl) doubtObs.observe(dl);
+
+const statObs = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.querySelectorAll('.stat-row').forEach((s, i) =>
+ setTimeout(() => s.classList.add('vis'), i * 160)
+ );
+ statObs.unobserve(e.target);
+ }
+ });
+}, { threshold: 0.1 });
+const sg = document.querySelector('.stat-group');
+if (sg) statObs.observe(sg);
+
+const serveObs = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.querySelectorAll('.serve-item').forEach((s, i) =>
+ setTimeout(() => s.classList.add('vis'), i * 120)
+ );
+ serveObs.unobserve(e.target);
+ }
+ });
+}, { threshold: 0.1 });
+const sl = document.querySelector('.serve-list');
+if (sl) serveObs.observe(sl);
+</script>
+</body>
+</html>

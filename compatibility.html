@@ -1,0 +1,878 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compatibility Assessment | MyTrueMatch</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDFAF0;--bg-soft:#FBF7E0;--bg-accent:#FFF9C4;--bg-yellow:#EDD000;
+  --bg-dark:#1A1610;--gold:#C8A84B;--gold-dark:#8A6E20;--gold-pale:#F0E0A0;
+  --rose:#E8828A;--ink:#2A2520;--ink-mid:#4A4238;--ink-light:#7A6E5F;
+  --ink-faint:#9A8E7F;--line:rgba(200,168,75,0.18);--line-soft:rgba(200,168,75,0.1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ANNOUNCE */
+.announce{background:var(--bg-dark);color:rgba(255,255,255,0.55);text-align:center;padding:0.55rem 1rem;font-size:0.68rem;letter-spacing:0.1em}
+.announce b{color:var(--gold);font-weight:500}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(253,250,240,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.nav-logo{text-decoration:none;font-family:'DM Serif Display',serif;font-size:1.35rem;letter-spacing:-0.01em}
+.logo-blue{color:#4A6FA5}.logo-gold{color:#C8A84B}
+.nav-links{display:flex;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.04em;color:var(--ink-light);text-decoration:none;padding:0 1.15rem;height:68px;display:flex;align-items:center;gap:0.45rem;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+.nav-links a.active{color:var(--gold-dark);border-bottom-color:var(--gold);font-weight:500}
+.ni{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.nav-right{display:flex;gap:0.65rem;align-items:center}
+.btn-ghost{font-size:0.75rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:0.48rem 1.1rem;border:1px solid var(--line);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-dark)}
+.btn-solid{font-size:0.75rem;font-weight:500;color:#FDFAF0;background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-solid:hover{opacity:0.85;transform:translateY(-1px)}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+
+.hero-left{background:linear-gradient(to bottom,rgba(26,22,16,0.85) 0%,rgba(26,22,16,0.78) 100%),url('271f1c55-30d6-457e-bb17-ca1f019810f7.png') center/cover no-repeat;padding:5.5rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+/* dot grid bg */
+.hero-left::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.1) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;animation:gridFade 1.5s ease forwards}
+@keyframes gridFade{from{opacity:0}to{opacity:1}}
+/* roman numeral watermark */
+.hero-left::before{content:'I';position:absolute;bottom:-2rem;right:-1rem;font-family:'DM Serif Display',serif;font-size:26rem;font-weight:700;font-style:italic;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;z-index:0}
+
+.h-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:0.7rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.15s ease forwards}
+.h-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:0.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards}
+.hero-left h1 em{font-style:italic;color:var(--gold)}
+
+.hero-sub-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:1.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.42s ease forwards;line-height:1.5}
+
+.hero-tagline{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.9;max-width:380px;margin-bottom:2.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.52s ease forwards}
+
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:3rem;opacity:0;animation:slideUp 0.7s 0.62s ease forwards}
+.btn-cta-gold{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.9rem 2.2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;border-radius:8px;text-decoration:none;transition:all 0.25s}
+.btn-cta-gold:hover{background:var(--gold-pale);transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,168,75,0.35)}
+.btn-cta-gold svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-outline-light{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.42);font-size:0.8rem;letter-spacing:0.05em;text-decoration:none;border:1px solid rgba(200,168,75,0.2);padding:0.9rem 1.6rem;border-radius:8px;transition:all 0.22s}
+.btn-outline-light:hover{color:#fff;border-color:rgba(200,168,75,0.5)}
+
+.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.72s ease forwards}
+.trust-pill{display:flex;align-items:center;gap:0.45rem;font-size:0.67rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.trust-pill svg{width:12px;height:12px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.trust-dot{width:3px;height:3px;border-radius:50%;background:rgba(200,168,75,0.3)}
+
+/* HERO RIGHT */
+.hero-right{background:linear-gradient(160deg,#FFFDF5 0%,#FFF8E1 40%,#FFF0C0 75%,#FAE89A 100%);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(160,100,0,0.05) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+
+.stat-group{position:relative;display:flex;flex-direction:column;gap:0}
+.stat-row{padding:1.9rem 0;border-bottom:1px solid rgba(200,168,75,0.2);display:flex;align-items:flex-start;gap:1.75rem;opacity:0;transform:translateX(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.stat-row:last-child{border-bottom:none}
+.stat-row.vis{opacity:1;transform:translateX(0)}
+.stat-icon-box{width:44px;height:44px;border-radius:11px;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.stat-icon-box svg{width:20px;height:20px;stroke:#7A5C00;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;color:var(--ink);line-height:1;min-width:70px;flex-shrink:0}
+.stat-num small{font-size:0.85rem;color:var(--ink-faint);font-family:'DM Sans',sans-serif}
+.stat-info{flex:1}
+.stat-title{font-size:0.8rem;font-weight:500;color:var(--ink);margin-bottom:0.25rem;letter-spacing:0.02em}
+.stat-desc{font-size:0.76rem;font-weight:300;color:var(--ink-light);line-height:1.65}
+
+/* ═══ ABOUT / WHY ═══ */
+.why-section{padding:7rem 4rem;background:var(--bg);position:relative;overflow:hidden}
+.why-section::before{content:'"';position:absolute;top:-2rem;left:2rem;font-family:'DM Serif Display',serif;font-size:22rem;color:rgba(200,168,75,0.05);line-height:1;pointer-events:none;user-select:none}
+.why-inner{max-width:800px;position:relative}
+.sec-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
+.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.18;margin-bottom:1.25rem}
+.sec-title em{font-style:italic;color:var(--gold-dark)}
+.why-text{font-size:0.9rem;font-weight:300;color:var(--ink-light);line-height:1.9;max-width:700px;margin-bottom:1.5rem}
+.why-quote{margin-top:2.5rem;padding:1.5rem 1.75rem;border-left:3px solid var(--gold);background:rgba(200,168,75,0.05);border-radius:0 8px 8px 0}
+.why-quote p{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;font-style:italic;color:var(--ink-mid);line-height:1.8}
+
+/* ═══ APPROACH ═══ */
+.approach-section{padding:5rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line)}
+.approach-header{margin-bottom:3.5rem}
+.approach-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.18;margin-bottom:0.6rem}
+.approach-title em{font-style:italic;color:var(--gold-dark)}
+.approach-lead{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;font-style:italic;color:var(--gold-dark);margin-bottom:1rem}
+.approach-sub{font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.85;max-width:660px;margin-bottom:3rem}
+
+/* Problem / Solution grid */
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
+.ps-card{padding:2rem;border:1px solid var(--line);border-radius:14px;background:#fff;position:relative;overflow:hidden}
+.ps-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:2px 2px 0 0}
+.ps-card.problem::before{background:linear-gradient(90deg,#E8828A,#F0A0A8)}
+.ps-card.solution::before{background:linear-gradient(90deg,#C8A84B,#EDD000)}
+.ps-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.ps-label svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ps-card.problem .ps-label{color:#C86070}
+.ps-card.solution .ps-label{color:var(--gold-dark)}
+.ps-card h4{font-size:0.85rem;font-weight:500;color:var(--ink);margin-bottom:0.85rem}
+.ps-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.ps-list li{font-size:0.8rem;font-weight:300;color:var(--ink-light);line-height:1.6;padding-left:1rem;border-left:2px solid var(--line);transition:border-color 0.2s}
+.ps-card.problem .ps-list li{border-left-color:rgba(232,130,138,0.25)}
+.ps-card.solution .ps-list li{border-left-color:rgba(200,168,75,0.25)}
+.ps-outcome{font-size:0.8rem;font-weight:500;margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--line)}
+.ps-card.problem .ps-outcome{color:#C86070}
+.ps-card.solution .ps-outcome{color:var(--gold-dark)}
+
+/* Benefits strip */
+.benefits-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,168,75,0.15);border:1px solid rgba(200,168,75,0.2);border-radius:12px;overflow:hidden}
+.benefit-item{background:rgba(255,255,255,0.6);padding:1.5rem;text-align:center;transition:background 0.2s}
+.benefit-item:hover{background:rgba(255,255,255,0.9)}
+.benefit-icon{width:36px;height:36px;border-radius:9px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 0.6rem}
+.benefit-icon svg{width:18px;height:18px;stroke:var(--gold-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.benefit-label{font-size:0.72rem;font-weight:500;color:var(--ink-mid)}
+
+/* ═══ FRAMEWORK BOX ═══ */
+.framework-section{padding:0 4rem 5rem}
+.framework-box{background:var(--bg-dark);border-radius:18px;padding:3.5rem;display:grid;grid-template-columns:1fr 2fr;gap:3.5rem;align-items:start;position:relative;overflow:hidden}
+.framework-box::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(rgba(200,168,75,0.08),transparent);pointer-events:none}
+.fw-label{font-size:0.56rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:500;display:flex;align-items:center;gap:0.5rem}
+.fw-label::before{content:'';width:20px;height:1px;background:var(--gold)}
+.fw-title{font-family:'DM Serif Display',serif;font-size:1.45rem;font-weight:400;color:#fff;line-height:1.4;margin-bottom:1.5rem}
+.fw-checks{display:flex;flex-direction:column;gap:0.65rem}
+.fw-check{font-size:0.76rem;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.6rem}
+.fw-check svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fw-pcsi-tag{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem;display:block}
+.fw-desc{font-size:0.86rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.88;margin-bottom:1.25rem}
+.fw-sub{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.82}
+
+/* ═══ DIMENSIONS ═══ */
+.dimensions-section{background:var(--bg-dark);padding:7rem 0;position:relative;overflow:hidden}
+.dimensions-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 8% 55%,rgba(200,168,75,0.06) 0%,transparent 55%);pointer-events:none}
+.dim-header{padding:0 4rem;margin-bottom:4rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.dim-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.7rem}
+.dim-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.dim-main-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:400;color:#fff;line-height:1.15}
+.dim-main-title em{font-style:italic;color:var(--gold)}
+.dim-header-note p{font-size:0.84rem;font-weight:300;color:rgba(255,255,255,0.3);line-height:1.78;max-width:340px;text-align:right}
+.dim-item{display:grid;grid-template-columns:72px 210px 1fr;border-top:1px solid rgba(255,255,255,0.05);transition:background 0.25s;cursor:default}
+.dim-item:last-child{border-bottom:1px solid rgba(255,255,255,0.05)}
+.dim-item:hover{background:rgba(255,255,255,0.025)}
+.dim-numeral{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.18);border-right:1px solid rgba(255,255,255,0.05);padding:2.5rem 1rem;transition:color 0.25s}
+.dim-item:hover .dim-numeral{color:var(--gold)}
+.dim-name{padding:2.5rem 2rem 2.5rem 2.5rem;border-right:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;justify-content:center;gap:0.3rem}
+.dim-icon-wrap{width:32px;height:32px;border-radius:8px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem}
+.dim-icon-wrap svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dim-tag{font-size:0.54rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(200,168,75,0.55)}
+.dim-name h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:#fff;line-height:1.15}
+.dim-desc{padding:2.5rem 4rem 2.5rem 2.5rem;display:flex;align-items:center}
+.dim-desc p{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.36);line-height:1.85;max-width:540px}
+.dim-desc p em{font-size:0.72rem;color:rgba(255,255,255,0.22);font-style:italic}
+
+/* ═══ SCORE SECTION ═══ */
+.score-section{background:var(--bg-yellow);border-top:1px solid rgba(200,168,75,0.4);border-bottom:1px solid rgba(200,168,75,0.4);padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.score-left-eyebrow{font-size:0.58rem;letter-spacing:0.26em;text-transform:uppercase;color:#7A5C00;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
+.score-left-eyebrow::before{content:'';width:24px;height:1px;background:#C8A84B}
+.score-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.7rem);font-weight:400;color:#1A1400;line-height:1.22;margin-bottom:1.25rem}
+.score-left h2 em{font-style:italic;color:#7A5C00}
+.score-left p{font-size:0.86rem;font-weight:300;color:#5C4A00;line-height:1.88;max-width:380px}
+.score-example-wrap{background:rgba(255,255,255,0.58);border-radius:14px;padding:2.25rem;border:1px solid rgba(200,168,75,0.32);backdrop-filter:blur(4px)}
+.score-card-label{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A5C00;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+.score-card-label svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.score-bars{display:flex;flex-direction:column;gap:1.6rem}
+.s-row-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.45rem}
+.s-dim-name{font-size:0.72rem;font-weight:500;color:#1A1400;letter-spacing:0.03em;display:flex;align-items:center;gap:0.4rem}
+.s-dim-name svg{width:12px;height:12px;stroke:#7A5C00;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:#1A1400}
+.s-val span{font-size:0.65rem;color:#8A6E28;font-family:'DM Sans',sans-serif;margin-left:1px}
+.s-track{height:2px;background:rgba(0,0,0,0.1);border-radius:1px;overflow:hidden;margin-bottom:0.3rem}
+.s-fill{height:100%;background:#7A5C00;border-radius:1px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.s-note{font-size:0.63rem;color:#8A6E28;letter-spacing:0.04em}
+
+/* ═══ TESTIMONIAL ═══ */
+.testimonial{padding:7rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line);position:relative;overflow:hidden}
+.testimonial::before{content:'"';position:absolute;top:-1.5rem;left:2rem;font-family:'DM Serif Display',serif;font-size:22rem;color:rgba(200,168,75,0.05);line-height:1;pointer-events:none;user-select:none}
+.test-inner{max-width:720px;margin:0 auto;text-align:center;position:relative}
+.test-label{font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
+.test-label::before,.test-label::after{content:'';width:36px;height:1px;background:var(--gold)}
+.test-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.55rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.78;margin-bottom:2.5rem}
+.test-mono{width:48px;height:48px;border-radius:50%;background:var(--bg-accent);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:500;color:var(--gold-dark);margin:0 auto 0.6rem}
+.test-name{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem}
+.test-city{font-size:0.66rem;color:var(--ink-faint);letter-spacing:0.08em}
+
+/* ═══ CTA ═══ */
+.cta-section{background:var(--bg);border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(200,168,75,0.1);border-radius:50%;pointer-events:none}
+.cta-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.05);border-radius:50%;pointer-events:none}
+.cta-inner{position:relative}
+.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.5rem}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.9rem}
+.cta-section h2 em{font-style:italic;color:var(--gold-dark)}
+.cta-sub{font-size:0.82rem;color:var(--ink-light);margin-bottom:2.5rem;font-weight:300;letter-spacing:0.05em}
+.cta-btn{display:inline-flex;align-items:center;gap:0.65rem;background:var(--bg-dark);color:var(--bg);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:7px;transition:all 0.25s}
+.cta-btn:hover{opacity:0.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,37,32,0.15)}
+.cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* FOOTER */
+footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-logo-text{font-family:'DM Serif Display',serif;font-size:1.3rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;display:block;text-decoration:none}
+.footer-logo-text span{color:var(--rose)}
+.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.7;font-weight:300;max-width:260px}
+.social-icons{display:flex;gap:12px;margin-top:1.5rem}
+.social-icons a{color:rgba(255,255,255,0.3);transition:color 0.2s}
+.social-icons a:hover{color:var(--gold)}
+.social-icons svg{width:18px;height:18px;fill:currentColor;display:block}
+.footer-col-title{font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;font-weight:500}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.65rem}
+.footer-links a{font-size:0.81rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;font-weight:300}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.22)}
+.footer-legal{display:flex;gap:1.5rem;align-items:center}
+.footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.22);text-decoration:none;transition:color 0.2s}
+.footer-legal a:hover{color:var(--gold)}
+.secure-badge{display:flex;align-items:center;gap:5px;color:var(--gold);font-size:0.75rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.07)}
+.secure-badge svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* FADE */
+.fi{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fi.d1{transition-delay:0.1s}.fi.d2{transition-delay:0.2s}.fi.d3{transition-delay:0.3s}
+.fi.vis{opacity:1;transform:translateY(0)}
+
+/* ═══ PSYCHOLOGIST CARD ═══ */
+.psych-card{background:#fff;border:1px solid rgba(200,168,75,0.2);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;height:100%;box-sizing:border-box;overflow-y:auto}
+.psych-top{display:flex;align-items:center;gap:1.25rem}
+.psych-img{width:68px;height:68px;border-radius:50%;overflow:hidden;flex-shrink:0;background:#FFF8E1;border:2px solid rgba(200,168,75,0.3);display:flex;align-items:center;justify-content:center}
+.psych-img svg{width:68px;height:68px;display:block}
+.psych-eyebrow{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.2rem}
+.psych-name{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--ink);font-weight:400;line-height:1.1}
+.psych-creds{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.4rem}
+.psych-creds span{font-size:0.63rem;padding:0.18rem 0.55rem;border-radius:4px;background:rgba(200,168,75,0.08);border:1px solid rgba(200,168,75,0.18);color:var(--gold-dark);letter-spacing:0.04em}
+.psych-bio{font-size:0.84rem;color:var(--charcoal-light);line-height:1.8}
+.psych-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--gold-dark);border-left:2px solid var(--gold);padding-left:1rem;line-height:1.65}
+.psych-pillars{display:flex;flex-direction:column;gap:0.55rem;padding-top:0.75rem;border-top:1px solid rgba(200,168,75,0.12)}
+.psych-pillar{display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;color:var(--charcoal-mid);font-weight:500}
+.psych-pillar svg{width:15px;height:15px;flex-shrink:0;stroke:#C8A84B;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══ WHAT YOU GET ═══ */
+.wyg-section{padding:5.5rem 4rem;background:var(--bg-dark)}
+.wyg-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.wyg-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:1.25rem}
+.wyg-title em{font-style:italic;color:var(--gold)}
+.wyg-sub{font-size:0.87rem;color:rgba(255,255,255,0.42);line-height:1.88;margin-bottom:2rem}
+.wyg-items{display:flex;flex-direction:column;gap:1.3rem}
+.wyg-item{display:flex;align-items:flex-start;gap:1rem}
+.wyg-icon{width:38px;height:38px;border-radius:9px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.22);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wyg-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wyg-item-title{font-size:0.88rem;font-weight:600;color:#fff;margin-bottom:0.22rem;letter-spacing:0.02em}
+.wyg-item-desc{font-size:0.79rem;color:rgba(255,255,255,0.38);line-height:1.78}
+.wyg-image-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(200,168,75,0.12)}
+.wyg-image-wrap svg{width:100%;display:block}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left{min-height:88vh;padding:4rem 1.5rem}
+  .why-section,.approach-section,.testimonial,.cta-section,.framework-section{padding:4rem 1.5rem}
+  .framework-section{padding:0 1.5rem 4rem}
+  .framework-box{grid-template-columns:1fr;gap:2rem;padding:2rem}
+  .ps-grid,.score-section{grid-template-columns:1fr;gap:2rem}
+  .benefits-strip{grid-template-columns:repeat(2,1fr)}
+  .score-section{padding:4rem 1.5rem}
+  .dimensions-section{padding:4rem 0}
+  .dim-header{flex-direction:column;align-items:flex-start;padding:0 1.5rem}
+  .dim-header-note p{text-align:left}
+  .dim-item{grid-template-columns:50px 1fr}.dim-desc{display:none}
+  footer{padding:3rem 1.5rem 1.5rem}.footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .wyg-section{padding:4rem 1.5rem}.wyg-inner{grid-template-columns:1fr;gap:2rem}.wyg-image-wrap{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  &#127470;&#127475; &nbsp; Serving couples across <b>38 cities</b> &#8212; from Bangalore to Birmingham &nbsp;&#183;&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;&#183;&nbsp; All data on Indian servers
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="mytruematch-landing.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
+  <ul class="nav-links">
+    <li><a href="compatibility.html" class="active">
+      <svg class="ni" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg>
+      Compatibility
+    </a></li>
+    <li><a href="verification.html">
+      <svg class="ni" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      Verification
+    </a></li>
+    <li><a href="horoscope.html">
+      <svg class="ni" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      Horoscope
+    </a></li>
+    <li><a href="pricing.html">
+      <svg class="ni" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
+      Pricing
+    </a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="blog.html" class="btn-ghost" style="border:none;padding:0 1rem">Blog</a>
+    <a href="auth.html" class="btn-ghost">
+      <svg class="ni" style="width:13px;height:13px" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+      Sign in
+    </a>
+    <a href="begin.html" class="btn-solid">
+      <svg class="ni" style="width:13px;height:13px" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      Begin
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="h-eyebrow">The First Lens</div>
+    <h1>Helping Families<br>Make Better<br><em>Marriage Decisions.</em></h1>
+    <p class="hero-sub-heading">Know the real person behind the profile.</p>
+    <p class="hero-tagline">Understand personality, emotional compatibility, communication style, values, and behavioural patterns &#8212; before making one of life&#8217;s most important decisions.</p>
+    <div class="hero-actions">
+      <a href="begin.html" class="btn-cta-gold">
+        <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+        Begin Assessment &#8212; &#8377;2,999
+      </a>
+      <a href="#dimensions" class="btn-outline-light">Explore the 10 dimensions</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        3 business days
+      </span>
+      <span class="trust-dot"></span>
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        18&#8211;24 page report
+      </span>
+      <span class="trust-dot"></span>
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+        Human psychologist
+      </span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="psych-card">
+      <div class="psych-top">
+        <div>
+          <div class="psych-eyebrow">Lead Psychologist</div>
+          <div class="psych-name">Drushya</div>
+          <div class="psych-creds">
+            <span>M.A. Clinical Psychology</span>
+            <span>NIMHANS-trained</span>
+            <span>7+ years practice</span>
+            <span>Gottman Level II</span>
+            <span>Prepare/Enrich Certified</span>
+          </div>
+        </div>
+      </div>
+      <p class="psych-bio">The psychological intelligence behind the Compatibility Report — Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
+      <p class="psych-bio">Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
+      <p class="psych-bio">She assesses each couple across five dimensions — communication, conflict, money, family, and goals — and delivers insights with the clarity and empathy that this moment deserves.</p>
+      <div class="psych-quote">"A number gives structure. The written analysis gives language. Together, they give couples something they can hold — and return to."</div>
+      <div class="psych-pillars">
+        <div class="psych-pillar">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/></svg>
+          Psychologist-guided framework
+        </div>
+        <div class="psych-pillar">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg>
+          Structured Compatibility Report
+        </div>
+        <div class="psych-pillar">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Designed for serious matrimonial alliances
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ APPROACH ═══ -->
+<section class="approach-section">
+  <div class="approach-header fi">
+    <p class="sec-eyebrow">Our approach</p>
+    <h2 class="approach-title">Helping Families Make Better<br><em>Marriage Decisions.</em></h2>
+    <p class="approach-lead">Know the real person behind the profile</p>
+    <p class="approach-sub">Understand personality, emotional compatibility, communication style, values, and behavioural patterns before making one of life&#8217;s biggest decisions. By investing 15&#8211;20 minutes, the result may go a long way in shaping your future happiness.</p>
+  </div>
+
+  <div class="ps-grid fi">
+    <div class="ps-card problem">
+      <div class="ps-label">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        The Problem
+      </div>
+      <h4>Most marriages today rely on:</h4>
+      <ul class="ps-list">
+        <li>Basic background inquiries or informal checks</li>
+        <li>Limited interactions between the couple</li>
+        <li>Assumptions about compatibility</li>
+        <li>Shared profiles without depth or context</li>
+      </ul>
+      <p class="ps-outcome">This often leads to conflicts &#8212; discovered only after the wedding.</p>
+    </div>
+    <div class="ps-card solution">
+      <div class="ps-label">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        The Solution
+      </div>
+      <h4>Our platform provides:</h4>
+      <ul class="ps-list">
+        <li>Psychology-guided compatibility profiling</li>
+        <li>Behavioural insights tailored to your pairing</li>
+        <li>Risk indicators and friction areas &#8212; named clearly</li>
+        <li>Actionable conversation guide for both families</li>
+        <li>NIMHANS-trained psychologist, every report</li>
+      </ul>
+      <p class="ps-outcome">Confidence before commitment &#8212; clarity before the wedding.</p>
+    </div>
+  </div>
+
+  <div class="benefits-strip fi">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      </div>
+      <div class="benefit-label">Compatibility score</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="benefit-label">Behavioural insights</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      </div>
+      <div class="benefit-label">Risk indicators</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg>
+      </div>
+      <div class="benefit-label">Advisory recommendations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT YOU GET ═══ -->
+<section class="wyg-section fi">
+  <div class="wyg-inner">
+    <div>
+      <p class="sec-eyebrow" style="color:var(--gold);margin-bottom:1rem">What you receive</p>
+      <h2 class="wyg-title">A complete picture,<br><em>written for your family.</em></h2>
+      <p class="wyg-sub">Specially tailored for Indian cultural dynamics globally, the PCSI serves as a premarital diagnostic tool to evaluate how couples intending to marry align across emotional, interpersonal, financial, and lifestyle domains.</p>
+      <div class="wyg-items">
+        <div class="wyg-item">
+          <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+          <div>
+            <div class="wyg-item-title">Compatibility Score</div>
+            <div class="wyg-item-desc">An overall alignment number across all 10 dimensions — structured, clear, and something your family can hold.</div>
+          </div>
+        </div>
+        <div class="wyg-item">
+          <div class="wyg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1"/><path d="M16 8a4 4 0 0 1 0 8"/></svg></div>
+          <div>
+            <div class="wyg-item-title">Behavioural Insights</div>
+            <div class="wyg-item-desc">How each of you responds to stress, disagreement, and intimacy — written plainly, without clinical jargon.</div>
+          </div>
+        </div>
+        <div class="wyg-item">
+          <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+          <div>
+            <div class="wyg-item-title">Risk Indicators</div>
+            <div class="wyg-item-desc">Friction zones named clearly — so families can have the right conversations before the wedding, not after.</div>
+          </div>
+        </div>
+        <div class="wyg-item">
+          <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div>
+          <div>
+            <div class="wyg-item-title">Advisory Recommendations</div>
+            <div class="wyg-item-desc">A practical conversation guide for both families — honest, empathetic, written for this specific pairing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wyg-image-wrap">
+      <svg viewBox="0 0 460 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="460" height="540" rx="14" fill="rgba(255,255,255,0.03)"/>
+        <rect x="28" y="36" width="404" height="468" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(200,168,75,0.18)" stroke-width="1"/>
+        <!-- Header -->
+        <rect x="48" y="58" width="140" height="8" rx="4" fill="rgba(200,168,75,0.55)"/>
+        <rect x="48" y="76" width="260" height="5" rx="2.5" fill="rgba(255,255,255,0.14)"/>
+        <rect x="48" y="89" width="200" height="5" rx="2.5" fill="rgba(255,255,255,0.09)"/>
+        <line x1="48" y1="112" x2="412" y2="112" stroke="rgba(200,168,75,0.14)" stroke-width="1"/>
+        <!-- Score circle -->
+        <circle cx="96" cy="166" r="40" stroke="rgba(200,168,75,0.25)" stroke-width="1.5" fill="none"/>
+        <circle cx="96" cy="166" r="40" stroke="#C8A84B" stroke-width="2.5" stroke-dasharray="210" stroke-dashoffset="45" fill="none" stroke-linecap="round" transform="rotate(-90 96 166)"/>
+        <text x="96" y="162" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="17" fill="#C8A84B" font-weight="600">87</text>
+        <text x="96" y="177" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">/100</text>
+        <!-- Labels -->
+        <rect x="156" y="144" width="115" height="7" rx="3.5" fill="rgba(200,168,75,0.45)"/>
+        <rect x="156" y="158" width="190" height="5" rx="2.5" fill="rgba(255,255,255,0.11)"/>
+        <rect x="156" y="170" width="165" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+        <rect x="156" y="182" width="135" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+        <!-- Section label -->
+        <line x1="48" y1="222" x2="412" y2="222" stroke="rgba(200,168,75,0.08)" stroke-width="1"/>
+        <text x="48" y="242" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(255,255,255,0.3)" letter-spacing="2.5">DIMENSIONS</text>
+        <!-- Bars -->
+        <rect x="48" y="256" width="82" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
+        <rect x="148" y="256" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
+        <rect x="148" y="256" width="188" height="5" rx="2.5" fill="#C8A84B" opacity="0.58"/>
+        <rect x="48" y="272" width="72" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
+        <rect x="148" y="272" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
+        <rect x="148" y="272" width="196" height="5" rx="2.5" fill="#C8A84B" opacity="0.52"/>
+        <rect x="48" y="288" width="92" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
+        <rect x="148" y="288" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
+        <rect x="148" y="288" width="135" height="5" rx="2.5" fill="#C8A84B" opacity="0.42"/>
+        <rect x="48" y="304" width="65" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
+        <rect x="148" y="304" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
+        <rect x="148" y="304" width="172" height="5" rx="2.5" fill="#C8A84B" opacity="0.48"/>
+        <rect x="48" y="320" width="78" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
+        <rect x="148" y="320" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
+        <rect x="148" y="320" width="152" height="5" rx="2.5" fill="#C8A84B" opacity="0.4"/>
+        <!-- Insight block -->
+        <line x1="48" y1="350" x2="412" y2="350" stroke="rgba(200,168,75,0.08)" stroke-width="1"/>
+        <rect x="48" y="366" width="125" height="7" rx="3.5" fill="rgba(200,168,75,0.35)"/>
+        <rect x="48" y="382" width="348" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+        <rect x="48" y="394" width="325" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+        <rect x="48" y="406" width="300" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+        <rect x="48" y="418" width="280" height="5" rx="2.5" fill="rgba(255,255,255,0.05)"/>
+        <!-- Footer badge -->
+        <rect x="48" y="450" width="112" height="24" rx="6" fill="rgba(200,168,75,0.09)" stroke="rgba(200,168,75,0.2)" stroke-width="1"/>
+        <text x="104" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="#C8A84B" letter-spacing="1.8">MYTRUEMATCH</text>
+        <rect x="172" y="450" width="80" height="24" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <text x="212" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="rgba(255,255,255,0.3)" letter-spacing="1">CONFIDENTIAL</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY SECTION ═══ -->
+<section class="why-section">
+  <div class="why-inner fi">
+    <p class="sec-eyebrow">Why this matters</p>
+    <h2 class="sec-title">The matrimonial ecosystem<br>has long relied on <em>assumptions.</em></h2>
+    <p class="why-text">The matrimonial ecosystem has long relied on informal references, limited checks, and assumptions about personal backgrounds. While trust remains an important part of relationships, the absence of systematic and insightful compatibility checks can lead to incomplete information or overlooked risk on the path to marriage. Moreover, privacy laws make it almost impossible to find out more about the face behind a profile &#8212; or vice versa.</p>
+    <p class="why-text">Choosing a life partner is one of the most important decisions a person will make. We support this journey by providing dependable, verified insights that help individuals and families make better informed and more confident choices.</p>
+    <div class="why-quote">
+      <p>We are working to shape a new cultural norm in India &#8212; one where, just like Horoscope Matching, Compatibility Assessment and Pre-marital Verification will be widely accepted as responsible and practical steps before getting married.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FRAMEWORK BOX ═══ -->
+<section class="framework-section">
+  <div class="framework-box fi">
+    <div>
+      <div class="fw-label">Our instrument</div>
+      <h3 class="fw-title">Psychologist Guided Framework</h3>
+      <div class="fw-checks">
+        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Structured Compatibility Report</div>
+        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Designed for Serious Matrimonial Alliance</div>
+        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Tailored for Indian Cultural Dynamics Globally</div>
+        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> NIMHANS-trained psychologist, every report</div>
+      </div>
+    </div>
+    <div>
+      <span class="fw-pcsi-tag">PCSI &#8212; Premarital Couple Suitability Index</span>
+      <p class="fw-desc">Specially tailored for Indian cultural dynamics globally, the PCSI serves as a premarital diagnostic tool to evaluate how couples intending to marry align across emotional, interpersonal, financial, and lifestyle domains.</p>
+      <p class="fw-sub">We have created a first-of-its-kind pre-marital couples&#8217; compatibility test &#8212; a very useful tool to gain insight into the personality of the opposite number in conjunction with one&#8217;s own. A positive assessment report can do wonders for your confidence and lead to a successful and happy married life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIMENSIONS ═══ -->
+<section class="dimensions-section" id="dimensions">
+  <div class="dim-header fi">
+    <div>
+      <div class="dim-eyebrow">What the report measures</div>
+      <h2 class="dim-main-title">10 Major Dimensions.<br><em>No checklist.</em></h2>
+    </div>
+    <div class="dim-header-note"><p>A psychologist-guided framework held up to both of you &#8212; written with clarity, not judgment. Each dimension carries a score and a full written analysis with a sample indicator question.</p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">I</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div class="dim-tag">Dimension One</div>
+      <h3>Emotional Regulation</h3>
+    </div>
+    <div class="dim-desc"><p>Direct or indirect. Expressive or contained. The single dimension that decides how a thousand small disagreements will go.<br><em>&#8220;When I am angry or hurt, I tend to react impulsively before thinking things through&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">II</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="dim-tag">Dimension Two</div>
+      <h3>Communication &amp; Conflict</h3>
+    </div>
+    <div class="dim-desc"><p>When the storm comes &#8212; and it will come &#8212; do you withdraw, escalate, accommodate, or collaborate?<br><em>&#8220;I avoid difficult conversations to prevent arguments&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">III</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="dim-tag">Dimension Three</div>
+      <h3>Financial Responsibility</h3>
+    </div>
+    <div class="dim-desc"><p>Save or spend. Joint or separate. To support parents or not. The second most common reason marriages quietly break down.<br><em>&#8220;I believe transparency about loans, debts, and liabilities is necessary before marriage&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">IV</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="dim-tag">Dimension Four</div>
+      <h3>Family &amp; Future Alignment</h3>
+    </div>
+    <div class="dim-desc"><p>How much say do in-laws have. Where will you live. Whose festivals matter more. Questions that get harder, not easier, with time.<br><em>&#8220;I believe compatibility requires continuous adjustment from both partners&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">V</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="dim-tag">Dimension Five</div>
+      <h3>Relationship Values &amp; Expectations</h3>
+    </div>
+    <div class="dim-desc"><p>Do you expect both partners to share household responsibilities? Is individual freedom important even after marriage?<br><em>&#8220;I believe family involvement should have healthy limits&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VI</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="dim-tag">Dimension Six</div>
+      <h3>Honesty &amp; Transparency</h3>
+    </div>
+    <div class="dim-desc"><p>Relationships thrive where honesty and clarity exist. In a meaningful relationship, honesty is more valuable than perfection.<br><em>&#8220;I believe that honesty is necessary even in uncomfortable situations&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VII</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <div class="dim-tag">Dimension Seven</div>
+      <h3>Attachment &amp; Emotional Security</h3>
+    </div>
+    <div class="dim-desc"><p>Emotional security creates the confidence to be vulnerable, understood, and accepted. Healthy attachment fosters trust, stability, and deeper connection.<br><em>&#8220;I find emotional closeness uncomfortable&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VIII</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg></div>
+      <div class="dim-tag">Dimension Eight</div>
+      <h3>Love Language &amp; Affection</h3>
+    </div>
+    <div class="dim-desc"><p>Genuine affection nurtures trust, comfort, and emotional intimacy. Understanding how someone experiences love strengthens bonding and relationship satisfaction.<br><em>&#8220;I enjoy expressing affection openly through words or actions&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">IX</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <div class="dim-tag">Dimension Nine</div>
+      <h3>Sexual Compatibility &amp; Intimacy</h3>
+    </div>
+    <div class="dim-desc"><p>Lasting intimacy develops when partners feel safe, respected, and emotionally understood. Compatibility in affection and intimacy contributes to mutual fulfillment.<br><em>&#8220;I may avoid conversations related to intimacy due to embarrassment&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">X</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="dim-tag">Dimension Ten</div>
+      <h3>Substance Use &amp; Health Responsibility</h3>
+    </div>
+    <div class="dim-desc"><p>Healthy relationships are strengthened by self-awareness, balance, and responsible lifestyle choices. Mutual accountability toward health and well-being fosters long-term stability.<br><em>&#8220;I believe substance use should be openly discussed before marriage&#8221;</em></p></div>
+  </div>
+</section>
+
+<!-- ═══ SCORE SECTION ═══ -->
+<div class="score-section fi">
+  <div class="score-left">
+    <div class="score-left-eyebrow">
+      <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Sample report extract
+    </div>
+    <h2>A score is not<br>a <em>verdict.</em></h2>
+    <p>Your report is a conversation, set out in writing. Numbers provide structure. The written analysis gives language. Together, they give you something to hold &#8212; before and after the wedding.</p>
+  </div>
+  <div class="score-example-wrap">
+    <div class="score-card-label">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Compatibility snapshot &#8212; anonymised example
+    </div>
+    <div class="score-bars">
+      <div>
+        <div class="s-row-top">
+          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Communication</span>
+          <span class="s-val">87<span>/100</span></span>
+        </div>
+        <div class="s-track"><div class="s-fill" style="width:87%"></div></div>
+        <div class="s-note">Strong alignment &nbsp;&#183;&nbsp; Two style differences noted</div>
+      </div>
+      <div>
+        <div class="s-row-top">
+          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Financial Values</span>
+          <span class="s-val">62<span>/100</span></span>
+        </div>
+        <div class="s-track"><div class="s-fill" style="width:62%"></div></div>
+        <div class="s-note">Meaningful differences &nbsp;&#183;&nbsp; Guidance provided</div>
+      </div>
+      <div>
+        <div class="s-row-top">
+          <span class="s-dim-name"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Life Goals</span>
+          <span class="s-val">91<span>/100</span></span>
+        </div>
+        <div class="s-track"><div class="s-fill" style="width:91%"></div></div>
+        <div class="s-note">Deep resonance &nbsp;&#183;&nbsp; Strong foundation</div>
+      </div>
+      <div>
+        <div class="s-row-top">
+          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Family &amp; Roles</span>
+          <span class="s-val">74<span>/100</span></span>
+        </div>
+        <div class="s-track"><div class="s-fill" style="width:74%"></div></div>
+        <div class="s-note">Moderate alignment &nbsp;&#183;&nbsp; Key differences explored</div>
+      </div>
+      <div>
+        <div class="s-row-top">
+          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Conflict Style</span>
+          <span class="s-val">79<span>/100</span></span>
+        </div>
+        <div class="s-track"><div class="s-fill" style="width:79%"></div></div>
+        <div class="s-note">Compatible patterns &nbsp;&#183;&nbsp; One blind spot identified</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TESTIMONIAL ═══ -->
+<section class="testimonial">
+  <div class="test-inner fi">
+    <div class="test-label">Letters from couples we have served</div>
+    <blockquote class="test-quote">&#8220;We had spoken twice on calls and met once before our families began discussing the marriage. The Compatibility Report gave us language for things we had felt but never articulated &#8212; our communication styles were genuinely different, and the report showed us how to work with that, not against it. We are married now. We are grateful.&#8221;</blockquote>
+    <div class="test-mono">PK</div>
+    <div class="test-name">Priya &amp; Karthik</div>
+    <div class="test-city">Bangalore &nbsp;&#183;&nbsp; Spring 2025</div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-inner fi">
+    <div class="cta-eye">When you&#8217;re ready</div>
+    <h2>Take the<br><em>assessment.</em></h2>
+    <p class="cta-sub">35&#8211;45 minutes &nbsp;&#183;&nbsp; Report in 3 business days &nbsp;&#183;&nbsp; &#8377;2,999</p>
+    <a href="begin.html" class="cta-btn">
+      Begin the assessment
+      <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+    </a>
+    <p class="cta-meta">Private &nbsp;&#183;&nbsp; Secure &nbsp;&#183;&nbsp; India servers &nbsp;&#183;&nbsp; DPDP Act 2023</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo-text">MyTrue<span>Match</span></span>
+      <p class="footer-tagline">A space to truly know each other &#8212; before the most important commitment of your life.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.56 1.64.92a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2 3.77A4.5 4.5 0 0 1 .96 6v.06c0 2.19 1.56 4.02 3.62 4.43a4.52 4.52 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 0 15.54 12.78 12.78 0 0 0 6.92 17.5c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 22 1.89 9 9 0 0 1 23 3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#1A1610"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Our Lenses</div>
+      <ul class="footer-links">
+        <li><a href="compatibility.html">Compatibility</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="horoscope.html">Horoscope</a></li>
+        <li><a href="pricing.html">All three lenses</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About us</a></li>
+        <li><a href="horoscope.html#astrologers">Our experts</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&#169; 2026 MyTrueMatch &nbsp;&#183;&nbsp; Bangalore, India &nbsp;&#183;&nbsp; All rights reserved</p>
+    <div class="footer-legal">
+      <div class="secure-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Secure
+      </div>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// General fade observer
+const io = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);} });
+}, {threshold:0.07});
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+// Stat rows stagger
+const statObs = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){
+    x.target.querySelectorAll('.stat-row').forEach((s,i) => setTimeout(()=>s.classList.add('vis'),i*180));
+    statObs.unobserve(x.target);
+  }});
+}, {threshold:0.1});
+const sg = document.querySelector('.stat-group');
+if(sg) statObs.observe(sg);
+
+// Score bar animation
+const scoreObs = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){
+    x.target.querySelectorAll('.s-fill').forEach((b,i) => {
+      const w = b.style.width;
+      b.style.width = '0%';
+      setTimeout(()=>{ b.style.width = w; }, 80 + i*80);
+    });
+    scoreObs.unobserve(x.target);
+  }});
+}, {threshold:0.3});
+const ss = document.querySelector('.score-section');
+if(ss) scoreObs.observe(ss);
+</script>
+</body>
+</html>
