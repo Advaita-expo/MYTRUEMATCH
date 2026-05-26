@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -32,11 +32,11 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ── ANNOUNCE ── */
+/* -- ANNOUNCE -- */
 .announce{background:var(--bg-dark);color:rgba(255,255,255,0.55);text-align:center;padding:0.5rem 1rem;font-size:0.68rem;letter-spacing:0.1em}
 .announce b{color:var(--gold);font-weight:500}
 
-/* ── NAV ── */
+/* -- NAV -- */
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(253,250,240,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
 .nav-logo{text-decoration:none;display:flex;align-items:center;gap:0.5rem;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--ink);letter-spacing:-0.01em}
 .nav-logo span{color:var(--rose)}
@@ -51,7 +51,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .btn-solid{font-size:0.74rem;font-weight:500;color:var(--bg);background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-solid:hover{opacity:0.85;transform:translateY(-1px)}
 
-/* ══ HERO ══ */
+/* -- HERO -- */
 .hero{
  background:var(--bg-dark);
  padding:6rem 4rem 5rem;
@@ -102,7 +102,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:scan 2.6s ease-in-out infinite}
 @keyframes scan{0%{left:-100%}100%{left:100%}}
 
-/* Hero right — info cards */
+/* Hero right � info cards */
 .hero-right{position:relative;z-index:1}
 .contact-quick{
  display:flex;flex-direction:column;gap:1px;
@@ -132,7 +132,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .quick-value a:hover{opacity:0.75}
 .quick-note{font-size:0.7rem;color:rgba(255,255,255,0.28);margin-top:0.2rem}
 
-/* ══ TRUST BAR ══ */
+/* -- TRUST BAR -- */
 .trust-bar{
  background:var(--bg-dark);
  border-top:1px solid rgba(200,168,75,0.12);
@@ -148,7 +148,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .trust-item svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .trust-sep{color:rgba(255,255,255,0.12);font-size:1.1rem}
 
-/* ══ MAIN CONTACT BODY ══ */
+/* -- MAIN CONTACT BODY -- */
 .contact-body{
  padding:7rem 4rem;
  background:var(--bg);
@@ -158,7 +158,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
  align-items:start;
 }
 
-/* Left col — info panels */
+/* Left col � info panels */
 .contact-info{display:flex;flex-direction:column;gap:0}
 
 .section-label{
@@ -247,7 +247,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .social-link svg{width:16px;height:16px;fill:currentColor}
 .social-label{font-size:0.7rem;color:var(--ink-faint);letter-spacing:0.06em}
 
-/* ══ FORM ══ */
+/* -- FORM -- */
 .contact-form-wrap{position:relative}
 .form-header{margin-bottom:2.5rem}
 .form-eyebrow{
@@ -360,7 +360,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .form-success h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem}
 .form-success p{font-size:0.84rem;color:var(--ink-light);line-height:1.8;font-weight:300;max-width:380px;margin:0 auto}
 
-/* ══ FAQ ══ */
+/* -- FAQ -- */
 .faq-section{
  padding:7rem 4rem;
  background:var(--bg-soft);
@@ -404,7 +404,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .faq-item.open .faq-a{max-height:300px;padding:0 2rem 1.5rem}
 .faq-a p{font-size:0.84rem;color:var(--ink-light);line-height:1.85;font-weight:300}
 
-/* ══ NORTH STAR CTA ══ */
+/* -- NORTH STAR CTA -- */
 .north-star{
  background:var(--bg-dark);padding:7rem 4rem;
  text-align:center;position:relative;overflow:hidden;
@@ -438,7 +438,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 }
 .ns-link:hover{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.25)}
 
-/* ══ FOOTER ══ */
+/* -- FOOTER -- */
 footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4)}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
 .footer-brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem}
@@ -454,7 +454,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 .footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
 .footer-legal a:hover{color:var(--gold)}
 
-/* ── FADE ── */
+/* -- FADE -- */
 .fade{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade.d1{transition-delay:0.1s}.fade.d2{transition-delay:0.2s}.fade.d3{transition-delay:0.3s}
 .fade.vis{opacity:1;transform:translateY(0)}
@@ -472,7 +472,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  .form-row{grid-template-columns:1fr}
 }
 
-/* ─── NAV LOGO COLORS ─── */
+/* --- NAV LOGO COLORS --- */
 .logo-blue { color: #4A6FA5; }
 .logo-gold { color: #C8A84B; }
 .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }</style>
@@ -481,12 +481,12 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 
 <!-- ANNOUNCE -->
 <div class="announce">
- Serving couples across <b>38 cities</b> — from Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+ Serving couples across <b>38 cities</b> � from Bangalore to Birmingham &nbsp;�&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;�&nbsp; All data on Indian servers
 </div>
 
 <!-- NAV -->
 <nav>
- <a href="mytruematch-landing.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
+ <a href="index.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
  <ul class="nav-links">
  <li><a href="compatibility.html">
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-.8-1.4-2.3-2.4-4-2.4z"/></svg>
@@ -500,7 +500,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
  Horoscope
  </a></li>
- <li><a href="mytruematch-landing.html#pricing">
+ <li><a href="index.html#pricing">
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
  Pricing
  </a></li>
@@ -520,12 +520,12 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </a>
  </div></nav>
 
-<!-- ══ HERO ══ -->
+<!-- -- HERO -- -->
 <section class="hero">
  <div class="hero-left fade">
  <div class="hero-eyebrow">Get in touch</div>
  <h1>We're here<br>when it <em>matters.</em></h1>
- <p class="hero-sub">Every family's situation is different. Whether you have a question about our services, need to discuss a sensitive matter, or simply want to understand how we work — reach out. A real person will respond.</p>
+ <p class="hero-sub">Every family's situation is different. Whether you have a question about our services, need to discuss a sensitive matter, or simply want to understand how we work � reach out. A real person will respond.</p>
  <div style="display:flex;align-items:center;gap:0.8rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.22)">
  <div class="scroll-line"></div>
  Typically respond within 24 hours
@@ -550,7 +550,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div>
  <div class="quick-label">Phone &amp; WhatsApp</div>
  <div class="quick-value"><a href="tel:+919900000000">+91 99000 00000</a></div>
- <div class="quick-note">Mon–Sat · 10 AM – 7 PM IST</div>
+ <div class="quick-note">Mon�Sat � 10 AM � 7 PM IST</div>
  </div>
  </div>
  <div class="quick-item">
@@ -560,7 +560,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div>
  <div class="quick-label">Location</div>
  <div class="quick-value">Bengaluru, Karnataka, India</div>
- <div class="quick-note">Registered &amp; operating · DPDP Act 2023 compliant</div>
+ <div class="quick-note">Registered &amp; operating � DPDP Act 2023 compliant</div>
  </div>
  </div>
  <div class="quick-item">
@@ -583,32 +583,32 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
  DPDP Act 2023 Compliant
  </div>
- <span class="trust-sep">·</span>
+ <span class="trust-sep">�</span>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><rect x="2" y="11" width="20" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
  All Data on Indian Servers
  </div>
- <span class="trust-sep">·</span>
+ <span class="trust-sep">�</span>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
- No Spam · No Cold Calls
+ No Spam � No Cold Calls
  </div>
- <span class="trust-sep">·</span>
+ <span class="trust-sep">�</span>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
  Response within 24 Hours
  </div>
- <span class="trust-sep">·</span>
+ <span class="trust-sep">�</span>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
  38 Cities Served
  </div>
 </div>
 
-<!-- ══ CONTACT BODY ══ -->
+<!-- -- CONTACT BODY -- -->
 <div class="contact-body">
 
- <!-- LEFT — INFO -->
+ <!-- LEFT � INFO -->
  <div class="contact-info fade">
  <div class="section-label">Reach Us</div>
  <h2>Every conversation<br>starts with a <em>question.</em></h2>
@@ -632,7 +632,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div>
  <div class="info-block-label">Phone &amp; WhatsApp</div>
  <div class="info-block-value"><a href="tel:+919900000000">+91 99000 00000</a></div>
- <div class="info-block-note">Calls &amp; WhatsApp · Mon–Sat · 10 AM – 7 PM IST</div>
+ <div class="info-block-note">Calls &amp; WhatsApp � Mon�Sat � 10 AM � 7 PM IST</div>
  </div>
  </div>
  <div class="info-block">
@@ -652,7 +652,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div>
  <div class="info-block-label">Registered Office</div>
  <div class="info-block-value">Bengaluru, Karnataka</div>
- <div class="info-block-note">India · www.mytruematch.in</div>
+ <div class="info-block-note">India � www.mytruematch.in</div>
  </div>
  </div>
  </div>
@@ -660,8 +660,8 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <!-- Hours -->
  <div class="hours-table">
  <div class="hours-title">Support Hours</div>
- <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">10:00 AM – 7:00 PM IST</span></div>
- <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 4:00 PM IST</span></div>
+ <div class="hours-row"><span class="hours-day">Monday � Friday</span><span class="hours-time">10:00 AM � 7:00 PM IST</span></div>
+ <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM � 4:00 PM IST</span></div>
  <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
  <div class="hours-row"><span class="hours-day">Public Holidays</span><span class="hours-time closed">Closed</span></div>
  <div class="hours-badge">Currently accepting enquiries</div>
@@ -683,7 +683,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
  </div>
 
- <!-- RIGHT — FORM -->
+ <!-- RIGHT � FORM -->
  <div class="contact-form-wrap fade d1">
  <div class="form-header">
  <div class="form-eyebrow">Send a message</div>
@@ -743,7 +743,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 
  <div class="form-group full" style="margin-bottom:0">
  <label class="form-label" for="message">Your Message</label>
- <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a little about your situation. You do not need to share anything you are not comfortable sharing — we are here to help, not to pry." required></textarea>
+ <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a little about your situation. You do not need to share anything you are not comfortable sharing � we are here to help, not to pry." required></textarea>
  </div>
 
  <div class="form-footer">
@@ -764,13 +764,13 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <h3>Message received.</h3>
  <p>Thank you for reaching out. A member of our team will respond to you within one business day. If your matter is urgent, please call or WhatsApp us directly.</p>
  <div style="margin-top:1.5rem">
- <a href="mytruematch-landing.html" style="font-size:0.75rem;color:var(--gold-dark);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase">← Return to home</a>
+ <a href="index.html" style="font-size:0.75rem;color:var(--gold-dark);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase">? Return to home</a>
  </div>
  </div>
  </div>
 </div>
 
-<!-- ══ FAQ ══ -->
+<!-- -- FAQ -- -->
 <section class="faq-section">
  <div class="faq-inner fade">
  <div class="faq-eyebrow">Common Questions</div>
@@ -782,7 +782,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
  </button>
  <div class="faq-a">
- <p>Compatibility Reports are delivered within 3 business days of both partners completing their individual assessments. Verification reports typically take 5–7 business days depending on the checks required. Horoscope reports are delivered within 2–3 business days. You will receive an email notification as soon as your report is ready.</p>
+ <p>Compatibility Reports are delivered within 3 business days of both partners completing their individual assessments. Verification reports typically take 5�7 business days depending on the checks required. Horoscope reports are delivered within 2�3 business days. You will receive an email notification as soon as your report is ready.</p>
  </div>
  </div>
  <div class="faq-item">
@@ -791,7 +791,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
  </button>
  <div class="faq-a">
- <p>Yes. All information shared with MyTrueMatch is treated with complete confidentiality. Verification checks are consent-based — we do not investigate anyone without their explicit agreement. All data is stored on servers in India and handled in compliance with the DPDP Act 2023. We do not share any personal information with third parties.</p>
+ <p>Yes. All information shared with MyTrueMatch is treated with complete confidentiality. Verification checks are consent-based � we do not investigate anyone without their explicit agreement. All data is stored on servers in India and handled in compliance with the DPDP Act 2023. We do not share any personal information with third parties.</p>
  </div>
  </div>
  <div class="faq-item">
@@ -800,7 +800,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
  </button>
  <div class="faq-a">
- <p>For the Compatibility Report, yes — both individuals complete separate assessments so the psychologist can analyse the specific pairing. For Verification, consent from the person being verified is mandatory. For Horoscope Matching, both birth charts are required, but only one party needs to initiate the service.</p>
+ <p>For the Compatibility Report, yes � both individuals complete separate assessments so the psychologist can analyse the specific pairing. For Verification, consent from the person being verified is mandatory. For Horoscope Matching, both birth charts are required, but only one party needs to initiate the service.</p>
  </div>
  </div>
  <div class="faq-item">
@@ -818,7 +818,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
  </button>
  <div class="faq-a">
- <p>We offer a refund on services that have not yet commenced. Once a report has been initiated — assessments sent or verifications begun — we are unable to offer a full refund as professional time has been allocated. Please review our <a href="refund.html" style="color:var(--gold-dark)">Refund Policy</a> for full details, or contact us directly if you have a specific concern.</p>
+ <p>We offer a refund on services that have not yet commenced. Once a report has been initiated � assessments sent or verifications begun � we are unable to offer a full refund as professional time has been allocated. Please review our <a href="refund.html" style="color:var(--gold-dark)">Refund Policy</a> for full details, or contact us directly if you have a specific concern.</p>
  </div>
  </div>
  <div class="faq-item">
@@ -827,14 +827,14 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
  </button>
  <div class="faq-a">
- <p>Yes. We serve Indian families across 38 cities in India and internationally — including the UK, USA, UAE, Singapore, Australia, and Canada. Compatibility and Horoscope services can be delivered entirely remotely. Verification scope for overseas candidates may vary; contact us to discuss your specific requirements.</p>
+ <p>Yes. We serve Indian families across 38 cities in India and internationally � including the UK, USA, UAE, Singapore, Australia, and Canada. Compatibility and Horoscope services can be delivered entirely remotely. Verification scope for overseas candidates may vary; contact us to discuss your specific requirements.</p>
  </div>
  </div>
  </div>
  </div>
 </section>
 
-<!-- ══ NORTH STAR CTA ══ -->
+<!-- -- NORTH STAR CTA -- -->
 <section class="north-star">
  <div class="ns-inner fade">
  <span class="ns-star"></span>
@@ -843,24 +843,24 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  "The right insight, delivered with care, can change the entire trajectory of a family's decision."
  </blockquote>
  <div class="ns-actions">
- <a href="mytruematch-landing.html#pricing" class="ns-cta">
+ <a href="index.html#pricing" class="ns-cta">
  View our services
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
  </a>
  <a href="about.html" class="ns-link">
- Who we are →
+ Who we are ?
  </a>
  </div>
- <p style="margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Private · Secure · India servers · DPDP Act 2023</p>
+ <p style="margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Private � Secure � India servers � DPDP Act 2023</p>
  </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- -- FOOTER -- -->
 <footer>
  <div class="footer-top fade">
  <div>
  <div class="footer-brand">MyTrue<span>Match</span></div>
- <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <p class="footer-tagline">A space to truly know each other � before the most important commitment of your life.</p>
  <div style="display:flex;gap:10px;margin-top:1.5rem">
  <a href="#" style="width:32px;height:32px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.2s" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.3)';this.style.borderColor='rgba(255,255,255,0.1)'">
  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
@@ -897,7 +897,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">© 2026 MyTrueMatch · www.mytruematch.in · All Rights Reserved.</p>
+ <p class="footer-copy">� 2026 MyTrueMatch � www.mytruematch.in � All Rights Reserved.</p>
  <div class="footer-legal">
  <div style="display:flex;align-items:center;gap:6px;color:var(--gold-dark);font-size:0.72rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.08)">
  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>

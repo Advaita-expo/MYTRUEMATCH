@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Begin — MyTrueMatch</title>
+<title>Begin � MyTrueMatch</title>
 <meta name="description" content="Start your MyTrueMatch journey. Choose your lens, tell us who you are, and begin with clarity.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -21,7 +21,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
 
-/* ─── NAV ─── */
+/* --- NAV --- */
 .logo-blue { color: #4A6FA5; }
 .logo-gold { color: #C8A84B; }
 .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
@@ -49,7 +49,7 @@ nav {
 .btn-solid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--bg); text-decoration: none; padding: 0.5rem 1.25rem; background: var(--ink); border-radius: 6px; transition: all 0.2s; }
 .btn-solid:hover { background: var(--gold-dark); }
 
-/* ─── PROGRESS ─── */
+/* --- PROGRESS --- */
 .begin-progress {
  padding: 2rem 4rem; border-bottom: 1px solid var(--border);
  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -70,7 +70,7 @@ nav {
 .steps-wrap { display: flex; flex-direction: column; align-items: center; }
 .progress-bar-wrap { display: flex; align-items: center; gap: 0; flex: 1; max-width: 560px; }
 
-/* ─── PAGE LAYOUT ─── */
+/* --- PAGE LAYOUT --- */
 .begin-wrap {
  max-width: 780px; margin: 0 auto; padding: 4rem 2rem;
  min-height: calc(100vh - 200px);
@@ -84,7 +84,7 @@ nav {
 .step-title em { font-style: italic; color: var(--rose); }
 .step-subtitle { font-size: 0.9rem; color: var(--ink-light); font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; }
 
-/* ─── LENS CARDS ─── */
+/* --- LENS CARDS --- */
 .lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
 .lens-card {
  border: 2px solid var(--border); border-radius: 16px; padding: 2rem 1.5rem;
@@ -105,7 +105,7 @@ nav {
 }
 .lens-card.selected .lens-check { display: flex; }
 
-/* ─── FORM FIELDS ─── */
+/* --- FORM FIELDS --- */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
 .form-group { margin-bottom: 1.25rem; }
 label { display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); font-weight: 500; margin-bottom: 0.45rem; }
@@ -121,7 +121,7 @@ input:focus, select:focus, textarea:focus {
 input::placeholder, textarea::placeholder { color: #B8B0A0; }
 select { cursor: pointer; }
 
-/* ─── PLAN CARDS ─── */
+/* --- PLAN CARDS --- */
 .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
 .plan-card {
  border: 2px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem;
@@ -140,7 +140,7 @@ select { cursor: pointer; }
 .plan-feature { font-size: 0.75rem; color: var(--ink-light); display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.45rem; line-height: 1.5; font-weight: 300; }
 .plan-feature::before { content: ''; color: var(--gold); font-weight: 600; flex-shrink: 0; margin-top: 0.05rem; }
 
-/* ─── NAV BUTTONS ─── */
+/* --- NAV BUTTONS --- */
 .step-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
 .btn-back {
  background: none; border: 1px solid var(--border); border-radius: 8px;
@@ -159,7 +159,7 @@ select { cursor: pointer; }
 .btn-next.gold { background: var(--gold-dark); }
 .btn-next.gold:hover { background: var(--gold); }
 
-/* ─── CONFIRMATION ─── */
+/* --- CONFIRMATION --- */
 .confirm-box {
  text-align: center; padding: 4rem 2rem;
 }
@@ -178,7 +178,7 @@ select { cursor: pointer; }
 .confirm-step h4 { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
 .confirm-step p { font-size: 0.75rem; color: var(--ink-light); line-height: 1.6; font-weight: 300; }
 
-/* ─── FOOTER ─── */
+/* --- FOOTER --- */
 footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,255,0.4); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
@@ -199,7 +199,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
 <body>
 
 <nav>
- <a href="mytruematch-landing.html" class="nav-logo">
+ <a href="index.html" class="nav-logo">
  <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
  </a>
  <ul class="nav-links">
@@ -240,7 +240,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
 
  <!-- STEP 1: LENS SELECTION -->
  <div class="begin-step active" id="step-1">
- <p class="step-eyebrow">Step 1 of 3 · Getting started</p>
+ <p class="step-eyebrow">Step 1 of 3 � Getting started</p>
  <h2 class="step-title">Which lens do you need<br>right <em>now</em>?</h2>
  <p class="step-subtitle">You can choose more than one. Each serves a different purpose. Many families begin with all three.</p>
  <div class="lens-grid">
@@ -258,7 +258,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  </div>
  <div class="lens-icon"></div>
  <div class="lens-name">Verification</div>
- <div class="lens-desc">Discreet background verification — employment, education, civil records, and identity confirmation.</div>
+ <div class="lens-desc">Discreet background verification � employment, education, civil records, and identity confirmation.</div>
  </div>
  <div class="lens-card" id="lens-horo" onclick="toggleLens('horo')">
  <div class="lens-check">
@@ -266,24 +266,24 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  </div>
  <div class="lens-icon"></div>
  <div class="lens-name">Horoscope</div>
- <div class="lens-desc">Full Vedic birth chart analysis — Ashtakoot, Navamsa, Mangal Dosha, and astrologer consultation.</div>
+ <div class="lens-desc">Full Vedic birth chart analysis � Ashtakoot, Navamsa, Mangal Dosha, and astrologer consultation.</div>
  </div>
  </div>
  <div style="background: rgba(200,168,75,0.07); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem;">
  <p style="font-size:0.78rem; color:var(--ink-light); line-height:1.7; font-weight:300;">
  <strong style="color:var(--ink); font-weight:500;">Not sure which to choose?</strong> 
- Our <a href="test.html" style="color:var(--gold-dark);text-decoration:none;font-weight:500">free compatibility test</a> can help you understand what your situation calls for — it takes under 5 minutes.
+ Our <a href="test.html" style="color:var(--gold-dark);text-decoration:none;font-weight:500">free compatibility test</a> can help you understand what your situation calls for � it takes under 5 minutes.
  </p>
  </div>
  <div class="step-nav">
  <span></span>
- <button class="btn-next" onclick="goStep(2)">Continue → Details</button>
+ <button class="btn-next" onclick="goStep(2)">Continue ? Details</button>
  </div>
  </div>
 
  <!-- STEP 2: DETAILS -->
  <div class="begin-step" id="step-2">
- <p class="step-eyebrow">Step 2 of 3 · Your details</p>
+ <p class="step-eyebrow">Step 2 of 3 � Your details</p>
  <h2 class="step-title">Tell us about <em>yourself</em></h2>
  <p class="step-subtitle">This helps us assign the right specialist and personalise your report. All information is kept strictly confidential.</p>
 
@@ -311,7 +311,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  <div class="form-group">
  <label>Enquiry is for</label>
  <select id="d-for">
- <option value="">— Select —</option>
+ <option value="">� Select �</option>
  <option>Self (son/daughter)</option>
  <option>My son</option>
  <option>My daughter</option>
@@ -321,35 +321,35 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  <div class="form-group">
  <label>Current match status</label>
  <select id="d-status">
- <option value="">— Select —</option>
- <option>Match just received — assessing</option>
- <option>In conversation — want to go deeper</option>
- <option>Engagement fixed — pre-wedding</option>
+ <option value="">� Select �</option>
+ <option>Match just received � assessing</option>
+ <option>In conversation � want to go deeper</option>
+ <option>Engagement fixed � pre-wedding</option>
  <option>Exploring options, no match yet</option>
  </select>
  </div>
  </div>
  <div class="form-group">
- <label>Brief context <span style="color:var(--ink-light);font-size:0.65rem;text-transform:none;letter-spacing:0">(optional — helps us personalise)</span></label>
+ <label>Brief context <span style="color:var(--ink-light);font-size:0.65rem;text-transform:none;letter-spacing:0">(optional � helps us personalise)</span></label>
  <textarea id="d-context" rows="3" placeholder="e.g. We've received a profile from a family in Pune. Both are software professionals. Families want to move quickly. We want to be thorough."></textarea>
  </div>
 
  <div class="step-nav">
- <button class="btn-back" onclick="goStep(1)">← Back</button>
- <button class="btn-next" onclick="goStep(3)">Continue → Choose Plan</button>
+ <button class="btn-back" onclick="goStep(1)">? Back</button>
+ <button class="btn-next" onclick="goStep(3)">Continue ? Choose Plan</button>
  </div>
  </div>
 
  <!-- STEP 3: PLAN -->
  <div class="begin-step" id="step-3">
- <p class="step-eyebrow">Step 3 of 3 · Choose your plan</p>
+ <p class="step-eyebrow">Step 3 of 3 � Choose your plan</p>
  <h2 class="step-title">Begin with the right<br><em>depth</em></h2>
- <p class="step-subtitle">Every plan includes a dedicated specialist, a written report, and a private consultation. No subscriptions — pay once.</p>
+ <p class="step-subtitle">Every plan includes a dedicated specialist, a written report, and a private consultation. No subscriptions � pay once.</p>
 
  <div class="plan-grid">
  <div class="plan-card" id="plan-essential" onclick="selectPlan('essential')">
  <div class="plan-name">Essential</div>
- <div class="plan-price">₹4,999 <span>/ service</span></div>
+ <div class="plan-price">?4,999 <span>/ service</span></div>
  <div class="plan-feature">Full written assessment report</div>
  <div class="plan-feature">Dedicated specialist assigned</div>
  <div class="plan-feature">30-min consultation call</div>
@@ -359,7 +359,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  <div class="plan-card selected" id="plan-complete" onclick="selectPlan('complete')" style="border-color:var(--ink)">
  <div class="plan-badge">Most Chosen</div>
  <div class="plan-name">Complete</div>
- <div class="plan-price">₹9,999 <span>/ service</span></div>
+ <div class="plan-price">?9,999 <span>/ service</span></div>
  <div class="plan-feature">Everything in Essential</div>
  <div class="plan-feature">In-depth narrative report (15+ pages)</div>
  <div class="plan-feature">2 consultation sessions</div>
@@ -368,8 +368,8 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  </div>
  <div class="plan-card" id="plan-family" onclick="selectPlan('family')">
  <div class="plan-name">Family</div>
- <div class="plan-price">₹19,999 <span>/ all three</span></div>
- <div class="plan-feature">All 3 lenses — one package</div>
+ <div class="plan-price">?19,999 <span>/ all three</span></div>
+ <div class="plan-feature">All 3 lenses � one package</div>
  <div class="plan-feature">Complete-level depth for each</div>
  <div class="plan-feature">Senior specialist team</div>
  <div class="plan-feature">Joint family consultation</div>
@@ -380,14 +380,14 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; display:flex; gap:1.25rem; align-items:center; margin-bottom:1.5rem">
  <div style="font-size:1.75rem"></div>
  <div>
- <p style="font-size:0.8rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem">100% Confidential · No data shared without consent</p>
+ <p style="font-size:0.8rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem">100% Confidential � No data shared without consent</p>
  <p style="font-size:0.75rem; color:var(--ink-light); font-weight:300; line-height:1.6">The person being verified or assessed is never informed. Reports are delivered only to you, encrypted and watermarked.</p>
  </div>
  </div>
 
  <div class="step-nav">
- <button class="btn-back" onclick="goStep(2)">← Back</button>
- <button class="btn-next gold" onclick="goStep(4)">Confirm My Order →</button>
+ <button class="btn-back" onclick="goStep(2)">? Back</button>
+ <button class="btn-next gold" onclick="goStep(4)">Confirm My Order ?</button>
  </div>
  </div>
 
@@ -396,18 +396,18 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
  <div class="confirm-box">
  <div class="confirm-icon"></div>
  <h2 class="confirm-title">Your journey has begun</h2>
- <p class="confirm-sub">Thank you. A MyTrueMatch specialist will be in touch within 2–4 hours to confirm your order, clarify any details, and guide you through the process.</p>
+ <p class="confirm-sub">Thank you. A MyTrueMatch specialist will be in touch within 2�4 hours to confirm your order, clarify any details, and guide you through the process.</p>
 
  <div class="confirm-next-steps">
  <div class="confirm-step">
  <div class="confirm-step-num">01</div>
  <h4>Specialist assigned</h4>
- <p>We'll assign the right expert for your chosen lens — you'll receive an introductory message within 2 hours.</p>
+ <p>We'll assign the right expert for your chosen lens � you'll receive an introductory message within 2 hours.</p>
  </div>
  <div class="confirm-step">
  <div class="confirm-step-num">02</div>
  <h4>Information shared</h4>
- <p>You'll be guided on what to send — securely, over a private channel — to begin the assessment.</p>
+ <p>You'll be guided on what to send � securely, over a private channel � to begin the assessment.</p>
  </div>
  <div class="confirm-step">
  <div class="confirm-step-num">03</div>
@@ -418,7 +418,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
 
  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
  <a href="session.html" style="background:var(--ink);color:#fff;text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-size:0.85rem;font-weight:600;transition:all 0.2s" onmouseover="this.style.background='#1a1512'" onmouseout="this.style.background='var(--ink)'">View My Dashboard</a>
- <a href="mytruematch-landing.html" style="border:1px solid var(--border);color:var(--ink-mid);text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">← Back to Home</a>
+ <a href="index.html" style="border:1px solid var(--border);color:var(--ink-mid);text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">? Back to Home</a>
  </div>
  </div>
  </div>
@@ -428,7 +428,7 @@ footer { background: var(--bg-dark); padding: 2.5rem 4rem; color: rgba(255,255,2
 <!-- FOOTER -->
 <footer>
  <div class="footer-bottom">
- <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <p class="footer-copy">� 2026 MyTrueMatch � All Rights Reserved.</p>
  <div class="footer-legal">
  <a href="privacy.html">Privacy</a>
  <a href="terms.html">Terms</a>

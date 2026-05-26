@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -27,7 +27,7 @@
 html { scroll-behavior:smooth; }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
-/* ── ANNOUNCE ── */
+/* -- ANNOUNCE -- */
 .announce {
  background:var(--bg-dark);
  color:rgba(255,255,255,0.6);
@@ -38,7 +38,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink);
 }
 .announce b { color:var(--gold); font-weight:500; }
 
-/* ── NAV ── */
+/* -- NAV -- */
 nav {
  position:sticky; top:0; z-index:200;
  display:flex; align-items:center; justify-content:space-between;
@@ -78,7 +78,7 @@ nav {
 }
 .btn-solid:hover { opacity:0.85; transform:translateY(-1px); }
 
-/* ── HERO ── */
+/* -- HERO -- */
 .hero {
  min-height:100vh;
  display:grid;
@@ -192,7 +192,7 @@ nav {
 .stat-title { font-size:0.82rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem; }
 .stat-desc { font-size:0.78rem; font-weight:300; color:var(--ink-light); line-height:1.65; }
 
-/* ── NARRATIVE HOOK ── */
+/* -- NARRATIVE HOOK -- */
 .doubt {
  padding:7rem 4rem;
  background:var(--bg);
@@ -239,7 +239,7 @@ nav {
 .doubt-close p strong { color:var(--ink); font-weight:500; }
 .doubt-close p em { font-style:italic; color:var(--gold-dark); }
 
-/* ── SIX PILLARS ── */
+/* -- SIX PILLARS -- */
 .pillars {
  background:#EDD000;
  border-top:1px solid rgba(200,168,75,0.35);
@@ -293,7 +293,7 @@ nav {
 .pil-desc p { font-size:0.84rem; font-weight:300; color:#4A3800; line-height:1.78; max-width:500px; }
 .pil-icon { width:18px; height:18px; stroke:#7A5C00; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-right:0.5rem; flex-shrink:0; }
 
-/* ── TRUST STRIP ── */
+/* -- TRUST STRIP -- */
 .trust-strip {
  background:var(--bg-dark);
  padding:1.4rem 4rem;
@@ -308,7 +308,7 @@ nav {
 .trust-item svg { width:15px; height:15px; stroke:var(--gold); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .trust-sep { color:rgba(255,255,255,0.12); font-size:1rem; }
 
-/* ── HOW IT WORKS ── */
+/* -- HOW IT WORKS -- */
 .how {
  padding:6rem 4rem;
  background:var(--bg-soft);
@@ -359,7 +359,7 @@ nav {
 }
 .step-note::before { content:''; width:14px; height:1px; background:var(--gold); }
 
-/* ── WHO WE SERVE ── */
+/* -- WHO WE SERVE -- */
 .serve { padding:6rem 4rem; background:var(--bg); border-bottom:1px solid var(--line); }
 .serve-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
 .serve-list { display:flex; flex-direction:column; margin-top:2.5rem; }
@@ -381,7 +381,7 @@ nav {
 .serve-note-label { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.75rem; }
 .serve-note p { font-size:0.84rem; font-weight:300; color:var(--ink-light); line-height:1.75; font-style:italic; }
 
-/* ── TESTIMONIAL ── */
+/* -- TESTIMONIAL -- */
 .testimonial {
  padding:7rem 4rem; background:var(--bg);
  position:relative; overflow:hidden;
@@ -416,7 +416,7 @@ nav {
 .test-name { font-size:0.82rem; font-weight:500; color:var(--ink); margin-bottom:0.2rem; }
 .test-city { font-size:0.66rem; color:var(--ink-faint); letter-spacing:0.08em; }
 
-/* ── CTA ── */
+/* -- CTA -- */
 .cta {
  background:var(--bg-soft); border-top:1px solid var(--line);
  padding:7rem 4rem; text-align:center; position:relative; overflow:hidden;
@@ -455,7 +455,7 @@ nav {
 .cta-btn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .cta-meta { margin-top:1.5rem; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); }
 
-/* ── FOOTER ── */
+/* -- FOOTER -- */
 footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 .footer-top {
  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
@@ -477,20 +477,20 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 .secure-badge { display:flex; align-items:center; gap:5px; color:var(--gold); font-size:0.78rem; padding-right:1rem; border-right:1px solid rgba(255,255,255,0.07); }
 .secure-badge svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 
-/* ── SOCIAL ── */
+/* -- SOCIAL -- */
 .social-icons { display:flex; gap:12px; margin-top:1.5rem; }
 .social-icons a { color:rgba(255,255,255,0.3); transition:color 0.2s; }
 .social-icons a:hover { color:var(--gold); }
 .social-icons svg { width:18px; height:18px; fill:currentColor; display:block; }
 
-/* ── FADE ── */
+/* -- FADE -- */
 .fade { opacity:0; transform:translateY(20px); transition:opacity 0.65s ease, transform 0.65s ease; }
 .fade.d1 { transition-delay:0.1s; }
 .fade.d2 { transition-delay:0.2s; }
 .fade.d3 { transition-delay:0.3s; }
 .fade.vis { opacity:1; transform:translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* -- RESPONSIVE -- */
 @media(max-width:960px) {
  nav { padding:0 1.5rem; }
  .nav-links { display:none; }
@@ -513,12 +513,12 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 
 <!-- ANNOUNCE -->
 <div class="announce">
- Serving couples across <b>38 cities</b> — Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+ Serving couples across <b>38 cities</b> � Bangalore to Birmingham &nbsp;�&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;�&nbsp; All data on Indian servers
 </div>
 
 <!-- NAV -->
 <nav>
- <a href="mytruematch-landing.html" class="nav-logo">
+ <a href="index.html" class="nav-logo">
  <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
  </a>
  <ul class="nav-links">
@@ -582,7 +582,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div>
  <div class="stat-title">UIDAI-compliant identity checks</div>
- <div class="stat-desc">Aadhaar-linked verification. Are they who they say they are — confirmed through official channels.</div>
+ <div class="stat-desc">Aadhaar-linked verification. Are they who they say they are � confirmed through official channels.</div>
  </div>
  </div>
  <!-- Row 2 -->
@@ -592,7 +592,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div>
  <div class="stat-title">Six pillars verified</div>
- <div class="stat-desc">Identity, employment, legal history, financial overview, social media, and consent — each independently confirmed.</div>
+ <div class="stat-desc">Identity, employment, legal history, financial overview, social media, and consent � each independently confirmed.</div>
  </div>
  </div>
  <!-- Row 3 -->
@@ -611,8 +611,8 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
  </div>
  <div>
- <div class="stat-title">5–7 business days</div>
- <div class="stat-desc">A structured advisory report — not a data printout. Written findings, delivered with care and clarity.</div>
+ <div class="stat-title">5�7 business days</div>
+ <div class="stat-desc">A structured advisory report � not a data printout. Written findings, delivered with care and clarity.</div>
  </div>
  </div>
  </div>
@@ -622,19 +622,19 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 <!-- NARRATIVE HOOK -->
 <section class="doubt">
  <div class="doubt-inner">
- <div class="d-label fade">What families are told — and what they deserve to know</div>
+ <div class="d-label fade">What families are told � and what they deserve to know</div>
  <div class="doubt-list">
  <div class="doubt-row">
- <div class="doubt-glyph">◆</div>
+ <div class="doubt-glyph">?</div>
  <div class="doubt-text">His family said he is a <em>senior engineer.</em></div>
  </div>
  <div class="doubt-row">
- <div class="doubt-glyph">◆</div>
+ <div class="doubt-glyph">?</div>
  <div class="doubt-text">They said his <em>record is clean.</em></div>
  </div>
  </div>
  <div class="doubt-close fade">
- <p>You would like to <strong>know</strong> — not just <em>believe.</em></p>
+ <p>You would like to <strong>know</strong> � not just <em>believe.</em></p>
  </div>
  </div>
 </section>
@@ -655,7 +655,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="pil-desc">
  <svg class="pil-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
- <p>Full legal name, date of birth, address — confirmed through UIDAI-compliant Aadhaar verification. Are they really who they say they are?</p>
+ <p>Full legal name, date of birth, address � confirmed through UIDAI-compliant Aadhaar verification. Are they really who they say they are?</p>
  </div>
  </div>
  <div class="pil-item">
@@ -688,7 +688,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="pil-desc">
  <svg class="pil-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
- <p>Credit history overview. Major debts. Defaults. Conducted only with written consent. No exact scores shared — just what matters.</p>
+ <p>Credit history overview. Major debts. Defaults. Conducted only with written consent. No exact scores shared � just what matters.</p>
  </div>
  </div>
  <div class="pil-item">
@@ -710,7 +710,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="pil-desc">
  <svg class="pil-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
- <p>Written. Specific. The subject sees the same report you do. Data deleted in 90 days. This is not surveillance.<br><small style="color:rgba(74,56,0,0.6);font-size:0.72rem">UIDAI-compliant · DPDP Act 2023 · India servers · No third parties.</small></p>
+ <p>Written. Specific. The subject sees the same report you do. Data deleted in 90 days. This is not surveillance.<br><small style="color:rgba(74,56,0,0.6);font-size:0.72rem">UIDAI-compliant � DPDP Act 2023 � India servers � No third parties.</small></p>
  </div>
  </div>
  </div>
@@ -722,22 +722,22 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
  UIDAI-compliant
  </div>
- <div class="trust-sep">·</div>
+ <div class="trust-sep">�</div>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 7h16"/><path d="M6 7l-3 6h6l-3-6Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg>
  DPDP Act 2023
  </div>
- <div class="trust-sep">·</div>
+ <div class="trust-sep">�</div>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
  India servers only
  </div>
- <div class="trust-sep">·</div>
+ <div class="trust-sep">�</div>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
  No third parties
  </div>
- <div class="trust-sep">·</div>
+ <div class="trust-sep">�</div>
  <div class="trust-item">
  <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M8 6V4h8v2"/></svg>
  Data deleted in 90 days
@@ -749,7 +749,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="how-header fade">
  <p class="sec-eyebrow">How it works</p>
  <h2 class="sec-title">Six steps, in <em>clear order.</em></h2>
- <p class="sec-sub">Most verifications complete in 5–10 working days, depending on scope.</p>
+ <p class="sec-sub">Most verifications complete in 5�10 working days, depending on scope.</p>
  </div>
  <div class="steps-grid fade">
  <div class="step">
@@ -800,7 +800,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <h3>Advisory Report</h3>
  <p>A structured summary of findings and observations, provided to assist in informed decision-making.</p>
- <div class="step-note">5–10 working days depending on scope</div>
+ <div class="step-note">5�10 working days depending on scope</div>
  </div>
  </div>
 </section>
@@ -828,7 +828,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="serve-note" style="margin-top:1rem;background:var(--bg-accent)">
  <div class="serve-note-label">Self-verification</div>
- <p>You can commission a verification of yourself — and share the resulting Verified badge with the other family. Trust offered, not demanded.</p>
+ <p>You can commission a verification of yourself � and share the resulting Verified badge with the other family. Trust offered, not demanded.</p>
  </div>
  </div>
  </div>
@@ -838,10 +838,10 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 <section class="testimonial">
  <div class="test-inner fade">
  <div class="test-label">Notes from families we have served</div>
- <blockquote class="test-quote">"My daughter's match came through a distant family connection. We liked him very much but had no way to independently verify what we had been told about his work and background. The MyTrueMatch team was professional, sensitive, and fast. Everything checked out — and we felt much better for having confirmed it properly."</blockquote>
+ <blockquote class="test-quote">"My daughter's match came through a distant family connection. We liked him very much but had no way to independently verify what we had been told about his work and background. The MyTrueMatch team was professional, sensitive, and fast. Everything checked out � and we felt much better for having confirmed it properly."</blockquote>
  <div class="test-mono">SK</div>
  <div class="test-name">Mrs. Sunita Krishnan</div>
- <div class="test-city">Chennai · Winter 2024</div>
+ <div class="test-city">Chennai � Winter 2024</div>
  </div>
 </section>
 
@@ -850,12 +850,12 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="cta-inner fade">
  <div class="cta-eye">When you're ready</div>
  <h2>Begin the<br><em>verification.</em></h2>
- <p class="cta-sub">Written consent required &nbsp;·&nbsp; Report in 5–7 business days &nbsp;·&nbsp; ₹5,999</p>
+ <p class="cta-sub">Written consent required &nbsp;�&nbsp; Report in 5�7 business days &nbsp;�&nbsp; ?5,999</p>
  <a href="begin.html" class="cta-btn">
  Start a verification
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
  </a>
- <p class="cta-meta">Private · Secure · India servers · DPDP Act 2023</p>
+ <p class="cta-meta">Private � Secure � India servers � DPDP Act 2023</p>
  </div>
 </section>
 
@@ -864,7 +864,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="footer-top">
  <div>
  <span class="footer-logo">MyTrue<span>Match</span></span>
- <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <p class="footer-tagline">A space to truly know each other � before the most important commitment of your life.</p>
  <div class="social-icons">
  <a href="#" aria-label="Twitter">
  <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.56 1.64.92a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2 3.77A4.5 4.5 0 0 1 .96 6v.06c0 2.19 1.56 4.02 3.62 4.43a4.52 4.52 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 0 15.54 12.78 12.78 0 0 0 6.92 17.5c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 22 1.89 9 9 0 0 1 23 3z"/></svg>
@@ -905,7 +905,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <p class="footer-copy">� 2026 MyTrueMatch � All Rights Reserved.</p>
  <div class="footer-legal">
  <div class="secure-badge">
  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>

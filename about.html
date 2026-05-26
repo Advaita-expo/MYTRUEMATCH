@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -31,11 +31,11 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ── ANNOUNCE ── */
+/* -- ANNOUNCE -- */
 .announce{background:var(--bg-dark);color:rgba(255,255,255,0.55);text-align:center;padding:0.5rem 1rem;font-size:0.68rem;letter-spacing:0.1em}
 .announce b{color:var(--gold);font-weight:500}
 
-/* ── NAV ── */
+/* -- NAV -- */
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(253,250,240,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
 .nav-logo{text-decoration:none;display:flex;align-items:center;gap:0.5rem;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--ink);letter-spacing:-0.01em}
 .nav-logo span{color:#E8828A}
@@ -50,7 +50,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .btn-solid{font-size:0.74rem;font-weight:500;color:var(--bg);background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-solid:hover{opacity:0.85;transform:translateY(-1px)}
 
-/* ══ HERO ══ */
+/* -- HERO -- */
 .hero{min-height:72vh;background:var(--bg-dark);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,168,75,0.07) 0%,transparent 60%);pointer-events:none}
 .hero-left{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative}
@@ -73,7 +73,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:scan 2.6s ease-in-out infinite}
 @keyframes scan{0%{left:-100%}100%{left:100%}}
 
-/* ══ ORIGIN ══ */
+/* -- ORIGIN -- */
 .origin{padding:8rem 4rem;background:var(--bg);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
 .origin::before{content:'';position:absolute;top:-60px;left:-60px;width:380px;height:380px;border:1px solid rgba(200,168,75,0.08);border-radius:50%}
 .origin-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2rem;display:flex;align-items:center;gap:0.7rem}
@@ -86,7 +86,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .origin-quote p{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.7}
 .origin-quote cite{display:block;margin-top:1.5rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-style:normal}
 
-/* ══ CALLING ══ */
+/* -- CALLING -- */
 .calling{background:var(--bg-soft);padding:7rem 4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .calling-inner{max-width:900px;margin:0 auto;text-align:center}
 .calling-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
@@ -100,7 +100,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .pillar h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem}
 .pillar p{font-size:0.78rem;color:var(--ink-light);line-height:1.75;font-weight:300}
 
-/* ══ TEAM SECTION ══ */
+/* -- TEAM SECTION -- */
 .team-section{padding:8rem 4rem;background:var(--bg)}
 .team-header{margin-bottom:4rem}
 .team-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.7rem}
@@ -109,7 +109,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .team-title em{font-style:italic;color:var(--gold-dark)}
 .team-subtitle{font-size:0.84rem;color:var(--ink-light);font-weight:300;margin-top:0.6rem;max-width:520px;line-height:1.75}
 
-/* Team grid — 4 cards in a row */
+/* Team grid � 4 cards in a row */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 
 /* Each team card */
@@ -136,7 +136,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .team-card:hover{background:var(--bg)}
 .team-card:hover::after{transform:scaleX(1)}
 
-/* Kumar card — special gold tint */
+/* Kumar card � special gold tint */
 .team-card.kumar{background:linear-gradient(160deg,#2A2520 0%,#332b24 100%);border-right:none}
 .team-card.kumar:hover{background:linear-gradient(160deg,#332b24 0%,#3e3328 100%)}
 .team-card.kumar .team-mono{background:rgba(200,168,75,0.15);border-color:rgba(200,168,75,0.4);color:var(--gold)}
@@ -201,7 +201,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .astro-label-row p{font-size:0.78rem;color:rgba(255,255,255,0.35);font-weight:300;line-height:1.6}
 .astro-label-row p em{color:var(--gold);font-style:normal}
 
-/* ══ MODAL OVERLAY ══ */
+/* -- MODAL OVERLAY -- */
 .modal-overlay{
  position:fixed;inset:0;
  background:rgba(20,16,12,0.82);
@@ -288,7 +288,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .career-chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
 .chip{padding:0.28rem 0.75rem;background:var(--bg-accent);border:1px solid rgba(200,168,75,0.25);font-size:0.62rem;color:var(--gold-dark);letter-spacing:0.05em;border-radius:2px}
 
-/* ══ NORTH STAR ══ */
+/* -- NORTH STAR -- */
 .north-star{background:var(--bg-dark);padding:8rem 4rem;text-align:center;position:relative;overflow:hidden}
 .north-star::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border:1px solid rgba(200,168,75,0.06);border-radius:50%}
 .north-star::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border:1px solid rgba(200,168,75,0.04);border-radius:50%}
@@ -301,7 +301,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .ns-cta{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:4px;transition:all 0.25s}
 .ns-cta:hover{background:#d4b45a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,168,75,0.3)}
 
-/* ══ FOOTER ══ */
+/* -- FOOTER -- */
 footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4)}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
 .footer-logo-text{font-family:'Playfair Display',serif;font-size:1.3rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px}
@@ -319,7 +319,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 .footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
 .footer-legal a:hover{color:var(--gold)}
 
-/* ── FADE ── */
+/* -- FADE -- */
 .fade{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade.d1{transition-delay:0.1s}.fade.d2{transition-delay:0.2s}.fade.d3{transition-delay:0.3s}
 .fade.vis{opacity:1;transform:translateY(0)}
@@ -345,7 +345,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  .kumar-stats{grid-template-columns:1fr 1fr}
 }
 
-/* ─── NAV LOGO COLORS ─── */
+/* --- NAV LOGO COLORS --- */
 .logo-blue { color: #4A6FA5; }
 .logo-gold { color: #C8A84B; }
 .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }</style>
@@ -354,12 +354,12 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 
 <!-- ANNOUNCE -->
 <div class="announce">
- Serving couples across <b>38 cities</b> — from Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+ Serving couples across <b>38 cities</b> � from Bangalore to Birmingham &nbsp;�&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;�&nbsp; All data on Indian servers
 </div>
 
-<!-- NAV — no "About" link here, it lives in footer -->
+<!-- NAV � no "About" link here, it lives in footer -->
 <nav>
- <a href="mytruematch-landing.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
+ <a href="index.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
  <ul class="nav-links">
  <li><a href="compatibility.html">
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-.8-1.4-2.3-2.4-4-2.4z"/></svg>
@@ -373,7 +373,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
  Horoscope
  </a></li>
- <li><a href="mytruematch-landing.html#pricing">
+ <li><a href="index.html#pricing">
  <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
  Pricing
  </a></li>
@@ -393,12 +393,12 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </a>
  </div></nav>
 
-<!-- ══ HERO ══ -->
+<!-- -- HERO -- -->
 <section class="hero">
  <div class="hero-left">
  <div class="hero-eyebrow fade">Who We Are</div>
  <h1 class="fade d1">We built the<br>service we <em>wished</em><br>had existed.</h1>
- <p class="hero-sub fade d2">A multidisciplinary team dedicated to eliminating fraud from the matrimony landscape — bringing together law, psychology, engineering, and spiritual science.</p>
+ <p class="hero-sub fade d2">A multidisciplinary team dedicated to eliminating fraud from the matrimony landscape � bringing together law, psychology, engineering, and spiritual science.</p>
  <div style="margin-top:2.5rem;display:flex;align-items:center;gap:0.8rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.22)" class="fade d3">
  <div class="scroll-line"></div>
  Scroll to explore
@@ -438,7 +438,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
 </section>
 
-<!-- ══ ORIGIN ══ -->
+<!-- -- ORIGIN -- -->
 <section class="origin">
  <div class="origin-left fade">
  <div class="origin-label">Why We Started</div>
@@ -449,8 +449,8 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
  <div class="fade d2">
  <div class="origin-quote">
- <p>We are working to shape a new cultural norm in India — one where consent-based pre-marital verification is widely accepted as a responsible and practical step.</p>
- <cite>— The MyTrueMatch Mission</cite>
+ <p>We are working to shape a new cultural norm in India � one where consent-based pre-marital verification is widely accepted as a responsible and practical step.</p>
+ <cite>� The MyTrueMatch Mission</cite>
  </div>
  <div style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem">
  <div style="background:var(--bg-soft);padding:1.5rem;border:1px solid var(--line)">
@@ -465,7 +465,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
 </section>
 
-<!-- ══ CALLING ══ -->
+<!-- -- CALLING -- -->
 <section class="calling">
  <div class="calling-inner">
  <div class="calling-label fade">Our Calling</div>
@@ -476,32 +476,32 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12.5a3.5 3.5 0 107 0 3.5 3.5 0 00-7 0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
  </div>
  <h3>Psychometric Compatibility</h3>
- <p>Science-backed assessment across five life dimensions — written by a human psychologist for your specific pairing.</p>
+ <p>Science-backed assessment across five life dimensions � written by a human psychologist for your specific pairing.</p>
  </div>
  <div class="pillar">
  <div class="pillar-icon">
  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
  </div>
  <h3>Due-diligence Verification</h3>
- <p>Consent-based background checks — identity, employment, finances, legal history — handled with confidentiality and legal sensitivity.</p>
+ <p>Consent-based background checks � identity, employment, finances, legal history � handled with confidentiality and legal sensitivity.</p>
  </div>
  <div class="pillar">
  <div class="pillar-icon">
  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
  </div>
  <h3>Detailed Horoscope Matching</h3>
- <p>Vedic astrological analysis by senior practitioners with decades of sadhana — for clarity of heart and spirit.</p>
+ <p>Vedic astrological analysis by senior practitioners with decades of sadhana � for clarity of heart and spirit.</p>
  </div>
  </div>
  </div>
 </section>
 
-<!-- ══ TEAM SECTION ══ -->
+<!-- -- TEAM SECTION -- -->
 <section class="team-section">
  <div class="team-header fade">
  <div class="team-eyebrow">The Team</div>
  <h2 class="team-title">Quiet experts. <em>Long careers.</em></h2>
- <p class="team-subtitle">Click any card to read their full story. Each member brings a distinct discipline — together they make MyTrueMatch what it is.</p>
+ <p class="team-subtitle">Click any card to read their full story. Each member brings a distinct discipline � together they make MyTrueMatch what it is.</p>
  </div>
 
  <div class="team-grid fade d1">
@@ -511,7 +511,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div class="team-mono">DD</div>
  <h3>Deepak Dewan</h3>
  <div class="team-role">Founder</div>
- <p class="team-tagline">Decades in HR, in-depth interviewing, and risk analysis — the architect of the due-diligence framework that powers every verification.</p>
+ <p class="team-tagline">Decades in HR, in-depth interviewing, and risk analysis � the architect of the due-diligence framework that powers every verification.</p>
  <button class="read-bio">
  Read full bio
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
@@ -523,7 +523,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div class="team-mono">M</div>
  <h3>Mousami</h3>
  <div class="team-role">Co-founder</div>
- <p class="team-tagline">Co-architect of the MyTrueMatch vision — bringing operational depth and deep human sensitivity to how the service serves families.</p>
+ <p class="team-tagline">Co-architect of the MyTrueMatch vision � bringing operational depth and deep human sensitivity to how the service serves families.</p>
  <button class="read-bio">
  Read full bio
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
@@ -534,21 +534,21 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div class="team-card" onclick="openModal('aniruddha')">
  <div class="team-mono">A</div>
  <h3>Aniruddha</h3>
- <div class="team-role">Co-founder · Technology</div>
- <p class="team-tagline">Engineer turned operator. Eighteen years across India's hardest scaling businesses — now leads all technology at MyTrueMatch.</p>
+ <div class="team-role">Co-founder � Technology</div>
+ <p class="team-tagline">Engineer turned operator. Eighteen years across India's hardest scaling businesses � now leads all technology at MyTrueMatch.</p>
  <button class="read-bio">
  Read full bio
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
  </button>
  </div>
 
- <!-- Kumar — dark special card -->
+ <!-- Kumar � dark special card -->
  <div class="team-card kumar" onclick="openModal('kumar')">
  <div class="sadhguru-badge">Sadhguru Associate</div>
  <div class="team-mono">K</div>
  <h3>Kumar</h3>
- <div class="team-role">Astrologer · Horoscope · Spiritual Guide</div>
- <p class="team-tagline">Three decades of sadhana. Over a thousand charts studied. Former BMW engineer turned Siddhar initiate — our lead astrologer for horoscope matching.</p>
+ <div class="team-role">Astrologer � Horoscope � Spiritual Guide</div>
+ <p class="team-tagline">Three decades of sadhana. Over a thousand charts studied. Former BMW engineer turned Siddhar initiate � our lead astrologer for horoscope matching.</p>
  <button class="read-bio">
  Read full bio
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
@@ -560,7 +560,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <!-- Astrologer note strip -->
  <div class="astro-label-row fade d2">
  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="flex-shrink:0"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
- <p>Our horoscope service is led by <em>Kumar</em> — a former Isha Foundation volunteer of nearly two decades, initiated into the Siddhar tradition, with over 1,000 astrological charts studied across three decades of unbroken spiritual practice.</p>
+ <p>Our horoscope service is led by <em>Kumar</em> � a former Isha Foundation volunteer of nearly two decades, initiated into the Siddhar tradition, with over 1,000 astrological charts studied across three decades of unbroken spiritual practice.</p>
  </div>
 
  <!-- Drushya inline -->
@@ -571,7 +571,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div style="padding:1.5rem 2rem;border-left:1px solid var(--line);flex:1">
  <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.15rem">Drushya</h3>
  <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.6rem">Psychologist</div>
- <p style="font-size:0.76rem;color:var(--ink-light);line-height:1.7;font-weight:300">The psychological intelligence behind the Compatibility Report — translating psychometric science into actionable guidance for couples and families.</p>
+ <p style="font-size:0.76rem;color:var(--ink-light);line-height:1.7;font-weight:300">The psychological intelligence behind the Compatibility Report � translating psychometric science into actionable guidance for couples and families.</p>
  </div>
  <div style="padding:2rem;flex-shrink:0">
  <button class="read-bio" style="margin-top:0">Read bio<svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
@@ -579,28 +579,28 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
 </section>
 
-<!-- ══ NORTH STAR ══ -->
+<!-- -- NORTH STAR -- -->
 <section class="north-star">
  <div class="ns-inner fade">
  <span class="ns-star"></span>
  <div class="ns-label">Our North Star</div>
  <blockquote>
- "To shape a new cultural norm in India — one where <strong>consent-based pre-marital verification</strong> is widely accepted as a responsible, necessary, and important step in matrimonial decision-making."
+ "To shape a new cultural norm in India � one where <strong>consent-based pre-marital verification</strong> is widely accepted as a responsible, necessary, and important step in matrimonial decision-making."
  </blockquote>
- <a href="mytruematch-landing.html" class="ns-cta">
+ <a href="index.html" class="ns-cta">
  See what we can do for you
  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
  </a>
- <p style="margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Private · Secure · India servers · DPDP Act 2023</p>
+ <p style="margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Private � Secure � India servers � DPDP Act 2023</p>
  </div>
 </section>
 
-<!-- ══ FOOTER — About Us link lives here ══ -->
+<!-- -- FOOTER � About Us link lives here -- -->
 <footer>
  <div class="footer-top fade-in">
  <div>
  <div class="footer-logo-text">MyTrue<span>Match</span></div>
- <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <p class="footer-tagline">A space to truly know each other � before the most important commitment of your life.</p>
  </div>
  <div>
  <div class="footer-col-title">Our Lenses</div>
@@ -629,7 +629,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <p class="footer-copy">� 2026 MyTrueMatch � All Rights Reserved.</p>
  <div class="footer-legal">
  <a href="privacy.html">Privacy</a>
  <a href="terms.html">Terms</a>
@@ -638,9 +638,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 </footer>
 
 
-<!-- ════════════════════════════════════
+<!-- ------------------------------------
  MODAL OVERLAY
-════════════════════════════════════ -->
+------------------------------------ -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeOnBackdrop(event)">
  <div class="modal-box" id="modal-box">
  <!-- Content injected by JS -->
@@ -648,9 +648,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 </div>
 
 
-<!-- ════════
+<!-- --------
  MODAL DATA & LOGIC
-════════ -->
+-------- -->
 <script>
 const people = {
  deepak: {
@@ -659,8 +659,8 @@ const people = {
  name: 'Deepak Dewan',
  role: 'Founder',
  content: `
- <p>The principal architect of MyTrueMatch — Deepak brings deep expertise in human assessment, risk profiling, and structured due diligence to the matrimonial space.</p>
- <p>Over decades in HR, in-depth interviewing, personal screening, and legal compliance, he recognised something others ignored: the absence of professional verification in matrimony was not merely a gap — it was a risk. MyTrueMatch is his answer to it.</p>
+ <p>The principal architect of MyTrueMatch � Deepak brings deep expertise in human assessment, risk profiling, and structured due diligence to the matrimonial space.</p>
+ <p>Over decades in HR, in-depth interviewing, personal screening, and legal compliance, he recognised something others ignored: the absence of professional verification in matrimony was not merely a gap � it was a risk. MyTrueMatch is his answer to it.</p>
  <p>He leads the platform's verification framework, ensuring every check is rigorous, legally sensitive, and conducted with complete dignity for all parties involved.</p>
  <div class="modal-quote modal-quote-light">
  <p>"Families have every right to verified facts before a lifelong commitment. We simply give them the tools to act on that right."</p>
@@ -673,9 +673,9 @@ const people = {
  name: 'Mousami',
  role: 'Co-founder',
  content: `
- <p>Co-architect of the MyTrueMatch vision — Mousami shapes how the platform serves families at the most sensitive moments of their decision-making.</p>
+ <p>Co-architect of the MyTrueMatch vision � Mousami shapes how the platform serves families at the most sensitive moments of their decision-making.</p>
  <p>Her contribution runs deep into the operational and human fabric of the service: how information is handled, how families are engaged, how the platform balances rigour with empathy.</p>
- <p>She ensures that every touchpoint — from the first inquiry to the final report — is delivered with the dignity and care that this moment in a person's life deserves.</p>
+ <p>She ensures that every touchpoint � from the first inquiry to the final report � is delivered with the dignity and care that this moment in a person's life deserves.</p>
  <div class="modal-quote modal-quote-light">
  <p>"The right insight, delivered with care, can change the entire trajectory of a family's decision."</p>
  </div>
@@ -685,12 +685,12 @@ const people = {
  dark: false,
  initials: 'A',
  name: 'Aniruddha',
- role: 'Co-founder · Technology',
+ role: 'Co-founder � Technology',
  content: `
  <p>Engineer turned operator. Eighteen years across India's hardest scaling businesses. Aniruddha began his career as a systems engineer at Infosys, before earning an MBA in Supply Chain Management from North Carolina State University.</p>
  <p>At Mu Sigma's executive-decisions practice, he consulted for the world's largest retailer. The years that followed took him through founding teams at Kamatan Farm Tech and AreaJockey, the launch of BigBasket's sixty-minute dark-store delivery, and pan-India supply chain leadership at Zomato's Hyperpure. At Smartstaff, he led a full operational and commercial turnaround, taking gross margins from negative to positive within eighteen months. At Bambrew, he ran manufacturing for a sustainable-packaging business.</p>
  <div class="modal-quote modal-quote-light"><p>"Most growing businesses don't have a growth problem. They have an operations problem."</p></div>
- <p>He brought that operator's discipline to MyTrueMatch — and married it to technology. Data security is not a feature added at the end — it is a design principle present in every decision. Today he leads all technology: engineering, infrastructure, data, privacy, and integrations.</p>
+ <p>He brought that operator's discipline to MyTrueMatch � and married it to technology. Data security is not a feature added at the end � it is a design principle present in every decision. Today he leads all technology: engineering, infrastructure, data, privacy, and integrations.</p>
  <div class="modal-quote modal-quote-light"><p>"Something only works when someone truly owns the outcome, end to end."</p></div>
  <div class="career-chips">
  <span class="chip">Infosys</span><span class="chip">Mu Sigma</span><span class="chip">BigBasket</span><span class="chip">Zomato Hyperpure</span><span class="chip">Smartstaff</span><span class="chip">Bambrew</span><span class="chip">NC State MBA</span>
@@ -701,8 +701,8 @@ const people = {
  dark: true,
  initials: 'K',
  name: 'Kumar',
- role: 'Lead Astrologer · Horoscope · Spiritual Guide',
- badge: 'Sadhguru Associate · Isha Foundation',
+ role: 'Lead Astrologer � Horoscope � Spiritual Guide',
+ badge: 'Sadhguru Associate � Isha Foundation',
  content: `
  <div class="kumar-stats">
  <div class="kstat"><div class="kstat-num">30<span>+</span></div><div class="kstat-label">Years Sadhana</div></div>
@@ -711,12 +711,12 @@ const people = {
  <div class="kstat"><div class="kstat-num">3</div><div class="kstat-label">Guru Lineages</div></div>
  </div>
  <p>Having begun his professional journey as an engineer with BMW, where he worked for over a decade, Kumar eventually chose to step away from a life of material comfort in response to a profound inner spiritual calling.</p>
- <p>For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his practice. He also dedicated nearly two decades to volunteering under the guidance of <strong style="color:var(--gold)">Sadhguru Jaggi Vasudev</strong> — an experience that profoundly shaped his inner journey.</p>
- <p>Driven by an intense longing for liberation, he continued to explore Tantra, Mantra, and the Siddhar traditions — each providing its own beauty, intensity, and transformative power.</p>
+ <p>For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his practice. He also dedicated nearly two decades to volunteering under the guidance of <strong style="color:var(--gold)">Sadhguru Jaggi Vasudev</strong> � an experience that profoundly shaped his inner journey.</p>
+ <p>Driven by an intense longing for liberation, he continued to explore Tantra, Mantra, and the Siddhar traditions � each providing its own beauty, intensity, and transformative power.</p>
  <div class="modal-quote modal-quote-dark">
  <p>"I remain deeply indebted to the many Gurus whose grace illuminated my path. Chandramouli Ayya introduced me to astrology and the sacred knowledge of invoking divine forces. I bow with gratitude to Bhaskara Sivadasan Ayya, a living Siddhar who initiated me into the path of Jnana Yoga."</p>
  </div>
- <p>Today, Kumar serves as a bridge between the physical and the celestial — integrating Varma Therapy, Yoga, and Spiritual Sadhana with the precision of Astrological and Numerological sciences. Over the years, he has studied and offered insights on more than a thousand astrological charts.</p>
+ <p>Today, Kumar serves as a bridge between the physical and the celestial � integrating Varma Therapy, Yoga, and Spiritual Sadhana with the precision of Astrological and Numerological sciences. Over the years, he has studied and offered insights on more than a thousand astrological charts.</p>
  <div class="modal-tags">
  <span class="modal-tag">Vedic Astrology</span><span class="modal-tag">Tantra</span><span class="modal-tag">Mantra</span><span class="modal-tag">Siddhar Tradition</span><span class="modal-tag">Jnana Yoga</span><span class="modal-tag">Varma Therapy</span><span class="modal-tag">Numerology</span><span class="modal-tag">Isha Yoga</span>
  </div>
@@ -731,11 +731,11 @@ const people = {
  name: 'Drushya',
  role: 'Psychologist',
  content: `
- <p>The psychological intelligence behind the Compatibility Report — Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
+ <p>The psychological intelligence behind the Compatibility Report � Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
  <p>Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
- <p>She assesses each couple across five dimensions — communication, conflict, money, family, and goals — and delivers insights with the clarity and empathy that this moment deserves.</p>
+ <p>She assesses each couple across five dimensions � communication, conflict, money, family, and goals � and delivers insights with the clarity and empathy that this moment deserves.</p>
  <div class="modal-quote modal-quote-light">
- <p>"A number gives structure. The written analysis gives language. Together, they give couples something they can hold — and return to."</p>
+ <p>"A number gives structure. The written analysis gives language. Together, they give couples something they can hold � and return to."</p>
  </div>
  `
  }
@@ -811,7 +811,7 @@ if (cl) convObs.observe(cl);
  <div class="footer-top fade">
  <div>
  <div style="font-size:1.1rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;font-weight:500">MyTrue<span style="color:#E8828A">Match</span></div>
- <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <p class="footer-tagline">A space to truly know each other � before the most important commitment of your life.</p>
  <div style="display:flex;gap:10px;margin-top:1.5rem">
  <a href="#" style="width:32px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.2s" onmouseover="this.style.color='#C8A84B';this.style.borderColor='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.3)';this.style.borderColor='rgba(255,255,255,0.1)'">
  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
@@ -848,7 +848,7 @@ if (cl) convObs.observe(cl);
  </div>
  </div>
  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
- <p style="font-size:0.72rem;letter-spacing:0.04em;color:rgba(255,255,255,0.25)">© 2026 MyTrueMatch · www.mytruematch.in · All Rights Reserved.</p>
+ <p style="font-size:0.72rem;letter-spacing:0.04em;color:rgba(255,255,255,0.25)">� 2026 MyTrueMatch � www.mytruematch.in � All Rights Reserved.</p>
  <div style="display:flex;gap:1.5rem;align-items:center">
  <div style="display:flex;align-items:center;gap:6px;color:#C8A84B;font-size:0.72rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.08)">
  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>

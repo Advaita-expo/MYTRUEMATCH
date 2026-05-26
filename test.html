@@ -1,10 +1,10 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Compatibility Test ‚Äî MyTrueMatch</title>
-<meta name="description" content="Take our free 10-question compatibility test and get a personalised score with breakdown ‚Äî in under 5 minutes.">
+<title>Free Compatibility Test ó MyTrueMatch</title>
+<meta name="description" content="Take our free 10-question compatibility test and get a personalised score with breakdown ó in under 5 minutes.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -50,17 +50,17 @@ nav {
 .btn-solid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--bg); text-decoration: none; padding: 0.5rem 1.25rem; background: var(--ink); border-radius: 6px; transition: all 0.2s; }
 .btn-solid:hover { background: var(--gold-dark); }
 
-/* ‚îÄ‚îÄ‚îÄ TEST LAYOUT ‚îÄ‚îÄ‚îÄ */
+/* --- TEST LAYOUT --- */
 .test-page { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; min-height: calc(100vh - 68px); }
 
-/* ‚îÄ‚îÄ‚îÄ INTRO ‚îÄ‚îÄ‚îÄ */
+/* --- INTRO --- */
 .test-intro { text-align: center; margin-bottom: 3rem; }
 .test-intro-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
 .test-intro h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.85rem; line-height: 1.2; }
 .test-intro h1 em { font-style: italic; color: var(--rose); }
 .test-intro p { font-size: 0.9rem; color: var(--ink-light); line-height: 1.75; font-weight: 300; max-width: 520px; margin: 0 auto; }
 
-/* ‚îÄ‚îÄ‚îÄ TEST SELECT GRID ‚îÄ‚îÄ‚îÄ */
+/* --- TEST SELECT GRID --- */
 .test-select-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
 .test-select-card {
  background: #fff; border: 2px solid var(--border); border-radius: 18px;
@@ -103,13 +103,13 @@ nav {
 }
 .test-intro-note svg { flex-shrink: 0; margin-top: 0.15rem; stroke: var(--ink-light); }
 
-/* ‚îÄ‚îÄ‚îÄ PROGRESS ‚îÄ‚îÄ‚îÄ */
+/* --- PROGRESS --- */
 .test-progress-wrap { margin-bottom: 2.5rem; }
 .test-progress-info { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--ink-light); margin-bottom: 0.6rem; }
 .test-progress-track { height: 5px; background: rgba(200,168,75,0.15); border-radius: 3px; overflow: hidden; }
 .test-progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--rose)); border-radius: 3px; transition: width 0.5s ease; }
 
-/* ‚îÄ‚îÄ‚îÄ QUESTION CARD ‚îÄ‚îÄ‚îÄ */
+/* --- QUESTION CARD --- */
 .question-section { display: none; animation: fadeUp 0.4s ease; }
 .question-section.active { display: block; }
 @keyframes fadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
@@ -120,7 +120,7 @@ nav {
 .question-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 0.65rem; }
 .question-sub { font-size: 0.82rem; color: var(--ink-light); line-height: 1.65; font-weight: 300; margin-bottom: 2rem; }
 
-/* ‚îÄ‚îÄ‚îÄ OPTIONS ‚îÄ‚îÄ‚îÄ */
+/* --- OPTIONS --- */
 .options-list { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; }
 .option-btn {
  width: 100%; text-align: left;
@@ -142,7 +142,7 @@ nav {
 .option-btn.selected .option-letter { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
 .option-text { flex: 1; line-height: 1.5; }
 
-/* ‚îÄ‚îÄ‚îÄ NAV BUTTONS ‚îÄ‚îÄ‚îÄ */
+/* --- NAV BUTTONS --- */
 .test-nav { display: flex; justify-content: space-between; align-items: center; }
 .btn-back { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 1.5rem; font-size: 0.82rem; font-weight: 500; color: var(--ink-mid); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
 .btn-back:hover { border-color: var(--ink); }
@@ -150,7 +150,7 @@ nav {
 .btn-next:hover { background: #1a1512; }
 .btn-next:disabled { background: rgba(42,37,32,0.3); cursor: not-allowed; }
 
-/* ‚îÄ‚îÄ‚îÄ RESULTS ‚îÄ‚îÄ‚îÄ */
+/* --- RESULTS --- */
 #results { display: none; }
 .results-wrap { animation: fadeUp 0.5s ease; }
 .score-ring-wrap { text-align: center; margin-bottom: 3rem; }
@@ -183,10 +183,10 @@ nav {
 .cta-secondary { border: 1px solid var(--border); color: var(--ink-mid); text-decoration: none; padding: 0.85rem 2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; transition: border-color 0.2s; }
 .cta-secondary:hover { border-color: var(--gold); }
 
-/* ‚îÄ‚îÄ‚îÄ DISCLAIMER ‚îÄ‚îÄ‚îÄ */
+/* --- DISCLAIMER --- */
 .test-disclaimer { font-size: 0.72rem; color: var(--ink-light); text-align: center; margin-top: 2rem; font-weight: 300; line-height: 1.7; }
 
-/* ‚îÄ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ‚îÄ */
+/* --- FOOTER --- */
 footer { background: var(--bg-dark); padding: 2rem 4rem; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
@@ -206,7 +206,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
 <body>
 
 <nav>
- <a href="mytruematch-landing.html" class="nav-logo">
+ <a href="index.html" class="nav-logo">
  <span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span>
  </a>
  <ul class="nav-links">
@@ -233,9 +233,9 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <!-- INTRO -->
  <div id="intro-section">
  <div class="test-intro">
- <p class="test-intro-eyebrow">Free ¬∑ No sign-in required ¬∑ Results private</p>
+ <p class="test-intro-eyebrow">Free ∑ No sign-in required ∑ Results private</p>
  <h1>Choose your<br><em>assessment</em></h1>
- <p>Four focused assessments, each designed around a specific dimension of compatibility. Pick the one that matters most to you right now ‚Äî or work through all four.</p>
+ <p>Four focused assessments, each designed around a specific dimension of compatibility. Pick the one that matters most to you right now ó or work through all four.</p>
  </div>
 
  <!-- TEST SELECTION GRID -->
@@ -247,12 +247,12 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <div class="test-select-badge">Most Popular</div>
  </div>
  <h3 class="test-select-name">Complete Compatibility</h3>
- <p class="test-select-desc">A full-spectrum assessment across all six compatibility dimensions ‚Äî values, communication, family, finances, lifestyle, and long-term vision.</p>
+ <p class="test-select-desc">A full-spectrum assessment across all six compatibility dimensions ó values, communication, family, finances, lifestyle, and long-term vision.</p>
  <div class="test-select-meta">
  <span>10 questions</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>~5 min</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>6 dimensions</span>
  </div>
  <div class="test-select-tags">
@@ -261,7 +261,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <span class="tag">Family</span>
  <span class="tag">+3 more</span>
  </div>
- <button class="test-select-btn primary">Take this test ‚Üí</button>
+ <button class="test-select-btn primary">Take this test ?</button>
  </div>
 
  <div class="test-select-card" onclick="startTestById('communication')">
@@ -272,9 +272,9 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <p class="test-select-desc">How do you express yourself, handle disagreement, and show care? Misalignment here is the silent cause of most relationship friction.</p>
  <div class="test-select-meta">
  <span>5 questions</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>~3 min</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>2 dimensions</span>
  </div>
  <div class="test-select-tags">
@@ -282,7 +282,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <span class="tag">Conflict Style</span>
  <span class="tag">Love Language</span>
  </div>
- <button class="test-select-btn">Take this test ‚Üí</button>
+ <button class="test-select-btn">Take this test ?</button>
  </div>
 
  <div class="test-select-card" onclick="startTestById('family')">
@@ -290,12 +290,12 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <div class="test-select-icon" style="background:linear-gradient(135deg,#FFF0F5,#FFE0E8)"></div>
  </div>
  <h3 class="test-select-name">Family & Values</h3>
- <p class="test-select-desc">Living arrangements, in-law relationships, religious practice, and core life values. The questions Indian families most need to ask ‚Äî and most often avoid.</p>
+ <p class="test-select-desc">Living arrangements, in-law relationships, religious practice, and core life values. The questions Indian families most need to ask ó and most often avoid.</p>
  <div class="test-select-meta">
  <span>5 questions</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>~3 min</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>2 dimensions</span>
  </div>
  <div class="test-select-tags">
@@ -303,7 +303,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <span class="tag">In-Laws</span>
  <span class="tag">Values</span>
  </div>
- <button class="test-select-btn">Take this test ‚Üí</button>
+ <button class="test-select-btn">Take this test ?</button>
  </div>
 
  <div class="test-select-card" onclick="startTestById('finances')">
@@ -314,9 +314,9 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <p class="test-select-desc">Spending, saving, ambition, and long-term vision. Financial misalignment is the #1 reported cause of stress in Indian marriages in the first five years.</p>
  <div class="test-select-meta">
  <span>5 questions</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>~3 min</span>
- <span>¬∑</span>
+ <span>∑</span>
  <span>2 dimensions</span>
  </div>
  <div class="test-select-tags">
@@ -324,7 +324,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <span class="tag">Lifestyle</span>
  <span class="tag">Vision</span>
  </div>
- <button class="test-select-btn">Take this test ‚Üí</button>
+ <button class="test-select-btn">Take this test ?</button>
  </div>
 
  </div><!-- /test-select-grid -->
@@ -359,7 +359,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <circle class="score-ring-fill" id="score-ring" cx="75" cy="75" r="60"/>
  </svg>
  <div class="score-center">
- <span class="score-num" id="score-display">‚Äî</span>
+ <span class="score-num" id="score-display">ó</span>
  <span class="score-lbl">/ 100</span>
  </div>
  </div>
@@ -371,9 +371,9 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
 
  <div class="result-cta">
  <h3>Want a deeper picture?</h3>
- <p>This test gives you a directional signal. A full MyTrueMatch compatibility report includes a 15+ page specialist-written assessment ‚Äî with personalised guidance, a consultation call, and a framework for the conversations that actually matter.</p>
+ <p>This test gives you a directional signal. A full MyTrueMatch compatibility report includes a 15+ page specialist-written assessment ó with personalised guidance, a consultation call, and a framework for the conversations that actually matter.</p>
  <div class="cta-btns">
- <a href="begin.html" class="cta-primary">Begin Full Assessment ‚Üí</a>
+ <a href="begin.html" class="cta-primary">Begin Full Assessment ?</a>
  <a href="compatibility.html" class="cta-secondary">Learn about Compatibility</a>
  </div>
  </div>
@@ -381,7 +381,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
  <p class="test-disclaimer">This test is indicative and for self-reflection only. It does not replace a professional compatibility assessment. Results are not stored or shared.</p>
 
  <div style="text-align:center; margin-top:2rem">
- <button onclick="restartTest()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:0.65rem 1.5rem;font-size:0.8rem;color:var(--ink-light);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Retake test ‚Ü∫</button>
+ <button onclick="restartTest()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:0.65rem 1.5rem;font-size:0.8rem;color:var(--ink-light);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Retake test ?</button>
  </div>
  </div>
  </div>
@@ -391,7 +391,7 @@ footer { background: var(--bg-dark); padding: 2rem 4rem; }
 <!-- FOOTER -->
 <footer>
  <div class="footer-bottom">
- <p class="footer-copy">¬© 2026 MyTrueMatch ¬∑ All Rights Reserved.</p>
+ <p class="footer-copy">© 2026 MyTrueMatch ∑ All Rights Reserved.</p>
  <div class="footer-legal">
  <a href="privacy.html">Privacy</a>
  <a href="terms.html">Terms</a>
@@ -417,10 +417,10 @@ const allQuestions = [
  {
  id: 2, category: 'Communication Style',
  text: 'When there is a disagreement, how do you prefer to handle it?',
- sub: 'There is no right answer ‚Äî this is about how you naturally respond.',
+ sub: 'There is no right answer ó this is about how you naturally respond.',
  options: [
  { text: 'I need space first, then I\'m ready to talk it through calmly', score: 4 },
- { text: 'I want to resolve it immediately ‚Äî I can\'t sleep on an argument', score: 3 },
+ { text: 'I want to resolve it immediately ó I can\'t sleep on an argument', score: 3 },
  { text: 'I tend to withdraw and hope things settle on their own', score: 1 },
  { text: 'I express how I feel directly and expect the same from my partner', score: 4 }
  ],
@@ -429,22 +429,22 @@ const allQuestions = [
  {
  id: 3, category: 'Family Expectations',
  text: 'What is your expectation about living arrangements after marriage?',
- sub: 'Be honest ‚Äî this is one of the most common sources of friction in new marriages.',
+ sub: 'Be honest ó this is one of the most common sources of friction in new marriages.',
  options: [
- { text: 'We should live with my parents ‚Äî it\'s my responsibility', score: 2 },
- { text: 'We should live independently ‚Äî our own space is important', score: 2 },
+ { text: 'We should live with my parents ó it\'s my responsibility', score: 2 },
+ { text: 'We should live independently ó our own space is important', score: 2 },
  { text: 'We should live close to family but independently', score: 4 },
- { text: 'I\'m flexible ‚Äî it depends on what works for both of us', score: 3 }
+ { text: 'I\'m flexible ó it depends on what works for both of us', score: 3 }
  ],
  dimension: 'family'
  },
  {
  id: 4, category: 'Financial Behaviour',
- text: 'If you both receive a significant windfall ‚Äî say ‚Çπ10 lakhs ‚Äî what would you want to do?',
+ text: 'If you both receive a significant windfall ó say ?10 lakhs ó what would you want to do?',
  sub: 'Your first instinct here reveals a lot about your financial temperament.',
  options: [
  { text: 'Invest most of it in a safe long-term instrument', score: 4 },
- { text: 'Split it ‚Äî some saved, some spent on an experience together', score: 4 },
+ { text: 'Split it ó some saved, some spent on an experience together', score: 4 },
  { text: 'Put it towards a property or real estate goal', score: 3 },
  { text: 'Spend it on something meaningful we\'ve always wanted', score: 2 }
  ],
@@ -455,9 +455,9 @@ const allQuestions = [
  text: 'How important is a shared social life to you?',
  sub: 'Think about weekends, friendships, and how much time you like to spend together vs. separately.',
  options: [
- { text: 'Very important ‚Äî I want us to have a strong shared social circle', score: 3 },
+ { text: 'Very important ó I want us to have a strong shared social circle', score: 3 },
  { text: 'Important, but I also need my own independent friendships and space', score: 4 },
- { text: 'Not very important ‚Äî I\'m naturally introverted and prefer quiet time', score: 2 },
+ { text: 'Not very important ó I\'m naturally introverted and prefer quiet time', score: 2 },
  { text: 'I want my partner to be my primary social world', score: 2 }
  ],
  dimension: 'lifestyle'
@@ -469,7 +469,7 @@ const allQuestions = [
  options: [
  { text: 'Settled in India, close to both our families, with children', score: 3 },
  { text: 'Possibly abroad, building careers and growing independently', score: 2 },
- { text: 'Wherever life takes us ‚Äî I value adaptability over fixed plans', score: 3 },
+ { text: 'Wherever life takes us ó I value adaptability over fixed plans', score: 3 },
  { text: 'In a stable home with clear financial security, wherever that is', score: 4 }
  ],
  dimension: 'vision'
@@ -482,30 +482,30 @@ const allQuestions = [
  { text: 'It is central to my life and I want it to be central to our home', score: 3 },
  { text: 'I respect it and will participate, but I don\'t actively practice', score: 3 },
  { text: 'I\'d prefer a secular household focused on values, not rituals', score: 2 },
- { text: 'I\'m flexible ‚Äî I\'ll align with whatever my partner and family prefer', score: 2 }
+ { text: 'I\'m flexible ó I\'ll align with whatever my partner and family prefer', score: 2 }
  ],
  dimension: 'values'
  },
  {
  id: 8, category: 'Communication Style',
  text: 'How do you prefer to receive appreciation from your partner?',
- sub: 'Based on Gary Chapman\'s Love Languages ‚Äî how do you feel most cared for?',
+ sub: 'Based on Gary Chapman\'s Love Languages ó how do you feel most cared for?',
  options: [
- { text: 'Words ‚Äî hearing that I am loved and appreciated out loud', score: 4 },
- { text: 'Acts of service ‚Äî when they do things to make my life easier', score: 4 },
- { text: 'Quality time ‚Äî undivided attention and being fully present', score: 4 },
- { text: 'Physical touch and proximity ‚Äî closeness and physical affection', score: 4 }
+ { text: 'Words ó hearing that I am loved and appreciated out loud', score: 4 },
+ { text: 'Acts of service ó when they do things to make my life easier', score: 4 },
+ { text: 'Quality time ó undivided attention and being fully present', score: 4 },
+ { text: 'Physical touch and proximity ó closeness and physical affection', score: 4 }
  ],
  dimension: 'communication'
  },
  {
  id: 9, category: 'Family Expectations',
  text: 'How do you feel about the role of in-laws in your marriage?',
- sub: 'Be honest ‚Äî this question carries a lot of unsaid expectations in Indian families.',
+ sub: 'Be honest ó this question carries a lot of unsaid expectations in Indian families.',
  options: [
  { text: 'They should be respected but not involved in our day-to-day decisions', score: 3 },
  { text: 'They are an important part of our life and I welcome their involvement', score: 3 },
- { text: 'Boundaries are essential ‚Äî our relationship comes first', score: 4 },
+ { text: 'Boundaries are essential ó our relationship comes first', score: 4 },
  { text: 'I expect my partner to fully integrate into my family\'s culture', score: 2 }
  ],
  dimension: 'family'
@@ -513,7 +513,7 @@ const allQuestions = [
  {
  id: 10, category: 'Long-term Vision',
  text: 'What does a successful marriage look like to you?',
- sub: 'The final question ‚Äî and perhaps the most important one.',
+ sub: 'The final question ó and perhaps the most important one.',
  options: [
  { text: 'Two people who grow individually while growing stronger together', score: 4 },
  { text: 'A stable, peaceful home where both partners feel secure', score: 4 },
@@ -533,10 +533,10 @@ const communicationQuestions = [
  {
  id: 1, category: 'Communication Style',
  text: 'When there is a disagreement, how do you prefer to handle it?',
- sub: 'There is no right answer ‚Äî this is about how you naturally respond.',
+ sub: 'There is no right answer ó this is about how you naturally respond.',
  options: [
  { text: 'I need space first, then I\'m ready to talk it through calmly', score: 4 },
- { text: 'I want to resolve it immediately ‚Äî I can\'t sleep on an argument', score: 3 },
+ { text: 'I want to resolve it immediately ó I can\'t sleep on an argument', score: 3 },
  { text: 'I tend to withdraw and hope things settle on their own', score: 1 },
  { text: 'I express how I feel directly and expect the same from my partner', score: 4 }
  ],
@@ -547,10 +547,10 @@ const communicationQuestions = [
  text: 'After a significant argument, how long does it typically take you to fully move on?',
  sub: 'Emotional recovery patterns affect the rhythm of a relationship deeply.',
  options: [
- { text: 'A few hours ‚Äî I move on quickly once it\'s resolved', score: 4 },
- { text: 'A day or two ‚Äî I need time to process and feel better', score: 3 },
- { text: 'A week or more ‚Äî disagreements affect me for a long time', score: 1 },
- { text: 'Almost immediately ‚Äî I don\'t hold on to things', score: 4 }
+ { text: 'A few hours ó I move on quickly once it\'s resolved', score: 4 },
+ { text: 'A day or two ó I need time to process and feel better', score: 3 },
+ { text: 'A week or more ó disagreements affect me for a long time', score: 1 },
+ { text: 'Almost immediately ó I don\'t hold on to things', score: 4 }
  ],
  dimension: 'communication'
  },
@@ -559,9 +559,9 @@ const communicationQuestions = [
  text: 'How do you prefer to express appreciation to your partner?',
  sub: 'Think about what comes naturally to you, not what you think is expected.',
  options: [
- { text: 'Saying it out loud ‚Äî words of affirmation feel natural to me', score: 4 },
- { text: 'Doing things ‚Äî acts of service feel more genuine than words', score: 4 },
- { text: 'Quality time and attention ‚Äî being fully present says everything', score: 4 },
+ { text: 'Saying it out loud ó words of affirmation feel natural to me', score: 4 },
+ { text: 'Doing things ó acts of service feel more genuine than words', score: 4 },
+ { text: 'Quality time and attention ó being fully present says everything', score: 4 },
  { text: 'Small thoughtful gestures and gifts over grand declarations', score: 3 }
  ],
  dimension: 'communication'
@@ -571,9 +571,9 @@ const communicationQuestions = [
  text: 'When something is bothering you, what do you usually do?',
  sub: 'How you initiate hard conversations shapes how problems get resolved.',
  options: [
- { text: 'Bring it up directly ‚Äî I believe in honest, timely communication', score: 4 },
+ { text: 'Bring it up directly ó I believe in honest, timely communication', score: 4 },
  { text: 'Wait for the right moment, then bring it up gently', score: 4 },
- { text: 'Write it down or send a message ‚Äî I communicate better in writing', score: 3 },
+ { text: 'Write it down or send a message ó I communicate better in writing', score: 3 },
  { text: 'Often stay quiet to avoid creating conflict', score: 1 }
  ],
  dimension: 'communication'
@@ -584,7 +584,7 @@ const communicationQuestions = [
  sub: 'This reveals whether you default to solving problems or providing presence.',
  options: [
  { text: 'Listen fully without immediately trying to fix anything', score: 4 },
- { text: 'Offer practical solutions ‚Äî I want to help them solve it', score: 3 },
+ { text: 'Offer practical solutions ó I want to help them solve it', score: 3 },
  { text: 'Reassure them and remind them of what\'s going well', score: 3 },
  { text: 'Give them space until they are ready to talk', score: 3 }
  ],
@@ -600,7 +600,7 @@ const familyQuestions = [
  options: [
  { text: 'I expect us to live independently as a nuclear family', score: 4 },
  { text: 'I am open to living with parents if circumstances require it', score: 3 },
- { text: 'I want to live with my parents ‚Äî it is the natural arrangement', score: 2 },
+ { text: 'I want to live with my parents ó it is the natural arrangement', score: 2 },
  { text: 'I am flexible; my partner\'s preference matters more than mine', score: 3 }
  ],
  dimension: 'family'
@@ -608,12 +608,12 @@ const familyQuestions = [
  {
  id: 2, category: 'In-Law Boundaries',
  text: 'How do you feel about in-laws\' involvement in major household decisions?',
- sub: 'Be honest ‚Äî this question carries a lot of unsaid expectations in Indian families.',
+ sub: 'Be honest ó this question carries a lot of unsaid expectations in Indian families.',
  options: [
  { text: 'They should be respected but not involved in our day-to-day decisions', score: 4 },
- { text: 'I welcome their guidance ‚Äî they have more experience', score: 2 },
+ { text: 'I welcome their guidance ó they have more experience', score: 2 },
  { text: 'Involvement is fine for major decisions but not routine ones', score: 3 },
- { text: 'Boundaries are essential ‚Äî our relationship comes first', score: 4 }
+ { text: 'Boundaries are essential ó our relationship comes first', score: 4 }
  ],
  dimension: 'family'
  },
@@ -622,21 +622,21 @@ const familyQuestions = [
  text: 'How important is religious or spiritual practice in your daily life?',
  sub: 'Faith and practice shape household rhythm, festivals, and child-rearing decisions.',
  options: [
- { text: 'It is central ‚Äî I want religious practice to be part of our home', score: 3 },
+ { text: 'It is central ó I want religious practice to be part of our home', score: 3 },
  { text: 'I respect it and participate, but I don\'t actively practice', score: 3 },
  { text: 'I prefer a secular household focused on values, not rituals', score: 2 },
- { text: 'I\'m flexible ‚Äî I\'ll align with whatever my partner prefers', score: 2 }
+ { text: 'I\'m flexible ó I\'ll align with whatever my partner prefers', score: 2 }
  ],
  dimension: 'family'
  },
  {
  id: 4, category: 'Children & Parenting',
  text: 'How do you envision your approach to raising children?',
- sub: 'Parenting philosophy is rarely discussed before marriage ‚Äî and can cause deep friction after.',
+ sub: 'Parenting philosophy is rarely discussed before marriage ó and can cause deep friction after.',
  options: [
- { text: 'Balanced ‚Äî encouraging independence while maintaining strong family values', score: 4 },
- { text: 'Traditional ‚Äî respecting elders, structured, with clear responsibilities', score: 3 },
- { text: 'Progressive ‚Äî prioritising emotional intelligence and self-expression', score: 3 },
+ { text: 'Balanced ó encouraging independence while maintaining strong family values', score: 4 },
+ { text: 'Traditional ó respecting elders, structured, with clear responsibilities', score: 3 },
+ { text: 'Progressive ó prioritising emotional intelligence and self-expression', score: 3 },
  { text: 'I haven\'t thought deeply about this yet', score: 1 }
  ],
  dimension: 'family'
@@ -646,8 +646,8 @@ const familyQuestions = [
  text: 'When it comes to major life decisions, how do you typically approach them?',
  sub: 'Think about choices like career changes, moving cities, or large purchases.',
  options: [
- { text: 'I consult my partner first ‚Äî our joint decision matters most', score: 4 },
- { text: 'I involve both families ‚Äî it\'s a shared journey', score: 3 },
+ { text: 'I consult my partner first ó our joint decision matters most', score: 4 },
+ { text: 'I involve both families ó it\'s a shared journey', score: 3 },
  { text: 'I decide independently and inform others afterwards', score: 2 },
  { text: 'My parents\' blessing is the most important input I seek', score: 2 }
  ],
@@ -658,11 +658,11 @@ const familyQuestions = [
 const financesQuestions = [
  {
  id: 1, category: 'Financial Temperament',
- text: 'If you both receive a significant windfall ‚Äî say ‚Çπ10 lakhs ‚Äî what would you want to do?',
+ text: 'If you both receive a significant windfall ó say ?10 lakhs ó what would you want to do?',
  sub: 'Your first instinct here reveals a lot about your financial temperament.',
  options: [
  { text: 'Invest most of it in a safe long-term instrument', score: 4 },
- { text: 'Split it ‚Äî some saved, some spent on an experience together', score: 4 },
+ { text: 'Split it ó some saved, some spent on an experience together', score: 4 },
  { text: 'Put it towards a property or real estate goal', score: 3 },
  { text: 'Spend it on something meaningful we\'ve always wanted', score: 2 }
  ],
@@ -675,7 +675,7 @@ const financesQuestions = [
  options: [
  { text: 'I budget carefully and rarely make unplanned purchases', score: 4 },
  { text: 'I save consistently but allow myself occasional splurges', score: 4 },
- { text: 'I\'m fairly spontaneous ‚Äî I spend when I feel like it', score: 2 },
+ { text: 'I\'m fairly spontaneous ó I spend when I feel like it', score: 2 },
  { text: 'I earn well and spend freely; I don\'t track money closely', score: 1 }
  ],
  dimension: 'finances'
@@ -683,11 +683,11 @@ const financesQuestions = [
  {
  id: 3, category: 'Joint Finances',
  text: 'How do you think married couples should handle their money?',
- sub: 'There is no objectively right answer ‚Äî but misalignment here causes serious stress.',
+ sub: 'There is no objectively right answer ó but misalignment here causes serious stress.',
  options: [
- { text: 'Fully joint ‚Äî all income and expenses go through a single account', score: 3 },
- { text: 'Partially joint ‚Äî shared for household, separate personal accounts', score: 4 },
- { text: 'Fully separate ‚Äî each manages their own finances independently', score: 2 },
+ { text: 'Fully joint ó all income and expenses go through a single account', score: 3 },
+ { text: 'Partially joint ó shared for household, separate personal accounts', score: 4 },
+ { text: 'Fully separate ó each manages their own finances independently', score: 2 },
  { text: 'It depends on income levels and contributions', score: 3 }
  ],
  dimension: 'finances'
@@ -697,10 +697,10 @@ const financesQuestions = [
  text: 'How ambitious are you about career and income growth?',
  sub: 'Ambition alignment shapes time availability, life priorities, and financial planning.',
  options: [
- { text: 'Highly ambitious ‚Äî career and income growth are a top priority', score: 3 },
- { text: 'Balanced ‚Äî I want to grow but not at the cost of family time', score: 4 },
+ { text: 'Highly ambitious ó career and income growth are a top priority', score: 3 },
+ { text: 'Balanced ó I want to grow but not at the cost of family time', score: 4 },
  { text: 'I value stability and consistency over aggressive growth', score: 3 },
- { text: 'Work is a means to an end ‚Äî I prioritise life outside of it', score: 2 }
+ { text: 'Work is a means to an end ó I prioritise life outside of it', score: 2 }
  ],
  dimension: 'vision'
  },
@@ -763,9 +763,9 @@ function renderQuestion(index) {
  `).join('')}
  </div>
  <div class="test-nav">
- <button class="btn-back" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden"' : ''}>‚Üê Back</button>
+ <button class="btn-back" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden"' : ''}>? Back</button>
  <button class="btn-next" id="next-btn" onclick="nextQuestion()" disabled>
- ${index === questions.length - 1 ? 'See my results ‚Üí' : 'Next question ‚Üí'}
+ ${index === questions.length - 1 ? 'See my results ?' : 'Next question ?'}
  </button>
  </div>
  `;
@@ -842,16 +842,16 @@ function showResults() {
  let headline, desc;
  if (pct >= 80) {
  headline = 'Deeply aligned';
- desc = 'Your responses suggest a high degree of natural compatibility across most dimensions. This is a strong foundation ‚Äî and with a full assessment, you\'ll understand exactly where to invest your attention together.';
+ desc = 'Your responses suggest a high degree of natural compatibility across most dimensions. This is a strong foundation ó and with a full assessment, you\'ll understand exactly where to invest your attention together.';
  } else if (pct >= 65) {
  headline = 'Meaningfully aligned';
- desc = 'You show real compatibility in several key areas, with some dimensions worth a deeper conversation. This is a healthy, workable picture ‚Äî and knowing where the differences lie is an advantage, not a problem.';
+ desc = 'You show real compatibility in several key areas, with some dimensions worth a deeper conversation. This is a healthy, workable picture ó and knowing where the differences lie is an advantage, not a problem.';
  } else if (pct >= 50) {
  headline = 'Partially aligned';
- desc = 'There are genuine areas of compatibility here, but also real differences that will need conscious attention. A full compatibility assessment would help you understand which differences are bridgeable ‚Äî and how.';
+ desc = 'There are genuine areas of compatibility here, but also real differences that will need conscious attention. A full compatibility assessment would help you understand which differences are bridgeable ó and how.';
  } else {
  headline = 'Areas to explore';
- desc = 'This test suggests meaningful differences that deserve honest conversation before moving forward. That is not necessarily a reason to step back ‚Äî but it is a reason to look more carefully. Our specialists are here to help.';
+ desc = 'This test suggests meaningful differences that deserve honest conversation before moving forward. That is not necessarily a reason to step back ó but it is a reason to look more carefully. Our specialists are here to help.';
  }
 
  document.getElementById('score-headline').textContent = headline;
@@ -864,7 +864,7 @@ function showResults() {
  const max = activeDimensions[dim].max;
  const pctD = Math.round((score / max) * 100);
  const color = pctD >= 75 ? '#48BB78' : pctD >= 50 ? 'var(--gold)' : 'var(--rose)';
- const note = pctD >= 75 ? 'Strong alignment in this area.' : pctD >= 50 ? 'Some alignment ‚Äî worth exploring further.' : 'Meaningful difference ‚Äî conversation recommended.';
+ const note = pctD >= 75 ? 'Strong alignment in this area.' : pctD >= 50 ? 'Some alignment ó worth exploring further.' : 'Meaningful difference ó conversation recommended.';
  grid.innerHTML += `
  <div class="breakdown-card">
  <div class="breakdown-cat">${activeDimensions[dim].label}</div>
