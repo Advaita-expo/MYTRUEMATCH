@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -62,12 +62,15 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,5vw,5.2rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:1.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards}
-.hero-left h1 em{font-style:italic;color:var(--gold)}
+.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(1.85rem,3.2vw,3.2rem);font-weight:400;line-height:1.2;color:#fff;letter-spacing:-0.01em;margin-bottom:1.2rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards}
+.hero-left h1 em{font-style:italic;color:#fff}
+.hero-left h1 .highlight{color:var(--gold);font-weight:400}
+
+.hero-quote-attribution{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:300;letter-spacing:0.05em;margin-top:-0.5rem;margin-bottom:4rem;font-style:italic;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.4s ease forwards;padding-bottom:1.5rem;border-bottom:1px solid rgba(200,168,75,0.15)}
 
 .hero-tagline{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.9;max-width:380px;margin-bottom:2.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.45s ease forwards}
 
-.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:3rem;opacity:0;animation:slideUp 0.7s 0.58s ease forwards}
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:3rem;margin-top:1rem;opacity:0;animation:slideUp 0.7s 0.58s ease forwards}
 .btn-cta-gold{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.9rem 2.2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;border-radius:8px;text-decoration:none;transition:all 0.25s;border:none;cursor:pointer}
 .btn-cta-gold:hover{background:var(--gold-pale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,168,75,0.35)}
 .btn-cta-gold svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -78,6 +81,10 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .trust-badge{display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.08em;color:rgba(255,255,255,0.3);text-transform:uppercase}
 .trust-badge svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .trust-dot{width:3px;height:3px;border-radius:50%;background:rgba(200,168,75,0.3)}
+
+.scroll-hint{display:flex;align-items:center;gap:0.8rem;margin-top:3rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.8s ease forwards}
+.scroll-hint::before{content:'';width:40px;height:1px;background:rgba(200,168,75,0.4)}
+.scroll-hint-text{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:400}
 
 /* HERO RIGHT */
 .hero-right{background:linear-gradient(160deg,#FFFDF5 0%,#FFF8E1 40%,#FFF0C0 75%,#FAE89A 100%);padding:4rem 4rem 3rem;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden}
@@ -188,18 +195,20 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .test-city{font-size:0.66rem;color:var(--ink-faint);letter-spacing:0.08em}
 
 /* CTA */
-.cta{background:var(--bg);border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
-.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(200,168,75,0.1);border-radius:50%;pointer-events:none}
-.cta::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.05);border-radius:50%;pointer-events:none}
-.cta-inner{position:relative}
-.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.5rem}
-.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.9rem}
-.cta h2 em{font-style:italic;color:var(--gold-dark)}
-.cta-sub{font-size:0.82rem;color:var(--ink-light);margin-bottom:2.5rem;font-weight:300}
+.cta{background:#1a1610;border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta-video-wrap{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:0}
+.cta-video-wrap video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+.cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,22,16,0.96) 0%, rgba(26,22,16,0.94) 100%);z-index:0;pointer-events:none}
+.cta::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.08);border-radius:50%;z-index:0;pointer-events:none}
+.cta-inner{position:relative;z-index:1}
+.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,215,110,1);margin-bottom:1.5rem;text-shadow:0 3px 18px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1)}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:#ffffff;line-height:1.15;margin-bottom:0.9rem;text-shadow:0 4px 20px rgba(0,0,0,0.95), 0 3px 10px rgba(0,0,0,1), 0 2px 4px rgba(0,0,0,1)}
+.cta h2 em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:0.82rem;color:rgba(255,255,255,0.95);margin-bottom:2.5rem;font-weight:300;text-shadow:0 3px 12px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,1)}
 .cta-btn{display:inline-flex;align-items:center;gap:0.65rem;background:var(--bg-dark);color:var(--bg);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:7px;transition:all 0.25s}
 .cta-btn:hover{opacity:0.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,37,32,0.15)}
 .cta-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-shadow:0 2px 8px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,1)}
 
 /* FOOTER */
 footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
@@ -274,7 +283,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <body>
 
 <div class="announce">
-  ???? &nbsp; Serving couples across <b>38 cities</b> — Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
+  ???? &nbsp; Serving couples across <b>38 cities</b> - Bangalore to Birmingham &nbsp;-&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;-&nbsp; All data on Indian servers
 </div>
 
 <nav>
@@ -303,21 +312,24 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   <div class="hero-left">
     <div class="hero-watermark">III</div>
     <div class="hero-eyebrow">The Third Lens</div>
-    <h1>Read the stars.<br><em>Find your path.</em></h1>
-    <p class="hero-tagline">A senior Jyotish reading — both charts, all six aspects, written in full. Your Kundali, treated with the depth and care it deserves.</p>
+    <h1>"A successful relationship is not about finding the right person,<br><em>but <span class="highlight">becoming</span> the right person."</em> â€”Sadhguru</h1>
+    <p class="hero-quote-attribution">As quoted in The Times of India (March 2026)</p>
     <div class="hero-actions">
       <a href="begin.html" class="btn-cta-gold">
         <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
-        Book a Reading — ?5,999
+        Book a Reading - ?5,999
       </a>
       <a href="#astrologers" class="btn-outline-light">Meet our astrologers</a>
     </div>
     <div class="hero-trust">
-      <span class="trust-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5–7 day delivery</span>
+      <span class="trust-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5-7 day delivery</span>
       <span class="trust-dot"></span>
-      <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>12–16 page report</span>
+      <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>12-16 page report</span>
       <span class="trust-dot"></span>
       <span class="trust-badge"><svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.07A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"/></svg>Video consult</span>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-hint-text">Scroll to Explore</span>
     </div>
   </div>
 
@@ -326,12 +338,12 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="hero-profiles">
       <div class="profile-label">Your astrologers</div>
 
-      <!-- Kumar FIRST — Head of Panel -->
+      <!-- Kumar FIRST - Head of Panel -->
       <div class="hpc" onclick="openModal('kumar')" role="button" tabindex="0" aria-label="View Astrologer Kumar's profile" style="border-color:rgba(200,168,75,0.5);background:rgba(255,255,255,0.85);">
         <div class="hpc-avatar" style="background:rgba(200,168,75,0.22);border-color:rgba(180,130,20,0.5);">K</div>
         <div class="hpc-info">
           <div class="hpc-name">Astrologer Kumar</div>
-          <div class="hpc-role">Head of Panel · 30+ yrs · 1,000+ charts</div>
+          <div class="hpc-role">Head of Panel - 30+ yrs - 1,000+ charts</div>
           <div class="hpc-tags">
             <span class="hpc-tag" style="background:rgba(200,168,75,0.28);border-color:rgba(180,130,20,0.5);">Head of Panel</span>
             <span class="hpc-tag">Siddhar</span>
@@ -355,7 +367,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <div class="hpc-avatar">RK</div>
         <div class="hpc-info">
           <div class="hpc-name">N.R. Ranjith Kumar</div>
-          <div class="hpc-role">Founder, Om Velavan Jothidalayam · 400+ matches</div>
+          <div class="hpc-role">Founder, Om Velavan Jothidalayam - 400+ matches</div>
           <div class="hpc-tags"><span class="hpc-tag">Vedic</span><span class="hpc-tag">Numerology</span><span class="hpc-tag">Vasthu</span></div>
         </div>
         <svg class="hpc-arrow" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
@@ -416,7 +428,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <!-- DOUBT -->
 <section class="doubt">
   <div class="doubt-inner">
-    <div class="d-label fade">What families hear — and what they deserve</div>
+    <div class="d-label fade">What families hear - and what they deserve</div>
     <div class="doubt-list">
       <div class="doubt-row">
         <div class="doubt-glyph"><svg viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"/></svg></div>
@@ -428,7 +440,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
       </div>
     </div>
     <div class="doubt-close fade">
-      <p>Did they <strong>read it</strong> — or just <em>repeat it?</em></p>
+      <p>Did they <strong>read it</strong> - or just <em>repeat it?</em></p>
     </div>
   </div>
 </section>
@@ -436,57 +448,57 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <!-- SIX ASPECTS -->
 <section class="aspects">
   <div class="fade">
-    <p class="asp-eyebrow">What a real reading covers</p>
-    <h2 class="asp-title">Six aspects.<br>No <em>shortcuts.</em></h2>
-    <p class="asp-sub">A senior astrologer with fifteen years of practice, minimum — reading both charts with the depth this decision deserves.</p>
+    <p class="asp-eyebrow">The Third Lens</p>
+    <h2 class="asp-title">Why <em>Horoscope Matching?</em></h2>
+    <p class="asp-sub">In Indian marriages, horoscope matching is traditionally considered a way to assess long-term compatibility between two individuals before marriage. Rooted in Vedic astrology, it is believed to help families understand emotional harmony, temperament, health, prosperity, family life, and marital stability. For many families, it offers psychological reassurance and cultural confidence before making a lifelong commitment.</p>
   </div>
   <div class="asp-list fade">
     <div class="asp-item">
       <div class="asp-numeral">I</div>
-      <div class="asp-name"><div class="asp-tag">First Aspect</div><h3>Ashtakoot Guna Milan</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Compatibility Assessment</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"/></svg>
-        <p>The traditional thirty-six points. Varna. Vashya. Tara. Yoni. Graha Maitri. Gana. Bhakoot. Nadi. Each explained in writing — not whispered as a number.</p>
+        <p>Horoscope matching attempts to evaluate compatibility in areas such as personality, emotional balance, communication style, intimacy, values, and family adjustment.</p>
       </div>
     </div>
     <div class="asp-item">
       <div class="asp-numeral">II</div>
-      <div class="asp-name"><div class="asp-tag">Second Aspect</div><h3>Mangal Dosha</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Marital Harmony</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
-        <p>Present, absent, severe, or cancelled. A senior astrologer assesses each chart individually. No blanket verdicts. No unnecessary alarm.</p>
+        <p>Traditional belief holds that favorable planetary combinations may support understanding, reduced conflict, emotional bonding, and stability in married life.</p>
       </div>
     </div>
     <div class="asp-item">
       <div class="asp-numeral">III</div>
-      <div class="asp-name"><div class="asp-tag">Third Aspect</div><h3>Nadi Dosha</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Health and Well-Being</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>
-        <p>When present, one of the most considered concerns in traditional Jyotish. We discuss severity and the remedies experienced astrologers consider effective.</p>
+        <p>Certain astrological factors are interpreted to indicate physical health, mental peace, fertility, and overall well-being of the couple.</p>
       </div>
     </div>
     <div class="asp-item">
       <div class="asp-numeral">IV</div>
-      <div class="asp-name"><div class="asp-tag">Fourth Aspect</div><h3>Dasha Compatibility</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Financial and Family Prosperity</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <p>The Mahadasha and Antardasha periods you will run together. A marriage that begins well can enter difficult years. You deserve to know in advance.</p>
+        <p>Astrology is also believed to provide insight into career growth, financial stability, family harmony, and future prosperity after marriage.</p>
       </div>
     </div>
     <div class="asp-item">
       <div class="asp-numeral">V</div>
-      <div class="asp-name"><div class="asp-tag">Fifth Aspect</div><h3>Navamsa Chart</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Dosha Identification and Remedies</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-        <p>The D9 chart — the chart of marriage in Vedic astrology. Analysed for both partners. What the birth chart alone cannot reveal.</p>
+        <p>Horoscope analysis may identify conditions such as Mangal Dosha or other planetary imbalances. In many traditions, remedies are suggested to minimize perceived negative influences.</p>
       </div>
     </div>
     <div class="asp-item">
       <div class="asp-numeral">VI</div>
-      <div class="asp-name"><div class="asp-tag">Sixth Aspect</div><h3>Remedies</h3></div>
+      <div class="asp-name"><div class="asp-tag">Why Horoscope Matching</div><h3>Cultural and Family Significance</h3></div>
       <div class="asp-desc">
         <svg class="asp-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        <p>Where challenges are found, specific guidance. Puja recommendations. Gemstone suggestions with honest caveats. Never expensive. Never theatrical.</p>
+        <p>In many Indian communities, horoscope matching remains an important cultural ritual that strengthens family involvement and social acceptance of the marriage alliance.</p>
       </div>
     </div>
   </div>
@@ -500,7 +512,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="cred-desc">Every astrologer on our panel has at minimum fifteen years of active Jyotish practice.</div>
   </div>
   <div class="cred-item">
-    <div class="cred-num">12–16</div>
+    <div class="cred-num">12-16</div>
     <div class="cred-title">Page written report</div>
     <div class="cred-desc">A document you can read, share with your family, and return to. Not a printout. Not a template.</div>
   </div>
@@ -508,6 +520,13 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="cred-num">1</div>
     <div class="cred-title">Video consult included</div>
     <div class="cred-desc">An optional call with the astrologer who wrote your report. Your questions, answered in full.</div>
+  </div>
+</div>
+
+<div class="credentials fade" style="margin-top:-2.5rem;padding-top:0;">
+  <div class="cred-item" style="max-width:100%;grid-column:1/-1;">
+    <div class="cred-title">Our Astrologers Panel</div>
+    <div class="cred-desc">Our highly experienced panel of astrologers is headed by Kumar, who has over 30 years of experience, a major part of which has been spent in the company of Shri Jaggi Vasudev (Sadhguru).</div>
   </div>
 </div>
 
@@ -520,7 +539,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   </div>
 
   <div class="cards-grid">
-    <!-- Kumar Card — FIRST (Head of Panel) -->
+    <!-- Kumar Card - FIRST (Head of Panel) -->
     <div class="ast-card fade" onclick="openModal('kumar')" role="button" tabindex="0" aria-label="View Astrologer Kumar's profile" style="order:0">
       <div class="card-photo">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
@@ -658,24 +677,29 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <section class="testimonial">
   <div class="test-inner fade">
     <div class="test-label">Words from families our astrologers have served</div>
-    <blockquote class="test-quote">"We had three different readings from three different astrologers — two said it was fine, one said there was a serious Dosha. We were confused and anxious. The reading was the most thorough we had ever seen. He produced a written report, and explained clearly why the third astrologer had misread the chart. We finally had clarity."</blockquote>
+    <blockquote class="test-quote">"We had three different readings from three different astrologers - two said it was fine, one said there was a serious Dosha. We were confused and anxious. The reading was the most thorough we had ever seen. He produced a written report, and explained clearly why the third astrologer had misread the chart. We finally had clarity."</blockquote>
     <div class="test-mono">LA</div>
     <div class="test-name">Lakshmi &amp; Arun's families</div>
-    <div class="test-city">Coimbatore · Summer 2025</div>
+    <div class="test-city">Coimbatore - Summer 2025</div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
+  <div class="cta-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="Video/kling_20260525_ä½œå“_Premium_In_5176_0.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="cta-inner fade">
     <div class="cta-eye">When you're ready</div>
     <h2>Book a Kundali<br><em>reading.</em></h2>
-    <p class="cta-sub">Report in 5–7 business days &nbsp;·&nbsp; Video consult included &nbsp;·&nbsp; ?5,999</p>
+    <p class="cta-sub">Report in 5-7 business days &nbsp;-&nbsp; Video consult included &nbsp;-&nbsp; ?5,999</p>
     <a href="begin.html" class="cta-btn">
-      Begin · share birth details
+      Begin - share birth details
       <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
     </a>
-    <p class="cta-meta">Private · Secure · India servers · DPDP Act 2023</p>
+    <p class="cta-meta">Private - Secure - India servers - DPDP Act 2023</p>
   </div>
 </section>
 
@@ -684,7 +708,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   <div class="footer-top">
     <div>
       <span class="footer-logo">MyTrue<span>Match</span></span>
-      <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+      <p class="footer-tagline">A space to truly know each other - before the most important commitment of your life.</p>
       <div class="social-icons">
         <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.56 1.64.92a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2 3.77A4.5 4.5 0 0 1 .96 6v.06c0 2.19 1.56 4.02 3.62 4.43a4.52 4.52 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 0 15.54 12.78 12.78 0 0 0 6.92 17.5c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 22 1.89 9 9 0 0 1 23 3z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
@@ -719,7 +743,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+    <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved.</p>
     <div class="footer-legal">
       <div class="secure-badge">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -738,10 +762,10 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="modal-header" id="modal-header"></div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer">
-      <span class="modal-footer-note">Private · Secure · India servers</span>
+      <span class="modal-footer-note">Private - Secure - India servers</span>
       <a href="begin.html" class="book-btn">
         <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
-        Book a reading — ?5,999
+        Book a reading - ?5,999
       </a>
     </div>
   </div>
@@ -752,25 +776,25 @@ const profiles = {
   lakshmi: {
     initials:'LD', eyebrow:'Holistic Practitioner & Astrologer',
     name:'Lakshmi Damodara',
-    role:'Holistic Astrologer · Yoga Therapist · Varma Practitioner · 16 years prior IT career in New York',
+    role:'Holistic Astrologer - Yoga Therapist - Varma Practitioner - 16 years prior IT career in New York',
     tags:['Jyotish','Yoga Therapy','Varma','Pranayama','Siddhar Traditions','Wellness'],
     paras:[
       'Lakshmi Damodara is a holistic wellness practitioner, astrologer, yoga teacher, and varma therapist whose work is rooted in the ancient Siddhar traditions of India. With a deep interest in understanding human life through traditional wisdom systems, she specialises in astrological chart analysis, offering insights into personality, life patterns, emotional well-being, health tendencies, relationships, and spiritual growth.',
-      'Drawing from years of study and practice, Lakshmi approaches astrology not merely as prediction, but as a powerful tool for self-awareness, guidance, and transformation. Her readings are intuitive, practical, and deeply personalised — helping individuals navigate life with greater clarity and balance.',
+      'Drawing from years of study and practice, Lakshmi approaches astrology not merely as prediction, but as a powerful tool for self-awareness, guidance, and transformation. Her readings are intuitive, practical, and deeply personalised - helping individuals navigate life with greater clarity and balance.',
       'Before transitioning into the wellness field, she spent 16 years working as an IT engineer in New York, bringing a grounded and analytical perspective to her practice. This unique background allows her to bridge ancient wisdom and modern thinking.'
     ], expertise:null
   },
   ranjith: {
-    initials:'RK', eyebrow:'Founder · Om Velavan Jothidalayam',
+    initials:'RK', eyebrow:'Founder - Om Velavan Jothidalayam',
     name:'N.R. Ranjith Kumar',
-    role:'Astrologer · Numerologist · Vasthu Specialist · 14+ years experience · 400+ marriages matched',
+    role:'Astrologer - Numerologist - Vasthu Specialist - 14+ years experience - 400+ marriages matched',
     tags:['Vedic Astrology','Numerology','Vasthu','Panja Pakshi','Tarot','Marriage Matching','Prasannam'],
     paras:[
       'Mr. N.R. Ranjith Kumar is a dedicated astrologer and spiritual guide with more than 14 years of experience in astrological research and spiritual practices. By blending traditional wisdom with modern interpretative methods, he provides insightful guidance and practical remedies for individuals seeking clarity.',
       'He has successfully guided and completed more than 400 marriage matches so far, offering accurate compatibility assessments along with appropriate spiritual and astrological remedies to support harmonious and successful relationships.'
     ],
     expertise:[
-      {title:'Traditional Astrology Sasthiram',desc:'Deep knowledge of classical Vedic astrology — horoscope analysis, planetary influences, doshas, yogas, and predictive techniques rooted in ancient astrological scriptures.'},
+      {title:'Traditional Astrology Sasthiram',desc:'Deep knowledge of classical Vedic astrology - horoscope analysis, planetary influences, doshas, yogas, and predictive techniques rooted in ancient astrological scriptures.'},
       {title:'Alp Astrology',desc:'A specialised branch focused on understanding subtle planetary influences and their impact on personal growth, destiny, and spiritual evolution.'},
       {title:'Tali Astrology',desc:'Guidance related to marriage compatibility, marital harmony, sacred union energies, and remedies for strengthening relationships and family life.'},
       {title:'Marriage Matching',desc:'Comprehensive horoscope matching including emotional, spiritual, financial, and family compatibility between partners. Over 400 successful matches completed.'},
@@ -783,10 +807,10 @@ const profiles = {
   kumar: {
     initials:'K', eyebrow:'Head of Astrologers Panel',
     name:'Astrologer Kumar',
-    role:'Head of Panel · 30+ years experience · Jnana Yoga Initiate · Varma Therapist · Isha Foundation · 1,000+ charts studied',
+    role:'Head of Panel - 30+ years experience - Jnana Yoga Initiate - Varma Therapist - Isha Foundation - 1,000+ charts studied',
     tags:['Head of Panel','Jnana Yoga','Tantra','Mantra','Siddhar','Varma Therapy','Isha Foundation','Numerology'],
     paras:[
-      'Our highly experienced panel of astrologers is headed by Kumar, who brings over 30 years of experience — a major part of which was spent in the personal company of Shri Jaggi Vasudev (Sadhguru) at the Isha Foundation and Isha Yoga Center.',
+      'Our highly experienced panel of astrologers is headed by Kumar, who brings over 30 years of experience - a major part of which was spent in the personal company of Shri Jaggi Vasudev (Sadhguru) at the Isha Foundation and Isha Yoga Center.',
       'Having begun his professional journey as an engineer with BMW, where he worked for over a decade, Kumar eventually chose to step away from a life of material comfort in response to a profound inner spiritual calling.',
       'For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his spiritual practice and dedicated nearly two decades to volunteering under the guidance of Sadhguru Jaggi Vasudev.',
       'Driven by an intense longing for liberation, he explored multiple spiritual paths including Tantra, Mantra, and the Siddhar traditions. He remains deeply indebted to Chandramouli Ayya who introduced him to astrology, and Bhaskara Sivadasan Ayya, a living Siddhar who initiated him into the path of Jnana Yoga.',

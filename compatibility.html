@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -200,18 +200,20 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .test-city{font-size:0.66rem;color:var(--ink-faint);letter-spacing:0.08em}
 
 /* --- CTA --- */
-.cta-section{background:var(--bg);border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(200,168,75,0.1);border-radius:50%;pointer-events:none}
-.cta-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.05);border-radius:50%;pointer-events:none}
-.cta-inner{position:relative}
-.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.5rem}
-.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.9rem}
-.cta-section h2 em{font-style:italic;color:var(--gold-dark)}
-.cta-sub{font-size:0.82rem;color:var(--ink-light);margin-bottom:2.5rem;font-weight:300;letter-spacing:0.05em}
+.cta-section{background:#1a1610;border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta-video-wrap{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:0}
+.cta-video-wrap video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,22,16,0.88) 0%, rgba(26,22,16,0.85) 100%);z-index:0;pointer-events:none}
+.cta-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(200,168,75,0.08);border-radius:50%;z-index:0;pointer-events:none}
+.cta-inner{position:relative;z-index:1}
+.cta-eye{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,215,110,0.95);margin-bottom:1.5rem;text-shadow:0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9)}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;color:#ffffff;line-height:1.15;margin-bottom:0.9rem;text-shadow:0 3px 16px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.95)}
+.cta-section h2 em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:0.82rem;color:rgba(255,255,255,0.88);margin-bottom:2.5rem;font-weight:300;letter-spacing:0.05em;text-shadow:0 2px 8px rgba(0,0,0,0.75)}
 .cta-btn{display:inline-flex;align-items:center;gap:0.65rem;background:var(--bg-dark);color:var(--bg);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:7px;transition:all 0.25s}
 .cta-btn:hover{opacity:0.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,37,32,0.15)}
 .cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+.cta-meta{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-shadow:0 1px 4px rgba(0,0,0,0.7)}
 
 /* FOOTER */
 footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
@@ -346,17 +348,17 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="hero-trust">
       <span class="trust-pill">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        3 business days
+        Same day report
       </span>
       <span class="trust-dot"></span>
       <span class="trust-pill">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        18&#8211;24 page report
+        &#8211;easy to understand
       </span>
       <span class="trust-dot"></span>
       <span class="trust-pill">
         <svg viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
-        Human psychologist
+        Senior psychologist
       </span>
     </div>
   </div>
@@ -365,8 +367,8 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="psych-card">
       <div class="psych-top">
         <div>
-          <div class="psych-eyebrow">Lead Psychologist</div>
-          <div class="psych-name">Drushya</div>
+          <div class="psych-eyebrow">Our Psychologist Team Lead</div>
+          <div class="psych-name">Drusya</div>
           <div class="psych-creds">
             <span>M.A. Clinical Psychology</span>
             <span>NIMHANS-trained</span>
@@ -376,10 +378,10 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
           </div>
         </div>
       </div>
-      <p class="psych-bio">The psychological intelligence behind the Compatibility Report — Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
+      <p class="psych-bio">The psychological intelligence behind the Compatibility Report - Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
       <p class="psych-bio">Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
-      <p class="psych-bio">She assesses each couple across five dimensions — communication, conflict, money, family, and goals — and delivers insights with the clarity and empathy that this moment deserves.</p>
-      <div class="psych-quote">"A number gives structure. The written analysis gives language. Together, they give couples something they can hold — and return to."</div>
+      <p class="psych-bio">She assesses each couple across 11 dimensions - communication, conflict, money, family, and goals - and delivers insights with the clarity and empathy that this moment deserves.</p>
+      <div class="psych-quote">"A number gives structure. The written analysis gives language. Together, they give couples something they can hold - and return to."</div>
       <div class="psych-pillars">
         <div class="psych-pillar">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/></svg>
@@ -479,28 +481,28 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
           <div>
             <div class="wyg-item-title">Compatibility Score</div>
-            <div class="wyg-item-desc">An overall alignment number across all 10 dimensions — structured, clear, and something your family can hold.</div>
+            <div class="wyg-item-desc">An overall alignment number across all 10 dimensions - structured, clear, and something your family can hold.</div>
           </div>
         </div>
         <div class="wyg-item">
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1"/><path d="M16 8a4 4 0 0 1 0 8"/></svg></div>
           <div>
             <div class="wyg-item-title">Behavioural Insights</div>
-            <div class="wyg-item-desc">How each of you responds to stress, disagreement, and intimacy — written plainly, without clinical jargon.</div>
+            <div class="wyg-item-desc">How each of you responds to stress, disagreement, and intimacy - written plainly, without clinical jargon.</div>
           </div>
         </div>
         <div class="wyg-item">
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
           <div>
             <div class="wyg-item-title">Risk Indicators</div>
-            <div class="wyg-item-desc">Friction zones named clearly — so families can have the right conversations before the wedding, not after.</div>
+            <div class="wyg-item-desc">Friction zones named clearly - so families can have the right conversations before the wedding, not after.</div>
           </div>
         </div>
         <div class="wyg-item">
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div>
           <div>
             <div class="wyg-item-title">Advisory Recommendations</div>
-            <div class="wyg-item-desc">A practical conversation guide for both families — honest, empathetic, written for this specific pairing.</div>
+            <div class="wyg-item-desc">A practical conversation guide for both families - honest, empathetic, written for this specific pairing.</div>
           </div>
         </div>
       </div>
@@ -648,7 +650,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="dim-numeral">V</div>
     <div class="dim-name">
       <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-      <div class="dim-tag">Dimension Five</div>
+      <div class="dim-tag">Dimension 11</div>
       <h3>Relationship Values &amp; Expectations</h3>
     </div>
     <div class="dim-desc"><p>Do you expect both partners to share household responsibilities? Is individual freedom important even after marriage?<br><em>&#8220;I believe family involvement should have healthy limits&#8221;</em></p></div>
@@ -778,6 +780,11 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 
 <!-- --- CTA --- -->
 <section class="cta-section">
+  <div class="cta-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="Video/4326795-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="cta-inner fi">
     <div class="cta-eye">When you&#8217;re ready</div>
     <h2>Take the<br><em>assessment.</em></h2>

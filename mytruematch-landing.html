@@ -1,0 +1,1074 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyTrueMatch — Know Each Other</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg-primary: #FDFAF0;
+ --bg-secondary: #FBF5CC;
+ --bg-accent: #FFF9C4;
+ --bg-hero: linear-gradient(135deg, #FDFAF0 0%, #FBF7D8 30%, #FFF9C4 60%, #FFF176 100%);
+ --bg-dark: #1A1610;
+ --gold: #C8A84B;
+ --gold-dark: #8A6E20;
+ --gold-light: #FFEE58;
+ --rose: #E8828A;
+ --charcoal: #2A2520;
+ --charcoal-mid: #4A4238;
+ --charcoal-light: #7A6E5F;
+ --text-muted: #9A8E7F;
+ --cream: #FDFAF0;
+ --accent-gradient: linear-gradient(135deg, #FFF176, #FFEE58, #FFC107);
+ --cta-bg: linear-gradient(135deg, #FFF9C4 0%, #FFF176 40%, #FFEE58 100%);
+ --card-border: rgba(200,168,75,0.2);
+ --section-divider: rgba(200,168,75,0.15);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+ font-family: 'DM Sans', sans-serif;
+ background: var(--bg-primary);
+ color: var(--charcoal);
+ overflow-x: hidden;
+}
+
+/* ANNOUNCEMENT BAR */
+.announce-bar {
+ background: var(--bg-dark);
+ color: rgba(255,255,255,0.8);
+ text-align: center;
+ padding: 0.55rem 1rem;
+ font-size: 0.72rem;
+ letter-spacing: 0.08em;
+}
+.announce-bar span { color: var(--gold); font-weight: 500; }
+
+/* NAV */
+nav {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 4rem;
+ height: 68px;
+ background: rgba(253,250,240,0.96);
+ backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--section-divider);
+}
+.nav-logo {
+ font-family: 'DM Serif Display', serif;
+ font-size: 1.4rem;
+ text-decoration: none;
+ letter-spacing: -0.01em;
+}
+.logo-blue { color: #4A6FA5; }
+.logo-gold { color: #C8A84B; }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+ font-size: 0.8rem;
+ font-weight: 400;
+ letter-spacing: 0.04em;
+ color: var(--charcoal-light);
+ text-decoration: none;
+ padding: 0 1.25rem;
+ height: 68px;
+ display: flex;
+ align-items: center;
+ gap: 0.45rem;
+ border-bottom: 2px solid transparent;
+ transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--charcoal); border-bottom-color: var(--gold); }
+
+.nav-right { display: flex; gap: 0.75rem; align-items: center; }
+.nav-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon-btn { width: 14px; height: 14px; }
+
+.btn-ghost {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ font-size: 0.78rem;
+ font-weight: 500;
+ color: var(--charcoal-mid);
+ text-decoration: none;
+ padding: 0.5rem 1.25rem;
+ border: 1px solid var(--card-border);
+ border-radius: 6px;
+ transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-dark); }
+
+.btn-solid {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ font-size: 0.78rem;
+ font-weight: 500;
+ color: var(--cream);
+ background: var(--bg-dark);
+ text-decoration: none;
+ padding: 0.5rem 1.5rem;
+ border-radius: 6px;
+ transition: all 0.2s;
+}
+.btn-solid:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+ background: var(--bg-hero);
+ padding: 6rem 4rem 5rem;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 4rem;
+ align-items: center;
+ position: relative;
+ overflow: hidden;
+ min-height: 620px;
+}
+.hero::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background-image: radial-gradient(circle at 20% 50%, rgba(200,168,75,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(232,130,138,0.06) 0%, transparent 40%);
+ pointer-events: none;
+}
+
+.hero-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ background: rgba(255,255,255,0.6);
+ backdrop-filter: blur(8px);
+ border: 1px solid var(--card-border);
+ border-radius: 100px;
+ padding: 0.35rem 1rem;
+ font-size: 0.7rem;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: var(--gold-dark);
+ font-weight: 500;
+ margin-bottom: 1.5rem;
+}
+.hero-badge-dot {
+ width: 6px; height: 6px;
+ border-radius: 50%;
+ background: var(--gold);
+ animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+ 0%,100% { transform: scale(1); opacity: 1; }
+ 50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.hero-left h1 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(2.8rem, 5vw, 4.2rem);
+ font-weight: 400;
+ line-height: 1.12;
+ color: var(--charcoal);
+ margin-bottom: 1.2rem;
+}
+.hero-left h1 em { font-style: italic; color: var(--gold-dark); }
+.hero-left h1 strong {
+ font-weight: 600;
+ color: var(--gold-dark);
+}
+
+.hero-sub {
+ font-size: 1rem;
+ font-weight: 300;
+ color: var(--charcoal-light);
+ line-height: 1.75;
+ margin-bottom: 2rem;
+ max-width: 440px;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+.btn-primary {
+ background: var(--bg-dark);
+ color: var(--cream);
+ padding: 0.85rem 2rem;
+ font-size: 0.85rem;
+ font-weight: 500;
+ letter-spacing: 0.04em;
+ text-decoration: none;
+ border-radius: 8px;
+ border: none;
+ cursor: pointer;
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ transition: all 0.25s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+
+.btn-secondary {
+ background: transparent;
+ color: var(--charcoal-mid);
+ padding: 0.85rem 1.75rem;
+ font-size: 0.85rem;
+ font-weight: 400;
+ text-decoration: none;
+ border-radius: 8px;
+ border: 1.5px solid var(--card-border);
+ cursor: pointer;
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ transition: all 0.25s;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold-dark); }
+
+.hero-trust { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.hero-trust-stat { display: flex; flex-direction: column; gap: 2px; }
+.hero-trust-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--charcoal); }
+.hero-trust-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.hero-trust-divider { width: 1px; height: 36px; background: var(--section-divider); }
+
+/* Hero cards */
+.hero-right {
+ position: relative;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr;
+ gap: 1rem;
+ height: 440px;
+}
+.hero-card {
+ border-radius: 16px;
+ padding: 1.5rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ position: relative;
+ overflow: hidden;
+ border: 1px solid var(--card-border);
+ transition: transform 0.3s;
+}
+.hero-card:hover { transform: translateY(-3px); }
+
+/* Horoscope — sunrise illustration */
+.hero-card-1 {
+ background:
+    linear-gradient(to top, rgba(160,110,0,0.55) 0%, transparent 52%),
+    url('651f42d7-1712-485b-9ba6-7d74e7807418.png') center / cover no-repeat;
+ grid-row: 1 / 3;
+ grid-column: 1;
+ border: 1px solid rgba(160,120,0,0.35);
+}
+/* Verification — deep maroon */
+.hero-card-2 {
+ background: linear-gradient(135deg, #5C0000 0%, #3A0000 100%);
+ grid-row: 1;
+ grid-column: 2;
+ border: none;
+}
+/* Compatibility score — white */
+.hero-card-3 {
+ background: #FFFFFF;
+ grid-row: 2;
+ grid-column: 2;
+ border: 1px solid rgba(200,168,75,0.25);
+}
+
+.hero-card-icon {
+ position: absolute;
+ top: 1.5rem;
+ left: 1.5rem;
+ width: 40px;
+ height: 40px;
+ border-radius: 10px;
+ background: rgba(0,0,0,0.1);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.hero-card-2 .hero-card-icon { background: rgba(255,255,255,0.1); }
+.hero-card-1 .hero-card-icon { background: rgba(0,0,0,0.22); }
+
+.ui-icon { width: 20px; height: 20px; display: block; }
+.hero-card-icon .ui-icon { width: 22px; height: 22px; }
+.step-icon .ui-icon { width: 18px; height: 18px; }
+.trust-item-icon { display: inline-flex; align-items: center; }
+.trust-item-icon .ui-icon { width: 16px; height: 16px; }
+
+.hero-card-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.hero-card-1 .hero-card-label { color: #fff; opacity: 1; font-weight: 600; letter-spacing: 0.18em; }
+.hero-card-2 .hero-card-label { color: rgba(255,255,255,0.7); }
+.hero-card-3 .hero-card-label { color: var(--gold-dark); }
+
+.hero-card-1 h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.85rem;
+ font-weight: 600;
+ color: #fff;
+ line-height: 1.2;
+ text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+}
+.hero-card-2 h3 {
+ font-family: 'DM Serif Display', serif;
+ font-size: 1.1rem;
+ color: #fff;
+ line-height: 1.3;
+}
+.hero-card-3 p { font-size: 0.78rem; color: var(--charcoal-mid); line-height: 1.6; }
+.hero-card-3 .hero-score {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 2.2rem;
+ font-weight: 500;
+ color: var(--charcoal);
+ display: block;
+ margin-bottom: 0.2rem;
+}
+
+/* TRUST BAR */
+.trust-bar {
+ background: var(--bg-dark);
+ padding: 0.9rem 3rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 0;
+ flex-wrap: nowrap;
+ overflow-x: auto;
+ white-space: nowrap;
+}
+.trust-item {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.45rem;
+ font-size: 0.65rem;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.65);
+ white-space: nowrap;
+ flex-shrink: 0;
+}
+.trust-sep { color: rgba(255,255,255,0.18); font-size: 1rem; margin: 0 1rem; flex-shrink: 0; }
+
+/* SECTION DEFAULTS */
+.section-eyebrow {
+ font-size: 0.7rem;
+ letter-spacing: 0.2em;
+ text-transform: uppercase;
+ color: var(--gold-dark);
+ font-weight: 500;
+ margin-bottom: 0.5rem;
+ display: flex;
+ align-items: center;
+ gap: 0.6rem;
+}
+.section-eyebrow::before {
+ content: '';
+ display: block;
+ width: 24px;
+ height: 1px;
+ background: var(--gold);
+}
+.section-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(2rem, 4vw, 2.8rem);
+ font-weight: 400;
+ color: var(--charcoal);
+ line-height: 1.2;
+ margin-bottom: 0.6rem;
+}
+.section-sub {
+ font-size: 0.95rem;
+ color: var(--charcoal-light);
+ font-weight: 300;
+ max-width: 520px;
+ line-height: 1.75;
+ margin-bottom: 3rem;
+}
+
+/* HOW IT WORKS */
+.how-section {
+ padding: 5rem 4rem;
+ background: var(--bg-primary);
+ border-bottom: 1px solid var(--section-divider);
+}
+.steps-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2px;
+ background: var(--section-divider);
+ border: 1px solid var(--section-divider);
+ border-radius: 12px;
+ overflow: hidden;
+}
+.step-card {
+ background: var(--bg-primary);
+ padding: 2.5rem 2rem;
+ position: relative;
+ transition: background 0.25s;
+}
+.step-card:hover { background: var(--bg-secondary); }
+.step-number {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 5rem;
+ font-weight: 300;
+ color: var(--section-divider);
+ line-height: 1;
+ position: absolute;
+ top: 1.2rem;
+ right: 1.5rem;
+ user-select: none;
+}
+.step-icon {
+ width: 48px;
+ height: 48px;
+ border-radius: 12px;
+ background: var(--bg-accent);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: 1.25rem;
+ border: 1px solid var(--card-border);
+}
+.step-card h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.4rem;
+ font-weight: 500;
+ color: var(--charcoal);
+ margin-bottom: 0.75rem;
+}
+.step-card p { font-size: 0.88rem; color: var(--charcoal-light); line-height: 1.7; font-weight: 300; }
+.step-note {
+ margin-top: 1.25rem;
+ font-size: 0.65rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--gold-dark);
+ display: flex;
+ align-items: center;
+ gap: 0.4rem;
+}
+.step-note::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
+
+/* THREE LENSES */
+.lenses-section {
+ background: #FFFFFF;
+ padding: 5rem 4rem;
+ border-top: 1px solid var(--section-divider);
+ border-bottom: 1px solid var(--section-divider);
+}
+.lenses-layout {
+ display: grid;
+ grid-template-columns: 1fr 2fr;
+ gap: 3rem;
+ align-items: start;
+}
+.lenses-tabs {
+ display: flex;
+ flex-direction: column;
+ border: 1px solid var(--card-border);
+ border-radius: 12px;
+ overflow: hidden;
+}
+.lens-tab {
+ padding: 1.5rem 1.75rem;
+ cursor: pointer;
+ border-bottom: 1px solid var(--section-divider);
+ transition: background 0.2s;
+ position: relative;
+ background: #FDFAF0;
+}
+.lens-tab:last-child { border-bottom: none; }
+.lens-tab.active { background: rgba(200,168,75,0.08); }
+.lens-tab.active::before {
+ content: '';
+ position: absolute;
+ left: 0; top: 0; bottom: 0;
+ width: 3px;
+ background: var(--gold);
+}
+.lens-tab-num { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.3rem; }
+.lens-tab h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); opacity: 0.6; transition: opacity 0.2s; }
+.lens-tab.active h4 { opacity: 1; }
+.lens-tab p { font-size: 0.78rem; color: var(--charcoal-light); margin-top: 0.3rem; line-height: 1.5; display: none; }
+.lens-tab.active p { display: block; }
+
+.lens-panel { background: #FDFAF0; border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem; display: none; }
+.lens-panel.active { display: block; }
+/* Verification panel — photo background */
+#lens-1 { position: relative; overflow: hidden; }
+#lens-1::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: url('6426d63c-ffbe-4ba6-9454-aed8a8bc72e0.png') center right / cover no-repeat;
+ opacity: 0.12;
+ pointer-events: none;
+ border-radius: 16px;
+}
+#lens-1 > * { position: relative; z-index: 1; }
+.lens-panel-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: rgba(200,168,75,0.2); line-height: 1; margin-bottom: 0.5rem; }
+.lens-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 1rem; }
+.lens-panel > p { font-size: 0.95rem; color: var(--charcoal-light); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+.lens-features { display: flex; flex-direction: column; gap: 0.75rem; }
+.lens-feature { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: var(--charcoal-mid); line-height: 1.5; }
+.lens-feature-check {
+ width: 18px; height: 18px;
+ border-radius: 50%;
+ background: rgba(200,168,75,0.12);
+ border: 1px solid rgba(200,168,75,0.3);
+ display: flex; align-items: center; justify-content: center;
+ font-size: 0.6rem; color: var(--gold-dark);
+ flex-shrink: 0; margin-top: 2px;
+}
+.lens-badge {
+ display: inline-block;
+ font-size: 0.62rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--gold-dark);
+ background: rgba(200,168,75,0.1);
+ border: 1px solid rgba(200,168,75,0.3);
+ padding: 0.35rem 0.9rem;
+ border-radius: 100px;
+ margin-top: 1.75rem;
+}
+
+/* SOCIAL PROOF */
+.proof-section {
+ padding: 5rem 4rem;
+ background: var(--bg-secondary);
+ border-top: 1px solid var(--section-divider);
+ border-bottom: 1px solid var(--section-divider);
+}
+.proof-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+.rating-summary { display: flex; align-items: center; gap: 1rem; }
+.rating-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--charcoal); line-height: 1; }
+.rating-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.08em; }
+.rating-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.testimonial-card {
+ background: var(--bg-primary);
+ border: 1px solid var(--card-border);
+ border-radius: 12px;
+ padding: 1.75rem;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+ transition: transform 0.25s, box-shadow 0.25s;
+}
+.testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.testimonial-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; }
+.testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--charcoal); line-height: 1.65; flex: 1; }
+.testimonial-author { display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid var(--section-divider); padding-top: 1rem; }
+.testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; flex-shrink: 0; }
+.av-1 { background: #FFF9C4; color: #9A7C2E; }
+.av-2 { background: #FFE8EB; color: #B03060; }
+.av-3 { background: #E1F5EE; color: #0F6E56; }
+.testimonial-name { font-size: 0.82rem; font-weight: 500; color: var(--charcoal); }
+.testimonial-city { font-size: 0.7rem; color: var(--text-muted); }
+
+/* EXPERTS */
+.experts-section {
+ padding: 5rem 4rem;
+ background: var(--bg-accent);
+ border-top: 1px solid var(--section-divider);
+}
+.experts-grid { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2.5rem; max-width: 820px; }
+.expert-card { background: var(--bg-primary); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.25rem; transition: all 0.25s; cursor: pointer; }
+.expert-card:hover { transform: translateX(3px); box-shadow: 0 8px 32px rgba(42,37,32,0.07); border-color: var(--gold); }
+.expert-avatar { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 600; flex-shrink: 0; border: 2px solid var(--card-border); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.04em; }
+.ea-1 { background: #FFF9C4; color: #9A7C2E; }
+.ea-2 { background: #E1F5EE; color: #0F6E56; }
+.ea-3 { background: #FFE8EB; color: #B03060; }
+.expert-card-body { flex: 1; min-width: 0; }
+.expert-name { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.2rem; }
+.expert-role { font-size: 0.78rem; color: var(--charcoal-light); margin-bottom: 0.6rem; font-weight: 300; }
+.expert-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.expert-tag { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); border: 1px solid rgba(200,168,75,0.4); border-radius: 4px; padding: 0.2rem 0.6rem; font-weight: 500; background: rgba(200,168,75,0.06); }
+.expert-arrow { color: var(--gold); flex-shrink: 0; opacity: 0.55; transition: all 0.2s; }
+.expert-card:hover .expert-arrow { opacity: 1; transform: translateX(3px); }
+
+/* CTA */
+.cta-section {
+ padding: 6rem 4rem;
+ background: var(--cta-bg);
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+}
+.cta-section::before {
+ content: '';
+ position: absolute;
+ top: -80px; left: 50%;
+ transform: translateX(-50%);
+ width: 400px; height: 400px;
+ border: 1px solid rgba(200,168,75,0.2);
+ border-radius: 50%;
+ pointer-events: none;
+}
+.cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--charcoal); margin-bottom: 0.8rem; position: relative; }
+.cta-section h2 em { font-style: italic; color: var(--gold-dark); }
+.cta-section > div > p { font-size: 0.9rem; color: var(--charcoal-light); margin-bottom: 2rem; font-weight: 300; position: relative; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+.cta-note { margin-top: 1.5rem; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; position: relative; }
+
+/* FOOTER */
+footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
+.footer-top {
+ display: grid;
+ grid-template-columns: 2fr 1fr 1fr 1fr;
+ gap: 3rem;
+ margin-bottom: 3rem;
+ padding-bottom: 3rem;
+ border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 0.75rem; display: block; }
+.footer-logo span { color: var(--rose); }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.3); line-height: 1.7; font-weight: 300; max-width: 260px; }
+.footer-col-title { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
+
+/* FADE IN */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* HOROSCOPE HERO */
+.horoscope-hero {
+ background: linear-gradient(135deg, rgba(26,22,16,0.75) 0%, rgba(26,22,16,0.68) 100%), url('dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png') center / cover no-repeat;
+ padding: 7rem 4rem;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ min-height: 520px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+.horoscope-hero::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background-image: radial-gradient(circle at 30% 70%, rgba(200,168,75,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 30%, rgba(232,130,138,0.05) 0%, transparent 50%);
+ pointer-events: none;
+}
+.horoscope-hero-content {
+ position: relative;
+ z-index: 1;
+ max-width: 620px;
+}
+.horoscope-hero p {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(2rem, 4vw, 3rem);
+ font-weight: 400;
+ color: rgba(255,255,255,0.95);
+ line-height: 1.5;
+ margin-bottom: 2rem;
+ letter-spacing: 0.01em;
+}
+.horoscope-hero p em {
+ font-style: italic;
+ color: #FFD700;
+}
+.horoscope-hero-sub {
+ font-size: 1rem;
+ color: rgba(255,255,255,0.65);
+ font-weight: 300;
+ line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+ nav { padding: 0 1.5rem; }
+ .nav-links { display: none; }
+ .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem; min-height: auto; gap: 2.5rem; }
+ .hero-right { height: 280px; }
+ .how-section, .lenses-section, .proof-section, .experts-section, .cta-section { padding: 3.5rem 1.5rem; }
+ .steps-grid, .lenses-layout, .testimonials-grid { grid-template-columns: 1fr; }
+ .trust-bar { padding: 1rem 1.5rem; gap: 0.75rem; }
+ .trust-sep { display: none; }
+ footer { padding: 3rem 1.5rem 1.5rem; }
+ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+ .proof-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+ .horoscope-hero { padding: 4rem 1.5rem; min-height: 380px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+ Now serving couples across <span>38 cities</span> — from Bangalore to Birmingham &nbsp;·&nbsp; <span>DPDP Act 2023 compliant</span> · All data on Indian servers
+</div>
+
+<!-- NAV -->
+<nav>
+ <a href="mytruematch-landing.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
+ <ul class="nav-links">
+ <li><a href="compatibility.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-0.8-1.4-2.3-2.4-4-2.4z"></path></svg><span>Compatibility</span></a></li>
+ <li><a href="verification.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Verification</span></a></li>
+ <li><a href="horoscope.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"></path></svg><span>Horoscope</span></a></li>
+ <li><a href="pricing.html"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"></path><circle cx="16" cy="6" r="1.2"></circle></svg><span>Pricing</span></a></li>
+ </ul>
+ <div class="nav-right">
+ <a href="blog.html" class="btn-ghost" style="border:none;padding:0 1rem"><span>Blog</span></a>
+ <a href="auth.html" class="btn-ghost">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+ <span>Sign in</span>
+ </a>
+ <a href="begin.html" class="btn-solid">
+ <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+ <span>Begin</span>
+ </a>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero fade-in">
+ <div class="hero-left">
+ <div class="hero-badge">
+ <div class="hero-badge-dot"></div>
+ Trusted by 2,400+ families across India
+ </div>
+ <h1>She knows herself.<br><em>He knows himself.</em><br>Now know <strong>each other.</strong></h1>
+ <p class="hero-sub">Three expert lenses — Compatibility, Verification, and Horoscope — so the most important decision of your life is also the most informed one.</p>
+ <div class="hero-actions">
+ <a href="#" class="btn-primary">Begin the conversation →</a>
+ <a href="#how" class="btn-secondary">See how it works</a>
+ </div>
+ <div class="hero-trust">
+ <div class="hero-trust-stat">
+ <span class="hero-trust-num">2,400+</span>
+ <span class="hero-trust-label">Couples served</span>
+ </div>
+ <div class="hero-trust-divider"></div>
+ <div class="hero-trust-stat">
+ <span class="hero-trust-num">38</span>
+ <span class="hero-trust-label">Cities</span>
+ </div>
+ <div class="hero-trust-divider"></div>
+ <div class="hero-trust-stat">
+ <span class="hero-trust-num">4.9</span>
+ <span class="hero-trust-label">Average rating</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="hero-right">
+ <!-- Card 1: Compatibility -->
+ <div class="hero-card hero-card-1">
+ <div class="hero-card-icon">
+ <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+ </div>
+ <div>
+ <div class="hero-card-label">Compatibility</div>
+ <h3>Communication · Values · Life goals</h3>
+ </div>
+ </div>
+ <!-- Card 2: Verification — deep maroon -->
+ <div class="hero-card hero-card-2">
+ <div class="hero-card-icon">
+ <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"></path><path d="M9 12l2 2 4-4"></path></svg>
+ </div>
+ <div>
+ <div class="hero-card-label">Verification</div>
+ <h3>Identity confirmed quietly</h3>
+ </div>
+ </div>
+ <!-- Card 3: Horoscope — white -->
+ <div class="hero-card hero-card-3">
+     <div style="width:100%;height:92px;border-radius:10px;background:rgba(200,168,75,0.10);border:1px solid rgba(200,168,75,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:0.6rem;overflow:hidden;">
+         <img src="dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png" alt="Horoscope Illustration" style="width:auto;max-width:100%;height:92px;display:block;object-fit:cover;object-position:center;" loading="lazy" />
+     </div>
+     <div class="hero-card-label">Horoscope</div>
+     <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:0.35rem;">Ashtakoot · Dosha · Navamsa</p>
+     <p>15+ year Jyotish astrologers</p>
+ </div>
+ </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+ <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 · India servers</div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Gottman &amp; Prepare Enrich -trained Experts</div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>15+ year Jyotish astrologers</div>
+ <div class="trust-sep">·</div>
+ <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+</div>
+
+<!-- NARRATIVE HOOK -->
+<section style="padding:5rem 4rem;background:#1A1610;text-align:center;position:relative;overflow:hidden;">
+ <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+ <div class="fade-in" style="max-width:680px;margin:0 auto;position:relative;">
+ <p style="font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:#C8A84B;font-weight:600;margin-bottom:2rem;">PRE-MARITAL DUE DILIGENCE</p>
+ <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.2vw,2.8rem);font-weight:400;color:rgba(255,255,255,0.94);line-height:1.5;letter-spacing:0.01em;">Dedicated to creating a social impact by preventing fraud in the matrimony landscape.</p>
+ </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+ <div class="fade-in">
+ <p class="section-eyebrow">Simple · Private · Dignified</p>
+ <h2 class="section-title">How MyTrueMatch works</h2>
+ <p class="section-sub">No awkward conversations. No guesswork. Just three expert-led reports delivered with complete discretion.</p>
+ </div>
+ <div class="steps-grid fade-in">
+ <div class="step-card">
+ <div class="step-number">01</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"></rect><path d="M9 4H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"></path></svg></div>
+ <h3>Both of you share details</h3>
+ <p>Each partner fills in their own profile privately. No joint sessions required. Everything stays secure on Indian servers.</p>
+ <div class="step-note">Takes about 20 minutes</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">02</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
+ <h3>Experts analyse your profiles</h3>
+ <p>Our psychologists, background-check specialists, and Jyotish astrologers each independently prepare their lens of the report.</p>
+ <div class="step-note">Delivered within 72 hours</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">03</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
+ <h3>Receive your full report</h3>
+ <p>A beautifully written, comprehensive document shared privately with you — giving both families the language to have meaningful conversations.</p>
+ <div class="step-note">Written, not whispered</div>
+ </div>
+ </div>
+</section>
+
+<!-- THREE LENSES -->
+<section class="lenses-section" id="lenses">
+ <div class="fade-in">
+ <p class="section-eyebrow">Three Lenses</p>
+ <h2 class="section-title">She knows herself. He knows himself.<br><em>Now know each other.</em></h2>
+ <p class="section-sub">For the marriage that deserves more than a profile and a call.</p>
+ </div>
+ <div class="lenses-layout fade-in">
+ <div class="lenses-tabs">
+ <div class="lens-tab active" onclick="setLens(0, this)">
+ <div class="lens-tab-num">01 · First Lens</div>
+ <h4>Compatibility</h4>
+ <p>A psychometric mirror held up to both of you.</p>
+ <a href="compatibility.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="lens-tab" onclick="setLens(1, this)">
+ <div class="lens-tab-num">02 · Second Lens</div>
+ <h4>Verification</h4>
+ <p>Trust, confirmed quietly and with consent.</p>
+ <a href="verification.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="lens-tab" onclick="setLens(2, this)">
+ <div class="lens-tab-num">03 · Third Lens</div>
+ <h4>Horoscope</h4>
+ <p>A senior Jyotish astrologer reads both charts.</p>
+ <a href="horoscope.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+ <div>
+ <div class="lens-panel active" id="lens-0">
+ <div class="lens-panel-num">01</div>
+ <h2>Compatibility</h2>
+ <p>A psychometric mirror — held up to both of you. Communication, conflict, money, family, ambition. Where you align. Where you don't.</p>
+ <div class="lens-features">
+ <div class="lens-feature"><div class="lens-feature-check"></div>Communication style and conflict resolution patterns</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Financial values and money management alignment</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Family roles, expectations, and boundaries</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Life goals, ambition, and career compatibility</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Intimacy, affection, and emotional needs</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Actionable guidance for areas of difference</div>
+ </div>
+ <div class="lens-badge">↓ GOTTMAN &amp; NIMHANS-TRAINED PSYCHOLOGISTS</div>
+ </div>
+ <div class="lens-panel" id="lens-1">
+ <div class="lens-panel-num">02</div>
+ <h2>Verification</h2>
+ <p>Trust, confirmed quietly. Identity, work, court records, finances — checked with the dignity of mutual consent. The subject sees their own report.</p>
+ <div class="lens-features">
+ <div class="lens-feature"><div class="lens-feature-check"></div>Aadhaar-linked identity verification (UIDAI compliant)</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Employment and education credential checks</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Criminal and court record searches</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Financial health and liability overview</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Social media and digital footprint review</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Full consent-first, subject-first process</div>
+ </div>
+ <div class="lens-badge">↓ UIDAI-COMPLIANT · DPDP ACT 2023 · INDIA SERVERS</div>
+ </div>
+ <div class="lens-panel" id="lens-2">
+ <div class="lens-panel-num">03</div>
+ <h2>Horoscope</h2>
+ <p>A senior Jyotish astrologer reads both charts with the depth your grandmother would have wanted. Ashtakoot, Dosha, Dasha, Navamsa — written, not whispered.</p>
+ <div class="lens-features">
+ <div class="lens-feature"><div class="lens-feature-check"></div>Ashtakoot Guna Milan — 36-point compatibility score</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Mangal Dosha and Nadi Dosha analysis</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Dasha period and timing of marriage</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Navamsa chart reading for marital life</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Remedies where applicable, explained plainly</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Written report in English with original references</div>
+ </div>
+ <div class="lens-badge">↓ ASTROLOGERS WITH 15+ YEARS OF PRACTICE</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="proof-section" id="reviews">
+ <div class="proof-header fade-in">
+ <div>
+ <p class="section-eyebrow">Letters from couples we have served</p>
+ <h2 class="section-title">They found their language here</h2>
+ </div>
+ <div class="rating-summary">
+ <div class="rating-num">4.9</div>
+ <div>
+ <div class="rating-stars"></div>
+ <div class="rating-label">From 380+ verified reviews</div>
+ </div>
+ </div>
+ </div>
+ <div class="testimonials-grid fade-in">
+ <div class="testimonial-card">
+ <div class="testimonial-stars"></div>
+ <p class="testimonial-text">"The Compatibility Report gave us language for things we had felt but never articulated. We are married now. We are grateful."</p>
+ <div class="testimonial-author">
+ <div class="testimonial-avatar av-1">PK</div>
+ <div>
+ <div class="testimonial-name">Priya &amp; Karthik</div>
+ <div class="testimonial-city">Bangalore · Spring 2025</div>
+ </div>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-stars"></div>
+ <p class="testimonial-text">"The Verification report gave my parents the peace of mind they needed. No awkward questions. Just quiet confidence from a document both families trusted."</p>
+ <div class="testimonial-author">
+ <div class="testimonial-avatar av-2">AR</div>
+ <div>
+ <div class="testimonial-name">Ananya &amp; Rahul</div>
+ <div class="testimonial-city">Mumbai · Autumn 2024</div>
+ </div>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-stars"></div>
+ <p class="testimonial-text">"Our astrologer's report was the most detailed kundali matching I had ever seen. It went beyond what the usual pandit would say, and it was written so clearly."</p>
+ <div class="testimonial-author">
+ <div class="testimonial-avatar av-3">SM</div>
+ <div>
+ <div class="testimonial-name">Shreya &amp; Mihir</div>
+ <div class="testimonial-city">Delhi · Summer 2025</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- HOROSCOPE HERO -->
+<section class="horoscope-hero fade-in">
+ <div class="horoscope-hero-content">
+  <p>Read the stars.<br><em>Find your path.</em></p>
+  <p class="horoscope-hero-sub">A senior Jyotish reading — both charts, all six aspects, written in full. Your Kundali, treated with the depth and care it deserves.</p>
+ </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+ <div class="fade-in">
+ <h2>When you're ready,<br><em>we'll be here.</em></h2>
+ <p>No account needed · Your details stay yours · No awkward questions</p>
+ <div class="cta-actions">
+ <a href="#" class="btn-primary">Begin the conversation →</a>
+ <a href="#lenses" class="btn-secondary">See our three lenses</a>
+ </div>
+ <p class="cta-note">Bangalore, India · DPDP Act 2023 compliant · UIDAI-certified</p>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-top">
+ <div>
+ <span class="footer-logo">MyTrue<span>Match</span></span>
+ <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <div style="display:flex;gap:12px;margin-top:1.5rem;">
+ <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+ <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+ </div>
+ </div>
+ <div>
+ <div class="footer-col-title">Our Lenses</div>
+ <ul class="footer-links">
+ <li><a href="compatibility.html">Compatibility</a></li>
+ <li><a href="verification.html">Verification</a></li>
+ <li><a href="horoscope.html">Horoscope</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Company</div>
+ <ul class="footer-links">
+ <li><a href="pricing.html">Pricing</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ </ul>
+ </div>
+ <div>
+ <div class="footer-col-title">Legal</div>
+ <ul class="footer-links">
+ <li><a href="privacy.html">Privacy Policy</a></li>
+ <li><a href="terms.html">Terms and Conditions</a></li>
+ <li><a href="disclaimer.html">Disclaimer</a></li>
+ <li><a href="refund.html">Refund Policy</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <div class="footer-legal">
+ <span style="display:flex;align-items:center;gap:5px;color:#C8A84B;font-size:0.78rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.06);">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+ 100% Secure
+ </span>
+ <a href="privacy.html">Privacy</a>
+ <a href="terms.html">Terms</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+function setLens(idx, tabEl) {
+ document.querySelectorAll('.lens-tab').forEach(t => t.classList.remove('active'));
+ document.querySelectorAll('.lens-panel').forEach(p => p.classList.remove('active'));
+ tabEl.classList.add('active');
+ document.getElementById('lens-' + idx).classList.add('active');
+}
+
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach(e => {
+ if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+ });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

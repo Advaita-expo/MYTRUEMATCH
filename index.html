@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyTrueMatch — Know Each Other</title>
+<title>MyTrueMatch - Know Each Other</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -139,7 +139,14 @@ nav {
  position: absolute;
  inset: 0;
  background-image: radial-gradient(circle at 20% 50%, rgba(200,168,75,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(232,130,138,0.06) 0%, transparent 40%);
+ z-index: 1;
  pointer-events: none;
+}
+
+.hero-left,
+.hero-right {
+ position: relative;
+ z-index: 2;
 }
 
 .hero-badge {
@@ -174,8 +181,11 @@ nav {
  font-size: clamp(2.8rem, 5vw, 4.2rem);
  font-weight: 400;
  line-height: 1.12;
- color: var(--charcoal);
+ color: #8A6E20;
  margin-bottom: 1.2rem;
+}
+.hero-left h1 .black-text {
+ color: #1A1610;
 }
 .hero-left h1 em { font-style: italic; color: var(--gold-dark); }
 .hero-left h1 strong {
@@ -190,6 +200,21 @@ nav {
  line-height: 1.75;
  margin-bottom: 2rem;
  max-width: 440px;
+}
+
+.hero-credentials {
+ font-size: 0.75rem;
+ letter-spacing: 0.06em;
+ color: var(--gold-dark);
+ font-weight: 500;
+ margin: 1rem 0 1.5rem;
+ opacity: 0;
+ animation: fadeInCredentials 1.2s ease 0.6s forwards;
+}
+
+@keyframes fadeInCredentials {
+ 0% { opacity: 0; transform: translateY(8px); }
+ 100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -257,28 +282,52 @@ nav {
 }
 .hero-card:hover { transform: translateY(-3px); }
 
-/* Horoscope — sunrise illustration */
+/* Horoscope - sunrise illustration */
 .hero-card-1 {
  background:
-    linear-gradient(to top, rgba(160,110,0,0.55) 0%, transparent 52%),
-    url('651f42d7-1712-485b-9ba6-7d74e7807418.png') center / cover no-repeat;
+  linear-gradient(to top, rgba(160,110,0,0.55) 0%, transparent 52%),
+  url('67c3a188-5ec5-4f31-a5dc-8ced521b398d.png') center / cover no-repeat;
  grid-row: 1 / 3;
  grid-column: 1;
  border: 1px solid rgba(160,120,0,0.35);
 }
-/* Verification — deep maroon */
+/* Verification - deep maroon */
 .hero-card-2 {
- background: linear-gradient(135deg, #5C0000 0%, #3A0000 100%);
+ background:
+  linear-gradient(180deg, rgba(92,0,0,0.38) 0%, rgba(58,0,0,0.86) 100%),
+  url('verification.png') center / cover no-repeat;
  grid-row: 1;
  grid-column: 2;
  border: none;
 }
-/* Compatibility score — white */
+/* Compatibility score - white */
 .hero-card-3 {
- background: #FFFFFF;
+ background:
+  linear-gradient(to top, rgba(26,22,16,0.85) 0%, rgba(26,22,16,0.45) 55%, rgba(26,22,16,0.25) 100%),
+  url('horoscopelandingpage.png') center / cover no-repeat;
  grid-row: 2;
  grid-column: 2;
- border: 1px solid rgba(200,168,75,0.25);
+ border: 1px solid rgba(200,168,75,0.22);
+}
+.hero-art-box {
+ width: 100%;
+ height: 92px;
+ border-radius: 10px;
+ background: transparent;
+ border: none;
+ margin-bottom: 0.6rem;
+ overflow: hidden;
+}
+.hero-art-box svg {
+ width: 100%;
+ height: 100%;
+ display: block;
+}
+.hero-art-box img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
 }
 
 .hero-card-icon {
@@ -302,26 +351,62 @@ nav {
 .trust-item-icon { display: inline-flex; align-items: center; }
 .trust-item-icon .ui-icon { width: 16px; height: 16px; }
 
-.hero-card-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.4rem; }
-.hero-card-1 .hero-card-label { color: #fff; opacity: 1; font-weight: 600; letter-spacing: 0.18em; }
-.hero-card-2 .hero-card-label { color: rgba(255,255,255,0.7); }
-.hero-card-3 .hero-card-label { color: var(--gold-dark); }
+.hero-card-label { 
+  font-size: 0.6rem; 
+  letter-spacing: 0.14em; 
+  text-transform: uppercase; 
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-weight: 600;
+  z-index: 10;
+}
+.hero-card-1 .hero-card-label { color: rgba(74,40,0,0.85); opacity: 1; font-weight: 600; letter-spacing: 0.18em; }
+.hero-card-2 .hero-card-label { color: rgba(255,255,255,0.85); }
+.hero-card-3 .hero-card-label { 
+  color: #F5D776; 
+  font-weight: 700; 
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6); 
+  letter-spacing: 0.2em;
+}
 
-.hero-card-1 h3 {
+.hero-card-title {
  font-family: 'Cormorant Garamond', serif;
- font-size: 1.85rem;
+ font-size: clamp(1.2rem, 1.45vw, 1.45rem);
  font-weight: 600;
- color: #fff;
- line-height: 1.2;
- text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+ line-height: 1.18;
+ letter-spacing: -0.01em;
+ text-wrap: balance;
+ display: block;
 }
-.hero-card-2 h3 {
- font-family: 'DM Serif Display', serif;
- font-size: 1.1rem;
+.hero-card-1 .hero-card-title {
  color: #fff;
- line-height: 1.3;
+ text-shadow: 0 1px 8px rgba(0,0,0,0.22);
+ max-width: 14ch;
 }
-.hero-card-3 p { font-size: 0.78rem; color: var(--charcoal-mid); line-height: 1.6; }
+.hero-card-2 .hero-card-title,
+.hero-card-3 .hero-card-title {
+ color: rgba(255,255,255,0.96);
+ text-shadow: 0 1px 10px rgba(0,0,0,0.18);
+}
+.hero-card-2 .hero-card-title {
+ max-width: 9ch;
+}
+.hero-card-3 .hero-card-title {
+ max-width: 16ch;
+ font-size: 1.15rem;
+ line-height: 1.28;
+ color: rgba(255,255,255,0.98);
+ font-weight: 500;
+ text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.4);
+}
+.hero-card-3 p { 
+ font-size: 0.78rem; 
+ color: rgba(255,255,255,0.92); 
+ line-height: 1.6; 
+ font-weight: 400;
+ text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+}
 .hero-card-3 .hero-score {
  font-family: 'Cormorant Garamond', serif;
  font-size: 2.2rem;
@@ -333,15 +418,35 @@ nav {
 
 /* TRUST BAR */
 .trust-bar {
- background: var(--bg-dark);
+ background: linear-gradient(120deg, #14110c 0%, #1d1710 46%, #17120d 100%);
  padding: 0.9rem 3rem;
+ overflow: hidden;
+ position: relative;
+ isolation: isolate;
+}
+.trust-marquee {
+ display: flex;
+ width: max-content;
+ align-items: center;
+ white-space: nowrap;
+ animation: trustMarqueeRight 28s linear infinite;
+ will-change: transform;
+}
+.trust-group {
  display: flex;
  align-items: center;
- justify-content: center;
- gap: 0;
- flex-wrap: nowrap;
- overflow-x: auto;
- white-space: nowrap;
+ flex-shrink: 0;
+ padding-right: 2rem;
+}
+.trust-bar::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(110deg, transparent 20%, rgba(200,168,75,0.18) 50%, transparent 80%);
+ transform: translateX(-120%);
+ animation: trustSweep 6.8s ease-in-out infinite;
+ z-index: -1;
+ pointer-events: none;
 }
 .trust-item {
  display: inline-flex;
@@ -353,8 +458,22 @@ nav {
  color: rgba(255,255,255,0.65);
  white-space: nowrap;
  flex-shrink: 0;
+ opacity: 1;
+ transform: none;
+ animation: none;
 }
 .trust-sep { color: rgba(255,255,255,0.18); font-size: 1rem; margin: 0 1rem; flex-shrink: 0; }
+
+@keyframes trustMarqueeRight {
+ from { transform: translateX(-50%); }
+ to { transform: translateX(0); }
+}
+
+@keyframes trustSweep {
+ 0% { transform: translateX(-120%); }
+ 32% { transform: translateX(120%); }
+ 100% { transform: translateX(120%); }
+}
 
 /* SECTION DEFAULTS */
 .section-eyebrow {
@@ -382,6 +501,14 @@ nav {
  color: var(--charcoal);
  line-height: 1.2;
  margin-bottom: 0.6rem;
+}
+.section-subtitle {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 1.1rem;
+ font-weight: 500;
+ color: var(--gold-dark);
+ letter-spacing: 0.02em;
+ margin-bottom: 1rem;
 }
 .section-sub {
  font-size: 0.95rem;
@@ -476,16 +603,27 @@ nav {
  border-radius: 12px;
  overflow: hidden;
 }
+.lenses-tabs-hint {
+ font-size: 0.62rem;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: var(--gold-dark);
+ background: rgba(200,168,75,0.08);
+ border-bottom: 1px solid var(--section-divider);
+ padding: 0.9rem 1.75rem;
+}
 .lens-tab {
  padding: 1.5rem 1.75rem;
  cursor: pointer;
  border-bottom: 1px solid var(--section-divider);
- transition: background 0.2s;
+ transition: background 0.2s, box-shadow 0.2s;
  position: relative;
  background: #FDFAF0;
+ padding-right: 4.5rem;
 }
 .lens-tab:last-child { border-bottom: none; }
-.lens-tab.active { background: rgba(200,168,75,0.08); }
+.lens-tab:hover { background: rgba(200,168,75,0.05); }
+.lens-tab.active { background: rgba(200,168,75,0.1); box-shadow: inset 0 0 0 1px rgba(200,168,75,0.22); }
 .lens-tab.active::before {
  content: '';
  position: absolute;
@@ -493,31 +631,82 @@ nav {
  width: 3px;
  background: var(--gold);
 }
+.lens-tab::after {
+ content: '';
+ position: absolute;
+ right: 1.75rem;
+ top: 50%;
+ width: 8px;
+ height: 8px;
+ border-top: 1.5px solid var(--gold-dark);
+ border-right: 1.5px solid var(--gold-dark);
+ transform: translateY(-50%) rotate(45deg);
+ opacity: 0.35;
+ transition: opacity 0.2s, transform 0.2s;
+}
+.lens-tab:hover::after { opacity: 0.8; transform: translateY(-50%) translateX(2px) rotate(45deg); }
+.lens-tab.active::after { opacity: 1; }
 .lens-tab-num { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.3rem; }
-.lens-tab h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); opacity: 0.6; transition: opacity 0.2s; }
+.lens-tab h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; color: var(--charcoal); opacity: 0.8; transition: opacity 0.2s; }
 .lens-tab.active h4 { opacity: 1; }
-.lens-tab p { font-size: 0.78rem; color: var(--charcoal-light); margin-top: 0.3rem; line-height: 1.5; display: none; }
+.lens-tab p { font-size: 0.78rem; color: var(--charcoal-mid); margin-top: 0.3rem; line-height: 1.5; display: none; }
 .lens-tab.active p { display: block; }
+.lens-tab-status {
+ display: inline-block;
+ margin-top: 0.7rem;
+ font-size: 0.58rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--charcoal-light);
+ border: 1px solid rgba(122,110,95,0.35);
+ border-radius: 999px;
+ padding: 0.2rem 0.55rem;
+}
+.lens-tab.active .lens-tab-status {
+ color: var(--gold-dark);
+ border-color: rgba(200,168,75,0.45);
+ background: rgba(200,168,75,0.14);
+}
 
 .lens-panel { background: #FDFAF0; border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem; display: none; }
 .lens-panel.active { display: block; }
-/* Verification panel — photo background */
+/* Lens panels - photo backgrounds */
+#lens-0 { position: relative; overflow: hidden; }
+#lens-0::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: url('271f1c55-30d6-457e-bb17-ca1f019810f7.png') center right / cover no-repeat;
+ opacity: 0.08;
+ pointer-events: none;
+ border-radius: 16px;
+}
 #lens-1 { position: relative; overflow: hidden; }
 #lens-1::before {
  content: '';
  position: absolute;
  inset: 0;
  background: url('6426d63c-ffbe-4ba6-9454-aed8a8bc72e0.png') center right / cover no-repeat;
- opacity: 0.12;
+ opacity: 0.08;
  pointer-events: none;
  border-radius: 16px;
 }
-#lens-1 > * { position: relative; z-index: 1; }
+#lens-2 { position: relative; overflow: hidden; }
+#lens-2::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: url('dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png') center right / cover no-repeat;
+ opacity: 0.08;
+ pointer-events: none;
+ border-radius: 16px;
+}
+#lens-0 > *, #lens-1 > *, #lens-2 > * { position: relative; z-index: 1; }
 .lens-panel-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: rgba(200,168,75,0.2); line-height: 1; margin-bottom: 0.5rem; }
-.lens-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 1rem; }
-.lens-panel > p { font-size: 0.95rem; color: var(--charcoal-light); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+.lens-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 500; color: #1f1b16; margin-bottom: 1rem; }
+.lens-panel > p { font-size: 0.95rem; color: #3a332a; line-height: 1.8; font-weight: 400; margin-bottom: 2rem; }
 .lens-features { display: flex; flex-direction: column; gap: 0.75rem; }
-.lens-feature { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: var(--charcoal-mid); line-height: 1.5; }
+.lens-feature { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #30291f; line-height: 1.5; font-weight: 500; }
 .lens-feature-check {
  width: 18px; height: 18px;
  border-radius: 50%;
@@ -538,6 +727,37 @@ nav {
  padding: 0.35rem 0.9rem;
  border-radius: 100px;
  margin-top: 1.75rem;
+ position: relative;
+ overflow: hidden;
+}
+
+.lens-panel.active {
+ animation: lensPanelReveal 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lens-panel.active .lens-badge::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(105deg, transparent 20%, rgba(200,168,75,0.32) 52%, transparent 80%);
+ transform: translateX(-115%);
+ animation: badgeShine 1.2s ease-out 0.16s;
+}
+
+@keyframes lensPanelReveal {
+ from {
+  opacity: 0;
+  transform: translateY(10px) scale(0.99);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+ }
+}
+
+@keyframes badgeShine {
+ from { transform: translateX(-115%); }
+ to { transform: translateX(130%); }
 }
 
 /* SOCIAL PROOF */
@@ -551,7 +771,7 @@ nav {
 .rating-summary { display: flex; align-items: center; gap: 1rem; }
 .rating-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--charcoal); line-height: 1; }
 .rating-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.08em; }
-.rating-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.2rem; }
+.rating-label { font-size: 0.58rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.5rem; }
 
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .testimonial-card {
@@ -618,7 +838,7 @@ nav {
 .cta-section h2 em { font-style: italic; color: var(--gold-dark); }
 .cta-section > div > p { font-size: 0.9rem; color: var(--charcoal-light); margin-bottom: 2rem; font-weight: 300; position: relative; }
 .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
-.cta-note { margin-top: 1.5rem; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; position: relative; }
+.cta-note { margin-top: 1.5rem; font-size: 0.7rem; color: var(--gold); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; position: relative; text-shadow: 0 0 20px rgba(200, 168, 75, 0.4), 0 0 10px rgba(200, 168, 75, 0.3); }
 
 /* FOOTER */
 footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
@@ -649,28 +869,56 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 
 /* HOROSCOPE HERO */
 .horoscope-hero {
- background: linear-gradient(135deg, rgba(26,22,16,0.75) 0%, rgba(26,22,16,0.68) 100%), url('dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png') center / cover no-repeat;
- padding: 7rem 4rem;
+ background: #1a1610;
+ padding: 2.5rem 4rem;
  text-align: center;
  position: relative;
  overflow: hidden;
- min-height: 520px;
+ min-height: 0;
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
 }
+.horoscope-video-wrap {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ overflow: hidden;
+ z-index: 0;
+}
+.horoscope-video-wrap video {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
+ object-fit: cover;
+}
 .horoscope-hero::before {
  content: '';
  position: absolute;
  inset: 0;
+ background: linear-gradient(135deg, rgba(26,22,16,0.90) 0%, rgba(26,22,16,0.88) 100%);
+ z-index: 0;
+ pointer-events: none;
+}
+.horoscope-hero::after {
+ content: '';
+ position: absolute;
+ inset: 0;
  background-image: radial-gradient(circle at 30% 70%, rgba(200,168,75,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 30%, rgba(232,130,138,0.05) 0%, transparent 50%);
+ z-index: 0;
  pointer-events: none;
 }
 .horoscope-hero-content {
  position: relative;
  z-index: 1;
- max-width: 620px;
+ max-width: 640px;
 }
 .horoscope-hero p {
  font-family: 'Cormorant Garamond', serif;
@@ -692,20 +940,228 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  line-height: 1.8;
 }
 
+/* COMIC CAROUSEL */
+.spend-hero-kicker {
+ font-size: 0.58rem;
+ letter-spacing: 0.24em;
+ text-transform: uppercase;
+ color: #ffffff;
+ margin-bottom: 0.5rem;
+ font-weight: 600;
+ text-shadow: 0 3px 16px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1);
+}
+.spend-hero-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(1.75rem, 2.8vw, 2.2rem);
+ font-weight: 600;
+ color: #ffffff;
+ line-height: 1.18;
+ letter-spacing: -0.01em;
+ margin-bottom: 1.5rem;
+ text-shadow: 0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.95);
+}
+.spend-hero-sub {
+ font-size: 0.78rem;
+ line-height: 1.55;
+ color: rgba(255,255,255,0.76);
+ max-width: 520px;
+ margin: 0 auto 0.8rem;
+ font-weight: 300;
+ display: none;
+}
+.spend-table {
+ width: min(100%, 580px);
+ margin: 0 auto;
+ border: 1px solid rgba(255,255,255,0.12);
+ border-radius: 12px;
+ overflow: hidden;
+ background: rgba(26,22,16,0.82);
+ backdrop-filter: blur(14px);
+ box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+.spend-row {
+ display: grid;
+ grid-template-columns: 1.7fr 0.9fr;
+ gap: 0.8rem;
+ padding: 0.6rem 1rem;
+ align-items: center;
+ border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.spend-row:last-child {
+ border-bottom: none;
+}
+.spend-row.highlight {
+ background: linear-gradient(90deg, rgba(200,168,75,0.24) 0%, rgba(200,168,75,0.08) 100%);
+}
+.spend-label {
+ font-size: 0.82rem;
+ color: rgba(255,255,255,0.95);
+ text-align: left;
+ text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+.spend-value {
+ font-size: 0.82rem;
+ color: #ffffff;
+ text-align: right;
+ font-weight: 600;
+ text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+.spend-row.highlight .spend-label,
+.spend-row.highlight .spend-value {
+ color: #fff7dc;
+}
+.spend-note {
+ margin-top: 0.8rem;
+ font-size: 0.64rem;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.5);
+ display: none;
+}
+.stories-section {
+ padding: 2.4rem 4rem 2.8rem;
+ background: linear-gradient(180deg, #fffef9 0%, #fff9eb 100%);
+ border-top: 1px solid var(--section-divider);
+ border-bottom: 1px solid var(--section-divider);
+}
+.stories-head {
+ display: block;
+ max-width: 760px;
+ margin-bottom: 1.2rem;
+}
+.stories-sub {
+ font-size: 0.88rem;
+ color: var(--charcoal-light);
+ font-weight: 300;
+ margin-top: 0.35rem;
+}
+.comic-carousel {
+ position: relative;
+ max-width: 470px;
+ width: min(100%, 470px);
+ margin: 0;
+ border: 1px solid rgba(200,168,75,0.25);
+ border-radius: 14px;
+ overflow: hidden;
+ background: #f4efe1;
+ box-shadow: 0 10px 34px rgba(42,37,32,0.08);
+}
+.comic-track {
+ display: flex;
+ transition: transform 0.45s ease;
+ will-change: transform;
+}
+.comic-slide {
+ min-width: 100%;
+ height: clamp(350px, 66vw, 540px);
+ background: #ece6d8;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 0.25rem;
+}
+.comic-slide img {
+ width: 100%;
+ height: 100%;
+ object-fit: contain;
+ display: block;
+}
+.comic-badge {
+ position: absolute;
+ top: 0.7rem;
+ left: 0.7rem;
+ font-size: 0.58rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: #fff;
+ background: rgba(26,22,16,0.72);
+ border: 1px solid rgba(255,255,255,0.25);
+ padding: 0.28rem 0.5rem;
+ border-radius: 999px;
+ z-index: 2;
+}
+.comic-arrow {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ width: 34px;
+ height: 34px;
+ border-radius: 50%;
+ border: 1px solid rgba(200,168,75,0.45);
+ background: rgba(26,22,16,0.62);
+ color: #fff;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transition: all 0.2s;
+ z-index: 2;
+}
+.comic-arrow:hover {
+ background: rgba(26,22,16,0.82);
+ border-color: rgba(255,238,88,0.65);
+}
+.comic-arrow.prev { left: 0.65rem; }
+.comic-arrow.next { right: 0.65rem; }
+.comic-arrow svg {
+ width: 13px;
+ height: 13px;
+ stroke: currentColor;
+ fill: none;
+ stroke-width: 2;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+.comic-dots {
+ position: absolute;
+ left: 50%;
+ bottom: 0.65rem;
+ transform: translateX(-50%);
+ display: flex;
+ gap: 0.45rem;
+ z-index: 2;
+}
+.comic-dot {
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+ border: 1px solid rgba(255,255,255,0.6);
+ background: rgba(255,255,255,0.25);
+ cursor: pointer;
+ transition: all 0.2s;
+}
+.comic-dot.active {
+ background: #FFD700;
+ border-color: #FFD700;
+ transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+ .trust-marquee {
+  animation: none;
+ }
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
  nav { padding: 0 1.5rem; }
  .nav-links { display: none; }
  .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem; min-height: auto; gap: 2.5rem; }
  .hero-right { height: 280px; }
- .how-section, .lenses-section, .proof-section, .experts-section, .cta-section { padding: 3.5rem 1.5rem; }
+ .how-section, .lenses-section, .stories-section, .proof-section, .experts-section, .cta-section { padding: 3.5rem 1.5rem; }
  .steps-grid, .lenses-layout, .testimonials-grid { grid-template-columns: 1fr; }
  .trust-bar { padding: 1rem 1.5rem; gap: 0.75rem; }
  .trust-sep { display: none; }
  footer { padding: 3rem 1.5rem 1.5rem; }
+
  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
  .proof-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
  .horoscope-hero { padding: 4rem 1.5rem; min-height: 380px; }
+ .stories-head { max-width: 100%; }
+ .comic-carousel { margin: 0 auto; }
+ .comic-arrow { width: 36px; height: 36px; }
+ .spend-row { grid-template-columns: 1fr; gap: 0.35rem; }
+ .spend-label, .spend-value { text-align: left; }
 }
 </style>
 </head>
@@ -713,7 +1169,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announce-bar">
- Now serving couples across <span>38 cities</span> — from Bangalore to Birmingham &nbsp;·&nbsp; <span>DPDP Act 2023 compliant</span> · All data on Indian servers
+ Now serving couples across <span>38 cities</span> - from Bangalore to Birmingham &nbsp;-&nbsp; <span>DPDP Act 2023 compliant</span> - All data on Indian servers
 </div>
 
 <!-- NAV -->
@@ -745,26 +1201,16 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="hero-badge-dot"></div>
  Trusted by 2,400+ families across India
  </div>
- <h1>She knows herself.<br><em>He knows himself.</em><br>Now know <strong>each other.</strong></h1>
- <p class="hero-sub">Three expert lenses — Compatibility, Verification, and Horoscope — so the most important decision of your life is also the most informed one.</p>
+ <h1><span class="black-text">India's First</span> Pre-Marital Compatibility, Verification and Due Diligence Platform</h1>
+ <div class="hero-credentials">Created by highly qualified psychologists along with certified Prepare-Enrich facilitators, with a collective experience of over 25 years.</div>
  <div class="hero-actions">
  <a href="#" class="btn-primary">Begin the conversation ?</a>
  <a href="#how" class="btn-secondary">See how it works</a>
  </div>
- <div class="hero-trust">
+ <div class="hero-trust" style="justify-content: flex-start;">
  <div class="hero-trust-stat">
- <span class="hero-trust-num">2,400+</span>
- <span class="hero-trust-label">Couples served</span>
- </div>
- <div class="hero-trust-divider"></div>
- <div class="hero-trust-stat">
- <span class="hero-trust-num">38</span>
- <span class="hero-trust-label">Cities</span>
- </div>
- <div class="hero-trust-divider"></div>
- <div class="hero-trust-stat">
- <span class="hero-trust-num">4.9</span>
- <span class="hero-trust-label">Average rating</span>
+ <span class="hero-trust-label" style="margin-bottom: 0.5rem;">Cities currently served</span>
+ <span class="hero-trust-num" style="font-size: 0.68rem; line-height: 1.4; font-weight: 400; letter-spacing: 0.02em;">DELHI NCR &nbsp;Â·&nbsp; BANGALORE &nbsp;Â·&nbsp; MUMBAI &nbsp;Â·&nbsp; CHENNAI &nbsp;Â·&nbsp; HYDERABAD</span>
  </div>
  </div>
  </div>
@@ -772,47 +1218,59 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="hero-right">
  <!-- Card 1: Compatibility -->
  <div class="hero-card hero-card-1">
+ <div class="hero-card-label">Compatibility</div>
  <div class="hero-card-icon">
  <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
  </div>
  <div>
- <div class="hero-card-label">Compatibility</div>
- <h3>Communication · Values · Life goals</h3>
+ <h3 class="hero-card-title">Prepare-Enrich and Gottman certified facilitator and psychologist</h3>
  </div>
  </div>
- <!-- Card 2: Verification — deep maroon -->
+ <!-- Card 2: Verification - deep maroon -->
  <div class="hero-card hero-card-2">
+ <div class="hero-card-label">Verification</div>
  <div class="hero-card-icon">
  <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"></path><path d="M9 12l2 2 4-4"></path></svg>
  </div>
  <div>
- <div class="hero-card-label">Verification</div>
- <h3>Identity confirmed quietly</h3>
+ <h3 class="hero-card-title" style="font-size: 1rem; line-height: 1.5; max-width: 18ch;">UIDAI-compliant. DPDP Act 2023. India servers. No third parties.</h3>
  </div>
  </div>
- <!-- Card 3: Horoscope — white -->
+ <!-- Card 3: Horoscope - white -->
  <div class="hero-card hero-card-3">
-     <div style="width:100%;height:92px;border-radius:10px;background:rgba(200,168,75,0.10);border:1px solid rgba(200,168,75,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:0.6rem;overflow:hidden;">
-         <img src="dcb6571f-99f8-4bf4-a4ca-d8ae436def03.png" alt="Horoscope Illustration" style="width:auto;max-width:100%;height:92px;display:block;object-fit:cover;object-position:center;" loading="lazy" />
-     </div>
-     <div class="hero-card-label">Horoscope</div>
-     <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:0.35rem;">Ashtakoot · Dosha · Navamsa</p>
-     <p>15+ year Jyotish astrologers</p>
+ <div class="hero-card-label">Horoscope</div>
+ <p class="hero-card-title" style="margin-bottom:0.35rem;">Experienced and scientific approach for advance horoscope matching</p>
+ <p>25+ year Jyotish astrologers</p>
  </div>
  </div>
 </section>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
- <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
- <div class="trust-sep">·</div>
- <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 · India servers</div>
- <div class="trust-sep">·</div>
- <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Gottman &amp; Prepare Enrich -trained Experts</div>
- <div class="trust-sep">·</div>
- <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>15+ year Jyotish astrologers</div>
- <div class="trust-sep">·</div>
- <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+ <div class="trust-marquee">
+  <div class="trust-group" aria-label="Trust highlights">
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 - India servers</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>Top astrologers - 25+ years Jyotish practice</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+  </div>
+  <div class="trust-group" aria-hidden="true">
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 - India servers</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>Top astrologers - 25+ years Jyotish practice</div>
+   <div class="trust-sep">-</div>
+   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+  </div>
+ </div>
 </div>
 
 <!-- NARRATIVE HOOK -->
@@ -827,31 +1285,88 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <!-- HOW IT WORKS -->
 <section class="how-section" id="how">
  <div class="fade-in">
- <p class="section-eyebrow">Simple · Private · Dignified</p>
+ <p class="section-eyebrow">Simple - Private - Dignified</p>
  <h2 class="section-title">How MyTrueMatch works</h2>
  <p class="section-sub">No awkward conversations. No guesswork. Just three expert-led reports delivered with complete discretion.</p>
+ <p class="section-subtitle">Psychometric Compatibility</p>
  </div>
  <div class="steps-grid fade-in">
  <div class="step-card">
  <div class="step-number">01</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"></rect><path d="M9 4H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"></path></svg></div>
- <h3>Both of you share details</h3>
- <p>Each partner fills in their own profile privately. No joint sessions required. Everything stays secure on Indian servers.</p>
+ <h3>Both of you take the test independently</h3>
+ <p>No joint sessions required. Evaluation in real time to assess compatibility</p>
  <div class="step-note">Takes about 20 minutes</div>
  </div>
  <div class="step-card">
  <div class="step-number">02</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
- <h3>Experts analyse your profiles</h3>
- <p>Our psychologists, background-check specialists, and Jyotish astrologers each independently prepare their lens of the report.</p>
- <div class="step-note">Delivered within 72 hours</div>
+ <h3>Experts analyse your responses</h3>
+ <p>Our Psychometric Engine goes about creating your compatibility score in minutes.</p>
+ <div class="step-note">Computation will barely take a few minutes</div>
  </div>
  <div class="step-card">
  <div class="step-number">03</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
- <h3>Receive your full report</h3>
- <p>A beautifully written, comprehensive document shared privately with you — giving both families the language to have meaningful conversations.</p>
- <div class="step-note">Written, not whispered</div>
+ <h3>Receive your full reports</h3>
+ <p>An explanatory and detailed comprehensive document shared privately with you - giving both families the ground on which to have meaningful conversations.</p>
+ <div class="step-note">Both reports sent in under 10 minutes</div>
+ </div>
+ </div>
+ 
+ <!-- VERIFICATION SECTION -->
+ <div class="fade-in" style="margin-top: 5rem;">
+ <p class="section-subtitle">Verification</p>
+ </div>
+ <div class="steps-grid fade-in">
+ <div class="step-card">
+ <div class="step-number">01</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+ <h3>Submit verification details</h3>
+ <p>Provide the necessary documents and information for comprehensive background verification</p>
+ <div class="step-note">Secure document upload</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">02</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+ <h3>Specialists conduct thorough checks</h3>
+ <p>Our verification experts perform comprehensive background checks across multiple parameters</p>
+ <div class="step-note">Delivered within 5-7 business days</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">03</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
+ <h3>Get verified status report</h3>
+ <p>Receive a detailed verification report with complete transparency and authenticated findings</p>
+ <div class="step-note">Confidential, Reliable & Accurate</div>
+ </div>
+ </div>
+ 
+ <!-- HOROSCOPE MATCHING SECTION -->
+ <div class="fade-in" style="margin-top: 5rem;">
+ <p class="section-subtitle">Horoscope Matching</p>
+ </div>
+ <div class="steps-grid fade-in">
+ <div class="step-card">
+ <div class="step-number">01</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+ <h3>Share birth details</h3>
+ <p>Provide accurate birth date, time, and place for both partners to generate precise horoscopes</p>
+ <div class="step-note">Accurate to the minute</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">02</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+ <h3>Vedic Astrologer experts interpret charts</h3>
+ <p>Renowned astrologers analyze planetary placements, dashas, and guna milan to deliver informed compatibility assessments.</p>
+ <div class="step-note">Traditional wisdom to evaluate compatibility</div>
+ </div>
+ <div class="step-card">
+ <div class="step-number">03</div>
+ <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
+ <h3>Receive detailed astrological report</h3>
+ <p>Get comprehensive horoscope matching results with explanations and recommendations from experts</p>
+ <div class="step-note">Rooted in tradition, explained clearly</div>
  </div>
  </div>
 </section>
@@ -859,28 +1374,31 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <!-- THREE LENSES -->
 <section class="lenses-section" id="lenses">
  <div class="fade-in">
- <p class="section-eyebrow">Three Lenses</p>
- <h2 class="section-title">She knows herself. He knows himself.<br><em>Now know each other.</em></h2>
- <p class="section-sub">For the marriage that deserves more than a profile and a call.</p>
+ <h2 class="section-title">Core Services</h2>
+ <p class="section-sub">For the people who approach marriage with caution.</p>
  </div>
  <div class="lenses-layout fade-in">
  <div class="lenses-tabs">
- <div class="lens-tab active" onclick="setLens(0, this)">
- <div class="lens-tab-num">01 · First Lens</div>
+ <div class="lenses-tabs-hint">Select a lens to preview details</div>
+ <div class="lens-tab active" onclick="setLens(0, this)" role="button" tabindex="0" aria-selected="true">
+ <div class="lens-tab-num">01 - First Lens</div>
  <h4>Compatibility</h4>
- <p>A psychometric mirror held up to both of you.</p>
+ <p>Know the real person behind the profile.</p>
+ <span class="lens-tab-status">Selected</span>
  <a href="compatibility.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
- <div class="lens-tab" onclick="setLens(1, this)">
- <div class="lens-tab-num">02 · Second Lens</div>
+ <div class="lens-tab" onclick="setLens(1, this)" role="button" tabindex="0" aria-selected="false">
+ <div class="lens-tab-num">02 - Second Lens</div>
  <h4>Verification</h4>
- <p>Trust, confirmed quietly and with consent.</p>
+ <p>Risk assessment & reporting.</p>
+ <span class="lens-tab-status">Tap to preview</span>
  <a href="verification.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
- <div class="lens-tab" onclick="setLens(2, this)">
- <div class="lens-tab-num">03 · Third Lens</div>
+ <div class="lens-tab" onclick="setLens(2, this)" role="button" tabindex="0" aria-selected="false">
+ <div class="lens-tab-num">03 - Third Lens</div>
  <h4>Horoscope</h4>
- <p>A senior Jyotish astrologer reads both charts.</p>
+ <p>A senior vedic astrologer examines both charts.</p>
+ <span class="lens-tab-status">Tap to preview</span>
  <a href="horoscope.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
  </div>
@@ -888,8 +1406,10 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="lens-panel active" id="lens-0">
  <div class="lens-panel-num">01</div>
  <h2>Compatibility</h2>
- <p>A psychometric mirror — held up to both of you. Communication, conflict, money, family, ambition. Where you align. Where you don't.</p>
+ <p>Understand personality, emotional compatibility, communication style, values, and behavioral patterns before making one of life's biggest decisions.</p>
+ <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); margin-top: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em;">What you get</h3>
  <div class="lens-features">
+  
  <div class="lens-feature"><div class="lens-feature-check"></div>Communication style and conflict resolution patterns</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Financial values and money management alignment</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Family roles, expectations, and boundaries</div>
@@ -897,35 +1417,37 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="lens-feature"><div class="lens-feature-check"></div>Intimacy, affection, and emotional needs</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Actionable guidance for areas of difference</div>
  </div>
- <div class="lens-badge">? GOTTMAN &amp; NIMHANS-TRAINED PSYCHOLOGISTS</div>
+ <div class="lens-badge">Top Psychologists - Gottman &amp; Prepare-Enrich Certified</div>
  </div>
  <div class="lens-panel" id="lens-1">
  <div class="lens-panel-num">02</div>
  <h2>Verification</h2>
- <p>Trust, confirmed quietly. Identity, work, court records, finances — checked with the dignity of mutual consent. The subject sees their own report.</p>
+ <p>Comprehensive, consent-based verification across all critical areas of matrimonial due diligence..</p>
+ <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); margin-top: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em;">What you get</h3>
  <div class="lens-features">
  <div class="lens-feature"><div class="lens-feature-check"></div>Aadhaar-linked identity verification (UIDAI compliant)</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Employment and education credential checks</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Criminal and court record searches</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Financial health and liability overview</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Social media and digital footprint review</div>
- <div class="lens-feature"><div class="lens-feature-check"></div>Full consent-first, subject-first process</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Marital Status Check</div>
  </div>
- <div class="lens-badge">? UIDAI-COMPLIANT · DPDP ACT 2023 · INDIA SERVERS</div>
+ <div class="lens-badge">? UIDAI-COMPLIANT - DPDP ACT 2023 - INDIA SERVERS</div>
  </div>
  <div class="lens-panel" id="lens-2">
  <div class="lens-panel-num">03</div>
  <h2>Horoscope</h2>
- <p>A senior Jyotish astrologer reads both charts with the depth your grandmother would have wanted. Ashtakoot, Dosha, Dasha, Navamsa — written, not whispered.</p>
+ <p>A senior Vedic Astrologer reads both charts with the depth your grandmother would have wanted. Ashtakoot, Dosha, Dasha, Navamsa - written, not whispered.</p>
+ <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); margin-top: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em;">What you get</h3>
  <div class="lens-features">
- <div class="lens-feature"><div class="lens-feature-check"></div>Ashtakoot Guna Milan — 36-point compatibility score</div>
+ <div class="lens-feature"><div class="lens-feature-check"></div>Ashtakoot Guna Milan - 36-point compatibility score</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Mangal Dosha and Nadi Dosha analysis</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Dasha period and timing of marriage</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Navamsa chart reading for marital life</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Remedies where applicable, explained plainly</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Written report in English with original references</div>
  </div>
- <div class="lens-badge">? ASTROLOGERS WITH 15+ YEARS OF PRACTICE</div>
+ <div class="lens-badge">Top Astrologers - 25+ Years of Practice</div>
  </div>
  </div>
  </div>
@@ -936,17 +1458,17 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="proof-header fade-in">
  <div>
  <p class="section-eyebrow">Letters from couples we have served</p>
- <h2 class="section-title">They found their language here</h2>
+ <h2 class="section-title">When expectations were met</h2>
  </div>
  <div class="rating-summary">
- <div class="rating-num">4.9</div>
+ <div class="rating-num">5.0</div>
  <div>
  <div class="rating-stars"></div>
- <div class="rating-label">From 380+ verified reviews</div>
+ <div class="rating-label">Rating we strive for</div>
  </div>
  </div>
  </div>
- <div class="testimonials-grid fade-in">
+ <div class="testimonials-grid fade-yoin">
  <div class="testimonial-card">
  <div class="testimonial-stars"></div>
  <p class="testimonial-text">"The Compatibility Report gave us language for things we had felt but never articulated. We are married now. We are grateful."</p>
@@ -954,7 +1476,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="testimonial-avatar av-1">PK</div>
  <div>
  <div class="testimonial-name">Priya &amp; Karthik</div>
- <div class="testimonial-city">Bangalore · Spring 2025</div>
+ <div class="testimonial-city">Bangalore</div>
  </div>
  </div>
  </div>
@@ -965,7 +1487,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="testimonial-avatar av-2">AR</div>
  <div>
  <div class="testimonial-name">Ananya &amp; Rahul</div>
- <div class="testimonial-city">Mumbai · Autumn 2024</div>
+ <div class="testimonial-city">Mumbai</div>
  </div>
  </div>
  </div>
@@ -975,8 +1497,9 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="testimonial-author">
  <div class="testimonial-avatar av-3">SM</div>
  <div>
+ <div>
  <div class="testimonial-name">Shreya &amp; Mihir</div>
- <div class="testimonial-city">Delhi · Summer 2025</div>
+ <div class="testimonial-city">Delhi</div>
  </div>
  </div>
  </div>
@@ -985,9 +1508,46 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 
 <!-- HOROSCOPE HERO -->
 <section class="horoscope-hero fade-in">
+ <div class="horoscope-video-wrap">
+  <video autoplay muted loop playsinline>
+   <source src="Video/14883129_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
+ </div>
  <div class="horoscope-hero-content">
-  <p>Read the stars.<br><em>Find your path.</em></p>
-  <p class="horoscope-hero-sub">A senior Jyotish reading — both charts, all six aspects, written in full. Your Kundali, treated with the depth and care it deserves.</p>
+  <div class="spend-hero-kicker">The Irony of marriages</div>
+  <h2 class="spend-hero-title">Spending Lakhs on the wedding.<br>Not even a fraction on checking  suitablity of the match.</h2>
+  <p class="spend-hero-sub">Families routinely spend lakhs on the wedding day, yet almost nothing on knowing the person more deeply before the commitment. The comparison below makes that imbalance hard to ignore.</p>
+  <div class="spend-table" role="table" aria-label="Wedding spending versus due diligence spending">
+   <div class="spend-row" role="row">
+    <div class="spend-label" role="cell">The venue</div>
+    <div class="spend-value" role="cell">Rs 5-20 lakhs</div>
+   </div>
+   <div class="spend-row" role="row">
+    <div class="spend-label" role="cell">Jewellery</div>
+    <div class="spend-value" role="cell">Rs 25-50 lakhs</div>
+   </div>
+   <div class="spend-row" role="row">
+    <div class="spend-label" role="cell">Catering</div>
+    <div class="spend-value" role="cell">Rs 5-10 lakhs</div>
+   </div>
+   <div class="spend-row" role="row">
+    <div class="spend-label" role="cell">Photography</div>
+    <div class="spend-value" role="cell">Rs 1-3 lakhs</div>
+   </div>
+   <div class="spend-row highlight" role="row">
+    <div class="spend-label" role="cell">Compatibility assessment</div>
+    <div class="spend-value" role="cell">Often Rs 0</div>
+   </div>
+   <div class="spend-row highlight" role="row">
+    <div class="spend-label" role="cell">Verification of the person</div>
+    <div class="spend-value" role="cell">Often Rs 0</div>
+   </div>
+   <div class="spend-row highlight" role="row">
+    <div class="spend-label" role="cell">Astrology matching</div>
+    <div class="spend-value" role="cell">Often Rs 0</div>
+   </div>
+  </div>
+  <div class="spend-note">Before the event, invest in clarity.</div>
  </div>
 </section>
 
@@ -995,12 +1555,38 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <section class="cta-section">
  <div class="fade-in">
  <h2>When you're ready,<br><em>we'll be here.</em></h2>
- <p>No account needed · Your details stay yours · No awkward questions</p>
  <div class="cta-actions">
  <a href="#" class="btn-primary">Begin the conversation ?</a>
- <a href="#lenses" class="btn-secondary">See our three lenses</a>
  </div>
- <p class="cta-note">Bangalore, India · DPDP Act 2023 compliant · UIDAI-certified</p>
+ <p class="cta-note">Proudly servering the world from Bangalore, India</p>
+ </div>
+</section>
+
+<!-- COMIC STORIES -->
+<section class="stories-section" id="stories">
+ <div class="stories-head fade-in">
+  <div>
+   <p class="section-eyebrow">Real Stories in Panels</p>
+   <h2 class="section-title">Stories...,<br><em>frame by frame.</em></h2>
+  </div>
+  <p class="stories-sub">A quick visual narrative of how clarity builds confidence before marriage.</p>
+ </div>
+ <div class="comic-carousel fade-in" aria-label="MyTrueMatch comic carousel">
+  <div class="comic-track" id="comicTrack">
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_29 PM.png" alt="Comic panel 1" loading="lazy"></figure>
+     <figure class="comic-slide"><span class="comic-badge">Coming soon</span><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_32 PM.png" alt="Comic panel 2" loading="lazy"></figure>
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_35 PM.png" alt="Comic panel 3" loading="lazy"></figure>
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_41 PM.png" alt="Comic panel 4" loading="lazy"></figure>
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_44 PM.png" alt="Comic panel 5" loading="lazy"></figure>
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_34_37 PM.png" alt="Comic panel 6" loading="lazy"></figure>
+  </div>
+  <button class="comic-arrow prev" id="comicPrev" aria-label="Previous comic panel">
+   <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg>
+  </button>
+  <button class="comic-arrow next" id="comicNext" aria-label="Next comic panel">
+   <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+  </button>
+  <div class="comic-dots" id="comicDots" aria-label="Comic slide indicators"></div>
  </div>
 </section>
 
@@ -1009,7 +1595,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="footer-top">
  <div>
  <span class="footer-logo">MyTrue<span>Match</span></span>
- <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+ <p class="footer-tagline">A space to truly know each other - before the most important commitment of your life.</p>
  <div style="display:flex;gap:12px;margin-top:1.5rem;">
  <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
  <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -1043,7 +1629,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">© 2026 MyTrueMatch · All Rights Reserved.</p>
+ <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved.</p>
  <div class="footer-legal">
  <span style="display:flex;align-items:center;gap:5px;color:#C8A84B;font-size:0.78rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.06);">
  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -1057,10 +1643,76 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 
 <script>
 function setLens(idx, tabEl) {
- document.querySelectorAll('.lens-tab').forEach(t => t.classList.remove('active'));
+ document.querySelectorAll('.lens-tab').forEach(t => {
+ t.classList.remove('active');
+ t.setAttribute('aria-selected', 'false');
+ const status = t.querySelector('.lens-tab-status');
+ if (status) { status.textContent = 'Tap to preview'; }
+ });
  document.querySelectorAll('.lens-panel').forEach(p => p.classList.remove('active'));
  tabEl.classList.add('active');
+ tabEl.setAttribute('aria-selected', 'true');
+ const activeStatus = tabEl.querySelector('.lens-tab-status');
+ if (activeStatus) { activeStatus.textContent = 'Selected'; }
  document.getElementById('lens-' + idx).classList.add('active');
+}
+
+document.querySelectorAll('.lens-tab').forEach(tab => {
+ tab.addEventListener('keydown', (e) => {
+ if (e.key === 'Enter' || e.key === ' ') {
+ e.preventDefault();
+ tab.click();
+ }
+ });
+});
+
+const comicTrack = document.getElementById('comicTrack');
+const comicDotsWrap = document.getElementById('comicDots');
+const comicPrev = document.getElementById('comicPrev');
+const comicNext = document.getElementById('comicNext');
+
+if (comicTrack && comicDotsWrap && comicPrev && comicNext) {
+ const comicSlides = Array.from(comicTrack.children);
+ let comicIndex = 0;
+ let comicTimer = null;
+
+ comicSlides.forEach((_, i) => {
+ const dot = document.createElement('button');
+ dot.className = 'comic-dot' + (i === 0 ? ' active' : '');
+ dot.setAttribute('aria-label', 'Go to comic panel ' + (i + 1));
+ dot.addEventListener('click', () => {
+ comicIndex = i;
+ renderComic();
+ restartComicAuto();
+ });
+ comicDotsWrap.appendChild(dot);
+ });
+
+ function renderComic() {
+ comicTrack.style.transform = 'translateX(-' + (comicIndex * 100) + '%)';
+ Array.from(comicDotsWrap.children).forEach((dot, i) => {
+ dot.classList.toggle('active', i === comicIndex);
+ });
+ }
+
+ function stepComic(dir) {
+ comicIndex = (comicIndex + dir + comicSlides.length) % comicSlides.length;
+ renderComic();
+ }
+
+ function restartComicAuto() {
+ if (comicTimer) { clearInterval(comicTimer); }
+ comicTimer = setInterval(() => stepComic(1), 4500);
+ }
+
+ comicPrev.addEventListener('click', () => { stepComic(-1); restartComicAuto(); });
+ comicNext.addEventListener('click', () => { stepComic(1); restartComicAuto(); });
+
+ const comicCarousel = comicTrack.closest('.comic-carousel');
+ comicCarousel.addEventListener('mouseenter', () => { if (comicTimer) { clearInterval(comicTimer); } });
+ comicCarousel.addEventListener('mouseleave', restartComicAuto);
+
+ restartComicAuto();
 }
 
 const observer = new IntersectionObserver((entries) => {
