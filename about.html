@@ -5,40 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | MyTrueMatch</title>
 <meta name="description" content="Our mission is to help couples truly know each other before marriage. Founded on principles of transparency, depth, and respect for tradition.">
-<meta name="keywords" content="about us, mission, vision, team, compatibility assessment">
-<meta property="og:title" content="About Us | MyTrueMatch">
-<meta property="og:description" content="Our mission is to help couples truly know each other before marriage.">
-<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
- --bg:#FDFAF0;
- --bg-soft:#FBF7E0;
- --bg-accent:#FFF9C4;
- --bg-yellow:#FFEE58;
- --bg-dark:#2A2520;
- --gold:#C8A84B;
- --gold-dark:#9A7C2E;
- --ink:#2A2520;
- --ink-mid:#4A4238;
- --ink-light:#7A6E5F;
- --ink-faint:#9A8E7F;
- --line:rgba(200,168,75,0.18);
- --line-soft:rgba(200,168,75,0.1);
- --card-border:rgba(200,168,75,0.2);
+  --bg:#FDFAF0;
+  --bg-soft:#FBF7E0;
+  --bg-accent:#FFF9C4;
+  --bg-dark:#1A1612;
+  --gold:#C8A84B;
+  --gold-dark:#9A7C2E;
+  --ink:#2A2520;
+  --ink-mid:#4A4238;
+  --ink-light:#7A6E5F;
+  --ink-faint:#9A8E7F;
+  --line:rgba(200,168,75,0.18);
+  --line-soft:rgba(200,168,75,0.1);
+  --card-border:rgba(200,168,75,0.2);
+  --pink:#E8828A;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* -- ANNOUNCE -- */
-.announce{background:var(--bg-dark);color:rgba(255,255,255,0.55);text-align:center;padding:0.5rem 1rem;font-size:0.68rem;letter-spacing:0.1em}
+/* ── ANNOUNCE ── */
+.announce{background:var(--bg-dark);color:rgba(255,255,255,0.5);text-align:center;padding:0.5rem 1rem;font-size:0.68rem;letter-spacing:0.1em}
 .announce b{color:var(--gold);font-weight:500}
 
-/* -- NAV -- */
+/* ── NAV ── */
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(253,250,240,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
-.nav-logo{text-decoration:none;display:flex;align-items:center;gap:0.5rem;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--ink);letter-spacing:-0.01em}
-.nav-logo span{color:#E8828A}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.25rem;letter-spacing:-0.01em}
+.nav-logo .logo-my{color:var(--pink)}
+.nav-logo .logo-true{color:var(--ink)}
+.nav-logo .logo-match{color:var(--pink)}
 .nav-links{display:flex;list-style:none}
 .nav-links a{font-size:0.76rem;letter-spacing:0.05em;color:var(--ink-light);text-decoration:none;padding:0 1.15rem;height:72px;display:flex;align-items:center;gap:0.4rem;border-bottom:2px solid transparent;transition:all 0.2s}
 .nav-links a:hover{color:var(--ink)}
@@ -47,21 +45,20 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .nav-right{display:flex;gap:0.65rem;align-items:center}
 .btn-ghost{font-size:0.74rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:0.48rem 1.1rem;border:1px solid var(--line);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold-dark)}
-.btn-solid{font-size:0.74rem;font-weight:500;color:var(--bg);background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-solid{font-size:0.74rem;font-weight:500;color:#fff;background:var(--bg-dark);text-decoration:none;padding:0.48rem 1.3rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-solid:hover{opacity:0.85;transform:translateY(-1px)}
 
-/* -- HERO -- */
-.hero{min-height:72vh;background:var(--bg-dark);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+/* ── HERO ── */
+.hero{min-height:76vh;background:var(--bg-dark);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,168,75,0.07) 0%,transparent 60%);pointer-events:none}
 .hero-left{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative}
-.hero-left::after{content:'"';position:absolute;bottom:-3rem;right:-1rem;font-family:'Playfair Display',serif;font-size:28rem;font-weight:700;font-style:italic;color:rgba(255,255,255,0.018);line-height:1;pointer-events:none}
 .hero-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:0.7rem}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,4.5vw,5rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:1.5rem}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.9;max-width:400px}
 .hero-right{display:flex;align-items:center;justify-content:center;position:relative;padding:4rem;border-left:1px solid rgba(255,255,255,0.06)}
-.hero-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.1) 1px,transparent 1px);background-size:28px 28px}
+.hero-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.08) 1px,transparent 1px);background-size:28px 28px}
 .conviction-list{position:relative;display:flex;flex-direction:column;gap:0;width:100%}
 .conviction-item{padding:1.8rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:1.5rem;align-items:flex-start;opacity:0;transform:translateX(20px);transition:opacity 0.6s ease,transform 0.6s ease}
 .conviction-item:last-child{border-bottom:none}
@@ -73,8 +70,16 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:scan 2.6s ease-in-out infinite}
 @keyframes scan{0%{left:-100%}100%{left:100%}}
 
-/* -- ORIGIN -- */
-.origin{padding:8rem 4rem;background:var(--bg);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+/* ── METRICS BAR ── */
+.metrics-bar{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+.metric-item{padding:2.5rem 2rem;border-right:1px solid var(--line);text-align:center}
+.metric-item:last-child{border-right:none}
+.metric-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:400;color:var(--ink);line-height:1;margin-bottom:0.4rem}
+.metric-num span{font-size:1.6rem;color:var(--gold)}
+.metric-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ── ORIGIN ── */
+.origin{padding:8rem 4rem;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;overflow:hidden}
 .origin::before{content:'';position:absolute;top:-60px;left:-60px;width:380px;height:380px;border:1px solid rgba(200,168,75,0.08);border-radius:50%}
 .origin-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2rem;display:flex;align-items:center;gap:0.7rem}
 .origin-label::before{content:'';width:28px;height:1px;background:var(--gold)}
@@ -82,173 +87,141 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .origin-left h2 em{font-style:italic;color:var(--gold-dark)}
 .origin-left p{font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.9;margin-bottom:1.2rem}
 .origin-quote{background:var(--bg-dark);padding:3rem;position:relative;border-left:3px solid var(--gold)}
-.origin-quote::before{content:'"';position:absolute;top:-1.5rem;left:2rem;font-family:'Playfair Display',serif;font-size:6rem;color:rgba(200,168,75,0.25);line-height:1}
-.origin-quote p{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.7}
+.origin-quote::before{content:'\201C';position:absolute;top:-1.5rem;left:2rem;font-family:'Playfair Display',serif;font-size:6rem;color:rgba(200,168,75,0.25);line-height:1}
+.origin-quote p{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.72);line-height:1.7}
 .origin-quote cite{display:block;margin-top:1.5rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-style:normal}
 
-/* -- CALLING -- */
+/* ── CALLING ── */
 .calling{background:var(--bg-soft);padding:7rem 4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.calling-inner{max-width:900px;margin:0 auto;text-align:center}
+.calling-inner{max-width:1000px;margin:0 auto;text-align:center}
 .calling-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
 .calling-label::before,.calling-label::after{content:'';width:36px;height:1px;background:var(--gold)}
 .calling-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:400;color:var(--ink);line-height:1.22;margin-bottom:2.5rem}
 .calling-inner h2 em{font-style:italic;color:var(--gold-dark)}
 .calling-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3.5rem}
-.pillar{background:var(--bg);padding:2.5rem 2rem;border:1px solid var(--line);transition:background 0.25s}
-.pillar:hover{background:var(--bg-accent)}
-.pillar-icon{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--gold-dark)}
-.pillar h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem}
+.pillar{background:var(--bg);padding:2.8rem 2.2rem;border:1px solid var(--line);transition:background 0.25s,transform 0.25s}
+.pillar:hover{background:var(--bg-accent);transform:translateY(-3px)}
+.pillar-icon{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--gold-dark)}
+.pillar h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem}
 .pillar p{font-size:0.78rem;color:var(--ink-light);line-height:1.75;font-weight:300}
 
-/* -- TEAM SECTION -- */
-.team-section{padding:8rem 4rem;background:var(--bg)}
+/* ── PROCESS ── */
+.process{padding:8rem 4rem;background:var(--bg)}
+.process-header{text-align:center;max-width:600px;margin:0 auto 5rem}
+.process-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
+.process-eyebrow::before,.process-eyebrow::after{content:'';width:36px;height:1px;background:var(--gold)}
+.process-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;color:var(--ink);line-height:1.2}
+.process-header h2 em{font-style:italic;color:var(--gold-dark)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:calc(12.5% + 24px);right:calc(12.5% + 24px);height:1px;background:linear-gradient(90deg,var(--gold),rgba(200,168,75,0.2));z-index:0}
+.step{padding:0 2rem;text-align:center;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-dark)}
+.step h4{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.5rem;letter-spacing:0.02em}
+.step p{font-size:0.73rem;color:var(--ink-faint);line-height:1.7;font-weight:300}
+
+/* ── TEAM SECTION ── */
+.team-section{padding:8rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line)}
 .team-header{margin-bottom:4rem}
 .team-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.7rem}
 .team-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
 .team-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;color:var(--ink);line-height:1.15}
 .team-title em{font-style:italic;color:var(--gold-dark)}
 .team-subtitle{font-size:0.84rem;color:var(--ink-light);font-weight:300;margin-top:0.6rem;max-width:520px;line-height:1.75}
-
-/* Team grid - 4 cards in a row */
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-
-/* Each team card */
-.team-card{
- background:var(--bg-soft);
- padding:2.5rem 2rem 2rem;
- position:relative;
- overflow:hidden;
- display:flex;
- flex-direction:column;
- cursor:pointer;
- transition:background 0.25s;
-}
-.team-card::after{
- content:'';
- position:absolute;
- bottom:0;left:0;right:0;
- height:2px;
- background:linear-gradient(90deg,var(--gold),transparent);
- transform:scaleX(0);
- transform-origin:left;
- transition:transform 0.4s ease;
-}
-.team-card:hover{background:var(--bg)}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.team-card{background:var(--bg);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background 0.25s}
+.team-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease}
+.team-card:hover{background:var(--bg-soft)}
 .team-card:hover::after{transform:scaleX(1)}
-
-/* Kumar card - special gold tint */
-.team-card.kumar{background:linear-gradient(160deg,#2A2520 0%,#332b24 100%);border-right:none}
-.team-card.kumar:hover{background:linear-gradient(160deg,#332b24 0%,#3e3328 100%)}
-.team-card.kumar .team-mono{background:rgba(200,168,75,0.15);border-color:rgba(200,168,75,0.4);color:var(--gold)}
+.team-card.kumar{background:linear-gradient(160deg,#1e1a15 0%,#2a2218 100%)}
+.team-card.kumar:hover{background:linear-gradient(160deg,#2a2218 0%,#332b20 100%)}
+.team-card.kumar .team-mono{background:rgba(200,168,75,0.12);border-color:rgba(200,168,75,0.35);color:var(--gold)}
 .team-card.kumar h3{color:#fff}
-.team-card.kumar .team-role{color:rgba(200,168,75,0.7)}
-.team-card.kumar .team-tagline{color:rgba(255,255,255,0.38)}
+.team-card.kumar .team-role{color:rgba(200,168,75,0.65)}
+.team-card.kumar .team-tagline{color:rgba(255,255,255,0.35)}
 .team-card.kumar .read-bio{color:var(--gold);border-color:rgba(200,168,75,0.3)}
-.team-card.kumar .read-bio:hover{background:rgba(200,168,75,0.12);border-color:var(--gold)}
-
-/* Sadhguru badge on Kumar card */
-.sadhguru-badge{
- display:inline-flex;align-items:center;gap:0.5rem;
- background:rgba(200,168,75,0.12);
- border:1px solid rgba(200,168,75,0.35);
- padding:0.28rem 0.75rem;
- border-radius:2rem;
- font-size:0.57rem;
- letter-spacing:0.15em;
- text-transform:uppercase;
- color:var(--gold);
- margin-bottom:1rem;
- width:fit-content;
-}
-.sadhguru-badge::before{
- content:'';width:5px;height:5px;
- border-radius:50%;
- background:var(--gold);
- animation:pulse 2s ease-in-out infinite;
-}
+.team-card.kumar .read-bio:hover{background:rgba(200,168,75,0.1);border-color:var(--gold)}
+.sadhguru-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);padding:0.28rem 0.75rem;border-radius:2rem;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;width:fit-content}
+.sadhguru-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
-
 .team-mono{width:52px;height:52px;border-radius:50%;background:var(--bg-dark);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--gold);margin-bottom:1.25rem}
 .team-card h3{font-size:0.95rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem;letter-spacing:0.01em}
-.team-role{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1rem}
-.team-tagline{font-size:0.75rem;color:var(--ink-light);line-height:1.7;font-weight:300;flex:1}
-.read-bio{
- margin-top:1.5rem;
- display:inline-flex;align-items:center;gap:0.4rem;
- font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
- color:var(--gold-dark);
- border:1px solid var(--card-border);
- padding:0.45rem 0.9rem;
- width:fit-content;
- transition:all 0.2s;
- background:transparent;
- cursor:pointer;
- font-family:'DM Sans',sans-serif;
-}
+.team-role{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1rem}
+.team-tagline{font-size:0.75rem;color:var(--ink-light);line-height:1.7;font-weight:300;margin-bottom:1.5rem}
+.read-bio{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);border:1px solid var(--card-border);padding:0.45rem 0.9rem;width:fit-content;transition:all 0.2s;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:0}
 .read-bio:hover{background:var(--bg-accent);border-color:var(--gold)}
 .read-bio svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* Astrologer section label */
-.astro-label-row{
- margin-top:2px;
- padding:1.5rem 2rem;
- background:var(--bg-dark);
- display:flex;
- align-items:center;
- gap:1rem;
- border:1px solid rgba(200,168,75,0.12);
-}
-.astro-label-row p{font-size:0.78rem;color:rgba(255,255,255,0.35);font-weight:300;line-height:1.6}
+.astro-label-row{margin-top:2px;padding:1.5rem 2rem;background:var(--bg-dark);display:flex;align-items:center;gap:1rem;border:1px solid rgba(200,168,75,0.1)}
+.astro-label-row p{font-size:0.78rem;color:rgba(255,255,255,0.32);font-weight:300;line-height:1.6}
 .astro-label-row p em{color:var(--gold);font-style:normal}
+.drushya-row{margin-top:2px;background:var(--bg);border:1px solid var(--card-border);display:flex;align-items:center;overflow:hidden;cursor:pointer;transition:background 0.25s}
+.drushya-row:hover{background:var(--bg-soft)}
+.drushya-avatar{background:var(--bg-dark);padding:2rem 1.75rem;flex-shrink:0}
+.drushya-info{padding:1.5rem 2rem;border-left:1px solid var(--line);flex:1}
+.drushya-info h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.15rem}
+.drushya-info .drushya-role{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.6rem}
+.drushya-info p{font-size:0.76rem;color:var(--ink-light);line-height:1.7;font-weight:300}
 
-/* -- MODAL OVERLAY -- */
-.modal-overlay{
- position:fixed;inset:0;
- background:rgba(20,16,12,0.82);
- backdrop-filter:blur(8px);
- z-index:500;
- display:flex;align-items:center;justify-content:center;
- padding:2rem;
- opacity:0;pointer-events:none;
- transition:opacity 0.35s ease;
-}
+/* ── TRUST STRIP ── */
+.trust-strip{background:var(--bg-dark);padding:5rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(200,168,75,0.1)}
+.trust-item{padding:0 3rem;border-right:1px solid rgba(255,255,255,0.06);text-align:center}
+.trust-item:first-child{padding-left:0}
+.trust-item:last-child{border-right:none;padding-right:0}
+.trust-icon{width:40px;height:40px;border:1px solid rgba(200,168,75,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;color:var(--gold)}
+.trust-item h4{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;letter-spacing:0.04em}
+.trust-item p{font-size:0.72rem;color:rgba(255,255,255,0.28);line-height:1.7;font-weight:300}
+
+/* ── NORTH STAR ── */
+.north-star{background:var(--bg-dark);padding:8rem 4rem;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(200,168,75,0.1)}
+.north-star::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border:1px solid rgba(200,168,75,0.05);border-radius:50%}
+.north-star::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;border:1px solid rgba(200,168,75,0.04);border-radius:50%}
+.ns-inner{position:relative;z-index:1}
+.ns-star{font-size:2rem;color:var(--gold);margin-bottom:2rem;display:block;animation:rotate 20s linear infinite}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ns-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.north-star blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.5vw,2.1rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.72);line-height:1.65;max-width:760px;margin:0 auto 3rem}
+.north-star blockquote strong{color:var(--gold);font-style:normal}
+.ns-cta{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:4px;transition:all 0.25s}
+.ns-cta:hover{background:#d4b45a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,168,75,0.3)}
+.ns-badge{margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+
+/* ── FOOTER ── */
+footer{background:#111008;padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4);margin:0}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-brand{}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:rgba(255,255,255,0.9);margin-bottom:0.75rem;display:flex;align-items:center;gap:0;line-height:1}
+.footer-logo .fl-my{color:rgba(255,255,255,0.9)}
+.footer-logo .fl-true{color:rgba(255,255,255,0.9)}
+.footer-logo .fl-match{color:var(--pink)}
+.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.32);line-height:1.7;font-weight:300;max-width:240px;margin-top:0.75rem}
+.footer-socials{display:flex;gap:8px;margin-top:1.5rem}
+.social-btn{width:32px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.2s}
+.social-btn:hover{color:var(--gold);border-color:var(--gold)}
+.footer-col-title{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:1.2rem;font-weight:500}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.65rem}
+.footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;font-weight:300}
+.footer-links a:hover{color:var(--gold)}
+.footer-links button{font-size:0.82rem;color:rgba(255,255,255,0.45);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:300;padding:0;text-align:left;transition:color 0.2s}
+.footer-links button:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.72rem;letter-spacing:0.04em;color:rgba(255,255,255,0.22)}
+.footer-legal{display:flex;gap:1.5rem;align-items:center}
+.footer-secure{display:flex;align-items:center;gap:6px;color:var(--gold);font-size:0.72rem;padding-right:1.2rem;border-right:1px solid rgba(255,255,255,0.07)}
+.footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.22);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em}
+.footer-legal a:hover{color:var(--gold)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,12,8,0.85);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity 0.35s ease}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal-box{
- background:var(--bg);
- max-width:680px;width:100%;
- max-height:88vh;
- overflow-y:auto;
- position:relative;
- transform:translateY(24px) scale(0.97);
- transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
- scrollbar-width:thin;
- scrollbar-color:var(--gold) transparent;
-}
+.modal-box{background:var(--bg);max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(24px) scale(0.97);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
 .modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
-
-/* Dark modal for Kumar */
 .modal-box.dark{background:var(--bg-dark)}
-.modal-close{
- position:absolute;top:1.25rem;right:1.25rem;
- width:34px;height:34px;
- border-radius:50%;
- background:rgba(255,255,255,0.07);
- border:1px solid rgba(255,255,255,0.1);
- display:flex;align-items:center;justify-content:center;
- cursor:pointer;
- color:rgba(255,255,255,0.5);
- z-index:10;
- transition:all 0.2s;
-}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.5);z-index:10;transition:all 0.2s}
 .modal-close:hover{background:rgba(255,255,255,0.14);color:#fff}
-.modal-close-light{background:rgba(0,0,0,0.06);border-color:var(--line);color:var(--ink-light)}
+.modal-close-light{background:rgba(0,0,0,0.05);border-color:var(--line);color:var(--ink-light)}
 .modal-close-light:hover{background:rgba(0,0,0,0.1);color:var(--ink)}
-
-/* Modal header */
-.modal-header{padding:3rem 3rem 0}
-.modal-header-light{padding:3rem 3rem 0}
+.modal-header,.modal-header-light{padding:3rem 3rem 0}
 .modal-mono{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1.25rem}
-.modal-mono-dark{background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.35);color:var(--gold)}
+.modal-mono-dark{background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);color:var(--gold)}
 .modal-mono-light{background:var(--bg-dark);border:1px solid var(--line);color:var(--gold)}
 .modal-name{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;line-height:1.1;margin-bottom:0.2rem}
 .modal-name-dark{color:#fff}
@@ -256,609 +229,476 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .modal-role-badge{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
 .modal-divider{height:1px;background:rgba(255,255,255,0.07);margin:0 3rem}
 .modal-divider-light{height:1px;background:var(--line);margin:0 3rem}
-
-/* Modal body */
 .modal-body{padding:2rem 3rem 3rem}
 .modal-body p{font-size:0.82rem;font-weight:300;line-height:1.9;margin-bottom:1rem}
-.modal-body-dark p{color:rgba(255,255,255,0.45)}
+.modal-body-dark p{color:rgba(255,255,255,0.42)}
 .modal-body-light p{color:var(--ink-light)}
-.modal-quote{
- margin:1.5rem 0;
- padding:1.25rem 1.5rem;
- border-left:2px solid var(--gold);
-}
+.modal-quote{margin:1.5rem 0;padding:1.25rem 1.5rem;border-left:2px solid var(--gold)}
 .modal-quote-dark{background:rgba(200,168,75,0.05)}
 .modal-quote-light{background:var(--bg-soft)}
 .modal-quote p{font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;line-height:1.7;margin:0}
-.modal-quote-dark p{color:rgba(255,255,255,0.6)}
+.modal-quote-dark p{color:rgba(255,255,255,0.58)}
 .modal-quote-light p{color:var(--ink-mid)}
-
-/* Kumar stats row */
-.kumar-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.1);margin:1.5rem 0}
-.kstat{background:rgba(42,37,32,0.8);padding:1.25rem 1rem;text-align:center}
+.kumar-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,168,75,0.08);border:1px solid rgba(200,168,75,0.08);margin:1.5rem 0}
+.kstat{background:rgba(30,26,21,0.9);padding:1.25rem 1rem;text-align:center}
 .kstat-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;line-height:1}
 .kstat-num span{font-size:0.8rem;color:var(--gold)}
-.kstat-label{font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-top:0.3rem}
-
-/* Tradition tags */
+.kstat-label{font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:0.3rem}
 .modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin:1rem 0 1.5rem}
-.modal-tag{padding:0.3rem 0.8rem;border:1px solid rgba(200,168,75,0.25);font-size:0.64rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em}
-
-/* Career chips */
+.modal-tag{padding:0.3rem 0.8rem;border:1px solid rgba(200,168,75,0.22);font-size:0.64rem;color:rgba(255,255,255,0.45);letter-spacing:0.06em}
 .career-chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
-.chip{padding:0.28rem 0.75rem;background:var(--bg-accent);border:1px solid rgba(200,168,75,0.25);font-size:0.62rem;color:var(--gold-dark);letter-spacing:0.05em;border-radius:2px}
+.chip{padding:0.28rem 0.75rem;background:var(--bg-accent);border:1px solid rgba(200,168,75,0.2);font-size:0.62rem;color:var(--gold-dark);letter-spacing:0.05em;border-radius:2px}
 
-/* -- NORTH STAR -- */
-.north-star{background:var(--bg-dark);padding:8rem 4rem;text-align:center;position:relative;overflow:hidden}
-.north-star::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border:1px solid rgba(200,168,75,0.06);border-radius:50%}
-.north-star::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border:1px solid rgba(200,168,75,0.04);border-radius:50%}
-.ns-inner{position:relative}
-.ns-star{font-size:2rem;color:var(--gold);margin-bottom:2rem;display:block;animation:rotate 20s linear infinite}
-@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.ns-label{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
-.north-star blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.5vw,2.1rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.65;max-width:760px;margin:0 auto 3rem}
-.north-star blockquote strong{color:var(--gold);font-style:normal}
-.ns-cta{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.95rem 2.5rem;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;border-radius:4px;transition:all 0.25s}
-.ns-cta:hover{background:#d4b45a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,168,75,0.3)}
-
-/* -- FOOTER -- */
-footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4)}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
-.footer-logo-text{font-family:'Playfair Display',serif;font-size:1.3rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px}
-.footer-logo-text span{color:#E8828A}
-.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.35);line-height:1.7;font-weight:300;max-width:260px;margin-top:0.75rem}
-.footer-col-title{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:500}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.65rem}
-.footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300}
-.footer-links a:hover{color:var(--gold)}
-.footer-links button{font-size:0.82rem;color:rgba(255,255,255,0.5);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:300;padding:0;text-align:left;transition:color 0.2s}
-.footer-links button:hover{color:var(--gold)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.07);padding-top:2rem;margin-top:2rem}
-.footer-copy{font-size:0.72rem;letter-spacing:0.04em;color:rgba(255,255,255,0.25)}
-.footer-legal{display:flex;gap:1.5rem;align-items:center}
-.footer-legal a{font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
-.footer-legal a:hover{color:var(--gold)}
-
-/* -- FADE -- */
+/* ── ANIMATIONS ── */
 .fade{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade.d1{transition-delay:0.1s}.fade.d2{transition-delay:0.2s}.fade.d3{transition-delay:0.3s}
 .fade.vis{opacity:1;transform:translateY(0)}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade-in.vis{opacity:1;transform:translateY(0)}
 
+/* ── RESPONSIVE ── */
 @media(max-width:960px){
- nav{padding:0 1.5rem}.nav-links{display:none}
- .hero{grid-template-columns:1fr}.hero-right{display:none}
- .hero-left{padding:4rem 1.5rem;min-height:auto}
- .origin{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem}
- .calling{padding:4rem 1.5rem}
- .calling-pillars{grid-template-columns:1fr}
- .team-section{padding:4rem 1.5rem}
- .team-grid{grid-template-columns:1fr 1fr}
- .north-star{padding:5rem 1.5rem}
- footer{padding:3rem 1.5rem 1.5rem}
- .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
- .kumar-stats{grid-template-columns:1fr 1fr}
- .modal-box{max-height:95vh}
- .modal-header,.modal-header-light,.modal-body{padding-left:1.5rem;padding-right:1.5rem}
- .modal-divider,.modal-divider-light{margin:0 1.5rem}
- .kumar-stats{grid-template-columns:1fr 1fr}
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left{padding:4rem 1.5rem}
+  .metrics-bar{grid-template-columns:1fr 1fr}
+  .metric-item:nth-child(2){border-right:none}
+  .origin{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem}
+  .calling{padding:4rem 1.5rem}.calling-pillars{grid-template-columns:1fr}
+  .process{padding:4rem 1.5rem}.process-steps{grid-template-columns:1fr 1fr;gap:2rem}.process-steps::before{display:none}
+  .team-section{padding:4rem 1.5rem}.team-grid{grid-template-columns:1fr 1fr}
+  .trust-strip{grid-template-columns:1fr;padding:3rem 1.5rem}.trust-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:1.5rem 0}.trust-item:last-child{border-bottom:none}
+  .north-star{padding:5rem 1.5rem}
+  footer{padding:3rem 1.5rem 1.5rem}.footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .kumar-stats{grid-template-columns:1fr 1fr}
+  .modal-header,.modal-header-light,.modal-body{padding-left:1.5rem;padding-right:1.5rem}
+  .modal-divider,.modal-divider-light{margin:0 1.5rem}
+  .drushya-row{flex-direction:column}.drushya-row .read-bio{margin:0 2rem 1.5rem}
 }
-
-/* --- NAV LOGO COLORS --- */
-.logo-blue { color: #4A6FA5; }
-.logo-gold { color: #C8A84B; }
-.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }</style>
+</style>
 </head>
 <body>
 
 <!-- ANNOUNCE -->
 <div class="announce">
- Serving couples across <b>38 cities</b> - from Bangalore to Birmingham &nbsp;-&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;-&nbsp; All data on Indian servers
+  Serving couples across <b>38 cities</b> — from Bangalore to Birmingham &nbsp;·&nbsp; <b>DPDP Act 2023 compliant</b> &nbsp;·&nbsp; All data on Indian servers
 </div>
 
-<!-- NAV - no "About" link here, it lives in footer -->
+<!-- NAV -->
 <nav>
- <a href="index.html" class="nav-logo"><span class="logo-blue">My</span> <span class="logo-gold">True</span><span class="logo-blue">Match</span></a>
- <ul class="nav-links">
- <li><a href="compatibility.html">
- <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-.8-1.4-2.3-2.4-4-2.4z"/></svg>
- Compatibility
- </a></li>
- <li><a href="verification.html">
- <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
- Verification
- </a></li>
- <li><a href="horoscope.html">
- <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
- Horoscope
- </a></li>
- <li><a href="index.html#pricing">
- <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
- Pricing
- </a></li>
- </ul>
- <div class="nav-right">
- <a href="blog.html" class="btn-ghost" style="border:none;padding:0 1rem">
- <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
- <span>Blog</span>
- </a>
- <a href="auth.html" class="btn-ghost">
- <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
- <span>Sign in</span>
- </a>
- <a href="begin.html" class="btn-solid">
- <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- <span>Begin</span>
- </a>
- </div></nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-my">My</span><span style="color:var(--ink)">&nbsp;True</span><span class="logo-match">Match</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="compatibility.html">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4-.8-1.4-2.3-2.4-4-2.4z"/></svg>
+      Compatibility
+    </a></li>
+    <li><a href="verification.html">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      Verification
+    </a></li>
+    <li><a href="horoscope.html">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
+      Horoscope
+    </a></li>
+    <li><a href="index.html#pricing">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 12l9-9h7v7l-9 9-7-7z"/><circle cx="16" cy="6" r="1.2"/></svg>
+      Pricing
+    </a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="blog.html" class="btn-ghost" style="border:none;padding:0 0.75rem">Blog</a>
+    <div style="width:1px;height:20px;background:var(--line)"></div>
+    <a href="auth.html" class="btn-ghost">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 7a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 21a8 8 0 0116 0"/></svg>
+      Sign in
+    </a>
+    <a href="begin.html" class="btn-solid">
+      <svg class="nav-icon" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+      Begin
+    </a>
+  </div>
+</nav>
 
-<!-- -- HERO -- -->
+<!-- HERO -->
 <section class="hero">
- <div class="hero-left">
- <div class="hero-eyebrow fade">Who We Are</div>
- <h1 class="fade d1">We built the<br>service we <em>wished</em><br>had existed.</h1>
- <p class="hero-sub fade d2">A multidisciplinary team dedicated to eliminating fraud from the matrimony landscape - bringing together law, psychology, engineering, and spiritual science.</p>
- <div style="margin-top:2.5rem;display:flex;align-items:center;gap:0.8rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.22)" class="fade d3">
- <div class="scroll-line"></div>
- Scroll to explore
- </div>
- </div>
- <div class="hero-right">
- <div class="conviction-list">
- <div class="conviction-item">
- <span class="conv-num">I</span>
- <div class="conv-body">
- <h4>Trust is built, not assumed</h4>
- <p>Families have every right to verify information before a lifelong commitment. Confirmed facts build stronger, more resilient foundations.</p>
- </div>
- </div>
- <div class="conviction-item">
- <span class="conv-num">II</span>
- <div class="conv-body">
- <h4>Dignity is non-negotiable</h4>
- <p>Every person is treated with complete respect. We do not conduct covert investigations. We provide facts, context, and guidance with dignity.</p>
- </div>
- </div>
- <div class="conviction-item">
- <span class="conv-num">III</span>
- <div class="conv-body">
- <h4>Science and tradition coexist</h4>
- <p>Psychometric research and Vedic astrology answer different questions. We offer both for clarity of mind and spirit.</p>
- </div>
- </div>
- <div class="conviction-item">
- <span class="conv-num">IV</span>
- <div class="conv-body">
- <h4>Clarity, not verdict</h4>
- <p>We do not tell people what to decide. We give them the tools to decide well for themselves.</p>
- </div>
- </div>
- </div>
- </div>
+  <div class="hero-left">
+    <div class="hero-eyebrow fade">Who We Are</div>
+    <h1 class="fade d1">We built the<br>service we <em>wished</em><br>had existed.</h1>
+    <p class="hero-sub fade d2">A multidisciplinary team dedicated to eliminating fraud from the matrimony landscape — bringing together law, psychology, engineering, and spiritual science.</p>
+    <div style="margin-top:2.5rem;display:flex;align-items:center;gap:0.8rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2)" class="fade d3">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="conviction-list">
+      <div class="conviction-item">
+        <span class="conv-num">I</span>
+        <div class="conv-body">
+          <h4>Trust is built, not assumed</h4>
+          <p>Families have every right to verify information before a lifelong commitment. Confirmed facts build stronger, more resilient foundations.</p>
+        </div>
+      </div>
+      <div class="conviction-item">
+        <span class="conv-num">II</span>
+        <div class="conv-body">
+          <h4>Dignity is non-negotiable</h4>
+          <p>Every person is treated with complete respect. We do not conduct covert investigations. We provide facts, context, and guidance with dignity.</p>
+        </div>
+      </div>
+      <div class="conviction-item">
+        <span class="conv-num">III</span>
+        <div class="conv-body">
+          <h4>Science and tradition coexist</h4>
+          <p>Psychometric research and Vedic astrology answer different questions. We offer both — for clarity of mind and spirit.</p>
+        </div>
+      </div>
+      <div class="conviction-item">
+        <span class="conv-num">IV</span>
+        <div class="conv-body">
+          <h4>Clarity, not verdict</h4>
+          <p>We do not tell people what to decide. We give them the tools to decide well — for themselves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- -- ORIGIN -- -->
+<!-- METRICS BAR -->
+<div class="metrics-bar fade">
+  <div class="metric-item">
+    <div class="metric-num">38<span>+</span></div>
+    <div class="metric-label">Cities Served</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">30<span>+</span></div>
+    <div class="metric-label">Years Combined Experience</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">1K<span>+</span></div>
+    <div class="metric-label">Horoscope Charts Studied</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">100<span>%</span></div>
+    <div class="metric-label">Consent-Based Process</div>
+  </div>
+</div>
+
+<!-- ORIGIN -->
 <section class="origin">
- <div class="origin-left fade">
- <div class="origin-label">Why We Started</div>
- <h2>The absence of structure<br>is itself a <em>risk.</em></h2>
- <p>The matrimonial ecosystem has long relied on informal references, limited checks, and assumptions about personal backgrounds. While trust remains an important part of relationships, the absence of verification can lead to incomplete information or overlooked risks.</p>
- <p>We created this platform to introduce a professional, consent-driven verification process that supports individuals and families in making well-informed matrimonial decisions with greater clarity and confidence.</p>
- <p>Our role is not to interfere with personal choices but to provide factual insights that help people evaluate potential risks before making long-term commitments.</p>
- </div>
- <div class="fade d2">
- <div class="origin-quote">
- <p>We are working to shape a new cultural norm in India - one where consent-based pre-marital verification is widely accepted as a responsible and practical step.</p>
- <cite>- The MyTrueMatch Mission</cite>
- </div>
- <div style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem">
- <div style="background:var(--bg-soft);padding:1.5rem;border:1px solid var(--line)">
- <div style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--ink);margin-bottom:0.3rem">30+</div>
- <div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)">Years combined experience</div>
- </div>
- <div style="background:var(--bg-soft);padding:1.5rem;border:1px solid var(--line)">
- <div style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--ink);margin-bottom:0.3rem">38</div>
- <div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)">Cities served across India</div>
- </div>
- </div>
- </div>
+  <div class="origin-left fade">
+    <div class="origin-label">Why We Started</div>
+    <h2>The absence of structure<br>is itself a <em>risk.</em></h2>
+    <p>The matrimonial ecosystem has long relied on informal references, limited checks, and assumptions about personal backgrounds. While trust remains an important part of relationships, the absence of verification can lead to incomplete information — or overlooked risks.</p>
+    <p>We created this platform to introduce a professional, consent-driven verification process that supports individuals and families in making well-informed matrimonial decisions with greater clarity and confidence.</p>
+    <p>Our role is not to interfere with personal choices — but to provide factual insights that help people evaluate potential risks before making long-term commitments.</p>
+  </div>
+  <div class="fade d2">
+    <div class="origin-quote">
+      <p>We are working to shape a new cultural norm in India — one where consent-based pre-marital verification is widely accepted as a responsible and practical step.</p>
+      <cite>— The MyTrueMatch Mission</cite>
+    </div>
+  </div>
 </section>
 
-<!-- -- CALLING -- -->
+<!-- CALLING -->
 <section class="calling">
- <div class="calling-inner">
- <div class="calling-label fade">Our Calling</div>
- <h2 class="fade d1">Choosing a life partner is one of the<br>most important decisions a person<br>will ever <em>make.</em></h2>
- <div class="calling-pillars fade d2">
- <div class="pillar">
- <div class="pillar-icon">
- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12.5a3.5 3.5 0 107 0 3.5 3.5 0 00-7 0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
- </div>
- <h3>Psychometric Compatibility</h3>
- <p>Science-backed assessment across five life dimensions - written by a human psychologist for your specific pairing.</p>
- </div>
- <div class="pillar">
- <div class="pillar-icon">
- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
- </div>
- <h3>Due-diligence Verification</h3>
- <p>Consent-based background checks - identity, employment, finances, legal history - handled with confidentiality and legal sensitivity.</p>
- </div>
- <div class="pillar">
- <div class="pillar-icon">
- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
- </div>
- <h3>Detailed Horoscope Matching</h3>
- <p>Vedic astrological analysis by senior practitioners with decades of sadhana - for clarity of heart and spirit.</p>
- </div>
- </div>
- </div>
+  <div class="calling-inner">
+    <div class="calling-label fade">Our Calling</div>
+    <h2 class="fade d1">Choosing a life partner is one of the<br>most important decisions a person<br>will ever <em>make.</em></h2>
+    <div class="calling-pillars fade d2">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12.5a3.5 3.5 0 107 0 3.5 3.5 0 00-7 0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+        </div>
+        <h3>Psychometric Compatibility</h3>
+        <p>Science-backed assessment across five life dimensions — written by a human psychologist for your specific pairing, not an algorithm.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Due-diligence Verification</h3>
+        <p>Consent-based background checks — identity, employment, finances, legal history — handled with confidentiality and legal sensitivity.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
+        </div>
+        <h3>Detailed Horoscope Matching</h3>
+        <p>Vedic astrological analysis by senior practitioners with decades of sadhana — for clarity of heart and spirit.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- -- TEAM SECTION -- -->
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-header fade">
+    <div class="process-eyebrow">How It Works</div>
+    <h2>A structured process built for <em>sensitive</em> decisions.</h2>
+  </div>
+  <div class="process-steps fade d1">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Initiate with Consent</h4>
+      <p>Every engagement begins with explicit, documented consent from all parties involved.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Submit Information</h4>
+      <p>Securely provide the details needed for compatibility, verification, or horoscope services.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Expert Analysis</h4>
+      <p>Our specialists — psychologist, verification lead, astrologer — conduct their assessments.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Receive Your Report</h4>
+      <p>A comprehensive, plainly-written report delivered privately. Yours to deliberate upon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
 <section class="team-section">
- <div class="team-header fade">
- <div class="team-eyebrow">The Team</div>
- <h2 class="team-title">Quiet experts. <em>Long careers.</em></h2>
- <p class="team-subtitle">Click any card to read their full story. Each member brings a distinct discipline - together they make MyTrueMatch what it is.</p>
- </div>
+  <div class="team-header fade">
+    <div class="team-eyebrow">The Team</div>
+    <h2 class="team-title">Quiet experts. <em>Long careers.</em></h2>
+    <p class="team-subtitle">Click any card to read their full story. Each member brings a distinct discipline — together they make MyTrueMatch what it is.</p>
+  </div>
 
- <div class="team-grid fade d1">
+  <div class="team-grid fade d1">
+    <!-- Deepak -->
+    <div class="team-card" onclick="openModal('deepak')">
+      <div class="team-mono">DD</div>
+      <h3>Deepak Dewan</h3>
+      <div class="team-role">Founder</div>
+      <p class="team-tagline">Decades in HR, in-depth interviewing, and risk analysis — the architect of the due-diligence framework that powers every verification.</p>
+      <button class="read-bio">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+    <!-- Mousami -->
+    <div class="team-card" onclick="openModal('mousami')">
+      <div class="team-mono">M</div>
+      <h3>Mousami</h3>
+      <div class="team-role">Co-founder</div>
+      <p class="team-tagline">Co-architect of the MyTrueMatch vision — bringing operational depth and human sensitivity to how the service serves families.</p>
+      <button class="read-bio">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+    <!-- Aniruddha -->
+    <div class="team-card" onclick="openModal('aniruddha')">
+      <div class="team-mono">A</div>
+      <h3>Aniruddha</h3>
+      <div class="team-role">Co-founder — Technology</div>
+      <p class="team-tagline">Engineer turned operator. Eighteen years across India's hardest scaling businesses — now leads all technology at MyTrueMatch.</p>
+      <button class="read-bio">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+    <!-- Kumar -->
+    <div class="team-card kumar" onclick="openModal('kumar')">
+      <div class="team-mono">K</div>
+      <h3>Kumar</h3>
+      <div class="team-role">Astrologer · Horoscope · Spiritual Guide</div>
+      <p class="team-tagline">Three decades of sadhana. Over a thousand charts studied. Former BMW engineer turned Siddhar initiate — our lead astrologer.</p>
+      <button class="read-bio">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+    <!-- Drushya -->
+    <div class="team-card" onclick="openModal('drushya')">
+      <div class="team-mono">D</div>
+      <h3>Drushya</h3>
+      <div class="team-role">Psychologist</div>
+      <p class="team-tagline">The psychological intelligence behind the Compatibility Report — translating psychometric science into actionable guidance for couples and families.</p>
+      <button class="read-bio">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
 
- <!-- Deepak -->
- <div class="team-card" onclick="openModal('deepak')">
- <div class="team-mono">DD</div>
- <h3>Deepak Dewan</h3>
- <div class="team-role">Founder</div>
- <p class="team-tagline">Decades in HR, in-depth interviewing, and risk analysis - the architect of the due-diligence framework that powers every verification.</p>
- <button class="read-bio">
- Read full bio
- <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- </button>
- </div>
-
- <!-- Mousami -->
- <div class="team-card" onclick="openModal('mousami')">
- <div class="team-mono">M</div>
- <h3>Mousami</h3>
- <div class="team-role">Co-founder</div>
- <p class="team-tagline">Co-architect of the MyTrueMatch vision - bringing operational depth and deep human sensitivity to how the service serves families.</p>
- <button class="read-bio">
- Read full bio
- <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- </button>
- </div>
-
- <!-- Aniruddha -->
- <div class="team-card" onclick="openModal('aniruddha')">
- <div class="team-mono">A</div>
- <h3>Aniruddha</h3>
- <div class="team-role">Co-founder - Technology</div>
- <p class="team-tagline">Engineer turned operator. Eighteen years across India's hardest scaling businesses - now leads all technology at MyTrueMatch.</p>
- <button class="read-bio">
- Read full bio
- <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- </button>
- </div>
-
- <!-- Kumar - dark special card -->
- <div class="team-card kumar" onclick="openModal('kumar')">
- <div class="sadhguru-badge">Sadhguru Associate</div>
- <div class="team-mono">K</div>
- <h3>Kumar</h3>
- <div class="team-role">Astrologer - Horoscope - Spiritual Guide</div>
- <p class="team-tagline">Three decades of sadhana. Over a thousand charts studied. Former BMW engineer turned Siddhar initiate - our lead astrologer for horoscope matching.</p>
- <button class="read-bio">
- Read full bio
- <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- </button>
- </div>
-
- </div>
-
- <!-- Astrologer note strip -->
- <div class="astro-label-row fade d2">
- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="flex-shrink:0"><path d="M12 3l2.1 4.3L19 9l-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9l4.9-1.7L12 3z"/></svg>
- <p>Our horoscope service is led by <em>Kumar</em> - a former Isha Foundation volunteer of nearly two decades, initiated into the Siddhar tradition, with over 1,000 astrological charts studied across three decades of unbroken spiritual practice.</p>
- </div>
-
- <!-- Drushya inline -->
- <div style="margin-top:2px;background:var(--bg-soft);border:1px solid var(--card-border);display:flex;align-items:center;gap:0;overflow:hidden;cursor:pointer" onclick="openModal('drushya')" class="fade d2">
- <div style="background:var(--bg-dark);padding:2rem 1.75rem;flex-shrink:0">
- <div style="width:44px;height:44px;border-radius:50%;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold)">D</div>
- </div>
- <div style="padding:1.5rem 2rem;border-left:1px solid var(--line);flex:1">
- <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.15rem">Drushya</h3>
- <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.6rem">Psychologist</div>
- <p style="font-size:0.76rem;color:var(--ink-light);line-height:1.7;font-weight:300">The psychological intelligence behind the Compatibility Report - translating psychometric science into actionable guidance for couples and families.</p>
- </div>
- <div style="padding:2rem;flex-shrink:0">
- <button class="read-bio" style="margin-top:0">Read bio<svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
- </div>
- </div>
 </section>
 
-<!-- -- NORTH STAR -- -->
+<!-- TRUST STRIP -->
+<div class="trust-strip fade">
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <h4>Fully Consent-Based</h4>
+    <p>No information is gathered without documented, explicit consent from all parties. Privacy is not a feature — it is a foundation.</p>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    </div>
+    <h4>DPDP Act 2023 Compliant</h4>
+    <p>All data stored on Indian servers. Fully compliant with India's Digital Personal Data Protection Act 2023.</p>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <h4>Confidential &amp; Discreet</h4>
+    <p>Reports are delivered privately. We maintain strict discretion at every stage of the engagement.</p>
+  </div>
+</div>
+
+<!-- NORTH STAR -->
 <section class="north-star">
- <div class="ns-inner fade">
- <span class="ns-star"></span>
- <div class="ns-label">Our North Star</div>
- <blockquote>
- "To shape a new cultural norm in India - one where <strong>consent-based pre-marital verification</strong> is widely accepted as a responsible, necessary, and important step in matrimonial decision-making."
- </blockquote>
- <a href="index.html" class="ns-cta">
- See what we can do for you
- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
- </a>
- <p style="margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Private - Secure - India servers - DPDP Act 2023</p>
- </div>
+  <div class="ns-inner fade">
+    <span class="ns-star">✦</span>
+    <div class="ns-label">Our North Star</div>
+    <blockquote>
+      "To shape a new cultural norm in India — one where <strong>consent-based pre-marital verification</strong> is widely accepted as a responsible, necessary, and important step in matrimonial decision-making."
+    </blockquote>
+    <a href="index.html" class="ns-cta">
+      See what we can do for you
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
+    </a>
+    <p class="ns-badge">Private · Secure · India Servers · DPDP Act 2023</p>
+  </div>
 </section>
 
-<!-- -- FOOTER - About Us link lives here -- -->
+<!-- FOOTER -->
 <footer>
- <div class="footer-top fade-in">
- <div>
- <div class="footer-logo-text">MyTrue<span>Match</span></div>
- <p class="footer-tagline">A space to truly know each other - before the most important commitment of your life.</p>
- </div>
- <div>
- <div class="footer-col-title">Our Lenses</div>
- <ul class="footer-links" style="margin-top:1rem">
- <li><a href="compatibility.html">Compatibility</a></li>
- <li><a href="verification.html">Verification</a></li>
- <li><a href="horoscope.html">Horoscope</a></li>
- </ul>
- </div>
- <div>
- <div class="footer-col-title">Company</div>
- <ul class="footer-links" style="margin-top:1rem">
- <li><a href="pricing.html">Pricing</a></li>
- <li><a href="about.html" style="color:var(--gold)">About Us</a></li>
- <li><a href="contact.html">Contact</a></li>
- <li><button onclick="openModal('kumar')">Meet our Astrologer</button></li>
- </ul>
- </div>
- <div>
- <div class="footer-col-title">Legal</div>
- <ul class="footer-links" style="margin-top:1rem">
- <li><a href="privacy.html">Privacy Policy</a></li>
- <li><a href="terms.html">Terms &amp; Conditions</a></li>
- <li><a href="refund.html">Refund Policy</a></li>
- </ul>
- </div>
- </div>
- <div class="footer-bottom">
- <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved.</p>
- <div class="footer-legal">
- <a href="privacy.html">Privacy</a>
- <a href="terms.html">Terms</a>
- </div>
- </div>
+  <div class="footer-top fade-in">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="fl-my">MyTrue</span><span class="fl-match">Match</span>
+      </div>
+      <p class="footer-tagline">A space to truly know each other — before the most important commitment of your life.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Our Lenses</div>
+      <ul class="footer-links">
+        <li><a href="compatibility.html">Compatibility</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="horoscope.html">Horoscope</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html" style="color:var(--gold)">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms and Conditions</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">— 2026 MyTrueMatch · www.mytruematch.in · All Rights Reserved.</p>
+    <div class="footer-legal">
+      <div class="footer-secure">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Secure
+      </div>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
 </footer>
 
-
-<!-- ------------------------------------
- MODAL OVERLAY
------------------------------------- -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeOnBackdrop(event)">
- <div class="modal-box" id="modal-box">
- <!-- Content injected by JS -->
- </div>
+  <div class="modal-box" id="modal-box"></div>
 </div>
 
-
-<!-- --------
- MODAL DATA & LOGIC
--------- -->
 <script>
 const people = {
- deepak: {
- dark: false,
- initials: 'DD',
- name: 'Deepak Dewan',
- role: 'Founder',
- content: `
- <p>The principal architect of MyTrueMatch - Deepak brings deep expertise in human assessment, risk profiling, and structured due diligence to the matrimonial space.</p>
- <p>Over decades in HR, in-depth interviewing, personal screening, and legal compliance, he recognised something others ignored: the absence of professional verification in matrimony was not merely a gap - it was a risk. MyTrueMatch is his answer to it.</p>
- <p>He leads the platform's verification framework, ensuring every check is rigorous, legally sensitive, and conducted with complete dignity for all parties involved.</p>
- <div class="modal-quote modal-quote-light">
- <p>"Families have every right to verified facts before a lifelong commitment. We simply give them the tools to act on that right."</p>
- </div>
- `
- },
- mousami: {
- dark: false,
- initials: 'M',
- name: 'Mousami',
- role: 'Co-founder',
- content: `
- <p>Co-architect of the MyTrueMatch vision - Mousami shapes how the platform serves families at the most sensitive moments of their decision-making.</p>
- <p>Her contribution runs deep into the operational and human fabric of the service: how information is handled, how families are engaged, how the platform balances rigour with empathy.</p>
- <p>She ensures that every touchpoint - from the first inquiry to the final report - is delivered with the dignity and care that this moment in a person's life deserves.</p>
- <div class="modal-quote modal-quote-light">
- <p>"The right insight, delivered with care, can change the entire trajectory of a family's decision."</p>
- </div>
- `
- },
- aniruddha: {
- dark: false,
- initials: 'A',
- name: 'Aniruddha',
- role: 'Co-founder - Technology',
- content: `
- <p>Engineer turned operator. Eighteen years across India's hardest scaling businesses. Aniruddha began his career as a systems engineer at Infosys, before earning an MBA in Supply Chain Management from North Carolina State University.</p>
- <p>At Mu Sigma's executive-decisions practice, he consulted for the world's largest retailer. The years that followed took him through founding teams at Kamatan Farm Tech and AreaJockey, the launch of BigBasket's sixty-minute dark-store delivery, and pan-India supply chain leadership at Zomato's Hyperpure. At Smartstaff, he led a full operational and commercial turnaround, taking gross margins from negative to positive within eighteen months. At Bambrew, he ran manufacturing for a sustainable-packaging business.</p>
- <div class="modal-quote modal-quote-light"><p>"Most growing businesses don't have a growth problem. They have an operations problem."</p></div>
- <p>He brought that operator's discipline to MyTrueMatch - and married it to technology. Data security is not a feature added at the end - it is a design principle present in every decision. Today he leads all technology: engineering, infrastructure, data, privacy, and integrations.</p>
- <div class="modal-quote modal-quote-light"><p>"Something only works when someone truly owns the outcome, end to end."</p></div>
- <div class="career-chips">
- <span class="chip">Infosys</span><span class="chip">Mu Sigma</span><span class="chip">BigBasket</span><span class="chip">Zomato Hyperpure</span><span class="chip">Smartstaff</span><span class="chip">Bambrew</span><span class="chip">NC State MBA</span>
- </div>
- `
- },
- kumar: {
- dark: true,
- initials: 'K',
- name: 'Kumar',
- role: 'Lead Astrologer - Horoscope - Spiritual Guide',
- badge: 'Sadhguru Associate - Isha Foundation',
- content: `
- <div class="kumar-stats">
- <div class="kstat"><div class="kstat-num">30<span>+</span></div><div class="kstat-label">Years Sadhana</div></div>
- <div class="kstat"><div class="kstat-num">1K<span>+</span></div><div class="kstat-label">Charts Studied</div></div>
- <div class="kstat"><div class="kstat-num">20<span>yr</span></div><div class="kstat-label">Isha Foundation</div></div>
- <div class="kstat"><div class="kstat-num">3</div><div class="kstat-label">Guru Lineages</div></div>
- </div>
- <p>Having begun his professional journey as an engineer with BMW, where he worked for over a decade, Kumar eventually chose to step away from a life of material comfort in response to a profound inner spiritual calling.</p>
- <p>For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his practice. He also dedicated nearly two decades to volunteering under the guidance of <strong style="color:var(--gold)">Sadhguru Jaggi Vasudev</strong> - an experience that profoundly shaped his inner journey.</p>
- <p>Driven by an intense longing for liberation, he continued to explore Tantra, Mantra, and the Siddhar traditions - each providing its own beauty, intensity, and transformative power.</p>
- <div class="modal-quote modal-quote-dark">
- <p>"I remain deeply indebted to the many Gurus whose grace illuminated my path. Chandramouli Ayya introduced me to astrology and the sacred knowledge of invoking divine forces. I bow with gratitude to Bhaskara Sivadasan Ayya, a living Siddhar who initiated me into the path of Jnana Yoga."</p>
- </div>
- <p>Today, Kumar serves as a bridge between the physical and the celestial - integrating Varma Therapy, Yoga, and Spiritual Sadhana with the precision of Astrological and Numerological sciences. Over the years, he has studied and offered insights on more than a thousand astrological charts.</p>
- <div class="modal-tags">
- <span class="modal-tag">Vedic Astrology</span><span class="modal-tag">Tantra</span><span class="modal-tag">Mantra</span><span class="modal-tag">Siddhar Tradition</span><span class="modal-tag">Jnana Yoga</span><span class="modal-tag">Varma Therapy</span><span class="modal-tag">Numerology</span><span class="modal-tag">Isha Yoga</span>
- </div>
- <div class="modal-quote modal-quote-dark">
- <p>"Nothing brings me greater fulfilment than witnessing clarity, healing, and positive change emerge through this sacred work."</p>
- </div>
- `
- },
- drushya: {
- dark: false,
- initials: 'D',
- name: 'Drushya',
- role: 'Psychologist',
- content: `
- <p>The psychological intelligence behind the Compatibility Report - Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
- <p>Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
- <p>She assesses each couple across five dimensions - communication, conflict, money, family, and goals - and delivers insights with the clarity and empathy that this moment deserves.</p>
- <div class="modal-quote modal-quote-light">
- <p>"A number gives structure. The written analysis gives language. Together, they give couples something they can hold - and return to."</p>
- </div>
- `
- }
+  deepak:{dark:false,initials:'DD',name:'Deepak Dewan',role:'Founder',content:`
+    <p>The principal architect of MyTrueMatch — Deepak brings deep expertise in human assessment, risk profiling, and structured due diligence to the matrimonial space.</p>
+    <p>Over decades in HR, in-depth interviewing, personal screening, and legal compliance, he recognised something others ignored: the absence of professional verification in matrimony was not merely a gap — it was a risk. MyTrueMatch is his answer to it.</p>
+    <p>He leads the platform's verification framework, ensuring every check is rigorous, legally sensitive, and conducted with complete dignity for all parties involved.</p>
+    <div class="modal-quote modal-quote-light"><p>"Families have every right to verified facts before a lifelong commitment. We simply give them the tools to act on that right."</p></div>
+  `},
+  mousami:{dark:false,initials:'M',name:'Mousami',role:'Co-founder',content:`
+    <p>Co-architect of the MyTrueMatch vision — Mousami shapes how the platform serves families at the most sensitive moments of their decision-making.</p>
+    <p>Her contribution runs deep into the operational and human fabric of the service: how information is handled, how families are engaged, how the platform balances rigour with empathy.</p>
+    <p>She ensures that every touchpoint — from the first inquiry to the final report — is delivered with the dignity and care that this moment in a person's life deserves.</p>
+    <div class="modal-quote modal-quote-light"><p>"The right insight, delivered with care, can change the entire trajectory of a family's decision."</p></div>
+  `},
+  aniruddha:{dark:false,initials:'A',name:'Aniruddha',role:'Co-founder — Technology',content:`
+    <p>Engineer turned operator. Eighteen years across India's hardest scaling businesses. Aniruddha began his career as a systems engineer at Infosys, before earning an MBA in Supply Chain Management from North Carolina State University.</p>
+    <p>At Mu Sigma's executive-decisions practice, he consulted for the world's largest retailer. The years that followed took him through founding teams at Kamatan Farm Tech and AreaJockey, the launch of BigBasket's sixty-minute dark-store delivery, and pan-India supply chain leadership at Zomato's Hyperpure. At Smartstaff, he led a full operational and commercial turnaround, taking gross margins from negative to positive within eighteen months. At Bambrew, he ran manufacturing for a sustainable-packaging business.</p>
+    <div class="modal-quote modal-quote-light"><p>"Most growing businesses don't have a growth problem. They have an operations problem."</p></div>
+    <p>He brought that operator's discipline to MyTrueMatch — and married it to technology. Data security is not a feature added at the end — it is a design principle present in every decision.</p>
+    <div class="modal-quote modal-quote-light"><p>"Something only works when someone truly owns the outcome, end to end."</p></div>
+    <div class="career-chips"><span class="chip">Infosys</span><span class="chip">Mu Sigma</span><span class="chip">BigBasket</span><span class="chip">Zomato Hyperpure</span><span class="chip">Smartstaff</span><span class="chip">Bambrew</span><span class="chip">NC State MBA</span></div>
+  `},
+  kumar:{dark:true,initials:'K',name:'Kumar',role:'Lead Astrologer · Horoscope · Spiritual Guide',badge:'Sadhguru Associate — Isha Foundation',content:`
+    <div class="kumar-stats">
+      <div class="kstat"><div class="kstat-num">30<span>+</span></div><div class="kstat-label">Years Sadhana</div></div>
+      <div class="kstat"><div class="kstat-num">1K<span>+</span></div><div class="kstat-label">Charts Studied</div></div>
+      <div class="kstat"><div class="kstat-num">20<span>yr</span></div><div class="kstat-label">Isha Foundation</div></div>
+      <div class="kstat"><div class="kstat-num">3</div><div class="kstat-label">Guru Lineages</div></div>
+    </div>
+    <p>Having begun his professional journey as an engineer with BMW, where he worked for over a decade, Kumar eventually chose to step away from a life of material comfort in response to a profound inner spiritual calling.</p>
+    <p>For more than 30 years, he has immersed himself in intense spiritual exploration and sadhana. This search led him to the Isha Foundation and the Isha Yoga Center, where he deepened many dimensions of his practice. He also dedicated nearly two decades to volunteering under the guidance of <strong style="color:var(--gold)">Sadhguru Jaggi Vasudev</strong>.</p>
+    <p>Driven by an intense longing for liberation, he continued to explore Tantra, Mantra, and the Siddhar traditions — each providing its own beauty, intensity, and transformative power.</p>
+    <div class="modal-quote modal-quote-dark"><p>"I remain deeply indebted to the many Gurus whose grace illuminated my path. Chandramouli Ayya introduced me to astrology and the sacred knowledge of invoking divine forces. I bow with gratitude to Bhaskara Sivadasan Ayya, a living Siddhar who initiated me into the path of Jnana Yoga."</p></div>
+    <p>Today, Kumar serves as a bridge between the physical and the celestial — integrating Varma Therapy, Yoga, and Spiritual Sadhana with the precision of Astrological and Numerological sciences.</p>
+    <div class="modal-tags"><span class="modal-tag">Vedic Astrology</span><span class="modal-tag">Tantra</span><span class="modal-tag">Mantra</span><span class="modal-tag">Siddhar Tradition</span><span class="modal-tag">Jnana Yoga</span><span class="modal-tag">Varma Therapy</span><span class="modal-tag">Numerology</span><span class="modal-tag">Isha Yoga</span></div>
+    <div class="modal-quote modal-quote-dark"><p>"Nothing brings me greater fulfilment than witnessing clarity, healing, and positive change emerge through this sacred work."</p></div>
+  `},
+  drushya:{dark:false,initials:'D',name:'Drushya',role:'Psychologist',content:`
+    <p>The psychological intelligence behind the Compatibility Report — Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
+    <p>Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
+    <p>She assesses each couple across five dimensions — communication, conflict, money, family, and goals — and delivers insights with the clarity and empathy that this moment deserves.</p>
+    <div class="modal-quote modal-quote-light"><p>"A number gives structure. The written analysis gives language. Together, they give couples something they can hold — and return to."</p></div>
+  `}
 };
 
-function openModal(id) {
- const person = people[id];
- if (!person) return;
- const overlay = document.getElementById('modal-overlay');
- const box = document.getElementById('modal-box');
- const isDark = person.dark;
-
- box.className = 'modal-box' + (isDark ? ' dark' : '');
-
- box.innerHTML = `
- <button class="modal-close ${isDark ? '' : 'modal-close-light'}" onclick="closeModal()">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
- </button>
- <div class="${isDark ? 'modal-header' : 'modal-header-light'}">
- ${person.badge ? `<div class="sadhguru-badge" style="margin-bottom:1rem">${person.badge}</div>` : ''}
- <div class="modal-mono ${isDark ? 'modal-mono-dark' : 'modal-mono-light'}">${person.initials}</div>
- <div class="modal-name ${isDark ? 'modal-name-dark' : 'modal-name-light'}">${person.name}</div>
- <div class="modal-role-badge">${person.role}</div>
- </div>
- <div class="${isDark ? 'modal-divider' : 'modal-divider-light'}"></div>
- <div class="modal-body ${isDark ? 'modal-body-dark' : 'modal-body-light'}">
- ${person.content}
- </div>
- `;
-
- overlay.classList.add('open');
- document.body.style.overflow = 'hidden';
+function openModal(id){
+  const p=people[id];if(!p)return;
+  const overlay=document.getElementById('modal-overlay');
+  const box=document.getElementById('modal-box');
+  const d=p.dark;
+  box.className='modal-box'+(d?' dark':'');
+  box.innerHTML=`
+    <button class="modal-close ${d?'':'modal-close-light'}" onclick="closeModal()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="${d?'modal-header':'modal-header-light'}">
+      ${p.badge?`<div class="sadhguru-badge" style="margin-bottom:1rem">${p.badge}</div>`:''}
+      <div class="modal-mono ${d?'modal-mono-dark':'modal-mono-light'}">${p.initials}</div>
+      <div class="modal-name ${d?'modal-name-dark':'modal-name-light'}">${p.name}</div>
+      <div class="modal-role-badge">${p.role}</div>
+    </div>
+    <div class="${d?'modal-divider':'modal-divider-light'}"></div>
+    <div class="modal-body ${d?'modal-body-dark':'modal-body-light'}">${p.content}</div>
+  `;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
 }
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function closeOnBackdrop(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-function closeModal() {
- document.getElementById('modal-overlay').classList.remove('open');
- document.body.style.overflow = '';
-}
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:0.07});
+document.querySelectorAll('.fade,.fade-in').forEach(el=>io.observe(el));
 
-function closeOnBackdrop(e) {
- if (e.target === document.getElementById('modal-overlay')) closeModal();
-}
-
-document.addEventListener('keydown', e => {
- if (e.key === 'Escape') closeModal();
-});
-
-// Scroll animations
-const io = new IntersectionObserver(entries => {
- entries.forEach(e => {
- if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
- });
-}, { threshold: 0.07 });
-document.querySelectorAll('.fade, .fade-in').forEach(el => io.observe(el));
-
-// Conviction list stagger
-const convObs = new IntersectionObserver(entries => {
- entries.forEach(e => {
- if (e.isIntersecting) {
- e.target.querySelectorAll('.conviction-item').forEach((item, i) => {
- setTimeout(() => item.classList.add('vis'), i * 160);
- });
- convObs.unobserve(e.target);
- }
- });
-}, { threshold: 0.1 });
-const cl = document.querySelector('.conviction-list');
-if (cl) convObs.observe(cl);
+const convObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.conviction-item').forEach((item,i)=>{setTimeout(()=>item.classList.add('vis'),i*160);});convObs.unobserve(e.target);}});},{threshold:0.1});
+const cl=document.querySelector('.conviction-list');if(cl)convObs.observe(cl);
 </script>
-
-</body>
-</html>
- <div class="footer-top fade">
- <div>
- <div style="font-size:1.1rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem;font-weight:500">MyTrue<span style="color:#E8828A">Match</span></div>
- <p class="footer-tagline">A space to truly know each other - before the most important commitment of your life.</p>
- <div style="display:flex;gap:10px;margin-top:1.5rem">
- <a href="#" style="width:32px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.2s" onmouseover="this.style.color='#C8A84B';this.style.borderColor='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.3)';this.style.borderColor='rgba(255,255,255,0.1)'">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
- </a>
- <a href="#" style="width:32px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.2s" onmouseover="this.style.color='#C8A84B';this.style.borderColor='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.3)';this.style.borderColor='rgba(255,255,255,0.1)'">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
- </a>
- </div>
- </div>
- <div>
- <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:500">Our Lenses</div>
- <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem">
- <li><a href="compatibility.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Compatibility</a></li>
- <li><a href="verification.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Verification</a></li>
- <li><a href="horoscope.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Horoscope</a></li>
- </ul>
- </div>
- <div>
- <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:500">Company</div>
- <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem">
- <li><a href="pricing.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a></li>
- <li><a href="about.html" style="font-size:0.82rem;color:#C8A84B;text-decoration:none;transition:color 0.2s;font-weight:300">About Us</a></li>
- <li><a href="contact.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a></li>
- </ul>
- </div>
- <div>
- <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:500">Legal</div>
- <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem">
- <li><a href="privacy.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a></li>
- <li><a href="terms.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms &amp; Conditions</a></li>
- <li><a href="disclaimer.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Disclaimer</a></li>
- <li><a href="refund.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;font-weight:300" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Refund Policy</a></li>
- </ul>
- </div>
- </div>
- <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
- <p style="font-size:0.72rem;letter-spacing:0.04em;color:rgba(255,255,255,0.25)">- 2026 MyTrueMatch - www.mytruematch.in - All Rights Reserved.</p>
- <div style="display:flex;gap:1.5rem;align-items:center">
- <div style="display:flex;align-items:center;gap:6px;color:#C8A84B;font-size:0.72rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.08)">
- <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
- 100% Secure
- </div>
- <a href="privacy.html" style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
- <a href="terms.html" style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Terms</a>
- </div>
- </div>
-</footer>
-
 </body>
 </html>

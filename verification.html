@@ -191,6 +191,56 @@ nav {
 .stat-icon svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .stat-title { font-size:0.82rem; font-weight:500; color:var(--ink); margin-bottom:0.25rem; }
 .stat-desc { font-size:0.78rem; font-weight:300; color:var(--ink-light); line-height:1.65; }
+.stat-copy {
+ background:transparent;
+ border:none;
+ border-radius:0;
+ padding:0;
+ box-shadow:none;
+}
+.stat-kicker {
+ font-size:0.6rem; letter-spacing:0.24em; text-transform:uppercase;
+ color:var(--gold-dark); margin-bottom:1rem;
+ display:flex; align-items:center; gap:0.7rem;
+}
+.stat-kicker::before { content:''; width:28px; height:1px; background:var(--gold); }
+.stat-copy h3 {
+ font-family:'Cormorant Garamond',serif;
+ font-size:2rem;
+ font-weight:500;
+ color:var(--ink);
+ line-height:1.15;
+ letter-spacing:-0.01em;
+ margin-bottom:1.25rem;
+}
+.stat-copy p {
+ font-size:0.92rem;
+ color:var(--ink-mid);
+ line-height:1.8;
+ font-weight:300;
+ margin-bottom:1rem;
+}
+.stat-copy p:last-child { margin-bottom:0; }
+.stat-grid {
+ margin-top:1rem;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:0.68rem;
+}
+.stat-grid .stat-row {
+ margin:0;
+ padding:0.82rem 0.85rem;
+ border:1px solid var(--line);
+ border-radius:10px;
+ background:rgba(255,255,255,0.78);
+ box-shadow:0 2px 12px rgba(42,37,32,0.04);
+ align-items:flex-start;
+}
+.stat-grid .stat-row:last-child { border:1px solid var(--line); }
+.stat-grid .stat-icon { width:40px; height:40px; border-radius:9px; }
+.stat-grid .stat-icon svg { width:18px; height:18px; }
+.stat-grid .stat-title { font-size:0.84rem; margin-bottom:0.22rem; }
+.stat-grid .stat-desc { font-size:0.77rem; line-height:1.54; }
 
 /* -- NARRATIVE HOOK -- */
 .doubt {
@@ -212,6 +262,32 @@ nav {
  display:flex; align-items:center; gap:0.7rem;
 }
 .d-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+.d-title {
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2rem,3.2vw,2.8rem);
+ font-weight:500;
+ color:var(--ink);
+ line-height:1.15;
+ letter-spacing:-0.01em;
+ margin-bottom:1.6rem;
+}
+.d-copy {
+ max-width:920px;
+ background:rgba(255,255,255,0.62);
+ border:1px solid var(--line-soft);
+ border-left:4px solid var(--gold);
+ border-radius:12px;
+ padding:2rem 2.1rem;
+ box-shadow:0 6px 22px rgba(42,37,32,0.05);
+}
+.d-paragraph {
+ font-size:0.97rem;
+ color:var(--ink-mid);
+ line-height:1.9;
+ font-weight:300;
+ margin-bottom:1.2rem;
+}
+.d-paragraph:last-child { margin-bottom:0; }
 
 .doubt-list { display:flex; flex-direction:column; margin-bottom:3.5rem; }
 .doubt-row {
@@ -241,57 +317,57 @@ nav {
 
 /* -- SIX PILLARS -- */
 .pillars {
- background:#EDD000;
- border-top:1px solid rgba(200,168,75,0.35);
- border-bottom:1px solid rgba(200,168,75,0.35);
+ background:linear-gradient(180deg,#faefbe 0%,#f5df9c 100%);
+ border-top:1px solid rgba(151,112,28,0.28);
+ border-bottom:1px solid rgba(151,112,28,0.28);
  padding:6rem 4rem;
 }
 .pil-eyebrow {
  font-size:0.6rem; letter-spacing:0.26em; text-transform:uppercase;
- color:#7A5C00; margin-bottom:0.6rem;
+ color:#7e5b12; margin-bottom:0.6rem;
  display:flex; align-items:center; gap:0.7rem;
 }
-.pil-eyebrow::before { content:''; width:28px; height:1px; background:#C8A84B; }
+.pil-eyebrow::before { content:''; width:28px; height:1px; background:#b98b25; }
 .pil-title {
  font-family:'Cormorant Garamond',serif;
  font-size:clamp(2rem,3.5vw,2.8rem);
- font-weight:400; color:#1A1400; line-height:1.18; margin-bottom:0.6rem;
+ font-weight:400; color:#2a1f08; line-height:1.18; margin-bottom:0.6rem;
 }
-.pil-title em { font-style:italic; color:#7A5C00; }
+.pil-title em { font-style:italic; color:#7e5b12; }
 .pil-sub {
- font-size:0.88rem; font-weight:300; color:#5C4A00;
+ font-size:0.88rem; font-weight:300; color:#574321;
  line-height:1.75; max-width:480px; margin-bottom:3.5rem;
 }
 .pil-list { display:flex; flex-direction:column; }
 .pil-item {
  display:grid;
  grid-template-columns:56px 200px 1fr;
- border-top:1px solid rgba(0,0,0,0.08);
+ border-top:1px solid rgba(122,92,0,0.2);
  transition:background 0.22s;
  cursor:default;
 }
-.pil-item:last-child { border-bottom:1px solid rgba(0,0,0,0.08); }
-.pil-item:hover { background:rgba(255,255,255,0.35); }
+.pil-item:last-child { border-bottom:1px solid rgba(122,92,0,0.2); }
+.pil-item:hover { background:rgba(255,255,255,0.28); }
 .pil-numeral {
  display:flex; align-items:center; justify-content:center;
  font-family:'Cormorant Garamond',serif;
  font-size:0.88rem; font-weight:400; font-style:italic;
- color:rgba(0,0,0,0.22);
- border-right:1px solid rgba(0,0,0,0.08);
+ color:rgba(86,64,22,0.4);
+ border-right:1px solid rgba(122,92,0,0.2);
  padding:2rem 0.5rem;
  transition:color 0.22s;
 }
-.pil-item:hover .pil-numeral { color:#7A5C00; }
+.pil-item:hover .pil-numeral { color:#7e5b12; }
 .pil-name {
  padding:2rem 1.75rem;
- border-right:1px solid rgba(0,0,0,0.08);
+ border-right:1px solid rgba(122,92,0,0.2);
  display:flex; flex-direction:column; justify-content:center; gap:0.25rem;
 }
-.pil-tag { font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.3); }
-.pil-name h3 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:500; color:#1A1400; }
+.pil-tag { font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(84,61,16,0.55); }
+.pil-name h3 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:500; color:#2a1f08; }
 .pil-desc { padding:2rem 3.5rem 2rem 2rem; display:flex; align-items:center; }
-.pil-desc p { font-size:0.84rem; font-weight:300; color:#4A3800; line-height:1.78; max-width:500px; }
-.pil-icon { width:18px; height:18px; stroke:#7A5C00; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-right:0.5rem; flex-shrink:0; }
+.pil-desc p { font-size:0.84rem; font-weight:300; color:#4f3b18; line-height:1.78; max-width:500px; }
+.pil-icon { width:18px; height:18px; stroke:#7e5b12; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-right:0.5rem; flex-shrink:0; }
 
 /* -- TRUST STRIP -- */
 .trust-strip {
@@ -505,6 +581,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  .hero { grid-template-columns:1fr; }
  .hero-right { display:none; }
  .hero-left { min-height:90vh; padding:5rem 1.5rem; }
+ .stat-grid { grid-template-columns:1fr; }
  .doubt,.testimonial,.cta,.serve,.how,.pillars { padding:4rem 1.5rem; }
  .pil-item { grid-template-columns:44px 1fr; }
  .pil-desc { display:none; }
@@ -574,8 +651,8 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 <section class="hero">
  <div class="hero-left">
  <div class="hero-eyebrow">The Second Lens</div>
- <h1>Trust, confirmed<br><em>quietly.</em></h1>
- <p class="hero-tagline">Dignity, preserved entirely.</p>
+ <h1>Why is Verification<br>Necessary.</h1>
+ <p class="hero-tagline">Confidentiality Assured.</p>
  <div class="scroll-hint">
  <div class="scroll-line"></div>
  Scroll to explore
@@ -583,7 +660,12 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="hero-right">
  <div class="stat-group">
- <!-- Row 1 -->
+ <div class="stat-copy">
+ <div class="stat-kicker">Verification matters</div>
+ <p>Marriage has always meant to be a lifelong commitment. In the modern digital environment, personal and professional information can be easily misrepresented. Families often rely on profile declarations regarding employment, income, education, and social standing without independent validation. In many cases, even critical information such as a prior marriage may not be disclosed before the wedding.</p>
+ <p>There can be any number of surprises after the vows are exchanged. Personality differences, personal habits, financial responsibilities, social habits, and family values may prove difficult to adjust to.</p>
+ <p>These discrepancies often emerge only after marriage, when emotional, social, and legal consequences become significantly more complex. Our organisation helps provide maximum clarity before a commitment is made.</p>
+ <div class="stat-grid">
  <div class="stat-row">
  <div class="stat-icon">
  <svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -593,7 +675,6 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="stat-desc">Aadhaar-linked verification. Are they who they say they are - confirmed through official channels.</div>
  </div>
  </div>
- <!-- Row 2 -->
  <div class="stat-row">
  <div class="stat-icon">
  <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 12v4"/><path d="M10 14h4"/></svg>
@@ -603,7 +684,6 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="stat-desc">Identity, employment, legal history, financial overview, social media, and consent - each independently confirmed.</div>
  </div>
  </div>
- <!-- Row 3 -->
  <div class="stat-row">
  <div class="stat-icon">
  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -613,7 +693,6 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="stat-desc">Written consent required. The subject sees the same report you do. Data deleted in 90 days.</div>
  </div>
  </div>
- <!-- Row 4 -->
  <div class="stat-row">
  <div class="stat-icon">
  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
@@ -625,24 +704,6 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  </div>
  </div>
-</section>
-
-<!-- NARRATIVE HOOK -->
-<section class="doubt">
- <div class="doubt-inner">
- <div class="d-label fade">What families are told - and what they deserve to know</div>
- <div class="doubt-list">
- <div class="doubt-row">
- <div class="doubt-glyph">?</div>
- <div class="doubt-text">His family said he is a <em>senior engineer.</em></div>
- </div>
- <div class="doubt-row">
- <div class="doubt-glyph">?</div>
- <div class="doubt-text">They said his <em>record is clean.</em></div>
- </div>
- </div>
- <div class="doubt-close fade">
- <p>You would like to <strong>know</strong> - not just <em>believe.</em></p>
  </div>
  </div>
 </section>
@@ -652,7 +713,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  <div class="fade">
  <p class="pil-eyebrow">What we confirm</p>
  <h2 class="pil-title">Six pillars.<br>No <em>surveillance.</em></h2>
- <p class="pil-sub">Every check is conducted ethically, with consent, through legitimate sources. We surface what is on record. We do not invent stories.</p>
+ <p class="pil-sub">Every check is conducted ethically, with consent, through legitimate sources. We surface what is on record. We do not make assumptions/p>
  </div>
  <div class="pil-list fade">
  <div class="pil-item">
@@ -685,7 +746,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="pil-desc">
  <svg class="pil-icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
- <p>Court records, FIRs, civil litigation. We extract what is on public record. We do not invent stories.</p>
+ <p>Court records, FIRs, civil litigation. We extract what is on public record. We do not make assumptions.</p>
  </div>
  </div>
  <div class="pil-item">
@@ -756,7 +817,7 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
 <section class="how">
  <div class="how-header fade">
  <p class="sec-eyebrow">How it works</p>
- <h2 class="sec-title">Six steps, in <em>clear order.</em></h2>
+ <h2 class="sec-title">The six steps</h2>
  <p class="sec-sub">Most verifications complete in 5-10 working days, depending on scope.</p>
  </div>
  <div class="steps-grid fade">
@@ -862,8 +923,8 @@ footer { background:var(--bg-dark); padding:4rem 4rem 2rem; }
  </div>
  <div class="cta-inner fade">
  <div class="cta-eye">When you're ready</div>
- <h2>Begin the<br><em>verification.</em></h2>
- <p class="cta-sub">Written consent required &nbsp;-&nbsp; Report in 5-7 business days &nbsp;-&nbsp; ?5,999</p>
+ <h2>Begin the<br>verification.<h2>
+ <p class="cta-sub">Written consent required &nbsp;-&nbsp; Report in 5-7 business days &nbsp;-&nbsp; INR 2999 onwards</p>
  <a href="begin.html" class="cta-btn">
  Start a verification
  <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
@@ -961,8 +1022,7 @@ const statObs = new IntersectionObserver(entries => {
  }
  });
 }, { threshold: 0.1 });
-const sg = document.querySelector('.stat-group');
-if (sg) statObs.observe(sg);
+document.querySelectorAll('.stat-group').forEach(sg => statObs.observe(sg));
 
 const serveObs = new IntersectionObserver(entries => {
  entries.forEach(e => {

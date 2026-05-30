@@ -1066,20 +1066,6 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  object-fit: contain;
  display: block;
 }
-.comic-badge {
- position: absolute;
- top: 0.7rem;
- left: 0.7rem;
- font-size: 0.58rem;
- letter-spacing: 0.12em;
- text-transform: uppercase;
- color: #fff;
- background: rgba(26,22,16,0.72);
- border: 1px solid rgba(255,255,255,0.25);
- padding: 0.28rem 0.5rem;
- border-radius: 999px;
- z-index: 2;
-}
 .comic-arrow {
  position: absolute;
  top: 50%;
@@ -1140,6 +1126,482 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  .trust-marquee {
   animation: none;
  }
+}
+
+/* ============================
+   KISMAT CHATBOT
+   ============================ */
+.kismat-launcher {
+ position: fixed;
+ bottom: 24px;
+ right: 24px;
+ width: 62px;
+ height: 62px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ z-index: 9998;
+ box-shadow: 0 10px 30px rgba(138, 110, 32, 0.38), 0 2px 8px rgba(0,0,0,0.12);
+ transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+ border: 2px solid rgba(255, 248, 220, 0.4);
+}
+.kismat-launcher:hover {
+ transform: translateY(-3px) scale(1.05);
+ box-shadow: 0 14px 38px rgba(138, 110, 32, 0.5), 0 4px 12px rgba(0,0,0,0.15);
+}
+.kismat-launcher svg {
+ width: 26px;
+ height: 26px;
+ z-index: 2;
+ position: relative;
+ stroke: #fff;
+ fill: none;
+ stroke-width: 1.8;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+.kismat-launcher::before {
+ content: '';
+ position: absolute;
+ inset: -2px;
+ border-radius: 50%;
+ background: rgba(200, 168, 75, 0.5);
+ animation: kismatPulse 2.4s ease-out infinite;
+ z-index: 1;
+}
+@keyframes kismatPulse {
+ 0% { transform: scale(1); opacity: 0.65; }
+ 100% { transform: scale(1.7); opacity: 0; }
+}
+.kismat-launcher-label {
+ position: absolute;
+ right: 74px;
+ top: 50%;
+ transform: translateY(-50%) translateX(8px);
+ background: #1A1610;
+ color: #fff;
+ font-size: 0.72rem;
+ letter-spacing: 0.04em;
+ padding: 0.5rem 0.9rem;
+ border-radius: 8px;
+ white-space: nowrap;
+ opacity: 0;
+ transition: all 0.25s;
+ pointer-events: none;
+ font-family: 'DM Sans', sans-serif;
+ font-weight: 500;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.kismat-launcher-label::after {
+ content: '';
+ position: absolute;
+ right: -5px;
+ top: 50%;
+ transform: translateY(-50%) rotate(45deg);
+ width: 8px;
+ height: 8px;
+ background: #1A1610;
+}
+.kismat-launcher:hover .kismat-launcher-label {
+ opacity: 1;
+ transform: translateY(-50%) translateX(0);
+}
+.kismat-launcher.hidden {
+ transform: scale(0);
+ opacity: 0;
+ pointer-events: none;
+}
+.kismat-launcher-badge {
+ position: absolute;
+ top: -2px;
+ right: -2px;
+ width: 18px;
+ height: 18px;
+ background: #E8828A;
+ color: #fff;
+ border-radius: 50%;
+ font-size: 0.62rem;
+ font-weight: 700;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 2px solid #FDFAF0;
+ z-index: 3;
+ font-family: 'DM Sans', sans-serif;
+}
+
+.kismat-widget {
+ position: fixed;
+ bottom: 24px;
+ right: 24px;
+ width: 380px;
+ max-width: calc(100vw - 32px);
+ height: 580px;
+ max-height: calc(100vh - 48px);
+ background: #FDFAF0;
+ border-radius: 18px;
+ box-shadow: 0 24px 64px rgba(42, 37, 32, 0.22), 0 4px 16px rgba(0,0,0,0.08);
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
+ z-index: 9999;
+ border: 1px solid rgba(200, 168, 75, 0.25);
+ transform: translateY(20px) scale(0.95);
+ opacity: 0;
+ pointer-events: none;
+ transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+ font-family: 'DM Sans', sans-serif;
+}
+.kismat-widget.open {
+ transform: translateY(0) scale(1);
+ opacity: 1;
+ pointer-events: auto;
+}
+
+.kismat-header {
+ background: linear-gradient(135deg, #1A1610 0%, #2A2520 100%);
+ color: #fff;
+ padding: 1rem 1.25rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: relative;
+ flex-shrink: 0;
+}
+.kismat-header::after {
+ content: '';
+ position: absolute;
+ left: 0; right: 0; bottom: 0;
+ height: 2px;
+ background: linear-gradient(90deg, transparent 0%, #C8A84B 50%, transparent 100%);
+}
+.kismat-header-left {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+}
+.kismat-avatar {
+ position: relative;
+ width: 42px;
+ height: 42px;
+ flex-shrink: 0;
+}
+.kismat-avatar-img {
+ width: 100%;
+ height: 100%;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 2px solid rgba(200, 168, 75, 0.4);
+ overflow: hidden;
+}
+.kismat-avatar-img svg {
+ width: 26px;
+ height: 26px;
+}
+.kismat-status-dot {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ width: 11px;
+ height: 11px;
+ background: #4CAF50;
+ border: 2px solid #1A1610;
+ border-radius: 50%;
+}
+.kismat-name {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.2rem;
+ font-weight: 600;
+ letter-spacing: 0.01em;
+ line-height: 1.1;
+}
+.kismat-role {
+ font-size: 0.68rem;
+ color: rgba(255,255,255,0.65);
+ letter-spacing: 0.03em;
+ margin-top: 3px;
+ display: flex;
+ align-items: center;
+ gap: 0.35rem;
+}
+.kismat-online-dot {
+ display: inline-block;
+ width: 6px;
+ height: 6px;
+ background: #4CAF50;
+ border-radius: 50%;
+ animation: kismatOnline 2s ease-in-out infinite;
+}
+@keyframes kismatOnline {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0.4; }
+}
+.kismat-close {
+ background: rgba(255,255,255,0.08);
+ border: none;
+ color: rgba(255,255,255,0.75);
+ width: 32px;
+ height: 32px;
+ border-radius: 50%;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 0.2s;
+}
+.kismat-close:hover {
+ background: rgba(255,255,255,0.16);
+ color: #fff;
+}
+.kismat-close svg {
+ width: 16px;
+ height: 16px;
+ stroke: currentColor;
+ fill: none;
+ stroke-width: 2;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+
+.kismat-messages {
+ flex: 1;
+ overflow-y: auto;
+ overflow-x: hidden;
+ padding: 1.25rem 1rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.65rem;
+ background:
+  linear-gradient(180deg, #FDFAF0 0%, #FBF7E8 100%);
+ scrollbar-width: thin;
+ scrollbar-color: rgba(200,168,75,0.35) transparent;
+}
+.kismat-messages::-webkit-scrollbar { width: 5px; }
+.kismat-messages::-webkit-scrollbar-thumb { background: rgba(200,168,75,0.35); border-radius: 4px; }
+.kismat-messages::-webkit-scrollbar-track { background: transparent; }
+
+.kismat-msg {
+ display: flex;
+ gap: 0.5rem;
+ align-items: flex-end;
+ max-width: 88%;
+ animation: kismatMsgIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes kismatMsgIn {
+ from { opacity: 0; transform: translateY(8px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+.kismat-msg.bot { align-self: flex-start; }
+.kismat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+.kismat-msg-avatar {
+ width: 28px;
+ height: 28px;
+ border-radius: 50%;
+ flex-shrink: 0;
+ background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid rgba(200, 168, 75, 0.3);
+}
+.kismat-msg-avatar svg {
+ width: 18px;
+ height: 18px;
+}
+.kismat-msg.user .kismat-msg-avatar { display: none; }
+
+.kismat-bubble {
+ padding: 0.7rem 0.95rem;
+ border-radius: 14px;
+ font-size: 0.86rem;
+ line-height: 1.5;
+ word-wrap: break-word;
+ word-break: break-word;
+}
+.kismat-msg.bot .kismat-bubble {
+ background: #fff;
+ color: #2A2520;
+ border: 1px solid rgba(200,168,75,0.18);
+ border-bottom-left-radius: 4px;
+ box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.kismat-msg.user .kismat-bubble {
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border-bottom-right-radius: 4px;
+ box-shadow: 0 2px 6px rgba(138, 110, 32, 0.2);
+}
+.kismat-msg.bot .kismat-bubble strong { color: #8A6E20; font-weight: 600; }
+.kismat-msg.bot .kismat-bubble em { color: #8A6E20; font-style: italic; }
+.kismat-bubble-time {
+ font-size: 0.62rem;
+ opacity: 0.55;
+ margin-top: 0.3rem;
+ letter-spacing: 0.04em;
+ font-weight: 400;
+}
+
+.kismat-quick-replies {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem;
+ margin-top: 0.15rem;
+ align-self: flex-start;
+ max-width: 88%;
+ padding-left: 36px;
+ animation: kismatMsgIn 0.4s ease 0.1s both;
+}
+.kismat-quick-reply {
+ background: #fff;
+ border: 1px solid rgba(200,168,75,0.4);
+ color: #8A6E20;
+ padding: 0.45rem 0.9rem;
+ border-radius: 20px;
+ font-size: 0.76rem;
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-family: 'DM Sans', sans-serif;
+}
+.kismat-quick-reply:hover {
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border-color: #8A6E20;
+ transform: translateY(-1px);
+ box-shadow: 0 4px 10px rgba(138, 110, 32, 0.22);
+}
+
+.kismat-typing {
+ padding: 0 1rem 0.5rem;
+ display: flex;
+ gap: 0.5rem;
+ align-items: flex-end;
+}
+.kismat-typing-bubble {
+ background: #fff;
+ border: 1px solid rgba(200,168,75,0.18);
+ padding: 0.75rem 0.9rem;
+ border-radius: 14px;
+ border-bottom-left-radius: 4px;
+ display: flex;
+ gap: 4px;
+ align-items: center;
+}
+.kismat-typing-bubble span {
+ width: 6px;
+ height: 6px;
+ background: #C8A84B;
+ border-radius: 50%;
+ opacity: 0.4;
+ animation: kismatTyping 1.4s ease-in-out infinite;
+}
+.kismat-typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+.kismat-typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes kismatTyping {
+ 0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+ 30% { opacity: 1; transform: translateY(-4px); }
+}
+
+.kismat-input-area {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.85rem 1rem;
+ background: #fff;
+ border-top: 1px solid rgba(200,168,75,0.15);
+ flex-shrink: 0;
+}
+.kismat-input-area input {
+ flex: 1;
+ border: 1px solid rgba(200,168,75,0.28);
+ background: #FDFAF0;
+ border-radius: 22px;
+ padding: 0.65rem 1rem;
+ font-size: 0.86rem;
+ font-family: 'DM Sans', sans-serif;
+ color: #2A2520;
+ outline: none;
+ transition: border-color 0.2s, background 0.2s;
+ min-width: 0;
+}
+.kismat-input-area input::placeholder { color: #9A8E7F; }
+.kismat-input-area input:focus {
+ border-color: #C8A84B;
+ background: #fff;
+}
+.kismat-input-area input:disabled {
+ opacity: 0.6;
+ cursor: not-allowed;
+}
+.kismat-input-area button {
+ width: 38px;
+ height: 38px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border: none;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ transition: all 0.2s;
+}
+.kismat-input-area button:hover:not(:disabled) {
+ transform: scale(1.05);
+ box-shadow: 0 4px 12px rgba(138, 110, 32, 0.35);
+}
+.kismat-input-area button:disabled {
+ opacity: 0.5;
+ cursor: not-allowed;
+ transform: none;
+}
+.kismat-input-area button svg {
+ width: 16px;
+ height: 16px;
+ stroke: currentColor;
+ fill: none;
+ stroke-width: 1.8;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+
+.kismat-footer {
+ text-align: center;
+ padding: 0.55rem;
+ font-size: 0.62rem;
+ letter-spacing: 0.06em;
+ color: #9A8E7F;
+ background: #fff;
+ border-top: 1px solid rgba(200,168,75,0.08);
+ flex-shrink: 0;
+}
+.kismat-footer strong { color: #8A6E20; font-weight: 600; }
+
+@media (max-width: 480px) {
+ .kismat-widget {
+  width: calc(100vw - 16px);
+  height: calc(100vh - 32px);
+  max-height: calc(100vh - 32px);
+  bottom: 8px;
+  right: 8px;
+  border-radius: 14px;
+ }
+ .kismat-launcher {
+  bottom: 16px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+ }
+ .kismat-launcher-label { display: none; }
 }
 
 /* RESPONSIVE */
@@ -1287,7 +1749,28 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="fade-in">
  <p class="section-eyebrow">Simple - Private - Dignified</p>
  <h2 class="section-title">How MyTrueMatch works</h2>
- <p class="section-sub">No awkward conversations. No guesswork. Just three expert-led reports delivered with complete discretion.</p>
+ <p class="section-sub">We provide a technology-driven premarital compatibility and risk assessment tool that helps you:</p>
+ <div style="display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:flex-start;margin:1.2em 0 1.2em 0;">
+   <div style="display:flex;align-items:center;gap:0.6em;">
+     <span style="display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;background:rgba(200,168,75,0.13);border-radius:50%;margin-right:0.5em;">
+       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A6E20" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+     </span>
+     <span>Understand compatibility</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.6em;">
+     <span style="display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;background:rgba(200,168,75,0.13);border-radius:50%;margin-right:0.5em;">
+       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A6E20" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+     </span>
+     <span>Identify potential conflict areas</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.6em;">
+     <span style="display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;background:rgba(200,168,75,0.13);border-radius:50%;margin-right:0.5em;">
+       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A6E20" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+     </span>
+     <span>Gain clarity before commitment</span>
+   </div>
+ </div>
+ <p class="section-sub" style="margin-top:0.5em;">By investing 15–20 minutes of your time, the result you get may go a long way in shaping your future happiness!</p>
  <p class="section-subtitle">Psychometric Compatibility</p>
  </div>
  <div class="steps-grid fade-in">
@@ -1309,7 +1792,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-number">03</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
  <h3>Receive your full reports</h3>
- <p>An explanatory and detailed comprehensive document shared privately with you - giving both families the ground on which to have meaningful conversations.</p>
+ <p>A detailed, comprehensive, and explanatory document shared privately with you — providing both families with a foundation for meaningful conversations.</p>
  <div class="step-note">Both reports sent in under 10 minutes</div>
  </div>
  </div>
@@ -1329,7 +1812,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-card">
  <div class="step-number">02</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
- <h3>Specialists conduct thorough checks</h3>
+ <h3>Our team conducts a thorough check</h3>
  <p>Our verification experts perform comprehensive background checks across multiple parameters</p>
  <div class="step-note">Delivered within 5-7 business days</div>
  </div>
@@ -1351,21 +1834,22 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-number">01</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
  <h3>Share birth details</h3>
- <p>Provide accurate birth date, time, and place for both partners to generate precise horoscopes</p>
+ <p>Provide accurate birth date, time, and place of both partners to generate precise horoscopes</p>
  <div class="step-note">Accurate to the minute</div>
  </div>
  <div class="step-card">
  <div class="step-number">02</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
- <h3>Vedic Astrologer experts interpret charts</h3>
- <p>Renowned astrologers analyze planetary placements, dashas, and guna milan to deliver informed compatibility assessments.</p>
+ <h3> Vedic Astrologers interpret your chart</h3>
+ <p>Our astrologers study your horoscope to check compatibility, harmony, and future together.
+They also analyze planetary influences affecting married life and relationships.</p>
  <div class="step-note">Traditional wisdom to evaluate compatibility</div>
  </div>
  <div class="step-card">
  <div class="step-number">03</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
  <h3>Receive detailed astrological report</h3>
- <p>Get comprehensive horoscope matching results with explanations and recommendations from experts</p>
+ <p>Get comprehensive horoscope match interpretations with explanations and recommendations from our experts</p>
  <div class="step-note">Rooted in tradition, explained clearly</div>
  </div>
  </div>
@@ -1515,7 +1999,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  </div>
  <div class="horoscope-hero-content">
   <div class="spend-hero-kicker">The Irony of marriages</div>
-  <h2 class="spend-hero-title">Spending Lakhs on the wedding.<br>Not even a fraction on checking  suitablity of the match.</h2>
+  <h2 class="spend-hero-title">Spending Lakhs on the wedding,<br>not even a fraction of it on checking  <span style="color:#fff; font-weight:700; font-style:italic;">suitability</span> of the match.</h2>
   <p class="spend-hero-sub">Families routinely spend lakhs on the wedding day, yet almost nothing on knowing the person more deeply before the commitment. The comparison below makes that imbalance hard to ignore.</p>
   <div class="spend-table" role="table" aria-label="Wedding spending versus due diligence spending">
    <div class="spend-row" role="row">
@@ -1554,11 +2038,11 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <!-- CTA -->
 <section class="cta-section">
  <div class="fade-in">
- <h2>When you're ready,<br><em>we'll be here.</em></h2>
+ <h2>Are you ready?<br>Proceed further by clicking below.</h2>
  <div class="cta-actions">
- <a href="#" class="btn-primary">Begin the conversation ?</a>
+ <a href="#" class="btn-primary">Sign up / Login</a>
  </div>
- <p class="cta-note">Proudly servering the world from Bangalore, India</p>
+ <p class="cta-note">Proudly servering the globe from Bangalore, India</p>
  </div>
 </section>
 
@@ -1566,15 +2050,14 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <section class="stories-section" id="stories">
  <div class="stories-head fade-in">
   <div>
-   <p class="section-eyebrow">Real Stories in Panels</p>
-   <h2 class="section-title">Stories...,<br><em>frame by frame.</em></h2>
+   <p class="section-eyebrow">See typical stories below</p>
   </div>
-  <p class="stories-sub">A quick visual narrative of how clarity builds confidence before marriage.</p>
+  <p class="stories-sub">A quick visual narrative of how clarity can help before marriage.</p>
  </div>
  <div class="comic-carousel fade-in" aria-label="MyTrueMatch comic carousel">
   <div class="comic-track" id="comicTrack">
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_29 PM.png" alt="Comic panel 1" loading="lazy"></figure>
-     <figure class="comic-slide"><span class="comic-badge">Coming soon</span><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_32 PM.png" alt="Comic panel 2" loading="lazy"></figure>
+     <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_32 PM.png" alt="Comic panel 2" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_35 PM.png" alt="Comic panel 3" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_41 PM.png" alt="Comic panel 4" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_44 PM.png" alt="Comic panel 5" loading="lazy"></figure>
@@ -1640,6 +2123,61 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  </div>
  </div>
 </footer>
+
+<!-- ============================
+     KISMAT CHATBOT
+     ============================ -->
+<div class="kismat-launcher" id="kismatLauncher" role="button" aria-label="Open chat with Kismat" tabindex="0">
+ <svg viewBox="0 0 24 24">
+  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+ </svg>
+ <span class="kismat-launcher-badge" id="kismatBadge">1</span>
+ <span class="kismat-launcher-label">Chat with Kismat</span>
+</div>
+
+<div class="kismat-widget" id="kismatWidget" aria-hidden="true" role="dialog" aria-label="Chat with Kismat">
+ <div class="kismat-header">
+  <div class="kismat-header-left">
+   <div class="kismat-avatar">
+    <div class="kismat-avatar-img">
+     <!-- Lotus / K monogram -->
+     <svg viewBox="0 0 32 32" fill="none">
+      <path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/>
+      <path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/>
+      <circle cx="16" cy="14" r="1.6" fill="#FFF9C4"/>
+     </svg>
+    </div>
+    <span class="kismat-status-dot"></span>
+   </div>
+   <div>
+    <div class="kismat-name">Kismat</div>
+    <div class="kismat-role"><span class="kismat-online-dot"></span> MyTrueMatch Assistant</div>
+   </div>
+  </div>
+  <button class="kismat-close" id="kismatClose" aria-label="Close chat">
+   <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+ </div>
+ <div class="kismat-messages" id="kismatMessages" aria-live="polite"></div>
+ <div class="kismat-typing" id="kismatTyping" style="display:none;">
+  <div class="kismat-msg-avatar">
+   <svg viewBox="0 0 32 32" fill="none">
+    <path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/>
+    <path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/>
+   </svg>
+  </div>
+  <div class="kismat-typing-bubble"><span></span><span></span><span></span></div>
+ </div>
+ <form class="kismat-input-area" id="kismatForm" autocomplete="off">
+  <input type="text" id="kismatInput" placeholder="Type your reply..." aria-label="Your message" maxlength="200">
+  <button type="submit" id="kismatSend" aria-label="Send message">
+   <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+  </button>
+ </form>
+ <div class="kismat-footer">
+  Powered by <strong>MyTrueMatch</strong> &nbsp;·&nbsp; Private &amp; Secure
+ </div>
+</div>
 
 <script>
 function setLens(idx, tabEl) {
@@ -1721,6 +2259,294 @@ const observer = new IntersectionObserver((entries) => {
  });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ============================
+   KISMAT CHATBOT LOGIC
+   ============================ */
+(function() {
+ const launcher = document.getElementById('kismatLauncher');
+ const widget = document.getElementById('kismatWidget');
+ const closeBtn = document.getElementById('kismatClose');
+ const messagesEl = document.getElementById('kismatMessages');
+ const typingEl = document.getElementById('kismatTyping');
+ const form = document.getElementById('kismatForm');
+ const input = document.getElementById('kismatInput');
+ const badge = document.getElementById('kismatBadge');
+
+ if (!launcher || !widget) return;
+
+ // Conversation state
+ const state = {
+  step: 0, // 0=greeting, 1=name, 2=email, 3=phone, 4=interest, 5=done
+  lead: { name: '', email: '', phone: '', interest: '', timestamp: '' },
+  started: false,
+  busy: false // prevents input while bot is "typing"
+ };
+
+ const botAvatarSVG = '<svg viewBox="0 0 32 32" fill="none"><path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/><path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/><circle cx="16" cy="14" r="1.6" fill="#FFF9C4"/></svg>';
+
+ function getTime() {
+  const d = new Date();
+  let h = d.getHours();
+  const m = String(d.getMinutes()).padStart(2, '0');
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return h + ':' + m + ' ' + ampm;
+ }
+
+ function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+ }
+
+ function scrollToBottom() {
+  setTimeout(function() {
+   messagesEl.scrollTop = messagesEl.scrollHeight;
+  }, 60);
+ }
+
+ function showTyping() {
+  typingEl.style.display = 'flex';
+  scrollToBottom();
+ }
+ function hideTyping() {
+  typingEl.style.display = 'none';
+ }
+
+ function addMsg(html, sender, options) {
+  options = options || {};
+  const msg = document.createElement('div');
+  msg.className = 'kismat-msg ' + sender;
+  let inner = '';
+  if (sender === 'bot') {
+   inner += '<div class="kismat-msg-avatar">' + botAvatarSVG + '</div>';
+  }
+  inner += '<div class="kismat-bubble">' + html + '<div class="kismat-bubble-time">' + getTime() + '</div></div>';
+  msg.innerHTML = inner;
+  messagesEl.appendChild(msg);
+
+  if (options.quickReplies && options.quickReplies.length) {
+   const qr = document.createElement('div');
+   qr.className = 'kismat-quick-replies';
+   options.quickReplies.forEach(function(reply) {
+    const btn = document.createElement('button');
+    btn.className = 'kismat-quick-reply';
+    btn.type = 'button';
+    btn.textContent = reply;
+    btn.addEventListener('click', function() {
+     // Remove all quick reply groups after a choice
+     document.querySelectorAll('.kismat-quick-replies').forEach(function(g) { g.remove(); });
+     handleUserInput(reply);
+    });
+    qr.appendChild(btn);
+   });
+   messagesEl.appendChild(qr);
+  }
+
+  scrollToBottom();
+ }
+
+ function botSay(html, options, delay) {
+  delay = (typeof delay === 'number') ? delay : 750;
+  state.busy = true;
+  input.disabled = true;
+  showTyping();
+  setTimeout(function() {
+   hideTyping();
+   addMsg(html, 'bot', options);
+   state.busy = false;
+   input.disabled = false;
+   if (widget.classList.contains('open')) {
+    setTimeout(function() { input.focus(); }, 50);
+   }
+  }, delay);
+ }
+
+ // Validators
+ function isValidName(name) {
+  const trimmed = name.trim();
+  // Allow letters, spaces, dots, apostrophes, hyphens — including Indic/diacritic ranges
+  return /^[A-Za-z\u00C0-\u024F\u0900-\u097F\s.'-]{2,50}$/.test(trimmed) && trimmed.length >= 2;
+ }
+
+ function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+ }
+
+ function isValidPhone(phone) {
+  const cleaned = phone.replace(/[\s\-+()]/g, '');
+  // Indian: optional 91, then 10 digits starting 6-9
+  return /^(91)?[6-9]\d{9}$/.test(cleaned);
+ }
+
+ function normalizePhone(phone) {
+  return phone.replace(/[\s\-+()]/g, '').replace(/^91/, '');
+ }
+
+ function firstName(full) {
+  return full.trim().split(/\s+/)[0];
+ }
+
+ // Conversation flow
+ function startConversation() {
+  if (state.started) return;
+  state.started = true;
+
+  setTimeout(function() {
+   botSay("🙏 Namaste! I'm <strong>Kismat</strong>, your guide at MyTrueMatch.", null, 500);
+  }, 300);
+
+  setTimeout(function() {
+   botSay("I'd love to connect you with our team. May I know your <strong>good name</strong>, please?", null, 800);
+   state.step = 1;
+  }, 1700);
+ }
+
+ function handleUserInput(rawText) {
+  if (state.busy) return;
+  const text = rawText.trim();
+  if (!text) return;
+
+  addMsg(escapeHtml(text), 'user');
+
+  switch (state.step) {
+   case 1: // Collecting name
+    if (!isValidName(text)) {
+     botSay("Apologies, that doesn't look like a name. Could you please share your name using letters only? 🌸");
+     return;
+    }
+    state.lead.name = text;
+    botSay("Lovely to meet you, <strong>" + escapeHtml(firstName(text)) + "</strong>! ✨<br><br>Could you please share your <strong>email address</strong> so we can send you details?");
+    state.step = 2;
+    break;
+
+   case 2: // Collecting email
+    if (!isValidEmail(text)) {
+     botSay("Hmm, that doesn't look like a valid email. Could you please share it in the format <em>name@example.com</em>?");
+     return;
+    }
+    state.lead.email = text.toLowerCase();
+    botSay("Thank you! 📞<br><br>Now, could you share your <strong>mobile number</strong>? It will help our team reach out to you faster.");
+    state.step = 3;
+    break;
+
+   case 3: // Collecting phone
+    if (!isValidPhone(text)) {
+     botSay("That number doesn't look complete. Could you please share a valid <strong>10-digit Indian mobile number</strong>? 📱");
+     return;
+    }
+    state.lead.phone = normalizePhone(text);
+    botSay("Wonderful, " + escapeHtml(firstName(state.lead.name)) + "! 🌟<br><br>One last thing — what brings you to MyTrueMatch today?", {
+     quickReplies: ['Compatibility', 'Verification', 'Horoscope Matching', 'All Three Services']
+    });
+    state.step = 4;
+    break;
+
+   case 4: // Collecting interest
+    state.lead.interest = text;
+    state.lead.timestamp = new Date().toISOString();
+    botSay("Thank you so much, <strong>" + escapeHtml(firstName(state.lead.name)) + "</strong>! 🙏<br><br>We've noted your interest in <strong>" + escapeHtml(text) + "</strong>. A member of our team will reach out to you shortly on <strong>+91 " + escapeHtml(state.lead.phone) + "</strong>.");
+    saveLead();
+    state.step = 5;
+    setTimeout(function() {
+     botSay("Meanwhile, feel free to explore our services. Have a blessed day! 🌺", {
+      quickReplies: ['Start over', 'Close chat']
+     }, 1600);
+    }, 2400);
+    break;
+
+   case 5: // Post-completion
+    const lower = text.toLowerCase();
+    if (lower.indexOf('start') !== -1 || lower.indexOf('over') !== -1 || lower.indexOf('again') !== -1) {
+     resetConversation();
+    } else if (lower.indexOf('close') !== -1 || lower.indexOf('bye') !== -1 || lower.indexOf('thank') !== -1) {
+     botSay("Thank you for connecting with us! 🙏 Our team will be in touch soon. You may close this chat whenever you're ready.");
+    } else {
+     botSay("Thank you for your message! Our team has been notified and will respond shortly. Is there anything else?", {
+      quickReplies: ['Start over', 'Close chat']
+     });
+    }
+    break;
+
+   default:
+    botSay("Thank you for reaching out! Our team will respond to your query soon. 🙏");
+  }
+ }
+
+ function saveLead() {
+  // Save locally so you can retrieve leads from browser console / dev tools
+  try {
+   const leads = JSON.parse(localStorage.getItem('kismat_leads') || '[]');
+   leads.push(state.lead);
+   localStorage.setItem('kismat_leads', JSON.stringify(leads));
+  } catch (e) { /* storage may be unavailable */ }
+
+  // Log for developer visibility
+  console.log('%c[Kismat] New lead captured:', 'color:#8A6E20;font-weight:600;', state.lead);
+
+  /* ============================================
+     TO SEND LEADS TO YOUR BACKEND / CRM:
+     Uncomment and adapt the block below.
+     ============================================
+  fetch('/api/leads', {
+   method: 'POST',
+   headers: { 'Content-Type': 'application/json' },
+   body: JSON.stringify(state.lead)
+  }).catch(function(err) { console.warn('Lead send failed:', err); });
+  */
+ }
+
+ function resetConversation() {
+  state.step = 0;
+  state.lead = { name: '', email: '', phone: '', interest: '', timestamp: '' };
+  state.started = false;
+  messagesEl.innerHTML = '';
+  startConversation();
+ }
+
+ function openWidget() {
+  widget.classList.add('open');
+  widget.setAttribute('aria-hidden', 'false');
+  launcher.classList.add('hidden');
+  if (badge) badge.style.display = 'none';
+  if (!state.started) {
+   startConversation();
+  }
+  setTimeout(function() { input.focus(); }, 350);
+ }
+
+ function closeWidget() {
+  widget.classList.remove('open');
+  widget.setAttribute('aria-hidden', 'true');
+  launcher.classList.remove('hidden');
+ }
+
+ launcher.addEventListener('click', openWidget);
+ launcher.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWidget(); }
+ });
+ closeBtn.addEventListener('click', closeWidget);
+
+ form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (state.busy) return;
+  const text = input.value;
+  if (text.trim()) {
+   handleUserInput(text);
+   input.value = '';
+  }
+ });
+
+ // Show badge until first interaction
+ if (badge) {
+  setTimeout(function() {
+   if (!state.started) {
+    badge.style.display = 'flex';
+   }
+  }, 1000);
+ }
+})();
 </script>
 </body>
 </html>

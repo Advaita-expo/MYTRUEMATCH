@@ -58,10 +58,10 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .bundle-section{padding:5rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line)}
 
 /* PRICING GRID */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;align-items:stretch}
 
 /* CARD */
-.pc{border:1.5px solid rgba(200,168,75,0.2);border-radius:16px;padding:2.25rem;background:var(--bg);position:relative;transition:all 0.28s;display:flex;flex-direction:column}
+.pc{border:1.5px solid rgba(200,168,75,0.2);border-radius:16px;padding:2.25rem;background:var(--bg);position:relative;transition:all 0.28s;display:flex;flex-direction:column;height:100%}
 .pc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 48px rgba(200,168,75,0.1)}
 .pc.featured{border-color:var(--gold);background:var(--bg-dark);box-shadow:0 8px 40px rgba(0,0,0,0.14)}
 .pc-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:0.56rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:0.3rem 1.2rem;border-radius:100px;white-space:nowrap}
@@ -74,11 +74,27 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 
 .pc-name{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;font-weight:500}
 .pc.featured .pc-name{color:var(--gold)}
-.pc-price{font-family:'Cormorant Garamond',serif;font-size:3.1rem;font-weight:400;color:var(--ink);line-height:1;margin-bottom:0.35rem}
+.pc-price{font-family:'Cormorant Garamond',serif;font-size:3.1rem;font-weight:400;color:var(--ink);line-height:1;margin-bottom:0.35rem;min-height:6.2rem;display:flex;align-items:flex-start}
 .pc.featured .pc-price{color:#fff}
 .pc-price sup{font-size:1.1rem;vertical-align:top;margin-top:0.5rem;display:inline-block;font-family:'DM Sans',sans-serif;font-weight:300}
-.pc-period{font-size:0.76rem;color:var(--ink-faint);margin-bottom:0.75rem;font-weight:300;line-height:1.55}
+.pc-price .pc-rs-main{font-family:'DM Sans',sans-serif;font-size:0.56em;font-weight:400;display:inline-block;vertical-align:baseline;margin-right:0.14em}
+.pc-price .pc-amount{display:inline-flex;align-items:baseline;gap:0.01em;color:var(--ink-faint)}
+.pc-price .pc-amount .pc-rs-main{margin-right:0.01em;color:inherit}
+.pc-price .pc-price-stack{display:flex;flex-direction:column;line-height:0.94}
+.pc-price .pc-note{font-family:'DM Sans',sans-serif;font-size:0.34em;font-weight:500;letter-spacing:0.08em;color:var(--ink-light);margin-top:0.32rem;line-height:1.05}
+.pc-price-horo{display:flex;flex-direction:column;justify-content:flex-start;gap:0.28rem}
+.pc-price-horo .pc-amount{display:inline-flex;align-items:baseline;gap:0.01em;color:var(--ink-faint)}
+.pc-price-horo .pc-rs-main{margin-right:0.01em;color:inherit}
+.pc-price-range{display:flex;flex-direction:column;justify-content:flex-start;font-size:2.12rem;line-height:1.14;letter-spacing:-0.01em;padding-top:0.1rem;gap:0.08rem}
+.pc-price-range .pc-price-line{display:block;white-space:nowrap;line-height:1.08}
+.pc-price-range .pc-rs{font-family:'DM Sans',sans-serif;font-size:0.56em;font-weight:400;display:inline-block;vertical-align:baseline;margin-right:0.14em}
+.pc-price-range .pc-amount{display:inline-flex;align-items:baseline;gap:0.01em;color:var(--ink-faint)}
+.pc-price-range .pc-amount .pc-rs{margin-right:0.01em;color:inherit}
+.pc-price-range .pc-qual{font-family:'DM Sans',sans-serif;font-size:0.42em;font-weight:400;letter-spacing:0.01em;color:var(--ink-light);margin-left:0.12em}
+.pc-period{font-size:0.76rem;color:var(--ink-faint);margin-bottom:0.75rem;font-weight:300;line-height:1.55;min-height:2.45rem;display:flex;align-items:flex-start}
 .pc.featured .pc-period{color:rgba(255,255,255,0.35)}
+.pc-period-strong{color:var(--ink);font-weight:600}
+.pc-accent-saffron{color:#C47000;white-space:nowrap}
 
 /* TIMING BADGE */
 .pc-timing{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.63rem;font-weight:500;letter-spacing:0.06em;color:var(--gold-dark);background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.25);padding:0.22rem 0.7rem;border-radius:100px;margin-bottom:1.25rem}
@@ -103,6 +119,30 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .pc.featured .pc-btn{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .pc.featured .pc-btn:hover{background:#EDD000;border-color:#EDD000;transform:translateY(-1px)}
 
+/* BUNDLE CARDS */
+.pc-bundle{padding:2rem;border-color:rgba(200,168,75,0.14);box-shadow:none}
+.pc-bundle:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,168,75,0.08)}
+.pc-bundle .pc-icon{width:44px;height:44px;margin-bottom:1.35rem;background:rgba(200,168,75,0.08);border-color:rgba(200,168,75,0.16)}
+.pc-bundle .pc-name{margin-bottom:0.55rem}
+.pc-bundle .pc-price{min-height:auto;font-size:2.7rem;line-height:1.02;margin-bottom:1rem;letter-spacing:-0.02em}
+.pc-bundle .pc-period{min-height:4.8rem;color:var(--ink-mid);font-weight:400;line-height:1.6;margin-bottom:1rem}
+.pc-bundle .pc-period-strong{color:var(--ink-mid);font-weight:500}
+.pc-bundle .pc-divider{margin:1rem 0 1.15rem;background:rgba(200,168,75,0.12)}
+.pc-bundle .pc-features{gap:0.85rem;margin-bottom:1.6rem}
+.pc-bundle .pc-feature{font-size:0.78rem;line-height:1.5;color:var(--ink-mid)}
+.pc-bundle .pc-btn{padding:0.9rem;border-radius:10px;background:rgba(255,255,255,0.45)}
+.pc-bundle.featured{background:linear-gradient(180deg,#241d12 0%,#1c1710 100%);border-color:rgba(200,168,75,0.45);box-shadow:0 14px 36px rgba(26,22,16,0.16)}
+.pc-bundle.featured .pc-badge{top:-16px;background:#D4B04C;color:#2A2216;box-shadow:0 8px 18px rgba(200,168,75,0.18)}
+.pc-bundle.featured .pc-name{color:#D4B04C}
+.pc-bundle.featured .pc-price{color:#FFF9EC}
+.pc-bundle.featured .pc-period,.pc-bundle.featured .pc-period-strong{color:rgba(255,248,236,0.72)}
+.pc-bundle.featured .pc-divider{background:rgba(255,255,255,0.08)}
+.pc-bundle.featured .pc-feature{color:rgba(255,248,236,0.78)}
+.pc-bundle.featured .pc-check{background:rgba(212,176,76,0.14);border-color:rgba(212,176,76,0.34)}
+.pc-bundle.featured .pc-check svg{stroke:#D4B04C}
+.pc-bundle.featured .pc-btn{background:#D4B04C;border-color:#D4B04C;color:#241d12}
+.pc-bundle.featured .pc-btn:hover{background:#E0BE62;border-color:#E0BE62}
+
 /* COMMITMENT */
 .commitment{background:var(--bg);padding:4.5rem 4rem;border-top:1px solid var(--line)}
 .commitment-inner{max-width:660px;margin:0 auto;text-align:center}
@@ -117,7 +157,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .contact-link.msg{color:var(--gold-dark)}.contact-link.msg:hover{color:var(--gold)}
 
 /* WHAT'S INCLUDED */
-.whats-included{background:var(--bg-yellow);border-top:1px solid rgba(200,168,75,0.4);border-bottom:1px solid rgba(200,168,75,0.4);padding:5rem 4rem}
+.whats-included{background:#F2DF99;border-top:1px solid rgba(200,168,75,0.4);border-bottom:1px solid rgba(200,168,75,0.4);padding:5rem 4rem}
 .wi-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:#7A5C00;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.7rem}
 .wi-eyebrow::before{content:'';width:24px;height:1px;background:#C8A84B}
 .wi-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:#1A1400;line-height:1.15;margin-bottom:2.75rem}
@@ -256,26 +296,26 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   <div class="pricing-grid fi">
 
     <!-- Compatibility -->
-    <div class="pc">
+    <div class="pc pc-bundle">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg>
       </div>
       <div class="pc-name">Compatibility</div>
-      <div class="pc-price"><sup>&#8377;</sup>2,999</div>
-      <div class="pc-period">A psychometric mirror &#8212; ten dimensions, no checklist.</div>
+      <div class="pc-price"><span class="pc-amount"><span class="pc-rs-main">₹</span>2,999</span></div>
+      <div class="pc-period pc-period-strong">A psychometric mirror &#8212; 10 dimensions.</div>
       <div class="pc-timing">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Report in 3 business days
+        Report in 10 minutes
       </div>
       <div class="pc-divider"></div>
       <ul class="pc-features">
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Full Psychometric Compatibility Report</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Psychometric Compatibility Report</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>10-dimension analysis</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Friction Risk Index with explainer</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Conversation starter guide</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>DPDP Act 2023 compliant</li>
       </ul>
-      <a href="begin.html" class="pc-btn">Begin Compatibility &#8594;</a>
+      <a href="begin.html" class="pc-btn">Begin Psychometric Test &#8594;</a>
     </div>
 
     <!-- Verification -->
@@ -284,8 +324,11 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
       </div>
       <div class="pc-name">Verification</div>
-      <div class="pc-price"><sup>&#8377;</sup>5,999</div>
-      <div class="pc-period">Trust, confirmed quietly. Six pillars. Mutual consent.</div>
+      <div class="pc-price pc-price-range">
+        <span class="pc-price-line">from <span class="pc-amount"><span class="pc-rs">₹</span>2,999</span> <span class="pc-qual">(Basic)</span></span>
+        <span class="pc-price-line">to <span class="pc-amount"><span class="pc-rs">₹</span>9,999</span> <span class="pc-qual">(Advanced)</span></span>
+      </div>
+      <div class="pc-period pc-period-strong">Customised packages available</div>
       <div class="pc-timing">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         Report in 5&#8211;7 business days
@@ -307,11 +350,11 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       </div>
       <div class="pc-name">Horoscope</div>
-      <div class="pc-price"><sup>&#8377;</sup>5,999</div>
-      <div class="pc-period">A thorough Kundali reading &#8212; twelve to sixteen written pages.</div>
+      <div class="pc-price pc-price-horo"><span class="pc-amount"><span class="pc-rs-main">₹</span>1,499</span><span class="pc-note">onwards</span></div>
+      <div class="pc-period pc-period-strong">A thorough Kundali reading &#8212; <span class="pc-accent-saffron">Live video session</span>.</div>
       <div class="pc-timing">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        5&#8211;7 days &nbsp;&#183;&nbsp; video consult included
+        Instant Reports &nbsp;&#183;&nbsp; Video consult
       </div>
       <div class="pc-divider"></div>
       <ul class="pc-features">
@@ -321,7 +364,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>30-minute video consultation with astrologer</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Written in English with original references</li>
       </ul>
-      <a href="begin.html" class="pc-btn">Begin Horoscope &#8594;</a>
+      <a href="begin.html" class="pc-btn">Book appointment &#8594;</a>
     </div>
 
   </div>
@@ -330,44 +373,40 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <!-- BUNDLE SECTION -->
 <section class="bundle-section">
   <div class="sec-head fi">
-    <p class="sec-eyebrow">Or combine two or three &#8212; at a saving</p>
-    <h2 class="sec-title">Or as a bundle.<br><em>Three packages.</em></h2>
-    <p class="sec-sub">Two or three pillars, together.</p>
+    <p class="sec-eyebrow">Save More</p>
+    <h2 class="sec-title">As a bundle<br><em>Three packages</em></h2>
+    <p class="sec-sub">Structured bundles for different levels of depth and clarity</p>
   </div>
 
   <div class="pricing-grid fi">
 
     <!-- Essential -->
-    <div class="pc">
+    <div class="pc pc-bundle">
       <div class="pc-icon">
-        <svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="5" y="4" width="11" height="15" rx="2"/><path d="M9 9h3.5"/><path d="M9 13h5.5"/><path d="M9 17h4.5"/><path d="M16 7l3 3v9a2 2 0 0 1-2 2H9"/></svg>
       </div>
       <div class="pc-name">Essential</div>
-      <div class="pc-price"><sup>&#8377;</sup>4,999</div>
-      <div class="pc-period">For couples who want the clarity of psychometric compatibility, alone.</div>
+      <div class="pc-price">Rs.4,999</div>
+      <div class="pc-period pc-period-strong">For couples who value the clarity of psychometric compatibility.</div>
       <div class="pc-divider"></div>
       <ul class="pc-features">
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Full Psychometric Compatibility Report &#8212; 18 to 24 pages</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Psychometric Compatibility Report &#8212; 18 to 24 pages</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>10-dimension analysis</li>
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Friction Risk Index with explainer</li>
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Conversation starter guide</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Friction Risk Index, with explanation</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Assessment based advice</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>30 min horoscope session</li>
       </ul>
-      <div class="pc-timing" style="margin-bottom:1.25rem">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Report in 3 business days
-      </div>
       <a href="begin.html" class="pc-btn">Choose Essential &#8594;</a>
     </div>
 
-    <!-- Complete FEATURED -->
-    <div class="pc featured">
-      <div class="pc-badge">&#9670; Most chosen</div>
+    <!-- Complete -->
+    <div class="pc pc-bundle">
       <div class="pc-icon">
-        <svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/><path d="M12 2l2 5h5l-4 3 1.5 5L12 13l-4.5 2 1.5-5-4-3h5z" stroke-width="1.2"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
       </div>
       <div class="pc-name">Complete</div>
-      <div class="pc-price"><sup>&#8377;</sup>9,999</div>
-      <div class="pc-period">For families who want the science and the facts. Most who write to us choose this.</div>
+      <div class="pc-price">Rs.7,999</div>
+      <div class="pc-period pc-period-strong">For families who want science and the facts. Most of our clients choose this package.</div>
       <div class="pc-divider"></div>
       <ul class="pc-features">
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Everything in Essential</li>
@@ -376,34 +415,24 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Consent management handled by our team</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Separate confidential reports for each party</li>
       </ul>
-      <div class="pc-timing" style="margin-bottom:1.25rem">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Reports in 5&#8211;7 business days
-      </div>
       <a href="begin.html" class="pc-btn">Choose Complete &#8594;</a>
     </div>
 
     <!-- Premium -->
-    <div class="pc">
+    <div class="pc pc-bundle">
       <div class="pc-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L19 9.5l-3.9 3.1 1.2 5L12 15.2 7.7 17.6l1.2-5L5 9.5l5.1-1.9L12 3z"/></svg>
       </div>
       <div class="pc-name">Premium</div>
-      <div class="pc-price"><sup>&#8377;</sup>14,999</div>
-      <div class="pc-period">The complete picture. Science, facts, and the wisdom of Jyotish &#8212; for families who want nothing left to chance.</div>
+      <div class="pc-price">Rs.14,999</div>
+      <div class="pc-period pc-period-strong">The complete picture. Science, facts, and the wisdom of Jyotish &#8212; for families who want nothing left to chance.</div>
       <div class="pc-divider"></div>
       <ul class="pc-features">
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Everything in Complete</li>
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Full Kundali reading by a senior Vedic astrologer</li>
+        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Full Kundali reading by a senior Vedic astrologer (90 min video)</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Ashtakoot, Dosha, Dasha, and Navamsa analysis</li>
         <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Personalised remedy guidance</li>
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>30-minute video consultation with the astrologer</li>
-        <li class="pc-feature"><span class="pc-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Priority support &#183; 24-hour response</li>
       </ul>
-      <div class="pc-timing" style="margin-bottom:1.25rem">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Reports in 5&#8211;7 business days
-      </div>
       <a href="begin.html" class="pc-btn">Choose Premium &#8594;</a>
     </div>
 
@@ -415,7 +444,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   <div class="commitment-inner">
     <p class="sec-eyebrow">Our commitment</p>
     <h2 class="sec-title" style="margin-bottom:1rem">If the work falls short of what<br>we promised, <em>we will make it right.</em></h2>
-    <p style="font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.88;margin-bottom:1.25rem">Tell us within seven days of delivery. We will review your case and, where the concern is valid, offer a revised report or a full refund.</p>
+    <p style="font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.88;margin-bottom:1.25rem">Tell us within seven days of delivery. We will review your case and, where the concern is valid, offer a revised report.</p>
     <p style="font-size:0.82rem;font-weight:300;color:var(--ink-faint);line-height:1.78">We do not offer refunds for simple disagreement with findings. Our reports reflect genuine assessment &#8212; they are not designed to confirm what you hope to hear.</p>
   </div>
 </section>
@@ -424,7 +453,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <section class="questions fi">
   <div class="questions-inner">
     <p class="sec-eyebrow">Questions?</p>
-    <h2 class="sec-title" style="margin-bottom:0.75rem">Talk to our <em>concierge.</em></h2>
+    <h2 class="sec-title" style="margin-bottom:0.75rem">Talk to  <em>Customer Support.</em></h2>
     <p style="font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.85">A real person reads every message. We respond within 24 hours, Monday to Saturday.</p>
     <div class="contact-row">
       <a href="tel:+918527430999" class="contact-link phone">
@@ -443,7 +472,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <!-- WHAT'S INCLUDED -->
 <section class="whats-included fi">
   <div class="wi-eyebrow">What every report includes</div>
-  <h2 class="wi-title">Human expertise.<br><em>Written clearly.</em></h2>
+  <h2 class="wi-title">Clear concise<br><em>explanation</em></h2>
   <div class="wi-grid">
 
     <div class="wi-item">
@@ -467,7 +496,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       </div>
       <div class="wi-item-title">Horoscope Report</div>
-      <div class="wi-item-desc">Ashtakoot, Dosha, Dasha, Navamsa &#8212; read by a senior Jyotish astrologer with 15+ years of practice. A 12&#8211;16 page written report, not a computer printout.</div>
+      <div class="wi-item-desc">Ashtakoot, Dosha, Dasha, Navamsa &#8212; read by a senior Jyotish astrologer with 15+ years of practice. A 5&#8211;7 page report, not just a computer printout.</div>
     </div>
 
   </div>
@@ -526,7 +555,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 
     <div class="faq-item">
       <div class="faq-q">Who writes the reports?<div class="faq-q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div>
-      <div class="faq-a">Every report is written by a verified human expert &#8212; a NIMHANS-trained psychologist, a UIDAI-compliant verification specialist, or a Jyotish astrologer with 15+ years of practice. No AI. No templates.</div>
+      <div class="faq-a">Every report is written by qualified professional psychologists including Certified Prepare-Enrich professionals.</div>
     </div>
 
     <div class="faq-item">

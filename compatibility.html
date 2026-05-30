@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html 
+lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
 <style>
 :root{
   --bg:#FDFAF0;--bg-soft:#FBF7E0;--bg-accent:#FFF9C4;--bg-yellow:#EDD000;
-  --bg-dark:#1A1610;--gold:#C8A84B;--gold-dark:#8A6E20;--gold-pale:#F0E0A0;
+  --bg-dark:#1A1610;--bg-dark-accent:#23201a;--gold:#C8A84B;--gold-dark:#8A6E20;--gold-pale:#F0E0A0;
   --rose:#E8828A;--ink:#2A2520;--ink-mid:#4A4238;--ink-light:#7A6E5F;
   --ink-faint:#9A8E7F;--line:rgba(200,168,75,0.18);--line-soft:rgba(200,168,75,0.1);
 }
@@ -38,7 +39,7 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 /* --- HERO --- */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 
-.hero-left{background:linear-gradient(to bottom,rgba(26,22,16,0.85) 0%,rgba(26,22,16,0.78) 100%),url('271f1c55-30d6-457e-bb17-ca1f019810f7.png') center/cover no-repeat;padding:5.5rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-left{background:linear-gradient(to bottom,rgba(26,22,16,0.72) 0%,rgba(26,22,16,0.62) 100%),url('271f1c55-30d6-457e-bb17-ca1f019810f7.png') center/cover no-repeat;padding:4.9rem 4rem 6.1rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
 /* dot grid bg */
 .hero-left::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.1) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;animation:gridFade 1.5s ease forwards}
 @keyframes gridFade{from{opacity:0}to{opacity:1}}
@@ -49,22 +50,22 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .h-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:0.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards}
+.hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-0.02em;margin-bottom:0.5rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.3s ease forwards;text-shadow:0 3px 18px rgba(0,0,0,0.45)}
 .hero-left h1 em{font-style:italic;color:var(--gold)}
 
-.hero-sub-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:1.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.42s ease forwards;line-height:1.5}
+.hero-sub-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.78);margin-bottom:1.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.42s ease forwards;line-height:1.5;text-shadow:0 2px 12px rgba(0,0,0,0.35)}
 
-.hero-tagline{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.9;max-width:380px;margin-bottom:2.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.52s ease forwards}
+.hero-tagline{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.72);line-height:1.9;max-width:380px;margin-bottom:2.75rem;position:relative;z-index:1;opacity:0;animation:slideUp 0.8s 0.52s ease forwards;text-shadow:0 2px 10px rgba(0,0,0,0.32)}
 
 .hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:3rem;opacity:0;animation:slideUp 0.7s 0.62s ease forwards}
 .btn-cta-gold{display:inline-flex;align-items:center;gap:0.65rem;background:var(--gold);color:var(--bg-dark);padding:0.9rem 2.2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;border-radius:8px;text-decoration:none;transition:all 0.25s}
 .btn-cta-gold:hover{background:var(--gold-pale);transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,168,75,0.35)}
 .btn-cta-gold svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.btn-outline-light{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.42);font-size:0.8rem;letter-spacing:0.05em;text-decoration:none;border:1px solid rgba(200,168,75,0.2);padding:0.9rem 1.6rem;border-radius:8px;transition:all 0.22s}
+.btn-outline-light{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.8);font-size:0.8rem;letter-spacing:0.05em;text-decoration:none;border:1px solid rgba(200,168,75,0.34);padding:0.9rem 1.6rem;border-radius:8px;transition:all 0.22s}
 .btn-outline-light:hover{color:#fff;border-color:rgba(200,168,75,0.5)}
 
 .hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative;z-index:1;opacity:0;animation:slideUp 0.7s 0.72s ease forwards}
-.trust-pill{display:flex;align-items:center;gap:0.45rem;font-size:0.67rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.trust-pill{display:flex;align-items:center;gap:0.45rem;font-size:0.67rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.68)}
 .trust-pill svg{width:12px;height:12px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .trust-dot{width:3px;height:3px;border-radius:50%;background:rgba(200,168,75,0.3)}
 
@@ -85,119 +86,126 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .stat-desc{font-size:0.76rem;font-weight:300;color:var(--ink-light);line-height:1.65}
 
 /* --- ABOUT / WHY --- */
-.why-section{padding:7rem 4rem;background:var(--bg);position:relative;overflow:hidden}
-.why-section::before{content:'"';position:absolute;top:-2rem;left:2rem;font-family:'DM Serif Display',serif;font-size:22rem;color:rgba(200,168,75,0.05);line-height:1;pointer-events:none;user-select:none}
-.why-inner{max-width:800px;position:relative}
-.sec-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
-.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.18;margin-bottom:1.25rem}
+.why-section{padding:8rem 5rem;background:var(--bg);position:relative;overflow:hidden}
+.why-section::before{content:'"';position:absolute;top:-2.5rem;left:2rem;font-family:'DM Serif Display',serif;font-size:24rem;color:rgba(200,168,75,0.04);line-height:1;pointer-events:none;user-select:none;font-weight:300}
+.why-inner{max-width:880px;position:relative}
+.sec-eyebrow{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.8rem;font-weight:500}
+.sec-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.015em}
 .sec-title em{font-style:italic;color:var(--gold-dark)}
-.why-text{font-size:0.9rem;font-weight:300;color:var(--ink-light);line-height:1.9;max-width:700px;margin-bottom:1.5rem}
-.why-quote{margin-top:2.5rem;padding:1.5rem 1.75rem;border-left:3px solid var(--gold);background:rgba(200,168,75,0.05);border-radius:0 8px 8px 0}
-.why-quote p{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;font-style:italic;color:var(--ink-mid);line-height:1.8}
+.why-text{font-size:0.95rem;font-weight:300;color:var(--ink-light);line-height:1.95;max-width:760px;margin-bottom:1.75rem}
+.why-quote{margin-top:3rem;padding:2rem 2.25rem;background:linear-gradient(135deg,rgba(200,168,75,0.1),rgba(255,255,255,0.82));border:1px solid rgba(200,168,75,0.3);border-left:4px solid var(--gold);border-radius:12px;box-shadow:0 8px 24px rgba(42,37,32,0.06);position:relative;max-width:860px}
+.why-quote::before{content:'"';position:absolute;top:0.55rem;left:1.1rem;font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;color:rgba(200,168,75,0.55)}
+.why-quote p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;font-style:italic;color:var(--bg-dark);line-height:1.8;padding-left:1.25rem}
 
 /* --- APPROACH --- */
-.approach-section{padding:5rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line)}
-.approach-header{margin-bottom:3.5rem}
-.approach-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.18;margin-bottom:0.6rem}
+.approach-section{padding:7rem 5rem;background:var(--bg-soft);border-top:1px solid var(--line)}
+.approach-header{margin-bottom:4.5rem}
+.approach-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.8rem;letter-spacing:-0.015em}
 .approach-title em{font-style:italic;color:var(--gold-dark)}
-.approach-lead{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;font-style:italic;color:var(--gold-dark);margin-bottom:1rem}
-.approach-sub{font-size:0.88rem;font-weight:300;color:var(--ink-light);line-height:1.85;max-width:660px;margin-bottom:3rem}
+.approach-lead{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;font-style:italic;color:var(--gold-dark);margin-bottom:1.25rem;line-height:1.4}
+.approach-sub{font-size:0.95rem;font-weight:300;color:var(--ink-light);line-height:1.9;max-width:720px;margin-bottom:3.5rem}
 
 /* Problem / Solution grid */
-.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
-.ps-card{padding:2rem;border:1px solid var(--line);border-radius:14px;background:#fff;position:relative;overflow:hidden}
-.ps-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:2px 2px 0 0}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
+.ps-card{padding:2.5rem;border:1px solid var(--line);border-radius:16px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(42,37,32,0.04);transition:all 0.3s ease}
+.ps-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(42,37,32,0.08)}
+.ps-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:2px 2px 0 0}
 .ps-card.problem::before{background:linear-gradient(90deg,#E8828A,#F0A0A8)}
 .ps-card.solution::before{background:linear-gradient(90deg,#C8A84B,#EDD000)}
-.ps-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
-.ps-label svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ps-label{font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem}
+.ps-label svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ps-card.problem .ps-label{color:#C86070}
 .ps-card.solution .ps-label{color:var(--gold-dark)}
-.ps-card h4{font-size:0.85rem;font-weight:500;color:var(--ink);margin-bottom:0.85rem}
-.ps-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.ps-list li{font-size:0.8rem;font-weight:300;color:var(--ink-light);line-height:1.6;padding-left:1rem;border-left:2px solid var(--line);transition:border-color 0.2s}
+.ps-card h4{font-size:0.92rem;font-weight:600;color:var(--ink);margin-bottom:1rem;letter-spacing:0.01em}
+.ps-list{list-style:none;display:flex;flex-direction:column;gap:0.65rem;flex:1}
+.ps-list li{font-size:0.86rem;font-weight:300;color:var(--ink-light);line-height:1.7;padding-left:1.25rem;border-left:2px solid var(--line);transition:border-color 0.2s}
 .ps-card.problem .ps-list li{border-left-color:rgba(232,130,138,0.25)}
 .ps-card.solution .ps-list li{border-left-color:rgba(200,168,75,0.25)}
-.ps-outcome{font-size:0.8rem;font-weight:500;margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--line)}
+.ps-outcome{font-size:0.86rem;font-weight:500;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line)}
 .ps-card.problem .ps-outcome{color:#C86070}
 .ps-card.solution .ps-outcome{color:var(--gold-dark)}
 
 /* Benefits strip */
-.benefits-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,168,75,0.15);border:1px solid rgba(200,168,75,0.2);border-radius:12px;overflow:hidden}
-.benefit-item{background:rgba(255,255,255,0.6);padding:1.5rem;text-align:center;transition:background 0.2s}
-.benefit-item:hover{background:rgba(255,255,255,0.9)}
-.benefit-icon{width:36px;height:36px;border-radius:9px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 0.6rem}
-.benefit-icon svg{width:18px;height:18px;stroke:var(--gold-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.benefit-label{font-size:0.72rem;font-weight:500;color:var(--ink-mid)}
+.benefits-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,168,75,0.15);border:1px solid rgba(200,168,75,0.2);border-radius:14px;overflow:hidden}
+.benefit-item{background:rgba(255,255,255,0.6);padding:2rem 1.75rem;text-align:center;transition:all 0.25s}
+.benefit-item:hover{background:rgba(255,255,255,0.95);transform:translateY(-2px)}
+.benefit-icon{width:40px;height:40px;border-radius:10px;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;transition:all 0.25s}
+.benefit-item:hover .benefit-icon{transform:scale(1.08);background:rgba(200,168,75,0.18)}
+.benefit-icon svg{width:20px;height:20px;stroke:var(--gold-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.benefit-label{font-size:0.78rem;font-weight:600;color:var(--ink-mid);letter-spacing:0.01em}
 
 /* --- FRAMEWORK BOX --- */
-.framework-section{padding:0 4rem 5rem}
-.framework-box{background:var(--bg-dark);border-radius:18px;padding:3.5rem;display:grid;grid-template-columns:1fr 2fr;gap:3.5rem;align-items:start;position:relative;overflow:hidden}
-.framework-box::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(rgba(200,168,75,0.08),transparent);pointer-events:none}
-.fw-label{font-size:0.56rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:500;display:flex;align-items:center;gap:0.5rem}
-.fw-label::before{content:'';width:20px;height:1px;background:var(--gold)}
-.fw-title{font-family:'DM Serif Display',serif;font-size:1.45rem;font-weight:400;color:#fff;line-height:1.4;margin-bottom:1.5rem}
-.fw-checks{display:flex;flex-direction:column;gap:0.65rem}
-.fw-check{font-size:0.76rem;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.6rem}
-.fw-check svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.fw-pcsi-tag{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem;display:block}
-.fw-desc{font-size:0.86rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.88;margin-bottom:1.25rem}
-.fw-sub{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.82}
+.framework-section{padding:0 5rem 7rem}
+.framework-box{background:var(--bg-dark);border-radius:20px;padding:4rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.15)}
+.framework-box::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(rgba(200,168,75,0.1),transparent);pointer-events:none}
+.fw-label{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;font-weight:600;display:flex;align-items:center;gap:0.6rem}
+.fw-label::before{content:'';width:24px;height:1px;background:var(--gold)}
+.fw-title{font-family:'DM Serif Display',serif;font-size:1.6rem;font-weight:400;color:#fff;line-height:1.35;margin-bottom:1.75rem;letter-spacing:-0.01em}
+.fw-checks{display:flex;flex-direction:column;gap:0.8rem}
+.fw-check{font-size:0.82rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:0.75rem;line-height:1.5}
+.fw-check svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fw-pcsi-tag{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.85rem;display:block}
+.fw-desc{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:1.5rem}
+.fw-sub{font-size:0.86rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.85}
+.cert-note{max-width:900px;margin:-4.1rem auto 2.8rem;padding:1.1rem 1.4rem 1.1rem 1.35rem;background:linear-gradient(115deg,rgba(200,168,75,0.08),rgba(255,255,255,0.82));border:1px solid rgba(200,168,75,0.26);border-left:4px solid var(--gold);border-radius:10px;box-shadow:0 8px 22px rgba(42,37,32,0.06)}
+.cert-note-title{font-size:0.9rem;color:var(--gold-dark);font-weight:600;letter-spacing:0.01em}
+.cert-note-text{font-size:0.88rem;color:var(--ink-mid);line-height:1.65;font-weight:400}
 
 /* --- DIMENSIONS --- */
-.dimensions-section{background:var(--bg-dark);padding:7rem 0;position:relative;overflow:hidden}
-.dimensions-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 8% 55%,rgba(200,168,75,0.06) 0%,transparent 55%);pointer-events:none}
-.dim-header{padding:0 4rem;margin-bottom:4rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
-.dim-eyebrow{font-size:0.6rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.7rem}
-.dim-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
-.dim-main-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:400;color:#fff;line-height:1.15}
+.dimensions-section{background:var(--bg-dark);padding:8rem 0;position:relative;overflow:hidden}
+.dimensions-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 8% 55%,rgba(200,168,75,0.08) 0%,transparent 55%);pointer-events:none}
+.dim-header{padding:0 5rem;margin-bottom:5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:3rem}
+.dim-eyebrow{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;font-weight:500}
+.dim-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.dim-main-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:400;color:#fff;line-height:1.15;letter-spacing:-0.015em}
 .dim-main-title em{font-style:italic;color:var(--gold)}
-.dim-header-note p{font-size:0.84rem;font-weight:300;color:rgba(255,255,255,0.3);line-height:1.78;max-width:340px;text-align:right}
-.dim-item{display:grid;grid-template-columns:72px 210px 1fr;border-top:1px solid rgba(255,255,255,0.05);transition:background 0.25s;cursor:default}
+.dim-header-note p{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.85;max-width:380px;text-align:right}
+.dim-item{display:grid;grid-template-columns:80px 240px 1fr;border-top:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease;cursor:default}
 .dim-item:last-child{border-bottom:1px solid rgba(255,255,255,0.05)}
-.dim-item:hover{background:rgba(255,255,255,0.025)}
-.dim-numeral{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.18);border-right:1px solid rgba(255,255,255,0.05);padding:2.5rem 1rem;transition:color 0.25s}
-.dim-item:hover .dim-numeral{color:var(--gold)}
-.dim-name{padding:2.5rem 2rem 2.5rem 2.5rem;border-right:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;justify-content:center;gap:0.3rem}
-.dim-icon-wrap{width:32px;height:32px;border-radius:8px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem}
-.dim-icon-wrap svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.dim-tag{font-size:0.54rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(200,168,75,0.55)}
-.dim-name h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:#fff;line-height:1.15}
-.dim-desc{padding:2.5rem 4rem 2.5rem 2.5rem;display:flex;align-items:center}
-.dim-desc p{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.36);line-height:1.85;max-width:540px}
-.dim-desc p em{font-size:0.72rem;color:rgba(255,255,255,0.22);font-style:italic}
+.dim-item:hover{background:rgba(255,255,255,0.03);transform:translateX(4px)}
+.dim-numeral{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.2);border-right:1px solid rgba(255,255,255,0.05);padding:3rem 1rem;transition:all 0.3s}
+.dim-item:hover .dim-numeral{color:var(--gold);transform:scale(1.08)}
+.dim-name{padding:3rem 2.25rem 3rem 3rem;border-right:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;justify-content:center;gap:0.4rem}
+.dim-icon-wrap{width:36px;height:36px;border-radius:9px;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:0.65rem;transition:all 0.3s}
+.dim-item:hover .dim-icon-wrap{background:rgba(200,168,75,0.18);transform:scale(1.05)}
+.dim-icon-wrap svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dim-tag{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(200,168,75,0.6);font-weight:400}
+.dim-name h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:#fff;line-height:1.2;letter-spacing:-0.01em}
+.dim-desc{padding:3rem 5rem 3rem 3rem;display:flex;align-items:center}
+.dim-desc p{font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.9;max-width:580px}
+.dim-desc p em{font-size:0.78rem;color:rgba(255,255,255,0.25);font-style:italic}
 
 /* --- SCORE SECTION --- */
-.score-section{background:var(--bg-yellow);border-top:1px solid rgba(200,168,75,0.4);border-bottom:1px solid rgba(200,168,75,0.4);padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.score-left-eyebrow{font-size:0.58rem;letter-spacing:0.26em;text-transform:uppercase;color:#7A5C00;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
-.score-left-eyebrow::before{content:'';width:24px;height:1px;background:#C8A84B}
-.score-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.7rem);font-weight:400;color:#1A1400;line-height:1.22;margin-bottom:1.25rem}
+.score-section{background:var(--bg-yellow);border-top:1px solid rgba(200,168,75,0.4);border-bottom:1px solid rgba(200,168,75,0.4);padding:7rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.score-left-eyebrow{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:#7A5C00;margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem;font-weight:500}
+.score-left-eyebrow::before{content:'';width:28px;height:1px;background:#C8A84B}
+.score-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.2vw,2.9rem);font-weight:400;color:#1A1400;line-height:1.18;margin-bottom:1.5rem;letter-spacing:-0.015em}
 .score-left h2 em{font-style:italic;color:#7A5C00}
-.score-left p{font-size:0.86rem;font-weight:300;color:#5C4A00;line-height:1.88;max-width:380px}
-.score-example-wrap{background:rgba(255,255,255,0.58);border-radius:14px;padding:2.25rem;border:1px solid rgba(200,168,75,0.32);backdrop-filter:blur(4px)}
-.score-card-label{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A5C00;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
-.score-card-label svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.score-bars{display:flex;flex-direction:column;gap:1.6rem}
-.s-row-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.45rem}
-.s-dim-name{font-size:0.72rem;font-weight:500;color:#1A1400;letter-spacing:0.03em;display:flex;align-items:center;gap:0.4rem}
-.s-dim-name svg{width:12px;height:12px;stroke:#7A5C00;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.s-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:#1A1400}
-.s-val span{font-size:0.65rem;color:#8A6E28;font-family:'DM Sans',sans-serif;margin-left:1px}
-.s-track{height:2px;background:rgba(0,0,0,0.1);border-radius:1px;overflow:hidden;margin-bottom:0.3rem}
-.s-fill{height:100%;background:#7A5C00;border-radius:1px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
-.s-note{font-size:0.63rem;color:#8A6E28;letter-spacing:0.04em}
+.score-left p{font-size:0.92rem;font-weight:300;color:#5C4A00;line-height:1.9;max-width:420px}
+.score-example-wrap{background:rgba(255,255,255,0.65);border-radius:16px;padding:2.75rem;border:1px solid rgba(200,168,75,0.35);backdrop-filter:blur(6px);box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.score-card-label{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#7A5C00;margin-bottom:1.75rem;display:flex;align-items:center;gap:0.6rem;font-weight:500}
+.score-card-label svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.score-bars{display:flex;flex-direction:column;gap:1.75rem}
+.s-row-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.55rem}
+.s-dim-name{font-size:0.78rem;font-weight:600;color:#1A1400;letter-spacing:0.02em;display:flex;align-items:center;gap:0.45rem}
+.s-dim-name svg{width:13px;height:13px;stroke:#7A5C00;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#1A1400}
+.s-val span{font-size:0.7rem;color:#8A6E28;font-family:'DM Sans',sans-serif;margin-left:1px}
+.s-track{height:2.5px;background:rgba(0,0,0,0.1);border-radius:1.25px;overflow:hidden;margin-bottom:0.35rem}
+.s-fill{height:100%;background:#7A5C00;border-radius:1.25px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.s-note{font-size:0.68rem;color:#8A6E28;letter-spacing:0.04em;font-weight:300}
 
 /* --- TESTIMONIAL --- */
-.testimonial{padding:7rem 4rem;background:var(--bg-soft);border-top:1px solid var(--line);position:relative;overflow:hidden}
-.testimonial::before{content:'"';position:absolute;top:-1.5rem;left:2rem;font-family:'DM Serif Display',serif;font-size:22rem;color:rgba(200,168,75,0.05);line-height:1;pointer-events:none;user-select:none}
-.test-inner{max-width:720px;margin:0 auto;text-align:center;position:relative}
-.test-label{font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
-.test-label::before,.test-label::after{content:'';width:36px;height:1px;background:var(--gold)}
-.test-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.55rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.78;margin-bottom:2.5rem}
-.test-mono{width:48px;height:48px;border-radius:50%;background:var(--bg-accent);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:500;color:var(--gold-dark);margin:0 auto 0.6rem}
-.test-name{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem}
-.test-city{font-size:0.66rem;color:var(--ink-faint);letter-spacing:0.08em}
+.testimonial{padding:8rem 5rem;background:var(--bg-soft);border-top:1px solid var(--line);position:relative;overflow:hidden}
+.testimonial::before{content:'"';position:absolute;top:-2rem;left:2rem;font-family:'DM Serif Display',serif;font-size:24rem;color:rgba(200,168,75,0.05);line-height:1;pointer-events:none;user-select:none;font-weight:300}
+.test-inner{max-width:820px;margin:0 auto;text-align:center;position:relative}
+.test-label{font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:3rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;font-weight:500}
+.test-label::before,.test-label::after{content:'';width:40px;height:1px;background:var(--gold)}
+.test-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,1.9vw,1.6rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.85;margin-bottom:3rem}
+.test-mono{width:56px;height:56px;border-radius:50%;background:var(--bg-accent);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;color:var(--gold-dark);margin:0 auto 0.8rem;box-shadow:0 4px 16px rgba(200,168,75,0.12)}
+.test-name{font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:0.35rem;letter-spacing:0.01em}
+.test-city{font-size:0.72rem;color:var(--ink-faint);letter-spacing:0.1em;font-weight:300}
 
 /* --- CTA --- */
 .cta-section{background:#1a1610;border-top:1px solid var(--line);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
@@ -243,33 +251,55 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 .fi.vis{opacity:1;transform:translateY(0)}
 
 /* --- PSYCHOLOGIST CARD --- */
-.psych-card{background:#fff;border:1px solid rgba(200,168,75,0.2);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;height:100%;box-sizing:border-box;overflow-y:auto}
+.psych-card{background:#fff;border:1px solid rgba(200,168,75,0.2);border-radius:12px;padding:1.5rem 1.75rem;display:flex;flex-direction:column;gap:0.9rem;height:auto;box-sizing:border-box}
 .psych-top{display:flex;align-items:center;gap:1.25rem}
 .psych-img{width:68px;height:68px;border-radius:50%;overflow:hidden;flex-shrink:0;background:#FFF8E1;border:2px solid rgba(200,168,75,0.3);display:flex;align-items:center;justify-content:center}
 .psych-img svg{width:68px;height:68px;display:block}
 .psych-eyebrow{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.2rem}
 .psych-name{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--ink);font-weight:400;line-height:1.1}
-.psych-creds{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.4rem}
-.psych-creds span{font-size:0.63rem;padding:0.18rem 0.55rem;border-radius:4px;background:rgba(200,168,75,0.08);border:1px solid rgba(200,168,75,0.18);color:var(--gold-dark);letter-spacing:0.04em}
-.psych-bio{font-size:0.84rem;color:var(--charcoal-light);line-height:1.8}
+.psych-bio{font-size:0.9rem;color:var(--ink-mid);line-height:1.82}
 .psych-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--gold-dark);border-left:2px solid var(--gold);padding-left:1rem;line-height:1.65}
-.psych-pillars{display:flex;flex-direction:column;gap:0.55rem;padding-top:0.75rem;border-top:1px solid rgba(200,168,75,0.12)}
-.psych-pillar{display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;color:var(--charcoal-mid);font-weight:500}
-.psych-pillar svg{width:15px;height:15px;flex-shrink:0;stroke:#C8A84B;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.psych-meta{margin-top:0.6rem;padding-top:0.95rem;border-top:1px solid rgba(200,168,75,0.15);display:grid;grid-template-columns:1fr;gap:0.9rem}
+.psych-cred-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.65rem}
+.psych-cred-box{font-size:0.8rem;font-weight:600;color:var(--gold-dark);line-height:1.35;padding:0.7rem 0.85rem;border-radius:8px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.32);letter-spacing:0.01em}
+.psych-block{background:rgba(200,168,75,0.06);border:1px solid rgba(200,168,75,0.2);border-radius:10px;padding:0.95rem 1rem}
+.psych-block-title{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-dark);font-weight:600;margin-bottom:0.55rem}
+.psych-qual-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.45rem 0.85rem}
+.psych-qual-list li{font-size:0.83rem;color:var(--ink-mid);line-height:1.55;position:relative;padding-left:0.8rem}
+.psych-qual-list li::before{content:'';position:absolute;left:0;top:0.58em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.psych-note{font-size:0.9rem;color:var(--ink-mid);line-height:1.78;font-weight:700}
+.psych-note::before{content:'"'}
+.psych-note::after{content:'"'}
+.psych-note + .psych-note{margin-top:0.65rem}
+.psych-note-italic{font-style:italic;font-weight:500}
+.psych-note-light{font-weight:300;color:var(--ink-light)}
+.psych-note-light::before,.psych-note-light::after{content:none}
 
 /* --- WHAT YOU GET --- */
-.wyg-section{padding:5.5rem 4rem;background:var(--bg-dark)}
-.wyg-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.wyg-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:1.25rem}
-.wyg-title em{font-style:italic;color:var(--gold)}
-.wyg-sub{font-size:0.87rem;color:rgba(255,255,255,0.42);line-height:1.88;margin-bottom:2rem}
-.wyg-items{display:flex;flex-direction:column;gap:1.3rem}
-.wyg-item{display:flex;align-items:flex-start;gap:1rem}
-.wyg-icon{width:38px;height:38px;border-radius:9px;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.22);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wyg-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.wyg-item-title{font-size:0.88rem;font-weight:600;color:#fff;margin-bottom:0.22rem;letter-spacing:0.02em}
-.wyg-item-desc{font-size:0.79rem;color:rgba(255,255,255,0.38);line-height:1.78}
-.wyg-image-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(200,168,75,0.12)}
+.wyg-section{
+  --wyg-bg:#fff3c8;
+  --wyg-bg-soft:#f1d27a;
+  --wyg-text:#2a1f0f;
+  --wyg-muted:rgba(62,46,20,0.84);
+  --wyg-icon:rgba(168,121,16,0.16);
+  --wyg-icon-border:rgba(168,121,16,0.36);
+  --wyg-accent:#8f6209;
+  padding:7rem 5rem;
+  background:radial-gradient(circle at 78% 18%, rgba(168,121,16,0.22) 0%, transparent 45%), linear-gradient(145deg, var(--wyg-bg) 0%, var(--wyg-bg-soft) 100%);
+}
+.wyg-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.wyg-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:400;color:var(--wyg-text);line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.015em}
+.wyg-title em{font-style:italic;color:var(--wyg-accent)}
+.wyg-sub{font-size:0.95rem;color:var(--wyg-muted);line-height:1.9;margin-bottom:2.5rem}
+.wyg-items{display:flex;flex-direction:column;gap:1.75rem}
+.wyg-item{display:flex;align-items:flex-start;gap:1.25rem;transition:transform 0.25s}
+.wyg-item:hover{transform:translateX(4px)}
+.wyg-icon{width:44px;height:44px;border-radius:11px;background:var(--wyg-icon);border:1px solid var(--wyg-icon-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s}
+.wyg-item:hover .wyg-icon{transform:scale(1.08);background:rgba(168,121,16,0.26)}
+.wyg-icon svg{width:20px;height:20px;stroke:var(--wyg-accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wyg-item-title{font-size:0.95rem;font-weight:600;color:var(--wyg-text);margin-bottom:0.35rem;letter-spacing:0.01em}
+.wyg-item-desc{font-size:0.86rem;color:var(--wyg-muted);line-height:1.85}
+.wyg-image-wrap{border-radius:18px;overflow:hidden;border:1px solid rgba(143,98,9,0.3);background:rgba(255,249,231,0.94);box-shadow:0 12px 30px rgba(143,98,9,0.22)}
 .wyg-image-wrap svg{width:100%;display:block}
 
 @media(max-width:960px){
@@ -278,6 +308,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   .why-section,.approach-section,.testimonial,.cta-section,.framework-section{padding:4rem 1.5rem}
   .framework-section{padding:0 1.5rem 4rem}
   .framework-box{grid-template-columns:1fr;gap:2rem;padding:2rem}
+  .cert-note{margin:-2rem auto 2.5rem;padding:1rem 1rem 1rem 1.05rem}
+  .cert-note-title{display:block;margin-bottom:0.3rem}
+  .cert-note-text{font-size:0.84rem;line-height:1.6}
   .ps-grid,.score-section{grid-template-columns:1fr;gap:2rem}
   .benefits-strip{grid-template-columns:repeat(2,1fr)}
   .score-section{padding:4rem 1.5rem}
@@ -353,7 +386,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
       <span class="trust-dot"></span>
       <span class="trust-pill">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        &#8211;easy to understand
+        easy to understand
       </span>
       <span class="trust-dot"></span>
       <span class="trust-pill">
@@ -367,33 +400,23 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
     <div class="psych-card">
       <div class="psych-top">
         <div>
-          <div class="psych-eyebrow">Our Psychologist Team Lead</div>
-          <div class="psych-name">Drusya</div>
-          <div class="psych-creds">
-            <span>M.A. Clinical Psychology</span>
-            <span>NIMHANS-trained</span>
-            <span>7+ years practice</span>
-            <span>Gottman Level II</span>
-            <span>Prepare/Enrich Certified</span>
-          </div>
+          <div class="psych-eyebrow"> Our Lead Psychologist </div>
+          <div class="psych-name">Ms. Dhrusya Manoj</div>
         </div>
       </div>
-      <p class="psych-bio">The psychological intelligence behind the Compatibility Report - Drushya translates psychometric science into actionable, plainly-written guidance for couples and families navigating one of life's most significant decisions.</p>
-      <p class="psych-bio">Her work lies at the heart of what makes MyTrueMatch distinct: the Compatibility Report is not generated by an algorithm. It is read and written by a human psychologist who understands what it means for two people to build a life together.</p>
-      <p class="psych-bio">She assesses each couple across 11 dimensions - communication, conflict, money, family, and goals - and delivers insights with the clarity and empathy that this moment deserves.</p>
-      <div class="psych-quote">"A number gives structure. The written analysis gives language. Together, they give couples something they can hold - and return to."</div>
-      <div class="psych-pillars">
-        <div class="psych-pillar">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/></svg>
-          Psychologist-guided framework
+      <p class="psych-bio">Ms. Dhrusya Manoj is an RCI-licensed Clinical Psychologist with professional experience in the field of mental health. She specializes in Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), couple therapy, and psychological interventions for children.</p>
+      <p class="psych-bio">She is dedicated to providing compassionate, evidence-based psychological care tailored to the unique needs of individuals, couples, and children.</p>
+      <div class="psych-meta">
+        <div class="psych-cred-grid">
+          <div class="psych-cred-box">RCI-licensed Clinical Psychologist</div>
+          <div class="psych-cred-box">BA Psychology</div>
+          <div class="psych-cred-box">MSc Clinical Psychology</div>
+          <div class="psych-cred-box">MPhil Clinical Psychology</div>
         </div>
-        <div class="psych-pillar">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg>
-          Structured Compatibility Report
-        </div>
-        <div class="psych-pillar">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Designed for serious matrimonial alliances
+        <div class="psych-block">
+          <div class="psych-block-title">A Word from the Psychologist</div>
+          <p class="psych-note psych-note-italic">Premarital compatibility testing helps couples understand each other's values, expectations, emotional needs, and communication styles before marriage. The assessment encourages open communication, honesty, and emotional understanding, which can strengthen trust and reduce misunderstandings later in married life. It also helps couples develop realistic expectations about marriage and can help identify unhealthy relationship patterns and warning signs before marriage.</p>
+          <p class="psych-note psych-note-light">These assessments encourage informed decision-making, and reduce the chances of forging relationships that may become emotionally draining, toxic, or incompatible in the long term.</p>
         </div>
       </div>
     </div>
@@ -404,9 +427,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <section class="approach-section">
   <div class="approach-header fi">
     <p class="sec-eyebrow">Our approach</p>
-    <h2 class="approach-title">Helping Families Make Better<br><em>Marriage Decisions.</em></h2>
+    <h6 class="approach-title">To ensure compatibility<br><em></em></h6>
     <p class="approach-lead">Know the real person behind the profile</p>
-    <p class="approach-sub">Understand personality, emotional compatibility, communication style, values, and behavioural patterns before making one of life&#8217;s biggest decisions. By investing 15&#8211;20 minutes, the result may go a long way in shaping your future happiness.</p>
+    <p class="approach-sub">Understand personality, emotional compatibility, communication style, values, and behavioural patterns before making one of life&#8217;s biggest decisions. By investing 15&#8211;20 minutes, the result you get may go a long way in shaping your future happiness.</p>
   </div>
 
   <div class="ps-grid fi">
@@ -421,7 +444,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <li>Limited interactions between the couple</li>
         <li>Assumptions about compatibility</li>
         <li>Shared profiles without depth or context</li>
+        <li>Word of mouth (Friend/Relative)</li>
       </ul>
+      
       <p class="ps-outcome">This often leads to conflicts &#8212; discovered only after the wedding.</p>
     </div>
     <div class="ps-card solution">
@@ -435,7 +460,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <li>Behavioural insights tailored to your pairing</li>
         <li>Risk indicators and friction areas &#8212; named clearly</li>
         <li>Actionable conversation guide for both families</li>
-        <li>NIMHANS-trained psychologist, every report</li>
+        <li>Every report interpreted by an experienced psychologist</li>
       </ul>
       <p class="ps-outcome">Confidence before commitment &#8212; clarity before the wedding.</p>
     </div>
@@ -464,8 +489,119 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
       <div class="benefit-icon">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg>
       </div>
-      <div class="benefit-label">Advisory recommendations</div>
+      <div class="benefit-label">Advisory</div>
     </div>
+  </div>
+</section>
+
+<!-- --- DIMENSIONS --- -->
+<section class="dimensions-section" id="dimensions">
+  <div class="dim-header fi">
+    <div>
+      <div class="dim-eyebrow">What the report measures</div>
+      <h2 class="dim-main-title">10 Major Dimensions.<br><em></em></h2>
+    </div>
+    <div class="dim-header-note"><p>A psychologist-guided framework held up to both of you &#8212; written with clarity, not judgment. Each dimension carries a score and a full written analysis with a sample indicator question.</p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">I</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div class="dim-tag">Dimension One</div>
+      <h3>Emotional Regulation</h3>
+    </div>
+    <div class="dim-desc"><p>Direct or indirect. Expressive or contained. The single dimension that decides how a thousand small disagreements will go.<br><em style="color:var(--gold);font-style:italic">&#8220;When I am angry or hurt, I tend to react impulsively before thinking things through&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">II</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="dim-tag">Dimension Two</div>
+      <h3>Communication &amp; Conflict</h3>
+    </div>
+    <div class="dim-desc"><p>When the storm comes &#8212; and it will come &#8212; do you withdraw, escalate, accommodate, or collaborate?<br><em style="color:var(--gold);font-style:italic">&#8220;I avoid difficult conversations to prevent arguments&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">III</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="dim-tag">Dimension Three</div>
+      <h3>Financial Responsibility</h3>
+    </div>
+    <div class="dim-desc"><p>Save or spend. Joint or separate. To support parents or not. The second most common reason marriages quietly break down.<br><em style="color:var(--gold);font-style:italic">&#8220;I believe transparency about loans, debts, and liabilities is necessary before marriage&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">IV</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="dim-tag">Dimension Four</div>
+      <h3>Family &amp; Future Alignment</h3>
+    </div>
+    <div class="dim-desc"><p>How much say do in-laws have. Where will you live. Whose festivals matter more. Questions that get harder, not easier, with time.<br><em style="color:var(--gold);font-style:italic">&#8220;I believe compatibility requires continuous adjustment from both partners&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">V</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="dim-tag">Dimension 11</div>
+      <h3>Relationship Values &amp; Expectations</h3>
+    </div>
+    <div class="dim-desc"><p>Do you expect both partners to share household responsibilities? Is individual freedom important even after marriage?<br><em style="color:var(--gold);font-style:italic">&#8220;I believe family involvement should have healthy limits&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VI</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="dim-tag">Dimension Six</div>
+      <h3>Honesty &amp; Transparency</h3>
+    </div>
+    <div class="dim-desc"><p>Relationships thrive where honesty and clarity exist. In a meaningful relationship, honesty is more valuable than perfection.<br><em style="color:var(--gold);font-style:italic">&#8220;I believe that honesty is necessary even in uncomfortable situations&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VII</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <div class="dim-tag">Dimension Seven</div>
+      <h3>Attachment &amp; Emotional Security</h3>
+    </div>
+    <div class="dim-desc"><p>Emotional security creates the confidence to be vulnerable, understood, and accepted. Healthy attachment fosters trust, stability, and deeper connection.<br><em style="color:var(--gold);font-style:italic">&#8220;I find emotional closeness uncomfortable&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">VIII</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg></div>
+      <div class="dim-tag">Dimension Eight</div>
+      <h3>Love Language &amp; Affection</h3>
+    </div>
+    <div class="dim-desc"><p>Genuine affection nurtures trust, comfort, and emotional intimacy. Understanding how someone experiences love strengthens bonding and relationship satisfaction.<br><em style="color:var(--gold);font-style:italic">&#8220;I enjoy expressing affection openly through words or actions&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">IX</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <div class="dim-tag">Dimension Nine</div>
+      <h3>Sexual Compatibility &amp; Intimacy</h3>
+    </div>
+    <div class="dim-desc"><p>Lasting intimacy develops when partners feel safe, respected, and emotionally understood. Compatibility in affection and intimacy contributes to mutual fulfillment.<br><em style="color:var(--gold);font-style:italic">&#8220;I may avoid conversations related to intimacy due to embarrassment&#8221;</em></p></div>
+  </div>
+
+  <div class="dim-item">
+    <div class="dim-numeral">X</div>
+    <div class="dim-name">
+      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="dim-tag">Dimension Ten</div>
+      <h3>Substance Use &amp; Health Responsibility</h3>
+    </div>
+    <div class="dim-desc"><p>Healthy relationships are strengthened by self-awareness, balance, and responsible lifestyle choices. Mutual accountability toward health and well-being fosters long-term stability.<br><em style="color:var(--gold);font-style:italic">&#8220;I believe substance use should be openly discussed before marriage&#8221;</em></p></div>
   </div>
 </section>
 
@@ -473,9 +609,9 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
 <section class="wyg-section fi">
   <div class="wyg-inner">
     <div>
-      <p class="sec-eyebrow" style="color:var(--gold);margin-bottom:1rem">What you receive</p>
-      <h2 class="wyg-title">A complete picture,<br><em>written for your family.</em></h2>
-      <p class="wyg-sub">Specially tailored for Indian cultural dynamics globally, the PCSI serves as a premarital diagnostic tool to evaluate how couples intending to marry align across emotional, interpersonal, financial, and lifestyle domains.</p>
+      <p class="sec-eyebrow" style="color:var(--gold);margin-bottom:1rem">What you get</p>
+      <h2 class="wyg-title">A detailed assessment of the proposed alliance,<br>prepared for thoughtful consideration.</h2>
+      <p class="wyg-sub">Specially tailored for Indian cultural dynamics globally, the PCSI serves as a premarital diagnostic tool to evaluate how couples intending to marry, align across emotional, interpersonal, financial, and lifestyle domains.</p>
       <div class="wyg-items">
         <div class="wyg-item">
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
@@ -501,62 +637,62 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <div class="wyg-item">
           <div class="wyg-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div>
           <div>
-            <div class="wyg-item-title">Advisory Recommendations</div>
-            <div class="wyg-item-desc">A practical conversation guide for both families - honest, empathetic, written for this specific pairing.</div>
+            <div class="wyg-item-title">Advisory</div>
+            <div class="wyg-item-desc">A practical guide for both families - honest, empathetic, written for this specific pairing.</div>
           </div>
         </div>
       </div>
     </div>
     <div class="wyg-image-wrap">
       <svg viewBox="0 0 460 540" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="460" height="540" rx="14" fill="rgba(255,255,255,0.03)"/>
-        <rect x="28" y="36" width="404" height="468" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(200,168,75,0.18)" stroke-width="1"/>
+        <rect width="460" height="540" rx="14" fill="rgba(143,98,9,0.08)"/>
+        <rect x="28" y="36" width="404" height="468" rx="12" fill="rgba(255,249,231,0.9)" stroke="rgba(143,98,9,0.24)" stroke-width="1"/>
         <!-- Header -->
-        <rect x="48" y="58" width="140" height="8" rx="4" fill="rgba(200,168,75,0.55)"/>
-        <rect x="48" y="76" width="260" height="5" rx="2.5" fill="rgba(255,255,255,0.14)"/>
-        <rect x="48" y="89" width="200" height="5" rx="2.5" fill="rgba(255,255,255,0.09)"/>
-        <line x1="48" y1="112" x2="412" y2="112" stroke="rgba(200,168,75,0.14)" stroke-width="1"/>
+        <rect x="48" y="58" width="140" height="8" rx="4" fill="rgba(143,98,9,0.48)"/>
+        <rect x="48" y="76" width="260" height="5" rx="2.5" fill="rgba(109,82,26,0.2)"/>
+        <rect x="48" y="89" width="200" height="5" rx="2.5" fill="rgba(109,82,26,0.14)"/>
+        <line x1="48" y1="112" x2="412" y2="112" stroke="rgba(143,98,9,0.18)" stroke-width="1"/>
         <!-- Score circle -->
-        <circle cx="96" cy="166" r="40" stroke="rgba(200,168,75,0.25)" stroke-width="1.5" fill="none"/>
-        <circle cx="96" cy="166" r="40" stroke="#C8A84B" stroke-width="2.5" stroke-dasharray="210" stroke-dashoffset="45" fill="none" stroke-linecap="round" transform="rotate(-90 96 166)"/>
-        <text x="96" y="162" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="17" fill="#C8A84B" font-weight="600">87</text>
-        <text x="96" y="177" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">/100</text>
+        <circle cx="96" cy="166" r="40" stroke="rgba(143,98,9,0.28)" stroke-width="1.5" fill="none"/>
+        <circle cx="96" cy="166" r="40" stroke="#A87910" stroke-width="2.5" stroke-dasharray="210" stroke-dashoffset="45" fill="none" stroke-linecap="round" transform="rotate(-90 96 166)"/>
+        <text x="96" y="162" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="17" fill="#8F6209" font-weight="600">87</text>
+        <text x="96" y="177" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="rgba(82,61,19,0.62)">/100</text>
         <!-- Labels -->
-        <rect x="156" y="144" width="115" height="7" rx="3.5" fill="rgba(200,168,75,0.45)"/>
-        <rect x="156" y="158" width="190" height="5" rx="2.5" fill="rgba(255,255,255,0.11)"/>
-        <rect x="156" y="170" width="165" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
-        <rect x="156" y="182" width="135" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+        <rect x="156" y="144" width="115" height="7" rx="3.5" fill="rgba(143,98,9,0.4)"/>
+        <rect x="156" y="158" width="190" height="5" rx="2.5" fill="rgba(109,82,26,0.18)"/>
+        <rect x="156" y="170" width="165" height="5" rx="2.5" fill="rgba(109,82,26,0.14)"/>
+        <rect x="156" y="182" width="135" height="5" rx="2.5" fill="rgba(109,82,26,0.1)"/>
         <!-- Section label -->
-        <line x1="48" y1="222" x2="412" y2="222" stroke="rgba(200,168,75,0.08)" stroke-width="1"/>
-        <text x="48" y="242" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(255,255,255,0.3)" letter-spacing="2.5">DIMENSIONS</text>
+        <line x1="48" y1="222" x2="412" y2="222" stroke="rgba(143,98,9,0.14)" stroke-width="1"/>
+        <text x="48" y="242" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(82,61,19,0.65)" letter-spacing="2.5">DIMENSIONS</text>
         <!-- Bars -->
-        <rect x="48" y="256" width="82" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
-        <rect x="148" y="256" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
-        <rect x="148" y="256" width="188" height="5" rx="2.5" fill="#C8A84B" opacity="0.58"/>
-        <rect x="48" y="272" width="72" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
-        <rect x="148" y="272" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
-        <rect x="148" y="272" width="196" height="5" rx="2.5" fill="#C8A84B" opacity="0.52"/>
-        <rect x="48" y="288" width="92" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
-        <rect x="148" y="288" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
-        <rect x="148" y="288" width="135" height="5" rx="2.5" fill="#C8A84B" opacity="0.42"/>
-        <rect x="48" y="304" width="65" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
-        <rect x="148" y="304" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
-        <rect x="148" y="304" width="172" height="5" rx="2.5" fill="#C8A84B" opacity="0.48"/>
-        <rect x="48" y="320" width="78" height="5" rx="2.5" fill="rgba(255,255,255,0.18)"/>
-        <rect x="148" y="320" width="215" height="5" rx="2.5" fill="rgba(200,168,75,0.12)"/>
-        <rect x="148" y="320" width="152" height="5" rx="2.5" fill="#C8A84B" opacity="0.4"/>
+        <rect x="48" y="256" width="82" height="5" rx="2.5" fill="rgba(109,82,26,0.22)"/>
+        <rect x="148" y="256" width="215" height="5" rx="2.5" fill="rgba(168,121,16,0.18)"/>
+        <rect x="148" y="256" width="188" height="5" rx="2.5" fill="#A87910" opacity="0.7"/>
+        <rect x="48" y="272" width="72" height="5" rx="2.5" fill="rgba(109,82,26,0.22)"/>
+        <rect x="148" y="272" width="215" height="5" rx="2.5" fill="rgba(168,121,16,0.18)"/>
+        <rect x="148" y="272" width="196" height="5" rx="2.5" fill="#A87910" opacity="0.64"/>
+        <rect x="48" y="288" width="92" height="5" rx="2.5" fill="rgba(109,82,26,0.22)"/>
+        <rect x="148" y="288" width="215" height="5" rx="2.5" fill="rgba(168,121,16,0.18)"/>
+        <rect x="148" y="288" width="135" height="5" rx="2.5" fill="#A87910" opacity="0.52"/>
+        <rect x="48" y="304" width="65" height="5" rx="2.5" fill="rgba(109,82,26,0.22)"/>
+        <rect x="148" y="304" width="215" height="5" rx="2.5" fill="rgba(168,121,16,0.18)"/>
+        <rect x="148" y="304" width="172" height="5" rx="2.5" fill="#A87910" opacity="0.58"/>
+        <rect x="48" y="320" width="78" height="5" rx="2.5" fill="rgba(109,82,26,0.22)"/>
+        <rect x="148" y="320" width="215" height="5" rx="2.5" fill="rgba(168,121,16,0.18)"/>
+        <rect x="148" y="320" width="152" height="5" rx="2.5" fill="#A87910" opacity="0.5"/>
         <!-- Insight block -->
-        <line x1="48" y1="350" x2="412" y2="350" stroke="rgba(200,168,75,0.08)" stroke-width="1"/>
-        <rect x="48" y="366" width="125" height="7" rx="3.5" fill="rgba(200,168,75,0.35)"/>
-        <rect x="48" y="382" width="348" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
-        <rect x="48" y="394" width="325" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
-        <rect x="48" y="406" width="300" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
-        <rect x="48" y="418" width="280" height="5" rx="2.5" fill="rgba(255,255,255,0.05)"/>
+        <line x1="48" y1="350" x2="412" y2="350" stroke="rgba(143,98,9,0.14)" stroke-width="1"/>
+        <rect x="48" y="366" width="125" height="7" rx="3.5" fill="rgba(143,98,9,0.34)"/>
+        <rect x="48" y="382" width="348" height="5" rx="2.5" fill="rgba(109,82,26,0.18)"/>
+        <rect x="48" y="394" width="325" height="5" rx="2.5" fill="rgba(109,82,26,0.14)"/>
+        <rect x="48" y="406" width="300" height="5" rx="2.5" fill="rgba(109,82,26,0.11)"/>
+        <rect x="48" y="418" width="280" height="5" rx="2.5" fill="rgba(109,82,26,0.09)"/>
         <!-- Footer badge -->
-        <rect x="48" y="450" width="112" height="24" rx="6" fill="rgba(200,168,75,0.09)" stroke="rgba(200,168,75,0.2)" stroke-width="1"/>
-        <text x="104" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="#C8A84B" letter-spacing="1.8">MYTRUEMATCH</text>
-        <rect x="172" y="450" width="80" height="24" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-        <text x="212" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="rgba(255,255,255,0.3)" letter-spacing="1">CONFIDENTIAL</text>
+        <rect x="48" y="450" width="112" height="24" rx="6" fill="rgba(168,121,16,0.12)" stroke="rgba(143,98,9,0.24)" stroke-width="1"/>
+        <text x="104" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="#8F6209" letter-spacing="1.8">MYTRUEMATCH</text>
+        <rect x="172" y="450" width="80" height="24" rx="6" fill="rgba(109,82,26,0.08)" stroke="rgba(109,82,26,0.14)" stroke-width="1"/>
+        <text x="212" y="466" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="rgba(82,61,19,0.52)" letter-spacing="1">CONFIDENTIAL</text>
       </svg>
     </div>
   </div>
@@ -585,187 +721,25 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
         <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Structured Compatibility Report</div>
         <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Designed for Serious Matrimonial Alliance</div>
         <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Tailored for Indian Cultural Dynamics Globally</div>
-        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> NIMHANS-trained psychologist, every report</div>
+        <div class="fw-check"><svg viewBox="0 0 24 24"><path d="M21 6L9 17l-5-5"/></svg> Qualified psychologist (MPhil) & Prepare-Enrich Certified<sup style="color:var(--gold);font-size:0.9em">*</sup></div>
       </div>
     </div>
     <div>
       <span class="fw-pcsi-tag">PCSI &#8212; Premarital Couple Suitability Index</span>
       <p class="fw-desc">Specially tailored for Indian cultural dynamics globally, the PCSI serves as a premarital diagnostic tool to evaluate how couples intending to marry align across emotional, interpersonal, financial, and lifestyle domains.</p>
-      <p class="fw-sub">We have created a first-of-its-kind pre-marital couples&#8217; compatibility test &#8212; a very useful tool to gain insight into the personality of the opposite number in conjunction with one&#8217;s own. A positive assessment report can do wonders for your confidence and lead to a successful and happy married life.</p>
+      <div style="max-width:900px;margin:2rem auto 1.2rem auto;padding:1.5rem 2rem;background:rgba(0,0,0,0.35);border:1px solid rgba(200,168,75,0.3);border-left:3px solid var(--gold);border-radius:8px;box-shadow:0 2px 10px 0 rgba(0,0,0,0.2);font-family:'DM Sans',sans-serif;">
+        <p style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 0.7rem 0;">Our Compatibility Assessment</p>
+        <p style="font-size:1.05rem;color:rgba(255,255,255,0.92);font-weight:400;line-height:1.65;margin:0;letter-spacing:0.01em;">Our first-of-its-kind pre-marital couples' compatibility test is a powerful tool designed to provide deep insights into both your own and your partner's personalities. A detailed assessment report can boost your confidence and lay the foundation for a successful, happy married life.</p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- --- DIMENSIONS --- -->
-<section class="dimensions-section" id="dimensions">
-  <div class="dim-header fi">
-    <div>
-      <div class="dim-eyebrow">What the report measures</div>
-      <h2 class="dim-main-title">10 Major Dimensions.<br><em>No checklist.</em></h2>
-    </div>
-    <div class="dim-header-note"><p>A psychologist-guided framework held up to both of you &#8212; written with clarity, not judgment. Each dimension carries a score and a full written analysis with a sample indicator question.</p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">I</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-      <div class="dim-tag">Dimension One</div>
-      <h3>Emotional Regulation</h3>
-    </div>
-    <div class="dim-desc"><p>Direct or indirect. Expressive or contained. The single dimension that decides how a thousand small disagreements will go.<br><em>&#8220;When I am angry or hurt, I tend to react impulsively before thinking things through&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">II</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <div class="dim-tag">Dimension Two</div>
-      <h3>Communication &amp; Conflict</h3>
-    </div>
-    <div class="dim-desc"><p>When the storm comes &#8212; and it will come &#8212; do you withdraw, escalate, accommodate, or collaborate?<br><em>&#8220;I avoid difficult conversations to prevent arguments&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">III</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <div class="dim-tag">Dimension Three</div>
-      <h3>Financial Responsibility</h3>
-    </div>
-    <div class="dim-desc"><p>Save or spend. Joint or separate. To support parents or not. The second most common reason marriages quietly break down.<br><em>&#8220;I believe transparency about loans, debts, and liabilities is necessary before marriage&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">IV</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="dim-tag">Dimension Four</div>
-      <h3>Family &amp; Future Alignment</h3>
-    </div>
-    <div class="dim-desc"><p>How much say do in-laws have. Where will you live. Whose festivals matter more. Questions that get harder, not easier, with time.<br><em>&#8220;I believe compatibility requires continuous adjustment from both partners&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">V</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-      <div class="dim-tag">Dimension 11</div>
-      <h3>Relationship Values &amp; Expectations</h3>
-    </div>
-    <div class="dim-desc"><p>Do you expect both partners to share household responsibilities? Is individual freedom important even after marriage?<br><em>&#8220;I believe family involvement should have healthy limits&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">VI</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <div class="dim-tag">Dimension Six</div>
-      <h3>Honesty &amp; Transparency</h3>
-    </div>
-    <div class="dim-desc"><p>Relationships thrive where honesty and clarity exist. In a meaningful relationship, honesty is more valuable than perfection.<br><em>&#8220;I believe that honesty is necessary even in uncomfortable situations&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">VII</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-      <div class="dim-tag">Dimension Seven</div>
-      <h3>Attachment &amp; Emotional Security</h3>
-    </div>
-    <div class="dim-desc"><p>Emotional security creates the confidence to be vulnerable, understood, and accepted. Healthy attachment fosters trust, stability, and deeper connection.<br><em>&#8220;I find emotional closeness uncomfortable&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">VIII</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M7 4.5c-2.2 0-4 1.8-4 4 0 5.5 9 11 9 11s9-5.5 9-11c0-2.2-1.8-4-4-4-1.7 0-3.2 1-4 2.4C10.2 5.5 8.7 4.5 7 4.5z"/></svg></div>
-      <div class="dim-tag">Dimension Eight</div>
-      <h3>Love Language &amp; Affection</h3>
-    </div>
-    <div class="dim-desc"><p>Genuine affection nurtures trust, comfort, and emotional intimacy. Understanding how someone experiences love strengthens bonding and relationship satisfaction.<br><em>&#8220;I enjoy expressing affection openly through words or actions&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">IX</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-      <div class="dim-tag">Dimension Nine</div>
-      <h3>Sexual Compatibility &amp; Intimacy</h3>
-    </div>
-    <div class="dim-desc"><p>Lasting intimacy develops when partners feel safe, respected, and emotionally understood. Compatibility in affection and intimacy contributes to mutual fulfillment.<br><em>&#8220;I may avoid conversations related to intimacy due to embarrassment&#8221;</em></p></div>
-  </div>
-
-  <div class="dim-item">
-    <div class="dim-numeral">X</div>
-    <div class="dim-name">
-      <div class="dim-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="dim-tag">Dimension Ten</div>
-      <h3>Substance Use &amp; Health Responsibility</h3>
-    </div>
-    <div class="dim-desc"><p>Healthy relationships are strengthened by self-awareness, balance, and responsible lifestyle choices. Mutual accountability toward health and well-being fosters long-term stability.<br><em>&#8220;I believe substance use should be openly discussed before marriage&#8221;</em></p></div>
-  </div>
-</section>
-
-<!-- --- SCORE SECTION --- -->
-<div class="score-section fi">
-  <div class="score-left">
-    <div class="score-left-eyebrow">
-      <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-      Sample report extract
-    </div>
-    <h2>A score is not<br>a <em>verdict.</em></h2>
-    <p>Your report is a conversation, set out in writing. Numbers provide structure. The written analysis gives language. Together, they give you something to hold &#8212; before and after the wedding.</p>
-  </div>
-  <div class="score-example-wrap">
-    <div class="score-card-label">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-      Compatibility snapshot &#8212; anonymised example
-    </div>
-    <div class="score-bars">
-      <div>
-        <div class="s-row-top">
-          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Communication</span>
-          <span class="s-val">87<span>/100</span></span>
-        </div>
-        <div class="s-track"><div class="s-fill" style="width:87%"></div></div>
-        <div class="s-note">Strong alignment &nbsp;&#183;&nbsp; Two style differences noted</div>
-      </div>
-      <div>
-        <div class="s-row-top">
-          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Financial Values</span>
-          <span class="s-val">62<span>/100</span></span>
-        </div>
-        <div class="s-track"><div class="s-fill" style="width:62%"></div></div>
-        <div class="s-note">Meaningful differences &nbsp;&#183;&nbsp; Guidance provided</div>
-      </div>
-      <div>
-        <div class="s-row-top">
-          <span class="s-dim-name"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Life Goals</span>
-          <span class="s-val">91<span>/100</span></span>
-        </div>
-        <div class="s-track"><div class="s-fill" style="width:91%"></div></div>
-        <div class="s-note">Deep resonance &nbsp;&#183;&nbsp; Strong foundation</div>
-      </div>
-      <div>
-        <div class="s-row-top">
-          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Family &amp; Roles</span>
-          <span class="s-val">74<span>/100</span></span>
-        </div>
-        <div class="s-track"><div class="s-fill" style="width:74%"></div></div>
-        <div class="s-note">Moderate alignment &nbsp;&#183;&nbsp; Key differences explored</div>
-      </div>
-      <div>
-        <div class="s-row-top">
-          <span class="s-dim-name"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Conflict Style</span>
-          <span class="s-val">79<span>/100</span></span>
-        </div>
-        <div class="s-track"><div class="s-fill" style="width:79%"></div></div>
-        <div class="s-note">Compatible patterns &nbsp;&#183;&nbsp; One blind spot identified</div>
-      </div>
-    </div>
-  </div>
+<!-- Prepare-Enrich Certification Brief -->
+<div class="cert-note">
+  <span class="cert-note-title">* Prepare-Enrich® Certification:</span>
+  <span class="cert-note-text">Prepare-Enrich is a globally recognized assessment and training program for relationship counseling, designed to help couples strengthen their partnership through evidence-based insights and tools.</span>
 </div>
+
 
 <!-- --- TESTIMONIAL --- -->
 <section class="testimonial">
@@ -787,8 +761,8 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem}
   </div>
   <div class="cta-inner fi">
     <div class="cta-eye">When you&#8217;re ready</div>
-    <h2>Take the<br><em>assessment.</em></h2>
-    <p class="cta-sub">35&#8211;45 minutes &nbsp;&#183;&nbsp; Report in 3 business days &nbsp;&#183;&nbsp; &#8377;2,999</p>
+    <h2>Take the<br>assessment.</h2>
+    <p class="cta-sub">10&#8211;15 minutes &nbsp;&#183;&nbsp; Instant reports days &nbsp;&#183;&nbsp; &#8377;2,999</p>
     <a href="begin.html" class="cta-btn">
       Begin the assessment
       <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>

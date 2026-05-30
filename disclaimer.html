@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disclaimer | MyTrueMatch</title>
 <meta name="description" content="Important disclaimers regarding the use of MyTrueMatch services and information provided.">
-<meta name="robots" content="noindex, follow"> - MyTrueMatch</title>
+<meta name="robots" content="noindex, follow">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -55,10 +55,21 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .legal-toc{position:sticky;top:90px;padding-right:3rem;border-right:1px solid var(--line)}
 .toc-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem}
 .toc-label::before{content:'';width:18px;height:1px;background:var(--gold)}
-.toc-list{list-style:none;display:flex;flex-direction:column;gap:0}
-.toc-list li a{display:block;font-size:0.76rem;font-weight:300;color:var(--ink-light);text-decoration:none;padding:0.55rem 0;border-left:2px solid transparent;padding-left:0.75rem;transition:all 0.2s;line-height:1.4}
-.toc-list li a:hover{color:var(--ink);border-left-color:var(--gold)}
-.toc-list li a.active{color:var(--gold-dark);border-left-color:var(--gold);font-weight:500}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.25rem}
+.toc-main-link{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.76rem;font-weight:300;color:var(--ink-light);text-decoration:none;padding:0.55rem 0;border-left:2px solid transparent;padding-left:0.75rem;transition:all 0.2s;line-height:1.4}
+.toc-main-link::before{content:'›';color:var(--gold-dark);font-size:0.82rem;line-height:1.2;transform:translateY(0.02rem)}
+.toc-main-link:hover{color:var(--ink);border-left-color:var(--gold)}
+.toc-main-link.active{color:var(--gold-dark);border-left-color:var(--gold);font-weight:500}
+.toc-sublist{display:none;list-style:none;padding:0 0 0.95rem 1.6rem;margin:0;gap:0.32rem;flex-direction:column}
+.toc-item.expanded .toc-sublist{display:flex}
+.toc-sublist li{font-size:0.7rem;color:var(--ink-faint);line-height:1.45;display:flex;align-items:flex-start;gap:0.4rem}
+.toc-sublist li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.4rem}
+.toc-sublist{max-height:42vh;overflow:auto;padding-right:0.35rem}
+.toc-sublist{scrollbar-width:thin;scrollbar-color:rgba(200,168,75,0.65) transparent}
+.toc-sublist::-webkit-scrollbar{width:6px}
+.toc-sublist::-webkit-scrollbar-track{background:transparent}
+.toc-sublist::-webkit-scrollbar-thumb{background:rgba(200,168,75,0.55);border-radius:999px}
+.toc-sublist::-webkit-scrollbar-thumb:hover{background:rgba(200,168,75,0.78)}
 
 .legal-content{padding-left:3.5rem;max-width:720px}
 .legal-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--line-soft)}
@@ -71,6 +82,14 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .legal-section ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:1rem 0}
 .legal-section ul li{font-size:0.875rem;font-weight:300;color:var(--ink-mid);line-height:1.75;display:flex;align-items:flex-start;gap:0.75rem}
 .legal-section ul li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:0.55rem}
+.legal-clauses{margin:1rem 0 0 1.15rem;display:flex;flex-direction:column;gap:1rem}
+.legal-clauses li{font-size:0.875rem;font-weight:300;color:var(--ink-mid);line-height:1.85}
+.legal-clauses li strong{font-weight:600;color:var(--ink)}
+.legal-subcontent{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin:0 0 1.2rem}
+.legal-subcontent-title{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.55rem}
+.legal-subcontent ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0.35rem}
+.legal-subcontent ul li{font-size:0.78rem;color:var(--ink-light);line-height:1.5;display:flex;align-items:flex-start;gap:0.45rem}
+.legal-subcontent ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.48rem}
 
 .legal-note{background:var(--bg-accent);border:1px solid var(--card-border);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:0.82rem;font-weight:400;color:var(--ink-mid);line-height:1.7}
 .legal-note strong{color:var(--gold-dark);font-weight:500}
@@ -193,169 +212,121 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <aside class="legal-toc">
  <div class="toc-label">Contents</div>
  <ul class="toc-list">
- <li><a href="#general">1. General Disclaimer</a></li>
- <li><a href="#compatibility">2. Compatibility Reports</a></li>
- <li><a href="#verification">3. Verification Reports</a></li>
- <li><a href="#horoscope">4. Horoscope Reports</a></li>
- <li><a href="#decisions">5. Personal Decisions</a></li>
- <li><a href="#accuracy">6. Accuracy &amp; Completeness</a></li>
- <li><a href="#thirdparty">7. Third-Party Information</a></li>
- <li><a href="#liability">8. No Liability</a></li>
- <li><a href="#professional">9. Not Professional Advice</a></li>
- <li><a href="#changes">10. Changes to Disclaimer</a></li>
- <li><a href="#contact">11. Contact Us</a></li>
+ <li class="toc-item">
+ <a class="toc-main-link" href="#verification">1. Background Verification Services</a>
+ <ul class="toc-sublist" data-from="verification"></ul>
+ </li>
+ <li class="toc-item">
+ <a class="toc-main-link" href="#psychometric">2. Psychometric Assessment Services</a>
+ <ul class="toc-sublist" data-from="psychometric"></ul>
+ </li>
+ <li class="toc-item">
+ <a class="toc-main-link" href="#horoscope">3. Horoscope and Astrological Matching Services</a>
+ <ul class="toc-sublist" data-from="horoscope"></ul>
+ </li>
+ <li class="toc-item">
+ <a class="toc-main-link" href="#contact">4. Contact Us</a>
+ <ul class="toc-sublist">
+ <li>Legal Queries and Response Window</li>
+ </ul>
+ </li>
  </ul>
  </aside>
 
  <main class="legal-content fade-in">
 
  <div class="legal-note">
- <strong>Please read carefully.</strong> This Disclaimer governs the use of all reports and services provided by MyTrueMatch. By using our services, you acknowledge and accept the limitations described here.
- </div>
-
- <div class="legal-section" id="general">
- <div class="legal-section-num">Section 01</div>
- <h2>General Disclaimer</h2>
- <p>MyTrueMatch provides expert-prepared reports in three domains - psychological compatibility, background verification, and Jyotish astrology - to assist individuals and families in making informed decisions about matrimonial alliances.</p>
- <p>All reports are prepared in good faith by qualified professionals. However, the information contained in our reports is provided for informational and advisory purposes only. It does not constitute a guarantee, warranty, or assurance of any outcome - personal, relational, financial, legal, or otherwise.</p>
- <p>MyTrueMatch is not a matrimonial agency. We do not arrange marriages, endorse alliances, or take responsibility for the outcome of any relationship or matrimonial decision made on the basis of our reports.</p>
- </div>
-
- <div class="legal-section" id="compatibility">
- <div class="legal-section-num">Section 02</div>
- <h2>Compatibility Reports</h2>
- <div class="service-disclaimers">
- <div class="service-card">
- <div class="service-card-header">
- <div class="service-card-icon"></div>
- <div class="service-card-title">
- <div class="service-card-label">First Lens</div>
- <div class="service-card-name">Compatibility Report</div>
- </div>
- </div>
- <div class="service-card-body">
- <p>Compatibility assessments are professional psychometric analyses based on the information provided by both parties. They reflect the expert opinion of a trained psychologist and are intended to facilitate informed conversation - not to predict, prescribe, or determine the outcome of a relationship.</p>
- </div>
- </div>
- </div>
- <p>A high compatibility score does not guarantee a successful marriage. A low score does not indicate an unsuitable match. Compatibility reports identify patterns and areas for attention; what couples do with that information remains entirely their own choice.</p>
- <p>The accuracy of a Compatibility report depends on the honesty and completeness of the information provided by both parties. MyTrueMatch takes no responsibility for reports that are based on inaccurate, incomplete, or misleading submissions.</p>
+ <strong>Please read carefully.</strong> These disclaimers govern the use of all reports and services. They are intended to clarify scope, limitations, and user obligations across each service lens.
  </div>
 
  <div class="legal-section" id="verification">
- <div class="legal-section-num">Section 03</div>
- <h2>Verification Reports</h2>
- <div class="service-disclaimers">
- <div class="service-card">
- <div class="service-card-header">
- <div class="service-card-icon"></div>
- <div class="service-card-title">
- <div class="service-card-label">Second Lens</div>
- <div class="service-card-name">Verification Report</div>
- </div>
- </div>
- <div class="service-card-body">
- <p>Verification reports are based on information available from public records, consented sources, and legitimate verification channels at the time of verification. They reflect the state of available information as of the date of the report and are not a guarantee of completeness or perpetual accuracy.</p>
- </div>
- </div>
- </div>
- <p>Our verification specialists exercise professional diligence, but they cannot access sealed court records, non-public financial information, or information withheld or falsified by the subject. A report that returns no adverse findings should not be interpreted as a comprehensive clearance.</p>
+ <div class="legal-section-num">Section 01</div>
+ <h2>Disclaimer for Background Verification Services</h2>
+ <div class="legal-subcontent">
+ <div class="legal-subcontent-title">Sub-contents</div>
  <ul>
- <li>Verification reports do not constitute legal due diligence or a legal background check as defined under Indian law.</li>
- <li>They should not be used as the sole basis for any legal, financial, or employment decision.</li>
- <li>Results are valid as of the date of report delivery. Circumstances may change after verification is complete.</li>
- <li>MyTrueMatch is not a licensed investigation agency and does not hold a Private Security Agency licence under the PSARA Act, 2005.</li>
+ <li>Service scope, sources, and limitations of information</li>
+ <li>Accuracy, satisfaction, and due diligence boundaries</li>
+ <li>Subscriber obligations, waivers, liability, and jurisdiction</li>
  </ul>
+ </div>
+ <ol class="legal-clauses">
+ <li><strong>Nature of Service.</strong> The background verification services offered by MyTrueMatch comprise the collection, verification, and reporting of information relating to the identity, educational qualifications, employment history, residential particulars, financial standing, and criminal antecedents of the subject of verification, drawn from sources lawfully accessible to MyTrueMatch or its authorised partners. The services are rendered solely for the purpose of assisting prospective matrimonial decision-making and are not to be used for employment screening, tenancy verification, credit evaluation, or any other purpose not expressly contemplated under the subscription availed.</li>
+ <li><strong>Sources and Limitations of Information.</strong> The information contained in any verification report is derived from public records, third-party databases, court and police records, employer responses, and references, each of which may be subject to limitations of availability, completeness, and accuracy that are beyond the control of MyTrueMatch. Records that have been sealed, expunged, or otherwise restricted by order of a competent court or by operation of law shall not be reflected in the report. MyTrueMatch does not warrant that the information contained in any verification report is exhaustive, and it shall be deemed accurate only as of the date on which verification was last performed.</li>
+ <li><strong>No Guarantee of Accuracy or Completeness of Verified Content.</strong> MyTrueMatch exercises reasonable care and diligence in collating information from authorised sources; however, it does not and cannot guarantee that the content of any verification report is free from error. The accuracy of the verified content is contingent upon the accuracy and reliability of records maintained by third-party sources, the responsiveness of references and employers, the candour of the subject, and the lawful availability of information at the relevant time. MyTrueMatch makes no warranty, express or implied, that the contents of the report reflect the complete personal, professional, financial, or criminal history of the subject, and shall not be liable for any error, omission, misrepresentation, delay, or concealment attributable to third-party sources or to the subject's failure to disclose material facts.</li>
+ <li><strong>No Guarantee of Satisfaction or Matrimonial Outcome.</strong> MyTrueMatch does not represent, warrant, or guarantee that any verification report will yield findings acceptable to, or satisfactory for, the subscriber, nor that the information furnished will lead to the solemnisation, success, or stability of any matrimonial alliance. The services are offered on an "as is" and "as available" basis, and no assurance of one hundred per cent (100%) accuracy, completeness, or subscriber satisfaction is, or shall be construed to have been, given.</li>
+ <li><strong>Not a Substitute for Due Diligence.</strong> A verification report furnished by MyTrueMatch is intended as one among several sources of information to be considered by the subscriber and is not a substitute for independent enquiry, personal judgment, legal advice, or any statutory due diligence obligation. Subscribers are advised to corroborate the contents of the report and to take matrimonial decisions only after due deliberation and independent assessment.</li>
+ <li><strong>Subscriber Undertakings.</strong> By availing the background verification services, the subscriber undertakes that: (a) the verification is being commissioned with the informed consent of the subject, where such consent is required by applicable law; (b) the information obtained shall not be used for any unlawful purpose, including but not limited to harassment, stalking, extortion, or discrimination on grounds prohibited by Indian law; and (c) the report shall not be disclosed to any person other than those permitted under the Terms of Service and this Disclaimer. Any use contrary to these undertakings shall constitute a material breach for which the subscriber shall be solely responsible, both civilly and criminally.</li>
+ <li><strong>Acknowledgement and Waiver by the Subject of Verification.</strong> Where the subject of verification has provided informed written consent to the verification process, such consent shall be deemed to include an acknowledgement and agreement that: (a) the verification has been lawfully commissioned by the subscriber and conducted through authorised channels; (b) the subject has had a reasonable opportunity to provide clarifications or corrections in respect of material findings prior to finalisation of the report, where the nature of the verification so permits; (c) MyTrueMatch is not a party to, and assumes no responsibility for, any matrimonial alliance entered into by the subject or for the conduct, character, or circumstances of any party to such alliance; and (d) the subject shall not, whether prior to or at any time following the solemnisation, continuance, or dissolution of any matrimonial alliance, institute, maintain, or support any claim, suit, complaint, or proceeding of any nature against MyTrueMatch, its directors, officers, employees, or verification partners in respect of the content, conclusions, consequences, or any marital, familial, or personal outcome arising from or attributable to the verification report, save only in the case of demonstrated fraud or wilful misconduct on the part of MyTrueMatch.</li>
+ <li><strong>No Post-Marriage Claims.</strong> Without prejudice to Clause 7, the subscriber and the subject each acknowledge that no fact, circumstance, conduct, or dispute emerging between the parties to a matrimonial alliance subsequent to the solemnisation thereof, including without limitation any ground for divorce, annulment, judicial separation, or maintenance under applicable personal or secular law, shall give rise to any cause of action against MyTrueMatch, and each party irrevocably waives any such claim to the fullest extent permitted by applicable law.</li>
+ <li><strong>Limitation of Liability.</strong> Subject to applicable law and to any statutory rights that cannot be contractually excluded, the aggregate liability of MyTrueMatch in respect of any claim arising out of or in connection with the background verification services shall not exceed the fee actually paid by the subscriber for the specific verification report to which the claim relates. MyTrueMatch shall in no event be liable for any indirect, consequential, special, or punitive damages, or for any loss of reputation, relationship, or opportunity, howsoever arising.</li>
+ <li><strong>Non-Discrimination.</strong> The subscriber undertakes not to use any information, assessment, or report furnished by MyTrueMatch to discriminate unlawfully against any person on grounds of caste, religion, sex, place of birth, disability, or any other protected characteristic under the Constitution of India or applicable law.</li>
+ <li><strong>Preservation of Statutory Rights.</strong> Nothing in these Disclaimers shall operate to limit or exclude any liability or right that cannot, under applicable law, be so limited or excluded, including rights conferred upon consumers under the Consumer Protection Act, 2019, and Data Principals under the Digital Personal Data Protection Act, 2023.</li>
+ <li><strong>Relationship to Privacy Policy and Terms of Service.</strong> These Disclaimers are to be read in conjunction with the MyTrueMatch Privacy Policy. In the event of any inconsistency, the provision more protective of the Data Principal shall prevail.</li>
+ <li><strong>Governing Law and Jurisdiction.</strong> These Disclaimers shall be governed by, and construed in accordance with, the laws of India. Subject to the dispute resolution mechanism, the courts at Bangalore, Karnataka shall have exclusive jurisdiction over any dispute arising in connection herewith.</li>
+ <li><strong>Severability.</strong> If any provision of these Disclaimers is held to be invalid or unenforceable under applicable law, the remaining provisions shall continue in full force and effect.</li>
+ </ol>
+ </div>
+
+ <div class="legal-section" id="psychometric">
+ <div class="legal-section-num">Section 02</div>
+ <h2>Disclaimer for Psychometric Assessment Services</h2>
+ <div class="legal-subcontent">
+ <div class="legal-subcontent-title">Sub-contents</div>
+ <ul>
+ <li>Nature of assessment and non-clinical positioning</li>
+ <li>Limitations, interpretation boundaries, and no guarantee clauses</li>
+ <li>Consent, liability limits, statutory rights, and governing law</li>
+ </ul>
+ </div>
+ <ol class="legal-clauses">
+ <li><strong>Nature of Service.</strong> The psychometric assessments made available through MyTrueMatch are standardised, self-administered instruments designed to offer indicative insights into personality traits, emotional dispositions, interpersonal tendencies, and values of the participant. The assessments are offered exclusively for informational and self-reflective purposes in the context of matrimonial decision-making.</li>
+ <li><strong>Not a Clinical or Diagnostic Tool.</strong> The psychometric assessments offered by MyTrueMatch are not, and must not be construed as, a substitute for clinical psychological evaluation, psychiatric diagnosis, medical treatment, or any form of professional mental health consultation. The results of such assessments do not constitute a diagnosis of any mental health condition, disorder, or disability, and shall not be relied upon for any medical, therapeutic, employment, custodial, or adjudicatory purpose.</li>
+ <li><strong>Inherent Limitations and No Guarantee of Accuracy.</strong> Psychometric instruments, by their nature, measure responses at a particular point in time and under particular conditions. Results may be influenced by the participant's mood, context, level of candour, linguistic proficiency, cultural background, and motivation at the time of administration, and may accordingly vary across administrations. MyTrueMatch does not warrant or guarantee the accuracy, validity, reliability, or predictive value of any assessment, nor that the results reflect with one hundred per cent (100%) precision the personality or disposition of the participant, in relation to future behaviour, marital compatibility, or relationship outcomes.</li>
+ <li><strong>No Guarantee of Satisfaction.</strong> The psychometric assessment services are offered on an "as is" and "as available" basis. MyTrueMatch makes no representation or warranty that the results of any assessment will be satisfactory to, acceptable by, or actionable for the subscriber or the participant, or that the results will confirm, support, or facilitate any particular matrimonial decision.</li>
+ <li><strong>Indicative, Non-Determinative Results.</strong> Assessment reports generated by MyTrueMatch are indicative rather than determinative. They are to be read as one among several sources of self-understanding and are not a reliable basis, whether standing alone or in combination with other assessments, for any consequential matrimonial decision. Subscribers and participants are cautioned against attributing undue weight to such reports.</li>
+ <li><strong>Consent, Voluntariness, and Waiver.</strong> Participation in a psychometric assessment is voluntary and undertaken on the basis of the participant's informed, written consent. Such consent shall be deemed to include the participant's acknowledgement that (a) results are indicative only and offered for self-reflective purposes; and (b) the participant shall not, whether before or after the solemnisation, continuance, or dissolution of any matrimonial alliance, institute any claim against MyTrueMatch in respect of the content or consequences of the assessment report, save in the case of demonstrated fraud or wilful misconduct on the part of MyTrueMatch. Results are furnished solely to the participant or, where applicable, to the subscriber with the participant's explicit written consent, in accordance with the Privacy Policy.</li>
+ <li><strong>Limitation of Liability.</strong> Subject to applicable law, MyTrueMatch disclaims all liability for any decision, act, or omission made by any person in reliance upon the results of a psychometric assessment, including decisions relating to matrimonial alliance, cohabitation, or disclosure. The aggregate liability of MyTrueMatch in respect of the psychometric assessment services shall not exceed the fee actually paid for the assessment concerned.</li>
+ <li><strong>Non-Discrimination.</strong> The subscriber undertakes not to use any information, assessment, or report furnished by MyTrueMatch to discriminate unlawfully against any person on grounds of caste, religion, sex, place of birth, disability, or any other protected characteristic under the Constitution of India or applicable law.</li>
+ <li><strong>Preservation of Statutory Rights.</strong> Nothing in these Disclaimers shall operate to limit or exclude any liability or right that cannot, under applicable law, be so limited or excluded, including rights conferred upon consumers under the Consumer Protection Act, 2019, and Data Principals under the Digital Personal Data Protection Act, 2023.</li>
+ <li><strong>Relationship to Privacy Policy and Terms of Service.</strong> These Disclaimers are to be read in conjunction with the MyTrueMatch Privacy Policy. In the event of any inconsistency, the provision more protective of the Data Principal shall prevail.</li>
+ <li><strong>Governing Law and Jurisdiction.</strong> These Disclaimers shall be governed by, and construed in accordance with, the laws of India. Subject to the dispute resolution mechanism, the courts at Bangalore, Karnataka shall have exclusive jurisdiction over any dispute arising in connection herewith.</li>
+ <li><strong>Severability.</strong> If any provision of these Disclaimers is held to be invalid or unenforceable under applicable law, the remaining provisions shall continue in full force and effect.</li>
+ </ol>
  </div>
 
  <div class="legal-section" id="horoscope">
- <div class="legal-section-num">Section 04</div>
- <h2>Horoscope Reports</h2>
- <div class="service-disclaimers">
- <div class="service-card">
- <div class="service-card-header">
- <div class="service-card-icon"></div>
- <div class="service-card-title">
- <div class="service-card-label">Third Lens</div>
- <div class="service-card-name">Horoscope Report</div>
- </div>
- </div>
- <div class="service-card-body">
- <p>Horoscope readings are traditional astrological analyses prepared by experienced Jyotish practitioners. They represent the professional interpretation of planetary positions and classical astrological texts, and are provided for cultural, spiritual, and informational guidance.</p>
- </div>
- </div>
- </div>
- <p>Astrology is a traditional belief system with deep roots in Indian culture. MyTrueMatch neither endorses nor dismisses astrological belief. We provide access to experienced practitioners for those who value this perspective as part of their decision-making process.</p>
+ <div class="legal-section-num">Section 03</div>
+ <h2>Disclaimer for Horoscope and Astrological Matching Services</h2>
+ <div class="legal-subcontent">
+ <div class="legal-subcontent-title">Sub-contents</div>
  <ul>
- <li>Astrological readings are not scientific predictions. They should not be treated as fact or used as the sole basis for any decision.</li>
- <li>The presence or absence of any Dosha, favourable or unfavourable planetary period, or astrological concern is the considered opinion of the astrologer - not a deterministic outcome.</li>
- <li>MyTrueMatch does not guarantee the accuracy of any astrological interpretation.</li>
- <li>Remedies suggested in a Horoscope report are traditional in nature. Clients undertake any remedy at their own discretion and risk.</li>
+ <li>Cultural purpose, predictive limits, and birth-data dependency</li>
+ <li>Decision-use boundaries and non-discrimination principles</li>
+ <li>Waivers, liability limits, statutory protections, and jurisdiction</li>
  </ul>
  </div>
-
- <div class="legal-section" id="decisions">
- <div class="legal-section-num">Section 05</div>
- <h2>Personal Decisions</h2>
- <p>Marriage is a deeply personal decision. Our reports are designed to give you more information - not to make decisions for you or your family.</p>
- <p>MyTrueMatch expressly disclaims any responsibility for decisions made, relationships entered into, or harm arising from decisions made on the basis of our reports. The weight you give to any finding in any of our reports is entirely your own choice.</p>
- <div class="legal-highlight">
- <h3>Our reports inform. They do not decide.</h3>
- <p>No report from MyTrueMatch should be understood as a recommendation to proceed with, or to withdraw from, a matrimonial alliance. That decision belongs to the individuals and families involved.</p>
- </div>
- </div>
-
- <div class="legal-section" id="accuracy">
- <div class="legal-section-num">Section 06</div>
- <h2>Accuracy and Completeness</h2>
- <p>While we take every reasonable measure to ensure the accuracy of our reports, we make no warranty, express or implied, regarding their completeness or fitness for any particular purpose. Errors may occur due to:</p>
- <ul>
- <li>Inaccurate or incomplete information provided by clients or subjects.</li>
- <li>Limitations of publicly available records at the time of verification.</li>
- <li>The inherently interpretive nature of psychological and astrological analysis.</li>
- <li>Delays between events occurring and those events being recorded on public databases.</li>
- </ul>
- <p>If you believe a report contains a material error, please contact us within 7 days of delivery. We will investigate and, where appropriate, issue a correction or revision. See our <a href="refund.html" style="color:var(--gold-dark);text-decoration:underline">Refund Policy</a> for details.</p>
- </div>
-
- <div class="legal-section" id="thirdparty">
- <div class="legal-section-num">Section 07</div>
- <h2>Third-Party Information</h2>
- <p>In preparing Verification reports, we may draw on publicly available records, court databases, employment registries, and other third-party sources. We are not responsible for the accuracy or completeness of information held by these third parties.</p>
- <p>Where a Verification report contains information sourced from a third party that is subsequently found to be incorrect, our liability is limited to the revision obligations described in our Terms and Conditions. We do not assume liability for harm arising from third-party data errors.</p>
- </div>
-
- <div class="legal-section" id="liability">
- <div class="legal-section-num">Section 08</div>
- <h2>No Liability</h2>
- <p>To the fullest extent permitted by applicable law, MyTrueMatch, its directors, employees, and expert panel members shall not be liable for any direct, indirect, incidental, consequential, or punitive loss or damage arising from:</p>
- <ul>
- <li>Reliance on or use of any report or information provided by MyTrueMatch.</li>
- <li>Any decision made, or not made, on the basis of a report.</li>
- <li>Any inaccuracy in a report arising from information not available or not yet on public record.</li>
- <li>The subjective nature of psychological or astrological interpretations.</li>
- <li>Any outcome - personal, relational, financial, or legal - following the use of our services.</li>
- </ul>
- </div>
-
- <div class="legal-section" id="professional">
- <div class="legal-section-num">Section 09</div>
- <h2>Not Professional Advice</h2>
- <p>Nothing in any MyTrueMatch report constitutes legal advice, medical advice, financial advice, or any other form of regulated professional advice. Our reports should not be used as a substitute for independent professional consultation.</p>
- <p>If a Verification report raises concerns of a legal nature, we recommend consulting a qualified legal practitioner. If a Compatibility report raises concerns of a psychological or clinical nature, we recommend consulting a registered psychologist or counsellor. If a Horoscope report raises concerns about health or wellbeing, please consult a qualified medical professional.</p>
- </div>
-
- <div class="legal-section" id="changes">
- <div class="legal-section-num">Section 10</div>
- <h2>Changes to This Disclaimer</h2>
- <p>We may update this Disclaimer from time to time to reflect changes in our services, applicable law, or best practices. The date of the most recent revision is displayed at the top of this page.</p>
- <p>Your continued use of our services after any changes take effect constitutes acceptance of the revised Disclaimer. We encourage you to review this page periodically.</p>
+ <ol class="legal-clauses">
+ <li><strong>Nature of Service.</strong> The horoscope generation, <em>kundli</em> matching, <em>guna milan</em>, and astrological compatibility services made available through MyTrueMatch (collectively, the "Astrological Services") are offered as a traditional and cultural adjunct to matrimonial decision-making, in response to the expressed preferences of subscribers who attach cultural, religious, or personal significance to such practices. The Astrological Services are rendered for informational and cultural purposes only.</li>
+ <li><strong>No Predictive Guarantee.</strong> MyTrueMatch makes no representation or warranty, express or implied, and offers no guarantee of one hundred per cent (100%) accuracy, reliability, or predictive value of any horoscope, <em>kundli</em>, <em>guna milan</em> score, <em>dosha</em> identified, or compatibility analysis generated through the Platform. Any reference to "compatibility," "auspiciousness," or similar terminology is to be understood in its traditional astrological sense and not as a scientific, quantitative, or guaranteed assessment.</li>
+ <li><strong>Dependence on Accuracy of Birth Particulars.</strong> All astrological computations are generated on the basis of birth particulars provided by the subscriber or the subject, including date, time, and place of birth. MyTrueMatch does not independently verify the accuracy of such particulars, and any inaccuracy therein shall materially affect the resulting horoscope or matching report. The subscriber and the subject shall bear sole responsibility for the accuracy of the information provided, and the accuracy of any astrological output is contingent upon, and limited by, the accuracy of the inputs furnished.</li>
+ <li><strong>No Guarantee of Satisfaction.</strong> The Astrological Services are offered on an "as is" and "as available" basis. MyTrueMatch makes no representation that the findings of any astrological report will be satisfactory to, or acceptable by, the subscriber, the subject, or any family member thereof, and no subscriber or subject shall have any claim arising from dissatisfaction with any such finding.</li>
+ <li><strong>Not a Basis for Matrimonial Decisions.</strong> Astrological reports are intended solely as a matter of cultural reference and must not be relied upon as a determinative, or even principal, basis for accepting, rejecting, or evaluating any matrimonial proposal. MyTrueMatch expressly discourages decision-making founded solely or substantially upon astrological findings and affirms that all matrimonial decisions must rest upon the free will, informed judgment, and mutual consent of the prospective parties.</li>
+ <li><strong>No Religious Endorsement and Non-Discrimination.</strong> The Astrological Services are offered in recognition of the cultural and personal preferences of certain subscribers and do not constitute an endorsement by MyTrueMatch of any religious, spiritual, or denominational belief. Subscribers are under no obligation to avail of the Astrological Services and may avail of all other services offered by MyTrueMatch independently thereof. MyTrueMatch does not facilitate, and expressly disapproves of, the use of astrological findings as a basis for any form of discrimination impermissible under the Constitution of India or applicable law.</li>
+ <li><strong>Waiver of Claims by Subject.</strong> Where the subject's birth particulars are submitted to the Astrological Services with the subject's consent, such consent shall be deemed to include an acknowledgement that the subject shall not, whether before or after the solemnisation, continuance, or dissolution of any matrimonial alliance, institute any claim against MyTrueMatch in respect of the content or consequences of any horoscope, <em>kundli</em>, or matching report generated through the Platform.</li>
+ <li><strong>Limitation of Liability.</strong> Subject to applicable law, MyTrueMatch shall not be liable for any loss, damage, disappointment, or consequence of any nature whatsoever arising from reliance upon any astrological report generated through the Platform. The aggregate liability of MyTrueMatch in respect of the Astrological Services shall not exceed the fee actually paid for the particular service availed.</li>
+ <li><strong>Non-Discrimination.</strong> The subscriber undertakes not to use any information, assessment, or report furnished by MyTrueMatch to discriminate unlawfully against any person on grounds of caste, religion, sex, place of birth, disability, or any other protected characteristic under the Constitution of India or applicable law.</li>
+ <li><strong>Preservation of Statutory Rights.</strong> Nothing in these Disclaimers shall operate to limit or exclude any liability or right that cannot, under applicable law, be so limited or excluded, including rights conferred upon consumers under the Consumer Protection Act, 2019, and Data Principals under the Digital Personal Data Protection Act, 2023.</li>
+ <li><strong>Relationship to Privacy Policy and Terms of Service.</strong> These Disclaimers are to be read in conjunction with the MyTrueMatch Privacy Policy. In the event of any inconsistency, the provision more protective of the Data Principal shall prevail.</li>
+ <li><strong>Governing Law and Jurisdiction.</strong> These Disclaimers shall be governed by, and construed in accordance with, the laws of India. Subject to the dispute resolution mechanism, the courts at Bangalore, Karnataka shall have exclusive jurisdiction over any dispute arising in connection herewith.</li>
+ <li><strong>Severability.</strong> If any provision of these Disclaimers is held to be invalid or unenforceable under applicable law, the remaining provisions shall continue in full force and effect.</li>
+ </ol>
  </div>
 
  <div class="legal-section" id="contact">
- <div class="legal-section-num">Section 11</div>
+ <div class="legal-section-num">Section 04</div>
  <h2>Contact Us</h2>
- <p>If you have questions about this Disclaimer or wish to raise a concern about any report:</p>
+ <p>If you have questions about these disclaimers or wish to raise a legal concern regarding any report:</p>
  <div class="contact-block">
  <p><strong>MyTrueMatch</strong><br>Bangalore, Karnataka, India</p>
  <p>Email: <a href="mailto:legal@mytruematch.in">legal@mytruematch.in</a></p>
@@ -422,8 +393,43 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:0.06});
 document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
 const sections=document.querySelectorAll('.legal-section[id]');
-const tocLinks=document.querySelectorAll('.toc-list a');
-const scrollSpy=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector('.toc-list a[href="#'+e.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
+const tocLinks=document.querySelectorAll('.toc-main-link');
+const tocItems=document.querySelectorAll('.toc-item');
+
+function buildTocSubpoints(){
+ const autoLists=document.querySelectorAll('.toc-sublist[data-from]');
+ autoLists.forEach(list=>{
+  const sectionId=list.getAttribute('data-from');
+  const strongHeads=document.querySelectorAll('#'+sectionId+' .legal-clauses > li > strong');
+  list.innerHTML='';
+  strongHeads.forEach((head,index)=>{
+   const li=document.createElement('li');
+   li.textContent=(index+1)+'. '+head.textContent.replace(/\.$/, '').trim();
+   list.appendChild(li);
+  });
+ });
+}
+
+function setActiveTocItem(sectionId){
+ tocLinks.forEach(l=>l.classList.remove('active'));
+ tocItems.forEach(i=>i.classList.remove('expanded'));
+ const activeLink=document.querySelector('.toc-main-link[href="#'+sectionId+'"]');
+ if(activeLink){
+  activeLink.classList.add('active');
+  const parentItem=activeLink.closest('.toc-item');
+  if(parentItem) parentItem.classList.add('expanded');
+ }
+}
+
+tocLinks.forEach(link=>{
+ link.addEventListener('click',()=>{
+  const id=(link.getAttribute('href')||'').replace('#','');
+  if(id) setActiveTocItem(id);
+ });
+});
+
+buildTocSubpoints();
+const scrollSpy=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){setActiveTocItem(e.target.id)}})},{rootMargin:'-20% 0px -70% 0px'});
 sections.forEach(s=>scrollSpy.observe(s));
 </script>
 </body>
