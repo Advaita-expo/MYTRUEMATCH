@@ -37,6 +37,697 @@ body {
  overflow-x: hidden;
 }
 
+/* ============================
+   KISMAT / GOPAL CHATBOT
+   ============================ */
+.kismat-launcher {
+ position: fixed;
+ bottom: 24px;
+ right: 24px;
+ width: 62px;
+ height: 62px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ z-index: 9998;
+ box-shadow: 0 10px 30px rgba(138, 110, 32, 0.38), 0 2px 8px rgba(0,0,0,0.12);
+ transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+ border: 2px solid rgba(255, 248, 220, 0.4);
+}
+.kismat-launcher:hover {
+ transform: translateY(-3px) scale(1.05);
+ box-shadow: 0 14px 38px rgba(138, 110, 32, 0.5), 0 4px 12px rgba(0,0,0,0.15);
+}
+.kismat-launcher svg {
+ width: 26px;
+ height: 26px;
+ z-index: 2;
+ position: relative;
+ stroke: #fff;
+ fill: none;
+ stroke-width: 1.8;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+.kismat-launcher::before {
+ content: '';
+ position: absolute;
+ inset: -2px;
+ border-radius: 50%;
+ background: rgba(200, 168, 75, 0.5);
+ animation: kismatPulse 2.4s ease-out infinite;
+ z-index: 1;
+}
+@keyframes kismatPulse {
+ 0% { transform: scale(1); opacity: 0.65; }
+ 100% { transform: scale(1.7); opacity: 0; }
+}
+.kismat-launcher-label {
+ position: absolute;
+ right: 74px;
+ top: 50%;
+ transform: translateY(-50%) translateX(8px);
+ background: #1A1610;
+ color: #fff;
+ font-size: 0.72rem;
+ letter-spacing: 0.04em;
+ padding: 0.5rem 0.9rem;
+ border-radius: 8px;
+ white-space: nowrap;
+ opacity: 0;
+ transition: all 0.25s;
+ pointer-events: none;
+ font-family: 'DM Sans', sans-serif;
+ font-weight: 500;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.kismat-launcher-label::after {
+ content: '';
+ position: absolute;
+ right: -5px;
+ top: 50%;
+ transform: translateY(-50%) rotate(45deg);
+ width: 8px;
+ height: 8px;
+ background: #1A1610;
+}
+.kismat-launcher:hover .kismat-launcher-label {
+ opacity: 1;
+ transform: translateY(-50%) translateX(0);
+}
+.kismat-launcher.hidden {
+ transform: scale(0);
+ opacity: 0;
+ pointer-events: none;
+}
+.kismat-launcher-badge {
+ position: absolute;
+ top: -2px;
+ right: -2px;
+ width: 18px;
+ height: 18px;
+ background: #E8828A;
+ color: #fff;
+ border-radius: 50%;
+ font-size: 0.62rem;
+ font-weight: 700;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 2px solid #FDFAF0;
+ z-index: 3;
+ font-family: 'DM Sans', sans-serif;
+}
+
+.whatsapp-launcher {
+ position: fixed;
+ bottom: 24px;
+ right: 98px;
+ width: 56px;
+ height: 56px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+ color: #fff;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ z-index: 9997;
+ box-shadow: 0 10px 26px rgba(18, 140, 126, 0.36), 0 2px 8px rgba(0,0,0,0.12);
+ border: 2px solid rgba(255,255,255,0.45);
+ transition: transform 0.24s ease, box-shadow 0.24s ease;
+ text-decoration: none;
+}
+.whatsapp-launcher:hover {
+ transform: translateY(-3px) scale(1.04);
+ box-shadow: 0 14px 34px rgba(18, 140, 126, 0.5), 0 4px 12px rgba(0,0,0,0.15);
+}
+.whatsapp-launcher svg {
+ width: 28px;
+ height: 28px;
+ fill: currentColor;
+}
+.whatsapp-launcher-label {
+ position: absolute;
+ right: 66px;
+ top: 50%;
+ transform: translateY(-50%) translateX(8px);
+ background: #0F3F38;
+ color: #fff;
+ font-size: 0.72rem;
+ letter-spacing: 0.03em;
+ padding: 0.5rem 0.85rem;
+ border-radius: 8px;
+ white-space: nowrap;
+ opacity: 0;
+ pointer-events: none;
+ transition: all 0.25s;
+ font-family: 'DM Sans', sans-serif;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+}
+.whatsapp-launcher-label::after {
+ content: '';
+ position: absolute;
+ right: -5px;
+ top: 50%;
+ transform: translateY(-50%) rotate(45deg);
+ width: 8px;
+ height: 8px;
+ background: #0F3F38;
+}
+.whatsapp-launcher:hover .whatsapp-launcher-label {
+ opacity: 1;
+ transform: translateY(-50%) translateX(0);
+}
+
+.kismat-widget {
+ position: fixed;
+ bottom: 24px;
+ right: 24px;
+ width: 380px;
+ max-width: calc(100vw - 32px);
+ height: 600px;
+ max-height: calc(100vh - 48px);
+ background: #FDFAF0;
+ border-radius: 18px;
+ box-shadow: 0 24px 64px rgba(42, 37, 32, 0.22), 0 4px 16px rgba(0,0,0,0.08);
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
+ z-index: 9999;
+ border: 1px solid rgba(200, 168, 75, 0.25);
+ transform: translateY(20px) scale(0.95);
+ opacity: 0;
+ pointer-events: none;
+ transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+ font-family: 'DM Sans', sans-serif;
+}
+.kismat-widget.open {
+ transform: translateY(0) scale(1);
+ opacity: 1;
+ pointer-events: auto;
+}
+
+.kismat-header {
+ background: linear-gradient(135deg, #1A1610 0%, #2A2520 100%);
+ color: #fff;
+ padding: 1rem 1.25rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: relative;
+ flex-shrink: 0;
+}
+.kismat-header::after {
+ content: '';
+ position: absolute;
+ left: 0; right: 0; bottom: 0;
+ height: 2px;
+ background: linear-gradient(90deg, transparent 0%, #C8A84B 50%, transparent 100%);
+ transition: background 0.4s;
+}
+/* Gopal theme = warmer maroon/saffron */
+.kismat-widget[data-persona="gopal"] .kismat-header::after {
+ background: linear-gradient(90deg, transparent 0%, #B85C2C 50%, transparent 100%);
+}
+.kismat-header-left {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+}
+.kismat-avatar {
+ position: relative;
+ width: 42px;
+ height: 42px;
+ flex-shrink: 0;
+}
+.kismat-avatar-img {
+ width: 100%;
+ height: 100%;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 2px solid rgba(200, 168, 75, 0.4);
+ overflow: hidden;
+ transition: background 0.4s, border-color 0.4s;
+}
+.kismat-widget[data-persona="gopal"] .kismat-avatar-img {
+ background: linear-gradient(135deg, #FFE9D6 0%, #F5B583 100%);
+ border-color: rgba(184, 92, 44, 0.45);
+}
+.kismat-avatar-img svg {
+ width: 26px;
+ height: 26px;
+}
+.kismat-status-dot {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ width: 11px;
+ height: 11px;
+ background: #4CAF50;
+ border: 2px solid #1A1610;
+ border-radius: 50%;
+}
+.kismat-name {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.2rem;
+ font-weight: 600;
+ letter-spacing: 0.01em;
+ line-height: 1.1;
+}
+.kismat-role {
+ font-size: 0.68rem;
+ color: rgba(255,255,255,0.65);
+ letter-spacing: 0.03em;
+ margin-top: 3px;
+ display: flex;
+ align-items: center;
+ gap: 0.35rem;
+}
+.kismat-online-dot {
+ display: inline-block;
+ width: 6px;
+ height: 6px;
+ background: #4CAF50;
+ border-radius: 50%;
+ animation: kismatOnline 2s ease-in-out infinite;
+}
+@keyframes kismatOnline {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0.4; }
+}
+
+.kismat-header-actions {
+ display: flex;
+ gap: 0.4rem;
+ align-items: center;
+}
+.kismat-icon-btn {
+ background: rgba(255,255,255,0.08);
+ border: none;
+ color: rgba(255,255,255,0.75);
+ width: 32px;
+ height: 32px;
+ border-radius: 50%;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 0.2s;
+}
+.kismat-icon-btn:hover {
+ background: rgba(255,255,255,0.16);
+ color: #fff;
+}
+.kismat-icon-btn svg {
+ width: 16px;
+ height: 16px;
+ stroke: currentColor;
+ fill: none;
+ stroke-width: 2;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+
+.kismat-messages {
+ flex: 1;
+ overflow-y: auto;
+ overflow-x: hidden;
+ padding: 1.25rem 1rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.65rem;
+ background: linear-gradient(180deg, #FDFAF0 0%, #FBF7E8 100%);
+ scrollbar-width: thin;
+ scrollbar-color: rgba(200,168,75,0.35) transparent;
+}
+.kismat-messages::-webkit-scrollbar { width: 5px; }
+.kismat-messages::-webkit-scrollbar-thumb { background: rgba(200,168,75,0.35); border-radius: 4px; }
+.kismat-messages::-webkit-scrollbar-track { background: transparent; }
+
+.kismat-msg {
+ display: flex;
+ gap: 0.5rem;
+ align-items: flex-end;
+ max-width: 88%;
+ animation: kismatMsgIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes kismatMsgIn {
+ from { opacity: 0; transform: translateY(8px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+.kismat-msg.bot { align-self: flex-start; }
+.kismat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+.kismat-msg-avatar {
+ width: 28px;
+ height: 28px;
+ border-radius: 50%;
+ flex-shrink: 0;
+ background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid rgba(200, 168, 75, 0.3);
+ transition: background 0.4s, border-color 0.4s;
+}
+.kismat-widget[data-persona="gopal"] .kismat-msg-avatar {
+ background: linear-gradient(135deg, #FFE9D6 0%, #F5B583 100%);
+ border-color: rgba(184, 92, 44, 0.35);
+}
+.kismat-msg-avatar svg {
+ width: 18px;
+ height: 18px;
+}
+.kismat-msg.user .kismat-msg-avatar { display: none; }
+
+.kismat-bubble {
+ padding: 0.7rem 0.95rem;
+ border-radius: 14px;
+ font-size: 0.86rem;
+ line-height: 1.5;
+ word-wrap: break-word;
+ word-break: break-word;
+}
+.kismat-msg.bot .kismat-bubble {
+ background: #fff;
+ color: #2A2520;
+ border: 1px solid rgba(200,168,75,0.18);
+ border-bottom-left-radius: 4px;
+ box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.kismat-msg.user .kismat-bubble {
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border-bottom-right-radius: 4px;
+ box-shadow: 0 2px 6px rgba(138, 110, 32, 0.2);
+ transition: background 0.4s, box-shadow 0.4s;
+}
+.kismat-widget[data-persona="gopal"] .kismat-msg.user .kismat-bubble {
+ background: linear-gradient(135deg, #C97142 0%, #8B3F1C 100%);
+ box-shadow: 0 2px 6px rgba(139, 63, 28, 0.22);
+}
+.kismat-msg.bot .kismat-bubble strong { color: #8A6E20; font-weight: 600; }
+.kismat-widget[data-persona="gopal"] .kismat-msg.bot .kismat-bubble strong { color: #8B3F1C; }
+.kismat-msg.bot .kismat-bubble em { color: #8A6E20; font-style: italic; }
+.kismat-widget[data-persona="gopal"] .kismat-msg.bot .kismat-bubble em { color: #8B3F1C; }
+
+.kismat-bubble a {
+ color: #8A6E20;
+ text-decoration: underline;
+ text-decoration-color: rgba(138,110,32,0.4);
+ text-underline-offset: 2px;
+ font-weight: 500;
+}
+.kismat-widget[data-persona="gopal"] .kismat-bubble a { color: #8B3F1C; text-decoration-color: rgba(139,63,28,0.4); }
+.kismat-bubble a:hover { text-decoration-color: currentColor; }
+
+.kismat-bubble ul {
+ list-style: none;
+ padding-left: 0;
+ margin: 0.5rem 0;
+}
+.kismat-bubble ul li {
+ position: relative;
+ padding-left: 1.1rem;
+ margin: 0.3rem 0;
+ line-height: 1.5;
+}
+.kismat-bubble ul li::before {
+ content: '◆';
+ position: absolute;
+ left: 0;
+ top: 1px;
+ color: #C8A84B;
+ font-size: 0.55rem;
+}
+.kismat-widget[data-persona="gopal"] .kismat-bubble ul li::before { color: #B85C2C; }
+
+.kismat-bubble-time {
+ font-size: 0.62rem;
+ opacity: 0.55;
+ margin-top: 0.3rem;
+ letter-spacing: 0.04em;
+ font-weight: 400;
+}
+
+.kismat-quick-replies {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem;
+ margin-top: 0.15rem;
+ align-self: flex-start;
+ max-width: 92%;
+ padding-left: 36px;
+ animation: kismatMsgIn 0.4s ease 0.1s both;
+}
+.kismat-quick-reply {
+ background: #fff;
+ border: 1px solid rgba(200,168,75,0.4);
+ color: #8A6E20;
+ padding: 0.45rem 0.9rem;
+ border-radius: 20px;
+ font-size: 0.76rem;
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-family: 'DM Sans', sans-serif;
+ white-space: normal;
+ text-align: left;
+}
+.kismat-widget[data-persona="gopal"] .kismat-quick-reply {
+ border-color: rgba(184,92,44,0.4);
+ color: #8B3F1C;
+}
+.kismat-quick-reply:hover {
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border-color: #8A6E20;
+ transform: translateY(-1px);
+ box-shadow: 0 4px 10px rgba(138, 110, 32, 0.22);
+}
+.kismat-widget[data-persona="gopal"] .kismat-quick-reply:hover {
+ background: linear-gradient(135deg, #C97142 0%, #8B3F1C 100%);
+ border-color: #8B3F1C;
+ box-shadow: 0 4px 10px rgba(139, 63, 28, 0.25);
+}
+
+/* Persona picker — appears as a special bot message */
+.kismat-persona-picker {
+ align-self: flex-start;
+ max-width: 92%;
+ padding-left: 36px;
+ margin-top: 0.15rem;
+ display: flex;
+ gap: 0.5rem;
+ animation: kismatMsgIn 0.4s ease 0.1s both;
+}
+.kismat-persona-card {
+ flex: 1;
+ background: #fff;
+ border: 1.5px solid rgba(200,168,75,0.35);
+ border-radius: 14px;
+ padding: 0.85rem 0.65rem;
+ cursor: pointer;
+ transition: all 0.25s;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 0.45rem;
+ font-family: 'DM Sans', sans-serif;
+}
+.kismat-persona-card:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 6px 18px rgba(138, 110, 32, 0.18);
+ border-color: #C8A84B;
+}
+.kismat-persona-card[data-pick="gopal"]:hover {
+ border-color: #B85C2C;
+ box-shadow: 0 6px 18px rgba(184, 92, 44, 0.2);
+}
+.kismat-persona-avatar {
+ width: 42px;
+ height: 42px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+ border: 1px solid rgba(200, 168, 75, 0.35);
+}
+.kismat-persona-card[data-pick="gopal"] .kismat-persona-avatar {
+ background: linear-gradient(135deg, #FFE9D6 0%, #F5B583 100%);
+ border-color: rgba(184, 92, 44, 0.4);
+}
+.kismat-persona-avatar svg { width: 26px; height: 26px; }
+.kismat-persona-name {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.05rem;
+ font-weight: 600;
+ color: #2A2520;
+ line-height: 1;
+}
+.kismat-persona-tag {
+ font-size: 0.62rem;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: #8A6E20;
+ font-weight: 500;
+}
+.kismat-persona-card[data-pick="gopal"] .kismat-persona-tag { color: #8B3F1C; }
+
+.kismat-typing {
+ padding: 0 1rem 0.5rem;
+ display: flex;
+ gap: 0.5rem;
+ align-items: flex-end;
+}
+.kismat-typing-bubble {
+ background: #fff;
+ border: 1px solid rgba(200,168,75,0.18);
+ padding: 0.75rem 0.9rem;
+ border-radius: 14px;
+ border-bottom-left-radius: 4px;
+ display: flex;
+ gap: 4px;
+ align-items: center;
+}
+.kismat-typing-bubble span {
+ width: 6px;
+ height: 6px;
+ background: #C8A84B;
+ border-radius: 50%;
+ opacity: 0.4;
+ animation: kismatTyping 1.4s ease-in-out infinite;
+ transition: background 0.4s;
+}
+.kismat-widget[data-persona="gopal"] .kismat-typing-bubble span { background: #B85C2C; }
+.kismat-typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+.kismat-typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes kismatTyping {
+ 0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+ 30% { opacity: 1; transform: translateY(-4px); }
+}
+
+.kismat-input-area {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.85rem 1rem;
+ background: #fff;
+ border-top: 1px solid rgba(200,168,75,0.15);
+ flex-shrink: 0;
+}
+.kismat-input-area input {
+ flex: 1;
+ border: 1px solid rgba(200,168,75,0.28);
+ background: #FDFAF0;
+ border-radius: 22px;
+ padding: 0.65rem 1rem;
+ font-size: 0.86rem;
+ font-family: 'DM Sans', sans-serif;
+ color: #2A2520;
+ outline: none;
+ transition: border-color 0.2s, background 0.2s;
+ min-width: 0;
+}
+.kismat-input-area input::placeholder { color: #9A8E7F; }
+.kismat-input-area input:focus {
+ border-color: #C8A84B;
+ background: #fff;
+}
+.kismat-widget[data-persona="gopal"] .kismat-input-area input:focus { border-color: #B85C2C; }
+.kismat-input-area input:disabled {
+ opacity: 0.6;
+ cursor: not-allowed;
+}
+.kismat-input-area button {
+ width: 38px;
+ height: 38px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
+ color: #fff;
+ border: none;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ transition: all 0.2s;
+}
+.kismat-widget[data-persona="gopal"] .kismat-input-area button {
+ background: linear-gradient(135deg, #C97142 0%, #8B3F1C 100%);
+}
+.kismat-input-area button:hover:not(:disabled) {
+ transform: scale(1.05);
+ box-shadow: 0 4px 12px rgba(138, 110, 32, 0.35);
+}
+.kismat-widget[data-persona="gopal"] .kismat-input-area button:hover:not(:disabled) {
+ box-shadow: 0 4px 12px rgba(139, 63, 28, 0.35);
+}
+.kismat-input-area button:disabled {
+ opacity: 0.5;
+ cursor: not-allowed;
+ transform: none;
+}
+.kismat-input-area button svg {
+ width: 16px;
+ height: 16px;
+ stroke: currentColor;
+ fill: none;
+ stroke-width: 1.8;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+
+.kismat-footer {
+ text-align: center;
+ padding: 0.55rem;
+ font-size: 0.62rem;
+ letter-spacing: 0.06em;
+ color: #9A8E7F;
+ background: #fff;
+ border-top: 1px solid rgba(200,168,75,0.08);
+ flex-shrink: 0;
+}
+.kismat-footer strong { color: #8A6E20; font-weight: 600; }
+.kismat-widget[data-persona="gopal"] .kismat-footer strong { color: #8B3F1C; }
+
+@media (max-width: 480px) {
+ .kismat-widget {
+  width: calc(100vw - 16px);
+  height: calc(100vh - 32px);
+  max-height: calc(100vh - 32px);
+  bottom: 8px;
+  right: 8px;
+  border-radius: 14px;
+ }
+ .kismat-launcher {
+  bottom: 16px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+ }
+ .whatsapp-launcher {
+  bottom: 16px;
+  right: 84px;
+  width: 52px;
+  height: 52px;
+ }
+ .whatsapp-launcher-label { display: none; }
+ .kismat-launcher-label { display: none; }
+ .kismat-persona-picker { flex-direction: column; }
+}
+
+/* ----- ALL ORIGINAL STYLES BELOW (unchanged) ----- */
+
 /* ANNOUNCEMENT BAR */
 .announce-bar {
  background: var(--bg-dark);
@@ -184,14 +875,9 @@ nav {
  color: #8A6E20;
  margin-bottom: 1.2rem;
 }
-.hero-left h1 .black-text {
- color: #1A1610;
-}
+.hero-left h1 .black-text { color: #1A1610; }
 .hero-left h1 em { font-style: italic; color: var(--gold-dark); }
-.hero-left h1 strong {
- font-weight: 600;
- color: var(--gold-dark);
-}
+.hero-left h1 strong { font-weight: 600; color: var(--gold-dark); }
 
 .hero-sub {
  font-size: 1rem;
@@ -282,7 +968,6 @@ nav {
 }
 .hero-card:hover { transform: translateY(-3px); }
 
-/* Horoscope - sunrise illustration */
 .hero-card-1 {
  background:
   linear-gradient(to top, rgba(160,110,0,0.55) 0%, transparent 52%),
@@ -291,7 +976,6 @@ nav {
  grid-column: 1;
  border: 1px solid rgba(160,120,0,0.35);
 }
-/* Verification - deep maroon */
 .hero-card-2 {
  background:
   linear-gradient(180deg, rgba(92,0,0,0.38) 0%, rgba(58,0,0,0.86) 100%),
@@ -300,7 +984,6 @@ nav {
  grid-column: 2;
  border: none;
 }
-/* Compatibility score - white */
 .hero-card-3 {
  background:
   linear-gradient(to top, rgba(26,22,16,0.85) 0%, rgba(26,22,16,0.45) 55%, rgba(26,22,16,0.25) 100%),
@@ -308,26 +991,6 @@ nav {
  grid-row: 2;
  grid-column: 2;
  border: 1px solid rgba(200,168,75,0.22);
-}
-.hero-art-box {
- width: 100%;
- height: 92px;
- border-radius: 10px;
- background: transparent;
- border: none;
- margin-bottom: 0.6rem;
- overflow: hidden;
-}
-.hero-art-box svg {
- width: 100%;
- height: 100%;
- display: block;
-}
-.hero-art-box img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- display: block;
 }
 
 .hero-card-icon {
@@ -389,9 +1052,7 @@ nav {
  color: rgba(255,255,255,0.96);
  text-shadow: 0 1px 10px rgba(0,0,0,0.18);
 }
-.hero-card-2 .hero-card-title {
- max-width: 9ch;
-}
+.hero-card-2 .hero-card-title { max-width: 9ch; }
 .hero-card-3 .hero-card-title {
  max-width: 16ch;
  font-size: 1.15rem;
@@ -406,14 +1067,6 @@ nav {
  line-height: 1.6; 
  font-weight: 400;
  text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
-}
-.hero-card-3 .hero-score {
- font-family: 'Cormorant Garamond', serif;
- font-size: 2.2rem;
- font-weight: 500;
- color: var(--charcoal);
- display: block;
- margin-bottom: 0.2rem;
 }
 
 /* TRUST BAR */
@@ -458,9 +1111,6 @@ nav {
  color: rgba(255,255,255,0.65);
  white-space: nowrap;
  flex-shrink: 0;
- opacity: 1;
- transform: none;
- animation: none;
 }
 .trust-sep { color: rgba(255,255,255,0.18); font-size: 1rem; margin: 0 1rem; flex-shrink: 0; }
 
@@ -468,7 +1118,6 @@ nav {
  from { transform: translateX(-50%); }
  to { transform: translateX(0); }
 }
-
 @keyframes trustSweep {
  0% { transform: translateX(-120%); }
  32% { transform: translateX(120%); }
@@ -670,7 +1319,6 @@ nav {
 
 .lens-panel { background: #FDFAF0; border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem; display: none; }
 .lens-panel.active { display: block; }
-/* Lens panels - photo backgrounds */
 #lens-0 { position: relative; overflow: hidden; }
 #lens-0::before {
  content: '';
@@ -745,14 +1393,8 @@ nav {
 }
 
 @keyframes lensPanelReveal {
- from {
-  opacity: 0;
-  transform: translateY(10px) scale(0.99);
- }
- to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
- }
+ from { opacity: 0; transform: translateY(10px) scale(0.99); }
+ to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes badgeShine {
@@ -795,27 +1437,6 @@ nav {
 .testimonial-name { font-size: 0.82rem; font-weight: 500; color: var(--charcoal); }
 .testimonial-city { font-size: 0.7rem; color: var(--text-muted); }
 
-/* EXPERTS */
-.experts-section {
- padding: 5rem 4rem;
- background: var(--bg-accent);
- border-top: 1px solid var(--section-divider);
-}
-.experts-grid { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2.5rem; max-width: 820px; }
-.expert-card { background: var(--bg-primary); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.25rem; transition: all 0.25s; cursor: pointer; }
-.expert-card:hover { transform: translateX(3px); box-shadow: 0 8px 32px rgba(42,37,32,0.07); border-color: var(--gold); }
-.expert-avatar { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 600; flex-shrink: 0; border: 2px solid var(--card-border); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.04em; }
-.ea-1 { background: #FFF9C4; color: #9A7C2E; }
-.ea-2 { background: #E1F5EE; color: #0F6E56; }
-.ea-3 { background: #FFE8EB; color: #B03060; }
-.expert-card-body { flex: 1; min-width: 0; }
-.expert-name { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.2rem; }
-.expert-role { font-size: 0.78rem; color: var(--charcoal-light); margin-bottom: 0.6rem; font-weight: 300; }
-.expert-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.expert-tag { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); border: 1px solid rgba(200,168,75,0.4); border-radius: 4px; padding: 0.2rem 0.6rem; font-weight: 500; background: rgba(200,168,75,0.06); }
-.expert-arrow { color: var(--gold); flex-shrink: 0; opacity: 0.55; transition: all 0.2s; }
-.expert-card:hover .expert-arrow { opacity: 1; transform: translateX(3px); }
-
 /* CTA */
 .cta-section {
  padding: 6rem 4rem;
@@ -840,34 +1461,7 @@ nav {
 .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
 .cta-note { margin-top: 1.5rem; font-size: 0.7rem; color: var(--gold); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; position: relative; text-shadow: 0 0 20px rgba(200, 168, 75, 0.4), 0 0 10px rgba(200, 168, 75, 0.3); }
 
-/* FOOTER */
-footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
-.footer-top {
- display: grid;
- grid-template-columns: 2fr 1fr 1fr 1fr;
- gap: 3rem;
- margin-bottom: 3rem;
- padding-bottom: 3rem;
- border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 0.75rem; display: block; }
-.footer-logo span { color: var(--rose); }
-.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.3); line-height: 1.7; font-weight: 300; max-width: 260px; }
-.footer-col-title { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; font-weight: 500; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
-.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; font-weight: 300; }
-.footer-links a:hover { color: var(--gold); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
-.footer-legal { display: flex; gap: 1.5rem; }
-.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s; }
-.footer-legal a:hover { color: var(--gold); }
-
-/* FADE IN */
-.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* HOROSCOPE HERO */
+/* HOROSCOPE HERO + SPEND */
 .horoscope-hero {
  background: #1a1610;
  padding: 2.5rem 4rem;
@@ -915,32 +1509,8 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  z-index: 0;
  pointer-events: none;
 }
-.horoscope-hero-content {
- position: relative;
- z-index: 1;
- max-width: 640px;
-}
-.horoscope-hero p {
- font-family: 'Cormorant Garamond', serif;
- font-size: clamp(2rem, 4vw, 3rem);
- font-weight: 400;
- color: rgba(255,255,255,0.95);
- line-height: 1.5;
- margin-bottom: 2rem;
- letter-spacing: 0.01em;
-}
-.horoscope-hero p em {
- font-style: italic;
- color: #FFD700;
-}
-.horoscope-hero-sub {
- font-size: 1rem;
- color: rgba(255,255,255,0.65);
- font-weight: 300;
- line-height: 1.8;
-}
+.horoscope-hero-content { position: relative; z-index: 1; max-width: 640px; }
 
-/* COMIC CAROUSEL */
 .spend-hero-kicker {
  font-size: 0.58rem;
  letter-spacing: 0.24em;
@@ -960,15 +1530,6 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  margin-bottom: 1.5rem;
  text-shadow: 0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.95);
 }
-.spend-hero-sub {
- font-size: 0.78rem;
- line-height: 1.55;
- color: rgba(255,255,255,0.76);
- max-width: 520px;
- margin: 0 auto 0.8rem;
- font-weight: 300;
- display: none;
-}
 .spend-table {
  width: min(100%, 580px);
  margin: 0 auto;
@@ -987,54 +1548,22 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  align-items: center;
  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.spend-row:last-child {
- border-bottom: none;
-}
+.spend-row:last-child { border-bottom: none; }
 .spend-row.highlight {
  background: linear-gradient(90deg, rgba(200,168,75,0.24) 0%, rgba(200,168,75,0.08) 100%);
 }
-.spend-label {
- font-size: 0.82rem;
- color: rgba(255,255,255,0.95);
- text-align: left;
- text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-}
-.spend-value {
- font-size: 0.82rem;
- color: #ffffff;
- text-align: right;
- font-weight: 600;
- text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-}
-.spend-row.highlight .spend-label,
-.spend-row.highlight .spend-value {
- color: #fff7dc;
-}
-.spend-note {
- margin-top: 0.8rem;
- font-size: 0.64rem;
- letter-spacing: 0.08em;
- text-transform: uppercase;
- color: rgba(255,255,255,0.5);
- display: none;
-}
+.spend-label { font-size: 0.82rem; color: rgba(255,255,255,0.95); text-align: left; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
+.spend-value { font-size: 0.82rem; color: #ffffff; text-align: right; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
+.spend-row.highlight .spend-label, .spend-row.highlight .spend-value { color: #fff7dc; }
+
 .stories-section {
  padding: 2.4rem 4rem 2.8rem;
  background: linear-gradient(180deg, #fffef9 0%, #fff9eb 100%);
  border-top: 1px solid var(--section-divider);
  border-bottom: 1px solid var(--section-divider);
 }
-.stories-head {
- display: block;
- max-width: 760px;
- margin-bottom: 1.2rem;
-}
-.stories-sub {
- font-size: 0.88rem;
- color: var(--charcoal-light);
- font-weight: 300;
- margin-top: 0.35rem;
-}
+.stories-head { display: block; max-width: 760px; margin-bottom: 1.2rem; }
+.stories-sub { font-size: 0.88rem; color: var(--charcoal-light); font-weight: 300; margin-top: 0.35rem; }
 .comic-carousel {
  position: relative;
  max-width: 470px;
@@ -1046,11 +1575,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  background: #f4efe1;
  box-shadow: 0 10px 34px rgba(42,37,32,0.08);
 }
-.comic-track {
- display: flex;
- transition: transform 0.45s ease;
- will-change: transform;
-}
+.comic-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
 .comic-slide {
  min-width: 100%;
  height: clamp(350px, 66vw, 540px);
@@ -1060,12 +1585,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  justify-content: center;
  padding: 0.25rem;
 }
-.comic-slide img {
- width: 100%;
- height: 100%;
- object-fit: contain;
- display: block;
-}
+.comic-slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .comic-arrow {
  position: absolute;
  top: 50%;
@@ -1083,21 +1603,10 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  transition: all 0.2s;
  z-index: 2;
 }
-.comic-arrow:hover {
- background: rgba(26,22,16,0.82);
- border-color: rgba(255,238,88,0.65);
-}
+.comic-arrow:hover { background: rgba(26,22,16,0.82); border-color: rgba(255,238,88,0.65); }
 .comic-arrow.prev { left: 0.65rem; }
 .comic-arrow.next { right: 0.65rem; }
-.comic-arrow svg {
- width: 13px;
- height: 13px;
- stroke: currentColor;
- fill: none;
- stroke-width: 2;
- stroke-linecap: round;
- stroke-linejoin: round;
-}
+.comic-arrow svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .comic-dots {
  position: absolute;
  left: 50%;
@@ -1116,493 +1625,40 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  cursor: pointer;
  transition: all 0.2s;
 }
-.comic-dot.active {
- background: #FFD700;
- border-color: #FFD700;
- transform: scale(1.1);
-}
+.comic-dot.active { background: #FFD700; border-color: #FFD700; transform: scale(1.1); }
 
 @media (prefers-reduced-motion: reduce) {
- .trust-marquee {
-  animation: none;
- }
+ .trust-marquee { animation: none; }
 }
 
-/* ============================
-   KISMAT CHATBOT
-   ============================ */
-.kismat-launcher {
- position: fixed;
- bottom: 24px;
- right: 24px;
- width: 62px;
- height: 62px;
- border-radius: 50%;
- background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
- color: #fff;
- display: flex;
- align-items: center;
- justify-content: center;
- cursor: pointer;
- z-index: 9998;
- box-shadow: 0 10px 30px rgba(138, 110, 32, 0.38), 0 2px 8px rgba(0,0,0,0.12);
- transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
- border: 2px solid rgba(255, 248, 220, 0.4);
+/* FOOTER */
+footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
+.footer-top {
+ display: grid;
+ grid-template-columns: 2fr 1fr 1fr 1fr;
+ gap: 3rem;
+ margin-bottom: 3rem;
+ padding-bottom: 3rem;
+ border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.kismat-launcher:hover {
- transform: translateY(-3px) scale(1.05);
- box-shadow: 0 14px 38px rgba(138, 110, 32, 0.5), 0 4px 12px rgba(0,0,0,0.15);
-}
-.kismat-launcher svg {
- width: 26px;
- height: 26px;
- z-index: 2;
- position: relative;
- stroke: #fff;
- fill: none;
- stroke-width: 1.8;
- stroke-linecap: round;
- stroke-linejoin: round;
-}
-.kismat-launcher::before {
- content: '';
- position: absolute;
- inset: -2px;
- border-radius: 50%;
- background: rgba(200, 168, 75, 0.5);
- animation: kismatPulse 2.4s ease-out infinite;
- z-index: 1;
-}
-@keyframes kismatPulse {
- 0% { transform: scale(1); opacity: 0.65; }
- 100% { transform: scale(1.7); opacity: 0; }
-}
-.kismat-launcher-label {
- position: absolute;
- right: 74px;
- top: 50%;
- transform: translateY(-50%) translateX(8px);
- background: #1A1610;
- color: #fff;
- font-size: 0.72rem;
- letter-spacing: 0.04em;
- padding: 0.5rem 0.9rem;
- border-radius: 8px;
- white-space: nowrap;
- opacity: 0;
- transition: all 0.25s;
- pointer-events: none;
- font-family: 'DM Sans', sans-serif;
- font-weight: 500;
- box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.kismat-launcher-label::after {
- content: '';
- position: absolute;
- right: -5px;
- top: 50%;
- transform: translateY(-50%) rotate(45deg);
- width: 8px;
- height: 8px;
- background: #1A1610;
-}
-.kismat-launcher:hover .kismat-launcher-label {
- opacity: 1;
- transform: translateY(-50%) translateX(0);
-}
-.kismat-launcher.hidden {
- transform: scale(0);
- opacity: 0;
- pointer-events: none;
-}
-.kismat-launcher-badge {
- position: absolute;
- top: -2px;
- right: -2px;
- width: 18px;
- height: 18px;
- background: #E8828A;
- color: #fff;
- border-radius: 50%;
- font-size: 0.62rem;
- font-weight: 700;
- display: flex;
- align-items: center;
- justify-content: center;
- border: 2px solid #FDFAF0;
- z-index: 3;
- font-family: 'DM Sans', sans-serif;
-}
+.footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 0.75rem; display: block; }
+.footer-logo span { color: var(--rose); }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.3); line-height: 1.7; font-weight: 300; max-width: 260px; }
+.footer-col-title { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
 
-.kismat-widget {
- position: fixed;
- bottom: 24px;
- right: 24px;
- width: 380px;
- max-width: calc(100vw - 32px);
- height: 580px;
- max-height: calc(100vh - 48px);
- background: #FDFAF0;
- border-radius: 18px;
- box-shadow: 0 24px 64px rgba(42, 37, 32, 0.22), 0 4px 16px rgba(0,0,0,0.08);
- display: flex;
- flex-direction: column;
- overflow: hidden;
- z-index: 9999;
- border: 1px solid rgba(200, 168, 75, 0.25);
- transform: translateY(20px) scale(0.95);
- opacity: 0;
- pointer-events: none;
- transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
- font-family: 'DM Sans', sans-serif;
-}
-.kismat-widget.open {
- transform: translateY(0) scale(1);
- opacity: 1;
- pointer-events: auto;
-}
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
-.kismat-header {
- background: linear-gradient(135deg, #1A1610 0%, #2A2520 100%);
- color: #fff;
- padding: 1rem 1.25rem;
- display: flex;
- align-items: center;
- justify-content: space-between;
- position: relative;
- flex-shrink: 0;
-}
-.kismat-header::after {
- content: '';
- position: absolute;
- left: 0; right: 0; bottom: 0;
- height: 2px;
- background: linear-gradient(90deg, transparent 0%, #C8A84B 50%, transparent 100%);
-}
-.kismat-header-left {
- display: flex;
- align-items: center;
- gap: 0.75rem;
-}
-.kismat-avatar {
- position: relative;
- width: 42px;
- height: 42px;
- flex-shrink: 0;
-}
-.kismat-avatar-img {
- width: 100%;
- height: 100%;
- border-radius: 50%;
- background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
- display: flex;
- align-items: center;
- justify-content: center;
- border: 2px solid rgba(200, 168, 75, 0.4);
- overflow: hidden;
-}
-.kismat-avatar-img svg {
- width: 26px;
- height: 26px;
-}
-.kismat-status-dot {
- position: absolute;
- bottom: 0;
- right: 0;
- width: 11px;
- height: 11px;
- background: #4CAF50;
- border: 2px solid #1A1610;
- border-radius: 50%;
-}
-.kismat-name {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.2rem;
- font-weight: 600;
- letter-spacing: 0.01em;
- line-height: 1.1;
-}
-.kismat-role {
- font-size: 0.68rem;
- color: rgba(255,255,255,0.65);
- letter-spacing: 0.03em;
- margin-top: 3px;
- display: flex;
- align-items: center;
- gap: 0.35rem;
-}
-.kismat-online-dot {
- display: inline-block;
- width: 6px;
- height: 6px;
- background: #4CAF50;
- border-radius: 50%;
- animation: kismatOnline 2s ease-in-out infinite;
-}
-@keyframes kismatOnline {
- 0%, 100% { opacity: 1; }
- 50% { opacity: 0.4; }
-}
-.kismat-close {
- background: rgba(255,255,255,0.08);
- border: none;
- color: rgba(255,255,255,0.75);
- width: 32px;
- height: 32px;
- border-radius: 50%;
- cursor: pointer;
- display: flex;
- align-items: center;
- justify-content: center;
- transition: all 0.2s;
-}
-.kismat-close:hover {
- background: rgba(255,255,255,0.16);
- color: #fff;
-}
-.kismat-close svg {
- width: 16px;
- height: 16px;
- stroke: currentColor;
- fill: none;
- stroke-width: 2;
- stroke-linecap: round;
- stroke-linejoin: round;
-}
-
-.kismat-messages {
- flex: 1;
- overflow-y: auto;
- overflow-x: hidden;
- padding: 1.25rem 1rem;
- display: flex;
- flex-direction: column;
- gap: 0.65rem;
- background:
-  linear-gradient(180deg, #FDFAF0 0%, #FBF7E8 100%);
- scrollbar-width: thin;
- scrollbar-color: rgba(200,168,75,0.35) transparent;
-}
-.kismat-messages::-webkit-scrollbar { width: 5px; }
-.kismat-messages::-webkit-scrollbar-thumb { background: rgba(200,168,75,0.35); border-radius: 4px; }
-.kismat-messages::-webkit-scrollbar-track { background: transparent; }
-
-.kismat-msg {
- display: flex;
- gap: 0.5rem;
- align-items: flex-end;
- max-width: 88%;
- animation: kismatMsgIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-@keyframes kismatMsgIn {
- from { opacity: 0; transform: translateY(8px); }
- to { opacity: 1; transform: translateY(0); }
-}
-.kismat-msg.bot { align-self: flex-start; }
-.kismat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
-
-.kismat-msg-avatar {
- width: 28px;
- height: 28px;
- border-radius: 50%;
- flex-shrink: 0;
- background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
- display: flex;
- align-items: center;
- justify-content: center;
- border: 1px solid rgba(200, 168, 75, 0.3);
-}
-.kismat-msg-avatar svg {
- width: 18px;
- height: 18px;
-}
-.kismat-msg.user .kismat-msg-avatar { display: none; }
-
-.kismat-bubble {
- padding: 0.7rem 0.95rem;
- border-radius: 14px;
- font-size: 0.86rem;
- line-height: 1.5;
- word-wrap: break-word;
- word-break: break-word;
-}
-.kismat-msg.bot .kismat-bubble {
- background: #fff;
- color: #2A2520;
- border: 1px solid rgba(200,168,75,0.18);
- border-bottom-left-radius: 4px;
- box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-}
-.kismat-msg.user .kismat-bubble {
- background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
- color: #fff;
- border-bottom-right-radius: 4px;
- box-shadow: 0 2px 6px rgba(138, 110, 32, 0.2);
-}
-.kismat-msg.bot .kismat-bubble strong { color: #8A6E20; font-weight: 600; }
-.kismat-msg.bot .kismat-bubble em { color: #8A6E20; font-style: italic; }
-.kismat-bubble-time {
- font-size: 0.62rem;
- opacity: 0.55;
- margin-top: 0.3rem;
- letter-spacing: 0.04em;
- font-weight: 400;
-}
-
-.kismat-quick-replies {
- display: flex;
- flex-wrap: wrap;
- gap: 0.4rem;
- margin-top: 0.15rem;
- align-self: flex-start;
- max-width: 88%;
- padding-left: 36px;
- animation: kismatMsgIn 0.4s ease 0.1s both;
-}
-.kismat-quick-reply {
- background: #fff;
- border: 1px solid rgba(200,168,75,0.4);
- color: #8A6E20;
- padding: 0.45rem 0.9rem;
- border-radius: 20px;
- font-size: 0.76rem;
- font-weight: 500;
- cursor: pointer;
- transition: all 0.2s;
- font-family: 'DM Sans', sans-serif;
-}
-.kismat-quick-reply:hover {
- background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
- color: #fff;
- border-color: #8A6E20;
- transform: translateY(-1px);
- box-shadow: 0 4px 10px rgba(138, 110, 32, 0.22);
-}
-
-.kismat-typing {
- padding: 0 1rem 0.5rem;
- display: flex;
- gap: 0.5rem;
- align-items: flex-end;
-}
-.kismat-typing-bubble {
- background: #fff;
- border: 1px solid rgba(200,168,75,0.18);
- padding: 0.75rem 0.9rem;
- border-radius: 14px;
- border-bottom-left-radius: 4px;
- display: flex;
- gap: 4px;
- align-items: center;
-}
-.kismat-typing-bubble span {
- width: 6px;
- height: 6px;
- background: #C8A84B;
- border-radius: 50%;
- opacity: 0.4;
- animation: kismatTyping 1.4s ease-in-out infinite;
-}
-.kismat-typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
-.kismat-typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes kismatTyping {
- 0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
- 30% { opacity: 1; transform: translateY(-4px); }
-}
-
-.kismat-input-area {
- display: flex;
- align-items: center;
- gap: 0.5rem;
- padding: 0.85rem 1rem;
- background: #fff;
- border-top: 1px solid rgba(200,168,75,0.15);
- flex-shrink: 0;
-}
-.kismat-input-area input {
- flex: 1;
- border: 1px solid rgba(200,168,75,0.28);
- background: #FDFAF0;
- border-radius: 22px;
- padding: 0.65rem 1rem;
- font-size: 0.86rem;
- font-family: 'DM Sans', sans-serif;
- color: #2A2520;
- outline: none;
- transition: border-color 0.2s, background 0.2s;
- min-width: 0;
-}
-.kismat-input-area input::placeholder { color: #9A8E7F; }
-.kismat-input-area input:focus {
- border-color: #C8A84B;
- background: #fff;
-}
-.kismat-input-area input:disabled {
- opacity: 0.6;
- cursor: not-allowed;
-}
-.kismat-input-area button {
- width: 38px;
- height: 38px;
- border-radius: 50%;
- background: linear-gradient(135deg, #C8A84B 0%, #8A6E20 100%);
- color: #fff;
- border: none;
- cursor: pointer;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-shrink: 0;
- transition: all 0.2s;
-}
-.kismat-input-area button:hover:not(:disabled) {
- transform: scale(1.05);
- box-shadow: 0 4px 12px rgba(138, 110, 32, 0.35);
-}
-.kismat-input-area button:disabled {
- opacity: 0.5;
- cursor: not-allowed;
- transform: none;
-}
-.kismat-input-area button svg {
- width: 16px;
- height: 16px;
- stroke: currentColor;
- fill: none;
- stroke-width: 1.8;
- stroke-linecap: round;
- stroke-linejoin: round;
-}
-
-.kismat-footer {
- text-align: center;
- padding: 0.55rem;
- font-size: 0.62rem;
- letter-spacing: 0.06em;
- color: #9A8E7F;
- background: #fff;
- border-top: 1px solid rgba(200,168,75,0.08);
- flex-shrink: 0;
-}
-.kismat-footer strong { color: #8A6E20; font-weight: 600; }
-
-@media (max-width: 480px) {
- .kismat-widget {
-  width: calc(100vw - 16px);
-  height: calc(100vh - 32px);
-  max-height: calc(100vh - 32px);
-  bottom: 8px;
-  right: 8px;
-  border-radius: 14px;
- }
- .kismat-launcher {
-  bottom: 16px;
-  right: 16px;
-  width: 56px;
-  height: 56px;
- }
- .kismat-launcher-label { display: none; }
-}
+/* EXPERTS */
+.experts-section { padding: 5rem 4rem; background: var(--bg-accent); border-top: 1px solid var(--section-divider); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -1615,7 +1671,6 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  .trust-bar { padding: 1rem 1.5rem; gap: 0.75rem; }
  .trust-sep { display: none; }
  footer { padding: 3rem 1.5rem 1.5rem; }
-
  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
  .proof-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
  .horoscope-hero { padding: 4rem 1.5rem; min-height: 380px; }
@@ -1625,6 +1680,370 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  .spend-row { grid-template-columns: 1fr; gap: 0.35rem; }
  .spend-label, .spend-value { text-align: left; }
 }
+
+/* ============================
+   PROFESSIONAL LAYOUT REFRESH
+   Main content only: navbar and footer are intentionally untouched.
+   ============================ */
+:root {
+ --page-max: 1180px;
+ --section-pad-x: clamp(1.25rem, 4vw, 4.5rem);
+ --section-pad-y: clamp(3.75rem, 6vw, 6.5rem);
+ --soft-shadow: 0 24px 70px rgba(42, 37, 32, 0.08);
+ --card-shadow: 0 16px 42px rgba(42, 37, 32, 0.07);
+}
+
+.announce-bar {
+ position: relative;
+ z-index: 120;
+}
+
+.hero,
+.how-section,
+.lenses-section,
+.proof-section,
+.stories-section,
+.cta-section,
+.horoscope-hero,
+.experts-section {
+ padding-left: var(--section-pad-x);
+ padding-right: var(--section-pad-x);
+}
+
+.hero {
+ min-height: 680px;
+ gap: clamp(2.5rem, 5vw, 5.5rem);
+ background:
+  radial-gradient(circle at 15% 22%, rgba(255,255,255,0.75) 0 14%, transparent 35%),
+  linear-gradient(135deg, #fffdf4 0%, #fbf4d0 42%, #fff176 100%);
+}
+.hero-left {
+ max-width: 560px;
+}
+.hero-badge {
+ box-shadow: 0 10px 30px rgba(138,110,32,0.08);
+}
+.hero-left h1 {
+ letter-spacing: -0.035em;
+ max-width: 620px;
+}
+.hero-sub {
+ max-width: 510px;
+ font-size: 1.03rem;
+ color: rgba(74,66,56,0.9);
+}
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary,
+.cta-actions .btn-primary,
+.cta-actions .btn-secondary {
+ min-height: 48px;
+ border-radius: 999px;
+ padding-inline: 1.8rem;
+}
+.hero-trust {
+ background: rgba(255,255,255,0.48);
+ border: 1px solid rgba(200,168,75,0.18);
+ border-radius: 18px;
+ padding: 1rem 1.2rem;
+ width: fit-content;
+ box-shadow: 0 16px 45px rgba(138,110,32,0.08);
+}
+.hero-right {
+ height: min(500px, 46vw);
+ min-height: 420px;
+ gap: 1.1rem;
+ filter: drop-shadow(0 24px 42px rgba(42,37,32,0.12));
+}
+.hero-card {
+ border-radius: 24px;
+ padding: 1.65rem;
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.hero-card-1 { transform: translateY(18px); }
+.hero-card-2 { transform: translateY(-10px); }
+.hero-card-3 { transform: translateY(10px); }
+.hero-card:hover { transform: translateY(-4px) scale(1.01); }
+.hero-card-title {
+ letter-spacing: -0.025em;
+}
+
+.trust-bar {
+ padding: 1rem var(--section-pad-x);
+ box-shadow: 0 12px 40px rgba(0,0,0,0.16) inset;
+}
+
+.how-section,
+.lenses-section,
+.proof-section,
+.stories-section {
+ padding-top: var(--section-pad-y);
+ padding-bottom: var(--section-pad-y);
+}
+.how-section > .section-eyebrow,
+.how-section > .section-title,
+.how-section > .section-sub,
+.lenses-section > .section-eyebrow,
+.lenses-section > .section-title,
+.lenses-section > .section-sub,
+.proof-header,
+.stories-head,
+.steps-grid,
+.lenses-layout,
+.testimonials-grid,
+.comic-carousel {
+ max-width: var(--page-max);
+ margin-left: auto;
+ margin-right: auto;
+}
+.section-title {
+ letter-spacing: -0.035em;
+ text-wrap: balance;
+}
+.section-sub {
+ max-width: 680px;
+}
+
+.steps-grid {
+ gap: 1rem;
+ background: transparent;
+ border: 0;
+ overflow: visible;
+}
+.step-card {
+ border: 1px solid rgba(200,168,75,0.18);
+ border-radius: 22px;
+ background: rgba(255,255,255,0.58);
+ box-shadow: var(--card-shadow);
+ min-height: 260px;
+ overflow: hidden;
+}
+.step-card::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(135deg, rgba(255,255,255,0.82), transparent 48%);
+ pointer-events: none;
+}
+.step-card > * { position: relative; z-index: 1; }
+.step-card:hover {
+ background: #fffdf4;
+ box-shadow: 0 22px 58px rgba(42,37,32,0.1);
+}
+.step-icon {
+ width: 54px;
+ height: 54px;
+ border-radius: 16px;
+ background: #fff9d7;
+}
+.step-number {
+ top: 0.7rem;
+ right: 1.25rem;
+ opacity: 0.8;
+}
+
+.lenses-section {
+ background:
+  linear-gradient(180deg, #ffffff 0%, #fffdf7 100%);
+}
+.lenses-layout {
+ grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.65fr);
+ gap: 1.4rem;
+}
+.lenses-tabs,
+.lens-panel {
+ border-radius: 24px;
+ box-shadow: var(--card-shadow);
+}
+.lenses-tabs {
+ background: #fff;
+ position: sticky;
+ top: 92px;
+}
+.lens-tab {
+ background: #fffdf8;
+}
+.lens-tab.active {
+ background: #fff7d8;
+}
+.lens-panel {
+ min-height: 475px;
+ padding: clamp(2rem, 4vw, 3.75rem);
+ background: linear-gradient(135deg, #fffdf7 0%, #fff7df 100%);
+}
+.lens-panel h2 {
+ letter-spacing: -0.035em;
+}
+.lens-features {
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 0.9rem 1.2rem;
+}
+.lens-feature {
+ background: rgba(255,255,255,0.58);
+ border: 1px solid rgba(200,168,75,0.14);
+ border-radius: 14px;
+ padding: 0.8rem;
+}
+
+.proof-section {
+ background:
+  radial-gradient(circle at 88% 18%, rgba(255,238,88,0.23), transparent 32%),
+  linear-gradient(180deg, #fbf5cc 0%, #fff9df 100%);
+}
+.proof-header {
+ align-items: center;
+}
+.rating-summary {
+ background: rgba(255,255,255,0.62);
+ border: 1px solid rgba(200,168,75,0.18);
+ border-radius: 20px;
+ padding: 1rem 1.25rem;
+ box-shadow: var(--card-shadow);
+}
+.testimonials-grid {
+ gap: 1.2rem;
+}
+.testimonial-card {
+ border-radius: 22px;
+ background: rgba(255,255,255,0.7);
+ backdrop-filter: blur(10px);
+ box-shadow: var(--card-shadow);
+ min-height: 280px;
+}
+.testimonial-text {
+ font-size: 1.12rem;
+}
+
+.horoscope-hero {
+ min-height: 420px;
+ border-top: 1px solid rgba(255,255,255,0.08);
+ border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.horoscope-hero-content {
+ max-width: 760px;
+}
+.spend-table {
+ border-radius: 20px;
+ box-shadow: 0 22px 60px rgba(0,0,0,0.42);
+}
+.spend-row {
+ padding: 0.82rem 1.2rem;
+}
+
+.cta-section {
+ padding-top: clamp(4.5rem, 7vw, 7rem);
+ padding-bottom: clamp(4.5rem, 7vw, 7rem);
+ background:
+  radial-gradient(circle at 50% -20%, rgba(255,255,255,0.95), transparent 34%),
+  linear-gradient(135deg, #fff9c4 0%, #fff176 50%, #ffe15a 100%);
+}
+.cta-section > div {
+ max-width: 820px;
+ margin: 0 auto;
+ position: relative;
+ z-index: 1;
+}
+.cta-section h2 {
+ letter-spacing: -0.035em;
+}
+
+.stories-section {
+ background: linear-gradient(180deg, #fffef9 0%, #fff8e7 100%);
+}
+.stories-head {
+ text-align: center;
+ margin-bottom: 2rem;
+}
+.stories-head .section-eyebrow {
+ justify-content: center;
+}
+.comic-carousel {
+ border-radius: 24px;
+ box-shadow: var(--soft-shadow);
+}
+.comic-slide {
+ background: #efe7d5;
+}
+
+@media (max-width: 1100px) {
+ .hero {
+  grid-template-columns: 1fr;
+ }
+ .hero-right {
+  width: min(100%, 720px);
+  margin: 0 auto;
+ }
+ .lenses-layout {
+  grid-template-columns: 1fr;
+ }
+ .lenses-tabs {
+  position: static;
+ }
+}
+
+@media (max-width: 900px) {
+ .hero {
+  padding-top: 4.5rem;
+  padding-bottom: 4rem;
+ }
+ .hero-right {
+  height: auto;
+  min-height: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+ }
+ .hero-card,
+ .hero-card-1,
+ .hero-card-2,
+ .hero-card-3 {
+  grid-column: auto;
+  grid-row: auto;
+  min-height: 220px;
+  transform: none;
+ }
+ .hero-trust {
+  width: 100%;
+  justify-content: space-between;
+ }
+ .lens-features {
+  grid-template-columns: 1fr;
+ }
+ .proof-header {
+  align-items: flex-start;
+ }
+ .rating-summary {
+  width: 100%;
+ }
+ .testimonials-grid {
+  grid-template-columns: 1fr;
+ }
+}
+
+@media (max-width: 560px) {
+ .hero-actions,
+ .cta-actions {
+  flex-direction: column;
+ }
+ .hero-actions a,
+ .cta-actions a {
+  width: 100%;
+  justify-content: center;
+ }
+ .hero-trust {
+  align-items: flex-start;
+  gap: 1rem;
+ }
+ .hero-trust-divider {
+  display: none;
+ }
+ .lens-panel {
+  padding: 1.5rem;
+ }
+ .spend-row {
+  grid-template-columns: 1fr;
+ }
+}
+
 </style>
 </head>
 <body>
@@ -1666,7 +2085,7 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <h1><span class="black-text">India's First</span> Pre-Marital Compatibility, Verification and Due Diligence Platform</h1>
  <div class="hero-credentials">Created by highly qualified psychologists along with certified Prepare-Enrich facilitators, with a collective experience of over 25 years.</div>
  <div class="hero-actions">
- <a href="#" class="btn-primary">Begin the conversation ?</a>
+ <a href="begin.html" class="btn-primary">Begin the conversation →</a>
  <a href="#how" class="btn-secondary">See how it works</a>
  </div>
  <div class="hero-trust" style="justify-content: flex-start;">
@@ -1678,27 +2097,20 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  </div>
 
  <div class="hero-right">
- <!-- Card 1: Compatibility -->
  <div class="hero-card hero-card-1">
  <div class="hero-card-label">Compatibility</div>
  <div class="hero-card-icon">
  <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
  </div>
- <div>
- <h3 class="hero-card-title">Prepare-Enrich and Gottman certified facilitator and psychologist</h3>
+ <div><h3 class="hero-card-title">Prepare-Enrich and Gottman certified facilitator and psychologist</h3></div>
  </div>
- </div>
- <!-- Card 2: Verification - deep maroon -->
  <div class="hero-card hero-card-2">
  <div class="hero-card-label">Verification</div>
  <div class="hero-card-icon">
  <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3Z"></path><path d="M9 12l2 2 4-4"></path></svg>
  </div>
- <div>
- <h3 class="hero-card-title" style="font-size: 1rem; line-height: 1.5; max-width: 18ch;">UIDAI-compliant. DPDP Act 2023. India servers. No third parties.</h3>
+ <div><h3 class="hero-card-title" style="font-size: 1rem; line-height: 1.5; max-width: 18ch;">UIDAI-compliant. DPDP Act 2023. India servers. No third parties.</h3></div>
  </div>
- </div>
- <!-- Card 3: Horoscope - white -->
  <div class="hero-card hero-card-3">
  <div class="hero-card-label">Horoscope</div>
  <p class="hero-card-title" style="margin-bottom:0.35rem;">Experienced and scientific approach for advance horoscope matching</p>
@@ -1710,37 +2122,41 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
 <!-- TRUST BAR -->
 <div class="trust-bar">
  <div class="trust-marquee">
-  <div class="trust-group" aria-label="Trust highlights">
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
+  <div class="trust-group">
+   <div class="trust-item">UIDAI-compliant identity checks</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 - India servers</div>
+   <div class="trust-item">DPDP Act 2023 - India servers</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
+   <div class="trust-item">Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>Top astrologers - 25+ years Jyotish practice</div>
+   <div class="trust-item">Top astrologers - 25+ years Jyotish practice</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+   <div class="trust-item">Mutual-consent verification</div>
   </div>
   <div class="trust-group" aria-hidden="true">
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>UIDAI-compliant identity checks</div>
+   <div class="trust-item">UIDAI-compliant identity checks</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M4 7h16"></path></svg></span>DPDP Act 2023 - India servers</div>
+   <div class="trust-item">DPDP Act 2023 - India servers</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.7 2.9-.4.5 2.9L19 8l-1.2 1.8.5 2.9-2.9-.4L12 14l-2.4 1.7-2.9.4.5-2.9L5 8l1.2-1.8-.5-2.9 2.9.4L12 2Z"></path><path d="M9 12l2 2 4-4"></path></svg></span>Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
+   <div class="trust-item">Top psychologists - Gottman &amp; Prepare-Enrich certified</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.2 17.4l1.2-5.3L4.3 8.5l5.4-.5L12 3Z"></path></svg></span>Top astrologers - 25+ years Jyotish practice</div>
+   <div class="trust-item">Top astrologers - 25+ years Jyotish practice</div>
    <div class="trust-sep">-</div>
-   <div class="trust-item"><span class="trust-item-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>Mutual-consent verification</div>
+   <div class="trust-item">Mutual-consent verification</div>
   </div>
  </div>
 </div>
 
 <!-- NARRATIVE HOOK -->
 <section style="padding:5rem 4rem;background:#1A1610;text-align:center;position:relative;overflow:hidden;">
- <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
- <div class="fade-in" style="max-width:680px;margin:0 auto;position:relative;">
- <p style="font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:#C8A84B;font-weight:600;margin-bottom:2rem;">PRE-MARITAL DUE DILIGENCE</p>
- <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.2vw,2.8rem);font-weight:400;color:rgba(255,255,255,0.94);line-height:1.5;letter-spacing:0.01em;">Dedicated to creating a social impact by preventing fraud in the matrimony landscape.</p>
+ <video autoplay muted loop playsinline preload="metadata" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+  <source src="Video/17060680-uhd_3840_2160_29fps.mp4" type="video/mp4">
+ </video>
+ <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,12,8,0.48),rgba(10,8,6,0.6));z-index:1;pointer-events:none;"></div>
+ <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(200,168,75,0.05) 1px,transparent 1px);background-size:28px 28px;z-index:2;pointer-events:none;"></div>
+ <div class="fade-in" style="max-width:680px;margin:0 auto;position:relative;z-index:3;">
+ <p style="font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:#E1BC55;font-weight:600;margin-bottom:2rem;text-shadow:0 1px 12px rgba(0,0,0,0.5);">PRE-MARITAL DUE DILIGENCE</p>
+ <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.2vw,2.8rem);font-weight:500;color:rgba(255,255,255,0.98);line-height:1.5;letter-spacing:0.01em;text-shadow:0 2px 18px rgba(0,0,0,0.6);">Dedicated to creating a social impact by preventing fraud in the matrimony landscape.</p>
  </div>
 </section>
 
@@ -1796,11 +2212,8 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-note">Both reports sent in under 10 minutes</div>
  </div>
  </div>
- 
- <!-- VERIFICATION SECTION -->
- <div class="fade-in" style="margin-top: 5rem;">
- <p class="section-subtitle">Verification</p>
- </div>
+
+ <div class="fade-in" style="margin-top: 5rem;"><p class="section-subtitle">Verification</p></div>
  <div class="steps-grid fade-in">
  <div class="step-card">
  <div class="step-number">01</div>
@@ -1821,14 +2234,11 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
  <h3>Get verified status report</h3>
  <p>Receive a detailed verification report with complete transparency and authenticated findings</p>
- <div class="step-note">Confidential, Reliable & Accurate</div>
+ <div class="step-note">Confidential, Reliable &amp; Accurate</div>
  </div>
  </div>
- 
- <!-- HOROSCOPE MATCHING SECTION -->
- <div class="fade-in" style="margin-top: 5rem;">
- <p class="section-subtitle">Horoscope Matching</p>
- </div>
+
+ <div class="fade-in" style="margin-top: 5rem;"><p class="section-subtitle">Horoscope Matching</p></div>
  <div class="steps-grid fade-in">
  <div class="step-card">
  <div class="step-number">01</div>
@@ -1840,16 +2250,15 @@ footer { background: var(--bg-dark); padding: 4rem 4rem 2rem; }
  <div class="step-card">
  <div class="step-number">02</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
- <h3> Vedic Astrologers interpret your chart</h3>
- <p>Our astrologers study your horoscope to check compatibility, harmony, and future together.
-They also analyze planetary influences affecting married life and relationships.</p>
+ <h3>Vedic Astrologers interpret your chart</h3>
+ <p>Our astrologers study your horoscope to check compatibility, harmony, and future together.</p>
  <div class="step-note">Traditional wisdom to evaluate compatibility</div>
  </div>
  <div class="step-card">
  <div class="step-number">03</div>
  <div class="step-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg></div>
  <h3>Receive detailed astrological report</h3>
- <p>Get comprehensive horoscope match interpretations with explanations and recommendations from our experts</p>
+ <p>Get comprehensive horoscope match interpretations with explanations and recommendations</p>
  <div class="step-note">Rooted in tradition, explained clearly</div>
  </div>
  </div>
@@ -1864,26 +2273,23 @@ They also analyze planetary influences affecting married life and relationships.
  <div class="lenses-layout fade-in">
  <div class="lenses-tabs">
  <div class="lenses-tabs-hint">Select a lens to preview details</div>
- <div class="lens-tab active" onclick="setLens(0, this)" role="button" tabindex="0" aria-selected="true">
+ <div class="lens-tab active" onclick="setLens(0, this)" role="button" tabindex="0">
  <div class="lens-tab-num">01 - First Lens</div>
  <h4>Compatibility</h4>
  <p>Know the real person behind the profile.</p>
  <span class="lens-tab-status">Selected</span>
- <a href="compatibility.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
- <div class="lens-tab" onclick="setLens(1, this)" role="button" tabindex="0" aria-selected="false">
+ <div class="lens-tab" onclick="setLens(1, this)" role="button" tabindex="0">
  <div class="lens-tab-num">02 - Second Lens</div>
  <h4>Verification</h4>
- <p>Risk assessment & reporting.</p>
+ <p>Risk assessment &amp; reporting.</p>
  <span class="lens-tab-status">Tap to preview</span>
- <a href="verification.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
- <div class="lens-tab" onclick="setLens(2, this)" role="button" tabindex="0" aria-selected="false">
+ <div class="lens-tab" onclick="setLens(2, this)" role="button" tabindex="0">
  <div class="lens-tab-num">03 - Third Lens</div>
  <h4>Horoscope</h4>
  <p>A senior vedic astrologer examines both charts.</p>
  <span class="lens-tab-status">Tap to preview</span>
- <a href="horoscope.html" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-top:0.75rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dark)'">Learn more <svg style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></a>
  </div>
  </div>
  <div>
@@ -1893,7 +2299,6 @@ They also analyze planetary influences affecting married life and relationships.
  <p>Understand personality, emotional compatibility, communication style, values, and behavioral patterns before making one of life's biggest decisions.</p>
  <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); margin-top: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em;">What you get</h3>
  <div class="lens-features">
-  
  <div class="lens-feature"><div class="lens-feature-check"></div>Communication style and conflict resolution patterns</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Financial values and money management alignment</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Family roles, expectations, and boundaries</div>
@@ -1906,7 +2311,7 @@ They also analyze planetary influences affecting married life and relationships.
  <div class="lens-panel" id="lens-1">
  <div class="lens-panel-num">02</div>
  <h2>Verification</h2>
- <p>Comprehensive, consent-based verification across all critical areas of matrimonial due diligence..</p>
+ <p>Comprehensive, consent-based verification across all critical areas of matrimonial due diligence.</p>
  <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); margin-top: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em;">What you get</h3>
  <div class="lens-features">
  <div class="lens-feature"><div class="lens-feature-check"></div>Aadhaar-linked identity verification (UIDAI compliant)</div>
@@ -1916,7 +2321,7 @@ They also analyze planetary influences affecting married life and relationships.
  <div class="lens-feature"><div class="lens-feature-check"></div>Social media and digital footprint review</div>
  <div class="lens-feature"><div class="lens-feature-check"></div>Marital Status Check</div>
  </div>
- <div class="lens-badge">? UIDAI-COMPLIANT - DPDP ACT 2023 - INDIA SERVERS</div>
+ <div class="lens-badge">UIDAI-COMPLIANT - DPDP ACT 2023 - INDIA SERVERS</div>
  </div>
  <div class="lens-panel" id="lens-2">
  <div class="lens-panel-num">03</div>
@@ -1947,14 +2352,14 @@ They also analyze planetary influences affecting married life and relationships.
  <div class="rating-summary">
  <div class="rating-num">5.0</div>
  <div>
- <div class="rating-stars"></div>
+ <div class="rating-stars">★★★★★</div>
  <div class="rating-label">Rating we strive for</div>
  </div>
  </div>
  </div>
- <div class="testimonials-grid fade-yoin">
+ <div class="testimonials-grid">
  <div class="testimonial-card">
- <div class="testimonial-stars"></div>
+ <div class="testimonial-stars">★★★★★</div>
  <p class="testimonial-text">"The Compatibility Report gave us language for things we had felt but never articulated. We are married now. We are grateful."</p>
  <div class="testimonial-author">
  <div class="testimonial-avatar av-1">PK</div>
@@ -1965,7 +2370,7 @@ They also analyze planetary influences affecting married life and relationships.
  </div>
  </div>
  <div class="testimonial-card">
- <div class="testimonial-stars"></div>
+ <div class="testimonial-stars">★★★★★</div>
  <p class="testimonial-text">"The Verification report gave my parents the peace of mind they needed. No awkward questions. Just quiet confidence from a document both families trusted."</p>
  <div class="testimonial-author">
  <div class="testimonial-avatar av-2">AR</div>
@@ -1976,11 +2381,10 @@ They also analyze planetary influences affecting married life and relationships.
  </div>
  </div>
  <div class="testimonial-card">
- <div class="testimonial-stars"></div>
+ <div class="testimonial-stars">★★★★★</div>
  <p class="testimonial-text">"Our astrologer's report was the most detailed kundali matching I had ever seen. It went beyond what the usual pandit would say, and it was written so clearly."</p>
  <div class="testimonial-author">
  <div class="testimonial-avatar av-3">SM</div>
- <div>
  <div>
  <div class="testimonial-name">Shreya &amp; Mihir</div>
  <div class="testimonial-city">Delhi</div>
@@ -1999,39 +2403,16 @@ They also analyze planetary influences affecting married life and relationships.
  </div>
  <div class="horoscope-hero-content">
   <div class="spend-hero-kicker">The Irony of marriages</div>
-  <h2 class="spend-hero-title">Spending Lakhs on the wedding,<br>not even a fraction of it on checking  <span style="color:#fff; font-weight:700; font-style:italic;">suitability</span> of the match.</h2>
-  <p class="spend-hero-sub">Families routinely spend lakhs on the wedding day, yet almost nothing on knowing the person more deeply before the commitment. The comparison below makes that imbalance hard to ignore.</p>
-  <div class="spend-table" role="table" aria-label="Wedding spending versus due diligence spending">
-   <div class="spend-row" role="row">
-    <div class="spend-label" role="cell">The venue</div>
-    <div class="spend-value" role="cell">Rs 5-20 lakhs</div>
-   </div>
-   <div class="spend-row" role="row">
-    <div class="spend-label" role="cell">Jewellery</div>
-    <div class="spend-value" role="cell">Rs 25-50 lakhs</div>
-   </div>
-   <div class="spend-row" role="row">
-    <div class="spend-label" role="cell">Catering</div>
-    <div class="spend-value" role="cell">Rs 5-10 lakhs</div>
-   </div>
-   <div class="spend-row" role="row">
-    <div class="spend-label" role="cell">Photography</div>
-    <div class="spend-value" role="cell">Rs 1-3 lakhs</div>
-   </div>
-   <div class="spend-row highlight" role="row">
-    <div class="spend-label" role="cell">Compatibility assessment</div>
-    <div class="spend-value" role="cell">Often Rs 0</div>
-   </div>
-   <div class="spend-row highlight" role="row">
-    <div class="spend-label" role="cell">Verification of the person</div>
-    <div class="spend-value" role="cell">Often Rs 0</div>
-   </div>
-   <div class="spend-row highlight" role="row">
-    <div class="spend-label" role="cell">Astrology matching</div>
-    <div class="spend-value" role="cell">Often Rs 0</div>
-   </div>
+  <h2 class="spend-hero-title">Spending Lakhs on the wedding,<br>not even a fraction of it on checking <span style="color:#fff; font-weight:700; font-style:italic;">suitability</span> of the match.</h2>
+  <div class="spend-table">
+   <div class="spend-row"><div class="spend-label">The venue</div><div class="spend-value">Rs 5-20 lakhs</div></div>
+   <div class="spend-row"><div class="spend-label">Jewellery</div><div class="spend-value">Rs 25-50 lakhs</div></div>
+   <div class="spend-row"><div class="spend-label">Catering</div><div class="spend-value">Rs 5-10 lakhs</div></div>
+   <div class="spend-row"><div class="spend-label">Photography</div><div class="spend-value">Rs 1-3 lakhs</div></div>
+   <div class="spend-row highlight"><div class="spend-label">Compatibility assessment</div><div class="spend-value">Often Rs 0</div></div>
+   <div class="spend-row highlight"><div class="spend-label">Verification of the person</div><div class="spend-value">Often Rs 0</div></div>
+   <div class="spend-row highlight"><div class="spend-label">Astrology matching</div><div class="spend-value">Often Rs 0</div></div>
   </div>
-  <div class="spend-note">Before the event, invest in clarity.</div>
  </div>
 </section>
 
@@ -2040,36 +2421,30 @@ They also analyze planetary influences affecting married life and relationships.
  <div class="fade-in">
  <h2>Are you ready?<br>Proceed further by clicking below.</h2>
  <div class="cta-actions">
- <a href="#" class="btn-primary">Sign up / Login</a>
+ <a href="begin.html" class="btn-primary">Sign up / Login</a>
  </div>
- <p class="cta-note">Proudly servering the globe from Bangalore, India</p>
+ <p class="cta-note">Proudly serving the globe from Bangalore, India</p>
  </div>
 </section>
 
 <!-- COMIC STORIES -->
 <section class="stories-section" id="stories">
  <div class="stories-head fade-in">
-  <div>
-   <p class="section-eyebrow">See typical stories below</p>
-  </div>
+  <p class="section-eyebrow">See typical stories below</p>
   <p class="stories-sub">A quick visual narrative of how clarity can help before marriage.</p>
  </div>
- <div class="comic-carousel fade-in" aria-label="MyTrueMatch comic carousel">
+ <div class="comic-carousel fade-in">
   <div class="comic-track" id="comicTrack">
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_29 PM.png" alt="Comic panel 1" loading="lazy"></figure>
-     <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_32 PM.png" alt="Comic panel 2" loading="lazy"></figure>
+   <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_32 PM.png" alt="Comic panel 2" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_35 PM.png" alt="Comic panel 3" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_41 PM.png" alt="Comic panel 4" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_35_44 PM.png" alt="Comic panel 5" loading="lazy"></figure>
    <figure class="comic-slide"><img src="comics/part 1/ChatGPT Image May 23, 2026, 09_34_37 PM.png" alt="Comic panel 6" loading="lazy"></figure>
   </div>
-  <button class="comic-arrow prev" id="comicPrev" aria-label="Previous comic panel">
-   <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg>
-  </button>
-  <button class="comic-arrow next" id="comicNext" aria-label="Next comic panel">
-   <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-  </button>
-  <div class="comic-dots" id="comicDots" aria-label="Comic slide indicators"></div>
+  <button class="comic-arrow prev" id="comicPrev"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg></button>
+  <button class="comic-arrow next" id="comicNext"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+  <div class="comic-dots" id="comicDots"></div>
  </div>
 </section>
 
@@ -2079,10 +2454,6 @@ They also analyze planetary influences affecting married life and relationships.
  <div>
  <span class="footer-logo">MyTrue<span>Match</span></span>
  <p class="footer-tagline">A space to truly know each other - before the most important commitment of your life.</p>
- <div style="display:flex;gap:12px;margin-top:1.5rem;">
- <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.598 3.417-1.58 1.239-3.574 1.979-5.736 1.979-.364 0-.724-.021-1.08-.063 2.175 1.396 4.756 2.21 7.502 2.21 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
- <a href="#" style="color:rgba(255,255,255,0.35);transition:color 0.2s;" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='rgba(255,255,255,0.35)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
- </div>
  </div>
  <div>
  <div class="footer-col-title">Our Lenses</div>
@@ -2112,7 +2483,7 @@ They also analyze planetary influences affecting married life and relationships.
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved.</p>
+ <p class="footer-copy">© 2026 MyTrueMatch - All Rights Reserved.</p>
  <div class="footer-legal">
  <span style="display:flex;align-items:center;gap:5px;color:#C8A84B;font-size:0.78rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.06);">
  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -2125,52 +2496,54 @@ They also analyze planetary influences affecting married life and relationships.
 </footer>
 
 <!-- ============================
-     KISMAT CHATBOT
+     CHATBOT (Kismat / Gopal)
      ============================ -->
-<div class="kismat-launcher" id="kismatLauncher" role="button" aria-label="Open chat with Kismat" tabindex="0">
+<div class="kismat-launcher" id="kismatLauncher" role="button" aria-label="Open chat" tabindex="0">
  <svg viewBox="0 0 24 24">
   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
  </svg>
  <span class="kismat-launcher-badge" id="kismatBadge">1</span>
- <span class="kismat-launcher-label">Chat with Kismat</span>
+ <span class="kismat-launcher-label">Need help? Chat with us</span>
 </div>
 
-<div class="kismat-widget" id="kismatWidget" aria-hidden="true" role="dialog" aria-label="Chat with Kismat">
+<a class="whatsapp-launcher" href="https://wa.me/918527430999?text=Hi%20MyTrueMatch%2C%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+ <svg viewBox="0 0 32 32" aria-hidden="true">
+  <path d="M16.02 5c-6.05 0-10.96 4.9-10.96 10.95 0 1.92.5 3.79 1.46 5.45L5 27l5.76-1.5a10.9 10.9 0 0 0 5.26 1.35h.01c6.05 0 10.96-4.91 10.96-10.96C26.99 9.91 22.08 5 16.02 5zm6.38 15.52c-.27.75-1.54 1.43-2.13 1.52-.54.08-1.23.12-1.98-.12-.45-.14-1.03-.34-1.78-.67-3.13-1.35-5.17-4.57-5.33-4.79-.15-.22-1.27-1.69-1.27-3.23 0-1.53.81-2.28 1.09-2.59.29-.3.62-.38.83-.38h.6c.2 0 .46-.08.71.53.27.65.92 2.24 1 2.4.08.16.13.36.03.57-.09.22-.14.35-.28.54-.14.2-.3.44-.42.58-.14.15-.29.32-.13.62.16.3.72 1.2 1.55 1.94 1.07.95 1.97 1.24 2.25 1.38.28.14.44.12.6-.07.19-.22.77-.9.97-1.21.2-.31.41-.26.7-.16.28.1 1.8.85 2.1 1.01.31.16.52.23.59.36.08.14.08.8-.19 1.55z"/>
+ </svg>
+ <span class="whatsapp-launcher-label">Connect on WhatsApp</span>
+</a>
+
+<div class="kismat-widget" id="kismatWidget" data-persona="kismat" aria-hidden="true" role="dialog">
  <div class="kismat-header">
   <div class="kismat-header-left">
    <div class="kismat-avatar">
-    <div class="kismat-avatar-img">
-     <!-- Lotus / K monogram -->
-     <svg viewBox="0 0 32 32" fill="none">
-      <path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/>
-      <path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/>
-      <circle cx="16" cy="14" r="1.6" fill="#FFF9C4"/>
-     </svg>
+    <div class="kismat-avatar-img" id="kismatHeaderAvatar">
+     <!-- avatar SVG injected by JS based on persona -->
     </div>
     <span class="kismat-status-dot"></span>
    </div>
    <div>
-    <div class="kismat-name">Kismat</div>
+    <div class="kismat-name" id="kismatHeaderName">Assistant</div>
     <div class="kismat-role"><span class="kismat-online-dot"></span> MyTrueMatch Assistant</div>
    </div>
   </div>
-  <button class="kismat-close" id="kismatClose" aria-label="Close chat">
-   <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
+  <div class="kismat-header-actions">
+   <button class="kismat-icon-btn" id="kismatRestart" title="Restart chat" aria-label="Restart">
+    <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+   </button>
+   <button class="kismat-icon-btn" id="kismatClose" title="Close" aria-label="Close">
+    <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+   </button>
+  </div>
  </div>
  <div class="kismat-messages" id="kismatMessages" aria-live="polite"></div>
  <div class="kismat-typing" id="kismatTyping" style="display:none;">
-  <div class="kismat-msg-avatar">
-   <svg viewBox="0 0 32 32" fill="none">
-    <path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/>
-    <path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/>
-   </svg>
-  </div>
+  <div class="kismat-msg-avatar" id="kismatTypingAvatar"></div>
   <div class="kismat-typing-bubble"><span></span><span></span><span></span></div>
  </div>
  <form class="kismat-input-area" id="kismatForm" autocomplete="off">
-  <input type="text" id="kismatInput" placeholder="Type your reply..." aria-label="Your message" maxlength="200">
-  <button type="submit" id="kismatSend" aria-label="Send message">
+  <input type="text" id="kismatInput" placeholder="Ask a question or type your reply..." aria-label="Your message" maxlength="240">
+  <button type="submit" id="kismatSend" aria-label="Send">
    <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
   </button>
  </form>
@@ -2180,111 +2553,108 @@ They also analyze planetary influences affecting married life and relationships.
 </div>
 
 <script>
+/* Lens switcher */
 function setLens(idx, tabEl) {
  document.querySelectorAll('.lens-tab').forEach(t => {
- t.classList.remove('active');
- t.setAttribute('aria-selected', 'false');
- const status = t.querySelector('.lens-tab-status');
- if (status) { status.textContent = 'Tap to preview'; }
+  t.classList.remove('active');
+  const status = t.querySelector('.lens-tab-status');
+  if (status) status.textContent = 'Tap to preview';
  });
  document.querySelectorAll('.lens-panel').forEach(p => p.classList.remove('active'));
  tabEl.classList.add('active');
- tabEl.setAttribute('aria-selected', 'true');
  const activeStatus = tabEl.querySelector('.lens-tab-status');
- if (activeStatus) { activeStatus.textContent = 'Selected'; }
+ if (activeStatus) activeStatus.textContent = 'Selected';
  document.getElementById('lens-' + idx).classList.add('active');
 }
-
 document.querySelectorAll('.lens-tab').forEach(tab => {
  tab.addEventListener('keydown', (e) => {
- if (e.key === 'Enter' || e.key === ' ') {
- e.preventDefault();
- tab.click();
- }
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
  });
 });
 
+/* Comic carousel */
 const comicTrack = document.getElementById('comicTrack');
 const comicDotsWrap = document.getElementById('comicDots');
 const comicPrev = document.getElementById('comicPrev');
 const comicNext = document.getElementById('comicNext');
-
 if (comicTrack && comicDotsWrap && comicPrev && comicNext) {
  const comicSlides = Array.from(comicTrack.children);
  let comicIndex = 0;
  let comicTimer = null;
-
  comicSlides.forEach((_, i) => {
- const dot = document.createElement('button');
- dot.className = 'comic-dot' + (i === 0 ? ' active' : '');
- dot.setAttribute('aria-label', 'Go to comic panel ' + (i + 1));
- dot.addEventListener('click', () => {
- comicIndex = i;
- renderComic();
- restartComicAuto();
+  const dot = document.createElement('button');
+  dot.className = 'comic-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => { comicIndex = i; renderComic(); restartComicAuto(); });
+  comicDotsWrap.appendChild(dot);
  });
- comicDotsWrap.appendChild(dot);
- });
-
  function renderComic() {
- comicTrack.style.transform = 'translateX(-' + (comicIndex * 100) + '%)';
- Array.from(comicDotsWrap.children).forEach((dot, i) => {
- dot.classList.toggle('active', i === comicIndex);
- });
+  comicTrack.style.transform = 'translateX(-' + (comicIndex * 100) + '%)';
+  Array.from(comicDotsWrap.children).forEach((dot, i) => dot.classList.toggle('active', i === comicIndex));
  }
-
- function stepComic(dir) {
- comicIndex = (comicIndex + dir + comicSlides.length) % comicSlides.length;
- renderComic();
- }
-
- function restartComicAuto() {
- if (comicTimer) { clearInterval(comicTimer); }
- comicTimer = setInterval(() => stepComic(1), 4500);
- }
-
+ function stepComic(dir) { comicIndex = (comicIndex + dir + comicSlides.length) % comicSlides.length; renderComic(); }
+ function restartComicAuto() { if (comicTimer) clearInterval(comicTimer); comicTimer = setInterval(() => stepComic(1), 4500); }
  comicPrev.addEventListener('click', () => { stepComic(-1); restartComicAuto(); });
  comicNext.addEventListener('click', () => { stepComic(1); restartComicAuto(); });
-
- const comicCarousel = comicTrack.closest('.comic-carousel');
- comicCarousel.addEventListener('mouseenter', () => { if (comicTimer) { clearInterval(comicTimer); } });
- comicCarousel.addEventListener('mouseleave', restartComicAuto);
-
+ const cc = comicTrack.closest('.comic-carousel');
+ cc.addEventListener('mouseenter', () => { if (comicTimer) clearInterval(comicTimer); });
+ cc.addEventListener('mouseleave', restartComicAuto);
  restartComicAuto();
 }
 
+/* Fade-in observer */
 const observer = new IntersectionObserver((entries) => {
- entries.forEach(e => {
- if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
- });
+ entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-/* ============================
-   KISMAT CHATBOT LOGIC
-   ============================ */
+/* ============================================================
+   KISMAT / GOPAL CHATBOT — Enhanced
+   - Persona selection (Kismat = female, Gopal = male)
+   - Topic-based intent matching (pricing, payment, services, etc.)
+   - Lead capture flow on demand
+   ============================================================ */
 (function() {
  const launcher = document.getElementById('kismatLauncher');
  const widget = document.getElementById('kismatWidget');
  const closeBtn = document.getElementById('kismatClose');
+ const restartBtn = document.getElementById('kismatRestart');
  const messagesEl = document.getElementById('kismatMessages');
  const typingEl = document.getElementById('kismatTyping');
+ const typingAvatar = document.getElementById('kismatTypingAvatar');
  const form = document.getElementById('kismatForm');
  const input = document.getElementById('kismatInput');
  const badge = document.getElementById('kismatBadge');
+ const headerAvatar = document.getElementById('kismatHeaderAvatar');
+ const headerName = document.getElementById('kismatHeaderName');
 
  if (!launcher || !widget) return;
 
- // Conversation state
+ // ---- Avatar SVGs ----
+ const KISMAT_AVATAR = '<svg viewBox="0 0 32 32" fill="none">' +
+  '<path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/>' +
+  '<path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/>' +
+  '<circle cx="16" cy="14" r="1.6" fill="#FFF9C4"/>' +
+ '</svg>';
+
+ // Gopal avatar — Om-inspired motif in warm saffron/maroon palette
+ const GOPAL_AVATAR = '<svg viewBox="0 0 32 32" fill="none">' +
+  '<circle cx="16" cy="16" r="11" fill="#C97142" opacity="0.18"/>' +
+  '<path d="M11 12 C11 9.5, 13 8, 15 8 C17 8, 18 9.5, 18 11 C18 12.8, 16.6 13.5, 15 13.5 C13.4 13.5, 12.3 14.4, 12.3 16 C12.3 17.7, 13.8 19, 15.6 19 C17.5 19, 19 17.8, 19 16" stroke="#8B3F1C" stroke-width="1.6" stroke-linecap="round" fill="none"/>' +
+  '<path d="M20 9.5 Q22.5 11, 22 13.5" stroke="#8B3F1C" stroke-width="1.4" stroke-linecap="round" fill="none"/>' +
+  '<circle cx="22.5" cy="8.5" r="1.2" fill="#8B3F1C"/>' +
+  '<path d="M19 22 Q16 24, 13 22" stroke="#8B3F1C" stroke-width="1.4" stroke-linecap="round" fill="none"/>' +
+ '</svg>';
+
+ // ---- State ----
  const state = {
-  step: 0, // 0=greeting, 1=name, 2=email, 3=phone, 4=interest, 5=done
-  lead: { name: '', email: '', phone: '', interest: '', timestamp: '' },
+  persona: null,         // 'kismat' or 'gopal'
+  mode: 'menu',          // 'menu' | 'lead-name' | 'lead-email' | 'lead-phone' | 'lead-interest'
   started: false,
-  busy: false // prevents input while bot is "typing"
+  busy: false,
+  lead: { name: '', email: '', phone: '', interest: '', persona: '', timestamp: '' }
  };
 
- const botAvatarSVG = '<svg viewBox="0 0 32 32" fill="none"><path d="M16 4 C18 8, 22 10, 22 14 C22 18, 19 21, 16 22 C13 21, 10 18, 10 14 C10 10, 14 8, 16 4 Z" fill="#C8A84B"/><path d="M16 10 L18 14 L16 18 L14 14 Z" fill="#8A6E20"/><circle cx="16" cy="14" r="1.6" fill="#FFF9C4"/></svg>';
-
+ // ---- Helpers ----
  function getTime() {
   const d = new Date();
   let h = d.getHours();
@@ -2293,35 +2663,49 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   h = h % 12 || 12;
   return h + ':' + m + ' ' + ampm;
  }
-
- function escapeHtml(str) {
+ function esc(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
  }
-
  function scrollToBottom() {
-  setTimeout(function() {
-   messagesEl.scrollTop = messagesEl.scrollHeight;
+  setTimeout(() => { messagesEl.scrollTop = messagesEl.scrollHeight; }, 60);
+ }
+ function scrollToTopOf(el) {
+  setTimeout(() => {
+   if (el && el.scrollIntoView) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   }
   }, 60);
  }
+ function avatarHTML() {
+  return state.persona === 'gopal' ? GOPAL_AVATAR : KISMAT_AVATAR;
+ }
+ function botName() {
+  return state.persona === 'gopal' ? 'Gopal' : 'Kismat';
+ }
+ function botGreeting() {
+  return state.persona === 'gopal' ? 'Namaste 🙏' : 'Namaste 🙏';
+ }
 
- function showTyping() {
-  typingEl.style.display = 'flex';
-  scrollToBottom();
+ function applyPersona(persona) {
+  state.persona = persona;
+  widget.dataset.persona = persona;
+  headerAvatar.innerHTML = avatarHTML();
+  typingAvatar.innerHTML = avatarHTML();
+  headerName.textContent = botName();
  }
- function hideTyping() {
-  typingEl.style.display = 'none';
- }
+
+ // ---- Message rendering ----
+ function showTyping() { typingEl.style.display = 'flex'; scrollToBottom(); }
+ function hideTyping() { typingEl.style.display = 'none'; }
 
  function addMsg(html, sender, options) {
   options = options || {};
   const msg = document.createElement('div');
   msg.className = 'kismat-msg ' + sender;
   let inner = '';
-  if (sender === 'bot') {
-   inner += '<div class="kismat-msg-avatar">' + botAvatarSVG + '</div>';
-  }
+  if (sender === 'bot') inner += '<div class="kismat-msg-avatar">' + avatarHTML() + '</div>';
   inner += '<div class="kismat-bubble">' + html + '<div class="kismat-bubble-time">' + getTime() + '</div></div>';
   msg.innerHTML = inner;
   messagesEl.appendChild(msg);
@@ -2329,222 +2713,883 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   if (options.quickReplies && options.quickReplies.length) {
    const qr = document.createElement('div');
    qr.className = 'kismat-quick-replies';
-   options.quickReplies.forEach(function(reply) {
+   options.quickReplies.forEach(reply => {
     const btn = document.createElement('button');
     btn.className = 'kismat-quick-reply';
     btn.type = 'button';
-    btn.textContent = reply;
-    btn.addEventListener('click', function() {
-     // Remove all quick reply groups after a choice
-     document.querySelectorAll('.kismat-quick-replies').forEach(function(g) { g.remove(); });
-     handleUserInput(reply);
+    btn.textContent = reply.label;
+    btn.addEventListener('click', () => {
+     // remove all quick reply groups after a choice
+     document.querySelectorAll('.kismat-quick-replies, .kismat-persona-picker').forEach(g => g.remove());
+     if (reply.value) {
+      // echo the user choice as a user bubble
+      addMsg(esc(reply.label), 'user');
+      handleIntent(reply.value);
+     } else {
+      handleUserText(reply.label);
+     }
     });
     qr.appendChild(btn);
    });
    messagesEl.appendChild(qr);
   }
 
-  scrollToBottom();
+  if (options.personaPicker) {
+   const pp = document.createElement('div');
+   pp.className = 'kismat-persona-picker';
+   pp.innerHTML =
+    '<div class="kismat-persona-card" data-pick="kismat">' +
+     '<div class="kismat-persona-avatar">' + KISMAT_AVATAR + '</div>' +
+     '<div class="kismat-persona-name">Kismat</div>' +
+     '<div class="kismat-persona-tag">Female Assistant</div>' +
+    '</div>' +
+    '<div class="kismat-persona-card" data-pick="gopal">' +
+     '<div class="kismat-persona-avatar">' + GOPAL_AVATAR + '</div>' +
+     '<div class="kismat-persona-name">Gopal</div>' +
+     '<div class="kismat-persona-tag">Male Assistant</div>' +
+    '</div>';
+   pp.querySelectorAll('.kismat-persona-card').forEach(card => {
+    card.addEventListener('click', () => {
+     const pick = card.getAttribute('data-pick');
+     document.querySelectorAll('.kismat-quick-replies, .kismat-persona-picker').forEach(g => g.remove());
+     applyPersona(pick);
+     addMsg(pick === 'kismat' ? 'I\'ll go with Kismat' : 'I\'ll go with Gopal', 'user');
+     showMainMenu(true);
+    });
+   });
+   messagesEl.appendChild(pp);
+  }
+
+  if (sender === 'bot') {
+   scrollToTopOf(msg);
+  } else {
+   scrollToBottom();
+  }
  }
 
  function botSay(html, options, delay) {
-  delay = (typeof delay === 'number') ? delay : 750;
+  delay = (typeof delay === 'number') ? delay : 700;
   state.busy = true;
   input.disabled = true;
   showTyping();
-  setTimeout(function() {
+  setTimeout(() => {
    hideTyping();
    addMsg(html, 'bot', options);
    state.busy = false;
    input.disabled = false;
-   if (widget.classList.contains('open')) {
-    setTimeout(function() { input.focus(); }, 50);
-   }
+   if (widget.classList.contains('open')) setTimeout(() => input.focus(), 50);
   }, delay);
  }
 
- // Validators
+ // ============================================================
+ // CONTENT — Topic handlers
+ // Built from the live mytruematch.in pages: index, pricing,
+ // compatibility, verification, horoscope.
+ // ============================================================
+ const MAIN_MENU = [
+  { label: '💛 Our Services',           value: 'menu:services'     },
+  { label: '💰 Pricing & Packages',     value: 'menu:pricing'      },
+  { label: '💳 How to Pay',             value: 'menu:payment'      },
+  { label: '📍 Office Hours & Location',value: 'menu:office'       },
+  { label: '📅 Book a Slot',            value: 'menu:office-slots' },
+    { label: '✅ Validate Email & Phone', value: 'menu:validate-contact' },
+  { label: '🕒 Are You Open Now?',      value: 'topic:open-now'    },
+  { label: '📆 Today\'s Date',          value: 'topic:today-date'  },
+  { label: '⏰ Current Time',            value: 'topic:current-time'},
+  { label: '🔮 Best Time for Kundli',   value: 'topic:best-kundli' },
+  { label: '🛡️ Privacy & Security',    value: 'menu:privacy'      },
+  { label: '↩️ Refund Policy',          value: 'menu:refund'       },
+  { label: '🎓 Our Experts',            value: 'menu:experts'      },
+  { label: '🌍 Cities We Serve',         value: 'topic:cities'      },
+  { label: '🚀 How to Begin',           value: 'menu:begin'        },
+  { label: '📞 Talk to Our Team',       value: 'menu:lead'         }
+ ];
+
+ const SERVICES_MENU = [
+  { label: 'Compatibility', value: 'topic:compatibility' },
+  { label: 'Verification',  value: 'topic:verification'  },
+  { label: 'Horoscope',     value: 'topic:horoscope'     },
+  { label: 'See bundles',   value: 'topic:bundles'       },
+  { label: '⬅ Main menu',   value: 'menu:main'           }
+ ];
+
+ const BACK_AND_TEAM = [
+  { label: '⬅ Main menu',          value: 'menu:main' },
+  { label: 'Talk to our team',     value: 'menu:lead' }
+ ];
+
+ function formatNowInIST() {
+  const now = new Date();
+  const time = new Intl.DateTimeFormat('en-IN', {
+   timeZone: 'Asia/Kolkata',
+   hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
+  }).format(now);
+  const date = new Intl.DateTimeFormat('en-IN', {
+   timeZone: 'Asia/Kolkata',
+   weekday: 'long', day: '2-digit', month: 'long', year: 'numeric'
+  }).format(now);
+  const parts = new Intl.DateTimeFormat('en-IN', {
+   timeZone: 'Asia/Kolkata', weekday: 'short', hour: '2-digit', hour12: false
+  }).formatToParts(now);
+  const weekday = parts.find(p => p.type === 'weekday');
+  const hour = parts.find(p => p.type === 'hour');
+  const wk = weekday ? weekday.value : '';
+  const hr = hour ? Number(hour.value) : 0;
+  const isOpenDay = wk !== 'Sun';
+  const isOpenNow = isOpenDay && hr >= 10 && hr < 19;
+  return { time: time, date: date, isOpenNow: isOpenNow };
+ }
+
+ function topicOfficeSlots() {
+  botSay(
+   '<strong>Available office booking slots</strong> (Mon-Sat) 📅<br><br>' +
+   '<strong>Visits are by appointment only.</strong> Please pick a slot below:',
+   { quickReplies: [
+    { label: '11:00 AM - 12:00 PM', value: 'slot:11:00 AM - 12:00 PM' },
+    { label: '1:00 PM - 2:00 PM',   value: 'slot:1:00 PM - 2:00 PM' },
+    { label: '3:00 PM - 4:00 PM',   value: 'slot:3:00 PM - 4:00 PM' },
+    { label: '5:00 PM - 6:00 PM',   value: 'slot:5:00 PM - 6:00 PM' },
+    { label: '⬅ Main menu',         value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicCurrentTime() {
+  const now = formatNowInIST();
+  botSay(
+   'Current time in <strong>IST</strong> is <strong>' + now.time + '</strong>.<br>' +
+   'Today is <strong>' + now.date + '</strong>.',
+   { quickReplies: [
+    { label: 'Are you open now?', value: 'topic:open-now' },
+    { label: 'Book a slot',       value: 'menu:office-slots' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicTodayDate() {
+  const now = formatNowInIST();
+  botSay(
+   'Today\'s date (IST): <strong>' + now.date + '</strong>.',
+   { quickReplies: [
+    { label: 'Current time',      value: 'topic:current-time' },
+    { label: 'Are you open now?', value: 'topic:open-now' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicOpenNow() {
+  const now = formatNowInIST();
+  const status = now.isOpenNow ?
+   'Yes, we are currently <strong>open</strong>.' :
+   'We are currently <strong>closed</strong> for office visits.';
+  botSay(
+   status + '<br><br>' +
+   'Office hours are <strong>Monday to Saturday, 10:00 AM - 7:00 PM IST</strong>.<br>' +
+   '<strong>Visits are appointment only.</strong>',
+   { quickReplies: [
+    { label: 'See booking slots', value: 'menu:office-slots' },
+    { label: 'Office map',        value: 'menu:office' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicBestKundliTime() {
+  botSay(
+   '<strong>Best time for Kundli consultation</strong> 🔮<br><br>' +
+   'For best attention and calmer discussion, we recommend these slots:<ul>' +
+   '<li><strong>11:00 AM - 12:00 PM</strong></li>' +
+   '<li><strong>5:00 PM - 6:00 PM</strong></li>' +
+   '</ul>' +
+   'You can also choose any available office slot, Monday to Saturday.',
+   { quickReplies: [
+    { label: 'Book 11:00 AM slot', value: 'slot:11:00 AM - 12:00 PM' },
+    { label: 'Book 5:00 PM slot',  value: 'slot:5:00 PM - 6:00 PM' },
+    { label: 'See all slots',      value: 'menu:office-slots' },
+    { label: '⬅ Main menu',        value: 'menu:main' }
+   ]}
+  );
+ }
+
+   function startContactValidationFlow() {
+    state.mode = 'verify-email';
+    botSay(
+     '<strong>Let\'s validate your contact details.</strong> ✅<br><br>' +
+     'Please enter your <strong>email address</strong> first.'
+    );
+   }
+
+ function showMainMenu(firstTime) {
+  const greet = firstTime
+   ? 'Wonderful! I\'m <strong>' + botName() + '</strong>, your guide at MyTrueMatch. ✨<br><br>How may I help you today? Pick a topic below or type your question.'
+   : 'How else may I help you? You can pick a topic below or type any question.';
+  botSay(greet, { quickReplies: MAIN_MENU });
+  state.mode = 'menu';
+ }
+
+ // ---- Topic content (rich, brand-accurate) ----
+ function topicCompatibility() {
+  botSay(
+   '<strong>Compatibility Assessment</strong> — our first lens. 💛<br><br>' +
+   'A psychologist-guided framework that maps both of you across <strong>10 dimensions</strong>: emotional regulation, communication, conflict, finances, family, values, honesty, attachment, intimacy, and lifestyle.' +
+   '<ul>' +
+    '<li><strong>Price:</strong> ₹2,999 (GST included)</li>' +
+    '<li><strong>Time:</strong> 10–15 minutes to take the test</li>' +
+    '<li><strong>Report:</strong> Same-day, 18–24 pages, written in plain English</li>' +
+    '<li>Both partners take it <em>independently</em> — no joint session needed</li>' +
+    '<li>Built by RCI-licensed psychologists, Gottman &amp; Prepare-Enrich certified</li>' +
+   '</ul>' +
+   '👉 <a href="compatibility.html">See full details</a> &nbsp;|&nbsp; <a href="begin.html">Begin the assessment</a>',
+   { quickReplies: [
+    { label: 'What 10 dimensions?',  value: 'topic:dimensions' },
+    { label: 'Pricing & bundles',    value: 'menu:pricing' },
+    { label: 'Begin now',            value: 'topic:begin' },
+    { label: '⬅ Services menu',      value: 'menu:services' }
+   ]}
+  );
+ }
+
+ function topicDimensions() {
+  botSay(
+   'The <strong>10 dimensions</strong> we measure:' +
+   '<ul>' +
+    '<li>Emotional Regulation</li>' +
+    '<li>Communication &amp; Conflict</li>' +
+    '<li>Financial Responsibility</li>' +
+    '<li>Family &amp; Future Alignment</li>' +
+    '<li>Relationship Values &amp; Expectations</li>' +
+    '<li>Honesty &amp; Transparency</li>' +
+    '<li>Attachment &amp; Emotional Security</li>' +
+    '<li>Love Language &amp; Affection</li>' +
+    '<li>Sexual Compatibility &amp; Intimacy</li>' +
+    '<li>Substance Use &amp; Health Responsibility</li>' +
+   '</ul>' +
+   'Each dimension carries a score plus a full written analysis with a sample indicator question.',
+   { quickReplies: [
+    { label: 'See full page',     value: 'topic:compatibility' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicVerification() {
+  botSay(
+   '<strong>Background Verification</strong> — our second lens. 🛡️<br><br>' +
+   'Consent-based, UIDAI-compliant due diligence across <strong>6 pillars</strong>: Identity, Employment, Legal History, Financial overview, Social Media, and written Consent.' +
+   '<ul>' +
+    '<li><strong>Price:</strong> from ₹2,999 (Basic) to ₹9,999 (Advanced) — customised packages available</li>' +
+    '<li><strong>Time:</strong> 5–7 business days</li>' +
+    '<li><strong>Aadhaar-linked</strong> identity verification — UIDAI compliant</li>' +
+    '<li>Written consent required from the person being verified</li>' +
+    '<li>The subject sees the same report you do</li>' +
+    '<li>Data deleted within 90 days — DPDP Act 2023 compliant</li>' +
+   '</ul>' +
+   '👉 <a href="verification.html">See full details</a> &nbsp;|&nbsp; <a href="begin.html">Start a verification</a>',
+   { quickReplies: [
+    { label: 'What is checked?',    value: 'topic:six-pillars' },
+    { label: 'Self-verification?',  value: 'topic:self-verify' },
+    { label: 'Pricing & bundles',   value: 'menu:pricing' },
+    { label: '⬅ Services menu',     value: 'menu:services' }
+   ]}
+  );
+ }
+
+ function topicSixPillars() {
+  botSay(
+   'The <strong>six pillars</strong> we verify:' +
+   '<ul>' +
+    '<li><strong>Identity</strong> — full legal name, DOB, address, UIDAI-compliant Aadhaar check</li>' +
+    '<li><strong>Employment</strong> — employer, role, compensation, education and certifications</li>' +
+    '<li><strong>Legal history</strong> — court records, FIRs, civil litigation (public record only)</li>' +
+    '<li><strong>Financial</strong> — credit history overview, major debts, defaults (with written consent)</li>' +
+    '<li><strong>Social media</strong> — public profiles only, red-flag review (no lifestyle monitoring)</li>' +
+    '<li><strong>Consent</strong> — written and specific. The subject sees the same report you do.</li>' +
+   '</ul>',
+   { quickReplies: [
+    { label: 'Verification overview', value: 'topic:verification' },
+    { label: '⬅ Main menu',           value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicSelfVerify() {
+  botSay(
+   '<strong>Yes — self-verification is supported.</strong><br><br>' +
+   'You can commission a verification of yourself and share the resulting <strong>VERIFIED</strong> badge with the other family. Trust offered, not demanded. ✨',
+   { quickReplies: [
+    { label: 'Verification details', value: 'topic:verification' },
+    { label: 'Start a verification', value: 'topic:begin' },
+    { label: '⬅ Main menu',          value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicHoroscope() {
+  botSay(
+   '<strong>Horoscope Matching</strong> — our third lens. 🌟<br><br>' +
+   'A senior Vedic astrologer reads both charts in depth. Ashtakoot, Dosha, Dasha, Navamsa — written, not whispered.' +
+   '<ul>' +
+    '<li><strong>Price:</strong> ₹1,499 onwards</li>' +
+    '<li><strong>Report:</strong> instant written report (5–7 pages)</li>' +
+    '<li><strong>Video consultation:</strong> 30-minute session with the astrologer</li>' +
+    '<li>Head of panel: <strong>Kumar (G. Kumaravel)</strong> — 30+ years, served with Sadhguru at Isha Foundation</li>' +
+    '<li>Minimum 15 years of active Jyotish practice for every astrologer on the panel</li>' +
+   '</ul>' +
+   '👉 <a href="horoscope.html">Meet our astrologers</a> &nbsp;|&nbsp; <a href="begin.html">Book a reading</a>',
+   { quickReplies: [
+    { label: 'Languages spoken',  value: 'topic:languages' },
+    { label: 'Meet astrologers',  value: 'topic:experts' },
+    { label: 'Pricing & bundles', value: 'menu:pricing' },
+    { label: '⬅ Services menu',   value: 'menu:services' }
+   ]}
+  );
+ }
+
+ function topicLanguages() {
+  botSay(
+   'Our astrologers and team speak <strong>six languages</strong>:' +
+   '<ul>' +
+    '<li>English</li><li>Hindi</li><li>Tamil</li>' +
+    '<li>Telugu</li><li>Kannada</li><li>Malayalam</li>' +
+   '</ul>' +
+   'You can request your reading in any of these languages.',
+   { quickReplies: BACK_AND_TEAM }
+  );
+ }
+
+ function topicPricing() {
+  botSay(
+   '<strong>Our pricing — clear and transparent.</strong> All prices include GST. Razorpay-secured. One-time payment, no subscriptions.<br><br>' +
+   '<strong>Individual reports:</strong>' +
+   '<ul>' +
+    '<li>Compatibility — <strong>₹2,999</strong> (same-day report)</li>' +
+    '<li>Verification — <strong>₹2,999 (Basic)</strong> to <strong>₹9,999 (Advanced)</strong> · 5–7 days</li>' +
+    '<li>Horoscope — <strong>₹1,499</strong> onwards · instant report + 30-min video consult</li>' +
+   '</ul>' +
+   '<strong>Bundles (save more):</strong>' +
+   '<ul>' +
+    '<li><strong>Essential — ₹4,999</strong> — Compatibility + 30-min horoscope session</li>' +
+    '<li><strong>Complete — ₹7,999</strong> — Essential + full Verification (most popular)</li>' +
+    '<li><strong>Premium — ₹14,999</strong> — Everything + 90-min full Kundali reading</li>' +
+   '</ul>' +
+   '👉 <a href="pricing.html">See full pricing page</a>',
+   { quickReplies: [
+    { label: 'How do I pay?',      value: 'menu:payment' },
+    { label: 'Tell me about bundles', value: 'topic:bundles' },
+    { label: 'Begin now',          value: 'topic:begin' },
+    { label: '⬅ Main menu',        value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicBundles() {
+  botSay(
+   '<strong>Our three bundles</strong> — pick by how much depth you want:<br><br>' +
+   '<strong>Essential — ₹4,999</strong>' +
+   '<ul>' +
+    '<li>Psychometric Compatibility Report (18–24 pages)</li>' +
+    '<li>10-dimension analysis + Friction Risk Index</li>' +
+    '<li>30-min horoscope session</li>' +
+   '</ul>' +
+   '<strong>Complete — ₹7,999</strong> <em>(most chosen)</em>' +
+   '<ul>' +
+    '<li>Everything in Essential</li>' +
+    '<li>Full Background Verification — UIDAI compliant</li>' +
+    '<li>Identity, Employment, Legal, Financial, Social Media</li>' +
+   '</ul>' +
+   '<strong>Premium — ₹14,999</strong>' +
+   '<ul>' +
+    '<li>Everything in Complete</li>' +
+    '<li>Full Kundali by a senior Jyotish astrologer (90-min video)</li>' +
+    '<li>Ashtakoot, Dosha, Dasha, Navamsa + personalised remedies</li>' +
+   '</ul>',
+   { quickReplies: [
+    { label: 'How do I pay?',  value: 'menu:payment' },
+    { label: 'Begin now',      value: 'topic:begin' },
+    { label: '⬅ Main menu',    value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicPayment() {
+  botSay(
+   '<strong>Paying is simple and secure.</strong> 💳<br><br>' +
+   'Here\'s how it works:' +
+   '<ul>' +
+    '<li>Click <strong>Begin</strong> from any page (or <a href="begin.html">here</a>) and pick your service or bundle</li>' +
+    '<li>Create an account or sign in</li>' +
+    '<li>You\'ll be taken to our <strong>Razorpay-secured</strong> checkout</li>' +
+    '<li>Pay via <strong>UPI, Credit/Debit card, Net Banking, or Wallet</strong></li>' +
+    '<li>Receive an instant payment confirmation by email and SMS</li>' +
+    '<li>Begin your assessment or schedule your consult</li>' +
+   '</ul>' +
+   '<strong>GST is included</strong> in all listed prices. It\'s a <strong>one-time payment</strong> — no subscriptions, no recurring charges, no upsells once we begin.',
+   { quickReplies: [
+    { label: 'See pricing',     value: 'menu:pricing' },
+    { label: 'Refund policy',   value: 'menu:refund' },
+    { label: 'Begin now',       value: 'topic:begin' },
+    { label: '⬅ Main menu',     value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicPrivacy() {
+  botSay(
+   '<strong>Privacy is the foundation of everything we do.</strong> 🛡️' +
+   '<ul>' +
+    '<li>Fully compliant with India\'s <strong>DPDP Act 2023</strong></li>' +
+    '<li>All data stored on <strong>India servers only</strong></li>' +
+    '<li><strong>UIDAI-certified</strong> Aadhaar verification</li>' +
+    '<li><strong>Consent-first</strong> — written consent required for any verification</li>' +
+    '<li>Verification data <strong>deleted within 90 days</strong></li>' +
+    '<li><strong>No third-party sharing</strong> — ever</li>' +
+    '<li>The subject of a verification sees the same report you do</li>' +
+   '</ul>' +
+   '👉 <a href="privacy.html">Read our full Privacy Policy</a>',
+   { quickReplies: BACK_AND_TEAM }
+  );
+ }
+
+ function topicRefund() {
+  botSay(
+   '<strong>Our refund commitment.</strong> ↩️<br><br>' +
+   'If the work falls short of what we promised, we will make it right.' +
+   '<ul>' +
+    '<li>Tell us within <strong>7 days</strong> of delivery</li>' +
+    '<li>We\'ll review your case and, where the concern is valid, offer a <strong>revised report</strong></li>' +
+    '<li>If a report feels incomplete or unclear, we arrange a <strong>follow-up call with the expert</strong> at no extra cost</li>' +
+   '</ul>' +
+   '<em>One honest note:</em> we don\'t refund for simple disagreement with findings. Our reports reflect genuine assessment — they are not designed to confirm what you hope to hear.<br><br>' +
+   '👉 <a href="refund.html">Read the full Refund Policy</a>',
+   { quickReplies: BACK_AND_TEAM }
+  );
+ }
+
+ function topicExperts() {
+  botSay(
+   '<strong>Our experts.</strong> 🎓<br><br>' +
+   '<strong>Psychology panel</strong>, led by <strong>Ms. Dhrusya Manoj</strong> — RCI-licensed Clinical Psychologist (MPhil), specialising in CBT, DBT, and couple therapy.<br><br>' +
+   '<strong>Astrology panel</strong>, led by <strong>Kumar (G. Kumaravel)</strong> — 30+ years, much of it serving with Sadhguru at the Isha Foundation. Joined by <strong>Lakshmi Damodara</strong> (Siddhar / Yoga therapy) and <strong>N.R. Ranjith Kumar</strong> (400+ matches, Vedic + Vasthu).<br><br>' +
+   'Every astrologer on the panel has a minimum of <strong>15 years</strong> of active Jyotish practice.',
+   { quickReplies: [
+    { label: 'Compatibility',     value: 'topic:compatibility' },
+    { label: 'Horoscope panel',   value: 'topic:horoscope' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicBegin() {
+  botSay(
+   '<strong>Ready to begin?</strong> 🚀 It only takes a minute.' +
+   '<ul>' +
+    '<li>Visit <a href="begin.html">our Begin page</a> or click <strong>Begin</strong> in the top nav</li>' +
+    '<li>Pick a single report or a bundle</li>' +
+    '<li>Create your account (or sign in)</li>' +
+    '<li>Pay securely via Razorpay (UPI, card, net banking)</li>' +
+    '<li>Start your assessment, upload documents, or book your astrology slot</li>' +
+   '</ul>' +
+   'No account is needed just to browse. Your details stay yours — always.',
+   { quickReplies: [
+    { label: 'Pricing & bundles', value: 'menu:pricing' },
+    { label: 'Talk to our team',  value: 'menu:lead' },
+    { label: '⬅ Main menu',       value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicContact() {
+  botSay(
+   '<strong>Talking to a real person.</strong> 📞<br><br>' +
+   'A real person reads every message. We respond within 24 hours, Monday to Saturday.' +
+   '<ul>' +
+    '<li>Phone: <a href="tel:+918527430999"><strong>+91 85274 30999</strong></a></li>' +
+    '<li>Send a message: <a href="contact.html">contact page</a></li>' +
+    '<li>Office: WeWork, Hebbal, Bangalore</li>' +
+      '<li><strong>Office visits are by appointment only</strong></li>' +
+   '</ul>' +
+   'Or, if you\'d like, I can take your details right here and have someone reach out.',
+   { quickReplies: [
+    { label: 'Office hours & map',   value: 'menu:office' },
+    { label: 'Leave my details',    value: 'menu:lead' },
+    { label: '⬅ Main menu',         value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicOffice() {
+  botSay(
+   '<strong>Office Hours & Location</strong> 📍<br><br>' +
+   '<ul>' +
+    '<li><strong>Office hours:</strong> Monday to Saturday, 10:00 AM - 7:00 PM IST</li>' +
+      '<li><strong>Visits:</strong> Appointment only (walk-ins are not available)</li>' +
+      '<li><strong>Available visit slots:</strong> 11:00 AM - 12:00 PM, 1:00 PM - 2:00 PM, 3:00 PM - 4:00 PM, 5:00 PM - 6:00 PM (Mon-Sat)</li>' +
+    '<li><strong>Location:</strong> WeWork, Hebbal, Bangalore</li>' +
+    '<li><strong>Google Maps:</strong> <a href="https://maps.google.com/?q=WeWork+Hebbal+Bangalore" target="_blank" rel="noopener">Open in Google Maps</a></li>' +
+   '</ul>' +
+     'If you want, I can have our team schedule one of these slots for you.',
+   { quickReplies: [
+  { label: 'See available slots', value: 'menu:office-slots' },
+      { label: 'Book an office slot', value: 'menu:lead' },
+    { label: 'Talk to our team', value: 'menu:lead' },
+    { label: '⬅ Main menu',      value: 'menu:main' }
+   ]}
+  );
+ }
+
+ function topicCities() {
+  botSay(
+   'We currently serve <strong>38 cities</strong> across India and abroad — from <strong>Bangalore to Birmingham</strong>.<br><br>' +
+   'Our active hubs include:' +
+   '<ul>' +
+    '<li>Delhi NCR</li><li>Bangalore</li><li>Mumbai</li>' +
+    '<li>Chennai</li><li>Hyderabad</li>' +
+   '</ul>' +
+   'Wherever you are, our reports and consultations are delivered remotely — securely and on India servers.',
+   { quickReplies: BACK_AND_TEAM }
+  );
+ }
+
+ function topicGeneric() {
+  botSay(
+   'I want to make sure I help you with the right thing. Pick a topic below — or rephrase your question and I\'ll try again.',
+   { quickReplies: MAIN_MENU }
+  );
+ }
+
+ // ============================================================
+ // INTENT MATCHING
+ // ============================================================
+ const INTENTS = [
+  // Lead capture / contact
+  { match: /\b(validate|check|verify).*(email|mail|phone|mobile|number)\b|\b(email|mail|phone|mobile|number).*(validate|check|verify)\b/i, run: startContactValidationFlow },
+  { match: /\b(talk|speak|contact|call|reach|connect|human|agent|advisor|support|team|representative|sales|consult)\b/i, run: () => startLeadFlow() },
+  { match: /\b(phone|number|helpline|whatsapp)\b/i,                            run: topicContact },
+  { match: /\b(current time|time now|what time|time)\b/i,                      run: topicCurrentTime },
+  { match: /\b(today\'s date|todays date|what date|date today|today date|today)\b/i, run: topicTodayDate },
+  { match: /\b(open now|are you open|office open|currently open|closed now)\b/i, run: topicOpenNow },
+  { match: /\b(best time.*kundli|best time.*kundli|kundli time|best time.*horoscope|muhurat.*consult|consultation time)\b/i, run: topicBestKundliTime },
+  { match: /\b(slot|slots|appointment slot|book slot|booking slot)\b/i,        run: topicOfficeSlots },
+  { match: /\b(office|hours?|timing|timings|location|address|map|google map|hebbal|wework)\b/i, run: topicOffice },
+
+  // Pricing & payment
+  { match: /\b(price|pricing|cost|fee|fees|charges?|how much|rate)\b/i,         run: topicPricing },
+  { match: /\b(bundle|bundles|package|packages|essential|complete|premium|combo)\b/i, run: topicBundles },
+  { match: /\b(pay|payment|paid|checkout|razorpay|upi|card|netbanking|net banking|wallet|gst|invoice|emi)\b/i, run: topicPayment },
+  { match: /\b(refund|return|money back|cancellation|cancel)\b/i,               run: topicRefund },
+
+  // Services
+  { match: /\b(compatib|psychometric|prepare[-\s]?enrich|gottman|psycholog|personality test|quiz|assessment|pcsi)\b/i, run: topicCompatibility },
+  { match: /\b(dimension|10 dimensions|ten dimensions|areas? measured)\b/i,     run: topicDimensions },
+  { match: /\b(verif|background check|background verification|kyc|aadhaar|aadhar|due diligence|fraud)\b/i, run: topicVerification },
+  { match: /\b(six pillar|6 pillar|what (do you|gets?) check|what is verif|criminal|legal record|employment check)\b/i, run: topicSixPillars },
+  { match: /\b(self[-\s]?verif|verified badge|verify myself)\b/i,               run: topicSelfVerify },
+  { match: /\b(horoscope|kundali|kundli|jyotish|astrolog|astrologer|vedic|ashtakoot|guna milan|dosha|mangal|nadi|dasha|navamsa)\b/i, run: topicHoroscope },
+  { match: /\b(language|tamil|hindi|telugu|kannada|malayalam|english|speak)\b/i, run: topicLanguages },
+
+  // Trust & privacy
+  { match: /\b(privacy|data|secure|security|dpdp|gdpr|safe|server|stored|deletion|delete)\b/i, run: topicPrivacy },
+
+  // Experts
+  { match: /\b(expert|psycholog|astrologer|dhrusya|manoj|kumar|kumaravel|lakshmi|ranjith|sadhguru|isha|team|who reads|who writes)\b/i, run: topicExperts },
+
+  // Begin / getting started
+  { match: /\b(begin|start|sign ?up|sign ?in|register|how (do I|to) start|get started|onboard)\b/i, run: topicBegin },
+
+  // Cities / location
+  { match: /\b(city|cities|location|where|available|serve|india|abroad|nri|foreign|usa|uk|dubai|singapore)\b/i, run: topicCities },
+
+  // Greetings
+  { match: /^(hi+|hello+|hey+|namaste|namaskar|good (morning|afternoon|evening))\b/i, run: () => botSay(
+    botGreeting() + ' How may I help you today? Pick a topic or ask anything.',
+    { quickReplies: MAIN_MENU }
+   )
+  },
+  { match: /\b(thank|thanks|appreciate)\b/i, run: () => botSay(
+    'You\'re very welcome. 🙏 Anything else I can help with?',
+    { quickReplies: BACK_AND_TEAM }
+   )
+  },
+  { match: /\b(bye|goodbye|see you|close)\b/i, run: () => botSay(
+    'Thank you for visiting MyTrueMatch. Have a blessed day! 🌺 You may close this chat whenever you\'re ready.'
+   )
+  }
+ ];
+
+ function matchIntent(text) {
+  for (const i of INTENTS) {
+   if (i.match.test(text)) return i.run;
+  }
+  return null;
+ }
+
+ // ============================================================
+ // INTENT HANDLER (called by quick-reply value and free-text)
+ // ============================================================
+ function handleIntent(value) {
+  if (value.indexOf('slot:') === 0) return startLeadFlow('Office visit slot: ' + value.replace(/^slot:/, ''));
+
+  // value format: 'menu:xxx' | 'topic:xxx'
+  if (value === 'menu:main')      return showMainMenu(false);
+  if (value === 'menu:services')  return botSay('Which service would you like to know about?', { quickReplies: SERVICES_MENU });
+  if (value === 'menu:pricing')   return topicPricing();
+  if (value === 'menu:payment')   return topicPayment();
+   if (value === 'menu:office')    return topicOffice();
+  if (value === 'menu:office-slots') return topicOfficeSlots();
+  if (value === 'menu:validate-contact') return startContactValidationFlow();
+  if (value === 'menu:privacy')   return topicPrivacy();
+  if (value === 'menu:refund')    return topicRefund();
+  if (value === 'menu:experts')   return topicExperts();
+  if (value === 'menu:begin')     return topicBegin();
+  if (value === 'menu:lead')      return startLeadFlow();
+
+  if (value === 'topic:compatibility') return topicCompatibility();
+  if (value === 'topic:dimensions')    return topicDimensions();
+  if (value === 'topic:verification')  return topicVerification();
+  if (value === 'topic:six-pillars')   return topicSixPillars();
+  if (value === 'topic:self-verify')   return topicSelfVerify();
+  if (value === 'topic:horoscope')     return topicHoroscope();
+  if (value === 'topic:languages')     return topicLanguages();
+  if (value === 'topic:bundles')       return topicBundles();
+  if (value === 'topic:experts')       return topicExperts();
+  if (value === 'topic:begin')         return topicBegin();
+  if (value === 'topic:cities')        return topicCities();
+  if (value === 'topic:current-time')   return topicCurrentTime();
+  if (value === 'topic:today-date')     return topicTodayDate();
+  if (value === 'topic:open-now')       return topicOpenNow();
+  if (value === 'topic:best-kundli')    return topicBestKundliTime();
+
+  topicGeneric();
+ }
+
+ // ============================================================
+ // LEAD CAPTURE FLOW
+ // ============================================================
+ function startLeadFlow(preselectedInterest) {
+  state.mode = 'lead-name';
+  state.lead = {
+   name: '',
+   email: '',
+   phone: '',
+   interest: preselectedInterest || '',
+   persona: state.persona,
+   timestamp: ''
+  };
+  botSay(
+   (preselectedInterest ?
+    'Great choice! I\'ll help you book <strong>' + esc(preselectedInterest) + '</strong>. 📅<br><br>' :
+    'Lovely — I\'ll take a few details and our team will reach out to you. 📞<br><br>') +
+   'May I know your <strong>good name</strong>, please?'
+  );
+ }
+
  function isValidName(name) {
-  const trimmed = name.trim();
-  // Allow letters, spaces, dots, apostrophes, hyphens — including Indic/diacritic ranges
-  return /^[A-Za-z\u00C0-\u024F\u0900-\u097F\s.'-]{2,50}$/.test(trimmed) && trimmed.length >= 2;
+  const t = name.trim();
+  return /^[A-Za-z\u00C0-\u024F\u0900-\u097F\s.'-]{2,50}$/.test(t) && t.length >= 2;
  }
-
- function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+ function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim()); }
+ function isValidPhone(p) {
+  const c = p.replace(/[\s\-+()]/g, '');
+  return /^(91)?[6-9]\d{9}$/.test(c);
  }
+ function normalizePhone(p) { return p.replace(/[\s\-+()]/g, '').replace(/^91/, ''); }
+ function firstName(f) { return f.trim().split(/\s+/)[0]; }
 
- function isValidPhone(phone) {
-  const cleaned = phone.replace(/[\s\-+()]/g, '');
-  // Indian: optional 91, then 10 digits starting 6-9
-  return /^(91)?[6-9]\d{9}$/.test(cleaned);
- }
-
- function normalizePhone(phone) {
-  return phone.replace(/[\s\-+()]/g, '').replace(/^91/, '');
- }
-
- function firstName(full) {
-  return full.trim().split(/\s+/)[0];
- }
-
- // Conversation flow
- function startConversation() {
-  if (state.started) return;
-  state.started = true;
-
-  setTimeout(function() {
-   botSay("🙏 Namaste! I'm <strong>Kismat</strong>, your guide at MyTrueMatch.", null, 500);
-  }, 300);
-
-  setTimeout(function() {
-   botSay("I'd love to connect you with our team. May I know your <strong>good name</strong>, please?", null, 800);
-   state.step = 1;
-  }, 1700);
- }
-
- function handleUserInput(rawText) {
-  if (state.busy) return;
-  const text = rawText.trim();
-  if (!text) return;
-
-  addMsg(escapeHtml(text), 'user');
-
-  switch (state.step) {
-   case 1: // Collecting name
-    if (!isValidName(text)) {
-     botSay("Apologies, that doesn't look like a name. Could you please share your name using letters only? 🌸");
-     return;
-    }
+ function handleLeadInput(text) {
+  switch (state.mode) {
+   case 'lead-name':
+    if (!isValidName(text)) return botSay('That doesn\'t look like a name. Could you share your name using letters only? 🌸');
     state.lead.name = text;
-    botSay("Lovely to meet you, <strong>" + escapeHtml(firstName(text)) + "</strong>! ✨<br><br>Could you please share your <strong>email address</strong> so we can send you details?");
-    state.step = 2;
-    break;
+    state.mode = 'lead-email';
+    return botSay('Lovely to meet you, <strong>' + esc(firstName(text)) + '</strong>! ✨<br><br>Could you share your <strong>email address</strong>?');
 
-   case 2: // Collecting email
-    if (!isValidEmail(text)) {
-     botSay("Hmm, that doesn't look like a valid email. Could you please share it in the format <em>name@example.com</em>?");
-     return;
-    }
-    state.lead.email = text.toLowerCase();
-    botSay("Thank you! 📞<br><br>Now, could you share your <strong>mobile number</strong>? It will help our team reach out to you faster.");
-    state.step = 3;
-    break;
+   case 'lead-email':
+    if (!isValidEmail(text)) return botSay('That doesn\'t look like a valid email. Could you share it as <em>name@example.com</em>?');
+    state.lead.email = text.trim().toLowerCase();
+    state.mode = 'lead-phone';
+    return botSay('Thank you! Could you share your <strong>mobile number</strong>? It helps our team reach you faster. 📱');
 
-   case 3: // Collecting phone
-    if (!isValidPhone(text)) {
-     botSay("That number doesn't look complete. Could you please share a valid <strong>10-digit Indian mobile number</strong>? 📱");
-     return;
-    }
+   case 'lead-phone':
+    if (!isValidPhone(text)) return botSay('That number doesn\'t look complete. Please share a valid <strong>10-digit Indian mobile number</strong>. 📱');
     state.lead.phone = normalizePhone(text);
-    botSay("Wonderful, " + escapeHtml(firstName(state.lead.name)) + "! 🌟<br><br>One last thing — what brings you to MyTrueMatch today?", {
-     quickReplies: ['Compatibility', 'Verification', 'Horoscope Matching', 'All Three Services']
-    });
-    state.step = 4;
-    break;
-
-   case 4: // Collecting interest
-    state.lead.interest = text;
-    state.lead.timestamp = new Date().toISOString();
-    botSay("Thank you so much, <strong>" + escapeHtml(firstName(state.lead.name)) + "</strong>! 🙏<br><br>We've noted your interest in <strong>" + escapeHtml(text) + "</strong>. A member of our team will reach out to you shortly on <strong>+91 " + escapeHtml(state.lead.phone) + "</strong>.");
-    saveLead();
-    state.step = 5;
-    setTimeout(function() {
-     botSay("Meanwhile, feel free to explore our services. Have a blessed day! 🌺", {
-      quickReplies: ['Start over', 'Close chat']
-     }, 1600);
-    }, 2400);
-    break;
-
-   case 5: // Post-completion
-    const lower = text.toLowerCase();
-    if (lower.indexOf('start') !== -1 || lower.indexOf('over') !== -1 || lower.indexOf('again') !== -1) {
-     resetConversation();
-    } else if (lower.indexOf('close') !== -1 || lower.indexOf('bye') !== -1 || lower.indexOf('thank') !== -1) {
-     botSay("Thank you for connecting with us! 🙏 Our team will be in touch soon. You may close this chat whenever you're ready.");
-    } else {
-     botSay("Thank you for your message! Our team has been notified and will respond shortly. Is there anything else?", {
-      quickReplies: ['Start over', 'Close chat']
-     });
+    if (state.lead.interest) {
+     state.lead.timestamp = new Date().toISOString();
+     state.mode = 'menu';
+     saveLead();
+     return botSay(
+      'Thank you, <strong>' + esc(firstName(state.lead.name)) + '</strong>! 🙏<br><br>' +
+      'Your preferred slot is <strong>' + esc(state.lead.interest) + '</strong>. Our team will confirm this booking shortly on <strong>+91 ' + esc(state.lead.phone) + '</strong>.',
+      { quickReplies: MAIN_MENU }
+     );
     }
-    break;
 
-   default:
-    botSay("Thank you for reaching out! Our team will respond to your query soon. 🙏");
+     function handleValidateInput(text) {
+      switch (state.mode) {
+       case 'verify-email':
+        if (!isValidEmail(text)) {
+         return botSay('That email looks invalid. Please enter a valid format like <em>name@example.com</em>.');
+        }
+        state.mode = 'verify-phone';
+        return botSay(
+         '✅ <strong>Email is valid.</strong><br><br>' +
+         'Now enter your <strong>phone number</strong> (Indian 10-digit, with or without +91).'
+        );
+
+       case 'verify-phone':
+        if (!isValidPhone(text)) {
+          return botSay('That phone number looks invalid. Please enter a valid 10-digit Indian mobile number.');
+        }
+        state.mode = 'menu';
+        return botSay(
+         '✅ <strong>Phone number is valid.</strong><br><br>' +
+         'Great - both your email and phone are valid.',
+         { quickReplies: [
+          { label: 'Continue to booking', value: 'menu:lead' },
+          { label: '⬅ Main menu', value: 'menu:main' }
+         ]}
+        );
+      }
+     }
+    state.mode = 'lead-interest';
+    return botSay(
+     'Wonderful, ' + esc(firstName(state.lead.name)) + '! 🌟<br><br>What brings you to MyTrueMatch today?',
+     { quickReplies: [
+      { label: 'Compatibility',    value: 'lead-int:Compatibility' },
+      { label: 'Verification',     value: 'lead-int:Verification' },
+      { label: 'Horoscope',        value: 'lead-int:Horoscope' },
+      { label: 'All three',        value: 'lead-int:All three services' }
+     ]}
+    );
+
+   case 'lead-interest':
+    state.lead.interest = text.replace(/^lead-int:/, '');
+    state.lead.timestamp = new Date().toISOString();
+    state.lead.persona = state.persona;
+    state.mode = 'menu';
+    saveLead();
+    botSay(
+     'Thank you so much, <strong>' + esc(firstName(state.lead.name)) + '</strong>! 🙏<br><br>' +
+     'I\'ve noted your interest in <strong>' + esc(state.lead.interest) + '</strong>. Our team will reach out to you shortly on <strong>+91 ' + esc(state.lead.phone) + '</strong>.<br><br>' +
+     'Meanwhile, is there anything else I can help you with?',
+     { quickReplies: MAIN_MENU }
+    );
+    return;
   }
  }
 
  function saveLead() {
-  // Save locally so you can retrieve leads from browser console / dev tools
   try {
-   const leads = JSON.parse(localStorage.getItem('kismat_leads') || '[]');
+   const leads = JSON.parse(localStorage.getItem('mtm_leads') || '[]');
    leads.push(state.lead);
-   localStorage.setItem('kismat_leads', JSON.stringify(leads));
-  } catch (e) { /* storage may be unavailable */ }
-
-  // Log for developer visibility
-  console.log('%c[Kismat] New lead captured:', 'color:#8A6E20;font-weight:600;', state.lead);
-
-  /* ============================================
-     TO SEND LEADS TO YOUR BACKEND / CRM:
-     Uncomment and adapt the block below.
-     ============================================
+   localStorage.setItem('mtm_leads', JSON.stringify(leads));
+  } catch (e) {}
+  console.log('%c[MyTrueMatch] New lead captured:', 'color:#8A6E20;font-weight:600;', state.lead);
+  /* To send to your backend, uncomment:
   fetch('/api/leads', {
    method: 'POST',
    headers: { 'Content-Type': 'application/json' },
    body: JSON.stringify(state.lead)
-  }).catch(function(err) { console.warn('Lead send failed:', err); });
+  }).catch(err => console.warn('Lead send failed:', err));
   */
  }
 
- function resetConversation() {
-  state.step = 0;
-  state.lead = { name: '', email: '', phone: '', interest: '', timestamp: '' };
-  state.started = false;
-  messagesEl.innerHTML = '';
-  startConversation();
+ // ============================================================
+ // INPUT ROUTER
+ // ============================================================
+ function handleUserText(rawText) {
+  if (state.busy) return;
+  const text = rawText.trim();
+  if (!text) return;
+
+  // Echo as user message
+  addMsg(esc(text), 'user');
+
+  // If in lead flow, route there
+  if (state.mode && state.mode.indexOf('lead-') === 0) {
+   // Quick reply for interest comes through as 'lead-int:xxx'
+   if (text.indexOf('lead-int:') === 0) return handleLeadInput(text);
+   return handleLeadInput(text);
+  }
+
+  // Contact validation flow
+  if (state.mode && state.mode.indexOf('verify-') === 0) {
+   return handleValidateInput(text);
+  }
+
+  // Otherwise try intent match
+  const handler = matchIntent(text);
+  if (handler) return handler();
+
+  // Fallback
+  botSay(
+   'I\'m not sure I caught that — but I can help with our services, pricing, payment, privacy, or connecting you with our team. Try a topic below:',
+   { quickReplies: MAIN_MENU }
+  );
  }
 
+ // ============================================================
+ // STARTUP — Persona selection
+ // ============================================================
+ function startConversation() {
+  if (state.started) return;
+  state.started = true;
+  // Default persona until user picks (so avatars render)
+  applyPersona('kismat');
+
+  setTimeout(() => {
+   botSay(
+    'Namaste 🙏 Welcome to <strong>MyTrueMatch</strong>.<br><br>' +
+    'Before we begin, would you prefer to chat with <strong>Kismat</strong> or <strong>Gopal</strong>?',
+    { personaPicker: true },
+    500
+   );
+  }, 250);
+ }
+
+ // ============================================================
+ // EVENT WIRING
+ // ============================================================
  function openWidget() {
   widget.classList.add('open');
   widget.setAttribute('aria-hidden', 'false');
   launcher.classList.add('hidden');
   if (badge) badge.style.display = 'none';
-  if (!state.started) {
-   startConversation();
-  }
-  setTimeout(function() { input.focus(); }, 350);
+  if (!state.started) startConversation();
+  setTimeout(() => input.focus(), 350);
  }
-
  function closeWidget() {
   widget.classList.remove('open');
   widget.setAttribute('aria-hidden', 'true');
   launcher.classList.remove('hidden');
  }
+ function restartConversation() {
+  state.started = false;
+  state.persona = null;
+  state.mode = 'menu';
+  state.lead = { name: '', email: '', phone: '', interest: '', persona: '', timestamp: '' };
+  messagesEl.innerHTML = '';
+  startConversation();
+ }
 
  launcher.addEventListener('click', openWidget);
- launcher.addEventListener('keydown', function(e) {
+ launcher.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWidget(); }
  });
  closeBtn.addEventListener('click', closeWidget);
+ restartBtn.addEventListener('click', restartConversation);
 
- form.addEventListener('submit', function(e) {
+ form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (state.busy) return;
   const text = input.value;
-  if (text.trim()) {
-   handleUserInput(text);
-   input.value = '';
-  }
+  if (text.trim()) { handleUserText(text); input.value = ''; }
  });
 
  // Show badge until first interaction
  if (badge) {
-  setTimeout(function() {
-   if (!state.started) {
-    badge.style.display = 'flex';
-   }
-  }, 1000);
+  setTimeout(() => { if (!state.started) badge.style.display = 'flex'; }, 1000);
  }
 })();
 </script>
