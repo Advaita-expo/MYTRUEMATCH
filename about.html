@@ -161,6 +161,13 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .drushya-info .drushya-role{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.6rem}
 .drushya-info p{font-size:0.76rem;color:var(--ink-light);line-height:1.7;font-weight:300}
 
+/* ── ADVISORS MINI ── */
+.advisors-mini{margin-top:1.25rem;border:1px solid var(--line);background:var(--bg);padding:1.1rem 1.25rem}
+.advisors-mini-title{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.7rem}
+.advisors-mini-list{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1.25rem}
+.advisor-mini-item{font-size:0.76rem;color:var(--ink-mid);font-weight:300;line-height:1.6}
+.advisor-mini-item strong{font-weight:500;color:var(--ink)}
+
 /* ── TRUST STRIP ── */
 .trust-strip{background:var(--bg-dark);padding:5rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(200,168,75,0.1)}
 .trust-item{padding:0 3rem;border-right:1px solid rgba(255,255,255,0.06);text-align:center}
@@ -274,6 +281,7 @@ footer{background:#111008;padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4);mar
   .modal-header,.modal-header-light,.modal-body{padding-left:1.5rem;padding-right:1.5rem}
   .modal-divider,.modal-divider-light{margin:0 1.5rem}
   .drushya-row{flex-direction:column}.drushya-row .read-bio{margin:0 2rem 1.5rem}
+  .advisors-mini-list{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -438,7 +446,7 @@ footer{background:#111008;padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4);mar
 <section class="team-section">
   <div class="team-header fade">
     <div class="team-eyebrow">The Team</div>
-    <h2 class="team-title">Quiet experts. <em>Long careers.</em></h2>
+    <h2 class="team-title">Our team of Aspirants </h2>
     <p class="team-subtitle">Click any card to read their full story. Each member brings a distinct discipline — together they make MyTrueMatch what it is.</p>
   </div>
 
@@ -482,6 +490,14 @@ footer{background:#111008;padding:4rem 4rem 2rem;color:rgba(255,255,255,0.4);mar
       <div class="team-role">Lead Psychologist</div>
       <p class="team-tagline">Ms. Dhrusya Manoj is an RCI-licensed clinical psychologist with 3 years of professional experience in mental health.</p>
       <button class="read-bio" type="button" onclick="event.stopPropagation();openModal('drushya')">Read full bio <svg viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <div class="advisors-mini fade d2">
+    <div class="advisors-mini-title">Advisors</div>
+    <div class="advisors-mini-list">
+      <p class="advisor-mini-item"><strong>Lt Col Velikkath</strong> - Business Advisor</p>
+      <p class="advisor-mini-item"><strong>Shlok Chauhan</strong> - Technical Advisor</p>
     </div>
   </div>
 
