@@ -146,7 +146,35 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
 /* --- NAV LOGO COLORS --- */
 .logo-blue { color: #4A6FA5; }
 .logo-gold { color: #C8A84B; }
-.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }</style>
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+@media(max-width:480px){
+ .page-hero{padding:2rem 1rem}
+ .legal-layout{padding:1.5rem 1rem 3rem}
+ footer{padding:1.5rem 1rem 1rem!important}
+ .footer-top{grid-template-columns:1fr!important;gap:1.5rem!important}
+ .nav-hamburger{display:flex}
+ .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(253,250,240,0.98);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,0.08);padding:1rem 0;z-index:199}
+ .nav-links.open li a{height:auto;padding:0.9rem 1.5rem;border-bottom:none!important;width:100%;font-size:0.9rem}
+ .nav-right .btn-ghost,.nav-right .btn-solid{display:none}
+}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;background:none;border:none;border-radius:6px;margin-left:0.5rem}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#3a3530;border-radius:2px;transition:all 0.3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:998}
+.nav-overlay.open{display:block}
+.nav-close-x{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;font-size:1.6rem;line-height:1;cursor:pointer;color:#3a3530;padding:0.4rem 0.6rem;border-radius:6px;display:none}
+@media(max-width:960px){
+  .nav-hamburger{display:flex}
+  .nav-right .btn-ghost,.nav-right .btn-solid{display:none}
+  .nav-links{position:fixed!important;top:0!important;right:0!important;left:auto!important;width:280px!important;height:100vh!important;background:var(--bg,#fdf9ef)!important;z-index:999!important;flex-direction:column!important;align-items:flex-start!important;padding:5rem 1.5rem 2rem!important;gap:0!important;transform:translateX(110%)!important;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1)!important;display:flex!important;box-shadow:-4px 0 32px rgba(0,0,0,0.12)!important;overflow-y:auto!important}
+  .nav-links.open{transform:translateX(0)!important}
+  .nav-links li{width:100%}
+  .nav-links li a{display:flex!important;align-items:center!important;gap:0.75rem!important;padding:0.95rem 0!important;border-bottom:1px solid rgba(0,0,0,0.07)!important;width:100%!important;font-size:1rem!important;height:auto!important}
+  .nav-links li:last-child a{border-bottom:none!important}
+  .nav-close-x{display:block}}
+</style>
 </head>
 <body>
 
@@ -175,6 +203,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <svg class="nav-icon nav-icon-btn" viewBox="0 0 24 24"><path d="M5 12h12"/><path d="M13 5l7 7-7 7"/></svg>
  <span>Begin</span>
  </a>
+ <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
  </div></nav>
 
 <!-- HERO -->
@@ -360,7 +389,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  <div class="contact-block">
  <p><strong>MyTrueMatch - Refunds &amp; Support</strong><br>Bangalore, Karnataka, India</p>
  <p>Email: <a href="mailto:contact@mytruematch.in">contact@mytruematch.in</a></p>
- <p>General enquiries: <a href="mailto:contact@mytruematch.in">90000000000</a></p>
+ <p>Phone / WhatsApp: <a href="tel:+918527430999">+91 85274 30999</a></p>
  <p>We aim to acknowledge all refund requests within 1 business day and resolve them within 5 business days.</p>
  </div>
  </div>
@@ -407,7 +436,7 @@ footer{background:var(--bg-dark);padding:4rem 4rem 2rem;color:rgba(255,255,255,0
  </div>
  </div>
  <div class="footer-bottom">
- <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved.</p>
+ <p class="footer-copy">- 2026 MyTrueMatch - All Rights Reserved. - Legal Advisor: Zahabiya Ebrahim Kanthawala (MALLB)</p>
  <div class="footer-legal">
  <div style="display:flex;align-items:center;gap:6px;color:var(--gold-dark);font-weight:600;font-size:0.85rem;padding-right:1rem;border-right:1px solid rgba(255,255,255,0.1)">
  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -427,5 +456,6 @@ const tocLinks=document.querySelectorAll('.toc-list a');
 const scrollSpy=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector('.toc-list a[href="#'+e.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
 sections.forEach(s=>scrollSpy.observe(s));
 </script>
+<script>(function(){var btn=document.getElementById('navHamburger');var links=document.querySelector('.nav-links');if(!btn||!links)return;var ov=document.createElement('div');ov.className='nav-overlay';document.body.appendChild(ov);var cx=document.createElement('button');cx.className='nav-close-x';cx.setAttribute('aria-label','Close menu');cx.innerHTML='&times;';links.insertBefore(cx,links.firstChild);function openNav(){links.classList.add('open');ov.classList.add('open');btn.classList.add('open');document.body.style.overflow='hidden'}function closeNav(){links.classList.remove('open');ov.classList.remove('open');btn.classList.remove('open');document.body.style.overflow=''}btn.addEventListener('click',function(){links.classList.contains('open')?closeNav():openNav()});cx.addEventListener('click',closeNav);ov.addEventListener('click',closeNav);})();</script>
 </body>
 </html>
